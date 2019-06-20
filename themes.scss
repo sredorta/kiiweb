@@ -1,0 +1,143 @@
+//MATERIAL THEME
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-dark-theme($primary, $accent, $warn, $foreground, $background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: true,
+    foreground: $foreground,
+    background: $background
+  );
+}
+
+// instead of creating a theme with mat-light-theme like a sane person, we will create our own theme-creating function that lets us apply our own foreground and background palettes.
+@function create-light-theme($primary, $accent, $warn, $foreground, $background) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: false,
+    foreground: $foreground,
+    background: $background
+  );
+}
+
+// Background palette for light themes.
+$mat-light-theme-background: (
+  status-bar: map_get($mat-grey, 300),
+  app-bar:    map_get($mat-grey, 100),
+  background: map_get($mat-grey, 50),
+  hover:      rgba(black, 0.04), // TODO(kara): check style with Material Design UX
+  card:       white,
+  dialog:     white,
+  disabled-button: rgba(black, 0.12),
+  raised-button: white,
+  focused-button: $dark-focused,
+  selected-button: map_get($mat-grey, 300),
+  selected-disabled-button: map_get($mat-grey, 400),
+  disabled-button-toggle: map_get($mat-grey, 200),
+  unselected-chip: map_get($mat-grey, 300),
+  disabled-list-option: map_get($mat-grey, 200),
+);
+
+// Background palette for dark themes.
+$mat-dark-theme-background: (
+  status-bar: black,
+  app-bar:    map_get($mat-grey, 900),
+  background: #303030,
+  hover:      rgba(white, 0.04), // TODO(kara): check style with Material Design UX
+  card:       map_get($mat-grey, 800),
+  dialog:     map_get($mat-grey, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $light-focused,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+// Foreground palette for light themes.
+$mat-light-theme-foreground: (
+  base:              black,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(black, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(black, 0.54),
+  icons:             rgba(black, 0.54),
+  text:              rgba(black, 0.87),
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+// Foreground palette for dark themes.
+$mat-dark-theme-foreground: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MAIN THEME
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Foreground palette for light themes.
+$main-foreground: (
+  base:              #424242,
+  divider:           $dark-dividers,
+  dividers:          $dark-dividers,
+  disabled:          $dark-disabled-text,
+  disabled-button:   rgba(#424242, 0.26),
+  disabled-text:     $dark-disabled-text,
+  elevation:         black,
+  hint-text:         $dark-disabled-text,
+  secondary-text:    $dark-secondary-text,
+  icon:              rgba(#424242, 0.54),
+  icons:             rgba(#424242, 0.54),
+  text:              #424242,
+  slider-min:        rgba(black, 0.87),
+  slider-off:        rgba(black, 0.26),
+  slider-off-active: rgba(black, 0.38),
+);
+
+
+//Main app theme
+$main-primary: mat-palette($mat-lime, 500);
+$main-accent:  mat-palette($mat-green, 500, A100, A400);
+$main-warn:    mat-palette($mat-deep-orange,300);
+$main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-foreground, $mat-light-theme-background);
+//MAIN DEFAULT THEME
+//.default-theme {
+    @include angular-material-theme($main-theme);
+//    @include custom-components-theme($main-theme);
+//    @include design-theme($main-theme);
+//  }

@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+@import './themes.scss';
+
+body {
+    margin:0px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+//Avoid blue outline on any element
+* {
+    //border: none;    //TO BE ADDED !!!
+    outline: none;
+}
+
+
+//Avoid text selection and blue outline
+span,p,h1,h2,h3,small,div,a {
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    box-sizing: border-box;
+}
+
+    /*Remove Chrome autofill automatic settings on inputs*/
+    input,textarea,select {
+        background-color: transparent;
+    }
+    input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover
+        textarea:-webkit-autofill:focus,
+        select:-webkit-autofill,
+        select:-webkit-autofill:hover,
+        select:-webkit-autofill:focus {
+            -webkit-transition-delay: 99999s;
+            transition-delay: 999999s;
+    }
