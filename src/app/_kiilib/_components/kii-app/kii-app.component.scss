@@ -1,0 +1,72 @@
+$toolbar-height : 65px;
+.kii-app-wrapper {
+    box-sizing: border-box;
+    min-width:320px;
+    width:100%;
+    height:100vh;
+    overflow: auto;
+}
+
+.kii-app-toolbar {
+    position:absolute;
+    width:100%;
+    height:$toolbar-height;
+    top:0;
+    z-index: 2;
+    display:flex;
+    align-items: stretch;
+    padding-left:10px;
+    padding-top:3px;
+    padding-bottom:3px;
+    background:red;
+}
+
+.kii-app-router-outlet-wrapper {
+    padding-top: $toolbar-height;
+}
+
+//Toolbar part
+.kii-app-toolbar-content {
+    display:flex;
+    justify-content: space-around;
+    flex:1 1 auto;
+}
+
+.kii-app-toolbar-button {
+    width:$toolbar-height;
+    justify-content: center;
+    align-items: center;
+    i {
+        font-size: 24px;
+    }
+}
+
+.kii-app-toolbar-icons {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 150px;
+    a {
+        margin-left:10px;
+        margin-right: 10px;
+        width:45px;
+        height:45px;
+        i {
+            font-size: 20px;
+        }
+    }
+}
+.kii-app-toolbar-button {
+    display:none;
+}
+@media only screen and (max-width: 700px) { 
+    .kii-app-toolbar-content {
+        display:none;
+    }
+    .kii-app-toolbar {
+        justify-content: space-between;
+    }
+    .kii-app-toolbar-button {
+        display:flex;
+    }
+}

@@ -1,7 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<kii-app>
+    <ng-container kiiToolbarMenu>
+        <a mat-ripple class="kii-app-toolbar-button" [routerLink]="'/home' | localize">
+            <i class="icon fas fa-home"></i>
+            <small>{{'menu.home' | translate}}</small>
+        </a>
+        <a mat-ripple class="kii-app-toolbar-button" [routerLink]="'/demo' | localize">
+          <i class="icon fas fa-laptop-code"></i>
+          <small>{{'menu.demo' | translate}}</small>
+        </a>
+        <a mat-ripple class="kii-app-toolbar-button" [routerLink]="'/clients' | localize">
+          <i class="icon fas fa-hands-helping"></i>
+          <small>{{'menu.realisations' | translate}}</small>
+        </a>
+        <a mat-ripple class="kii-app-toolbar-button" [routerLink]="'/prices' | localize">
+          <i class="icon fas fa-dollar-sign"></i>
+          <small>{{'menu.price' | translate}}</small>
+        </a>
+        <a mat-ripple class="kii-app-toolbar-button" [routerLink]="'/blog' | localize">
+          <i class="fas fa-blog"></i>
+          <small>{{'menu.blog' | translate}}</small>
+        </a>       
+        <a mat-ripple class="kii-app-toolbar-button" [routerLink]="'/contact' | localize">
+          <i class="fas fa-file-signature"></i>
+          <small>{{'menu.contact' | translate}}</small>
+        </a>                     
+    </ng-container>
+</kii-app>
+<!--
 <button mat-flat-button color="primary" (click)="setLang('fr')">fr</button>
 <button mat-flat-button color="primary" (click)="setLang('en')">en</button>
 <button mat-flat-button color="primary" (click)="setLang('es')">es</button>
 
 <p>{{'kiilib.send' | translate}}</p>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet>-->

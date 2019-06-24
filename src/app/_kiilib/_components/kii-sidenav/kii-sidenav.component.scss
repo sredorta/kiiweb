@@ -1,0 +1,33 @@
+$anim-duration : 0.4s;
+:host {
+    position: absolute;
+    box-sizing: border-box;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100vh;
+    z-index: 10;
+}
+
+.kii-sidenav-content-wrapper {
+    padding:20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: block;
+    opacity:1;
+    width:0;
+    height:100%;
+    animation:slidein $anim-duration forwards ease-in-out;
+}
+@keyframes slidein {
+    from {width:0;}
+    to {width:100%;}
+}
+
+.kii-sidenav-button-wrapper {
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom:10px;
+}

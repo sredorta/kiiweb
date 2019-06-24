@@ -50,10 +50,30 @@ import { CommonModule } from '@angular/common';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
+import { KiiAppComponent } from './_kiilib/_components/kii-app/kii-app.component';
+import { KiiFooterComponent } from './_kiilib/_components/kii-footer/kii-footer.component';
+import { KiiSidenavComponent } from './_kiilib/_components/kii-sidenav/kii-sidenav.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LocalizeRouterModule } from 'localize-router';
+import { RouterModule } from '@angular/router';
+import {routes} from './app-routing.module';
+import { PrixComponent } from './pages/prix/prix.component';
+import { RealisationsComponent } from './pages/realisations/realisations.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    KiiAppComponent,
+    KiiFooterComponent,
+    KiiSidenavComponent,
+    FooterComponent,
+    SidenavComponent,
+    HomeComponent,
+    PrixComponent,
+    RealisationsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -63,6 +83,8 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     HttpClientModule,
     NgtUniversalModule,
     TranslateModule.forChild(), //Translations
+    LocalizeRouterModule.forChild(routes),
+    RouterModule.forChild(routes),
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,
