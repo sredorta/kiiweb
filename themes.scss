@@ -135,9 +135,42 @@ $main-primary: mat-palette($mat-lime, 500);
 $main-accent:  mat-palette($mat-green, 500, A100, A400);
 $main-warn:    mat-palette($mat-deep-orange,300);
 $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-foreground, $mat-light-theme-background);
+
+
+
+
+//Themes
+@import './themes/kubiiks/toolbar.scss';
+@import './themes/kubiiks/sidenav.scss';
+@import './themes/kubiiks/footer.scss';
+
+/*@import './themes/kubiiks/kii-scrollbar-theme.scss';
+@import './themes/kubiiks/kii-app-theme.scss';
+@import './themes/kubiiks/kii-toolbar-theme.scss';
+@import './themes/kubiiks/kii-spinner-theme.scss';
+@import './themes/kubiiks/kii-http-error-theme.scss';
+@import './themes/kubiiks/mat-button-theme.scss';
+@import './themes/kubiiks/mat-form-field-theme.scss';
+@import './themes/kubiiks/mat-tooltip-theme.scss';
+@import './themes/kubiiks/kii-mat-table-theme.scss';
+@import './themes/kubiiks/kii-contact-theme.scss';
+@import './themes/kubiiks/kii-article-summary-theme.scss';*/
+
+@mixin design-theme($theme) {
+    @include toolbar-theme($theme);
+    @include sidenav-theme($theme);
+    @include footer-theme($theme);
+}
+
+
+
+
+
+
 //MAIN DEFAULT THEME
 //.default-theme {
     @include angular-material-theme($main-theme);
+    @include design-theme($main-theme);
 //    @include custom-components-theme($main-theme);
 //    @include design-theme($main-theme);
 //  }

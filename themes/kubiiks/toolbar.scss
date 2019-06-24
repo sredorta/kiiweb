@@ -1,0 +1,51 @@
+@import '~@angular/material/theming';
+
+// mixin name will be used in main style.scss
+@mixin toolbar-theme($theme) {
+  
+  // retrieve variables from theme 
+  // (all possible variables, use only what you really need)
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background:map-get($theme,background);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  kii-app .kii-app-toolbar {
+    background: #303030;
+    .menu-button {
+        color:white;
+        text-decoration: none;
+    }
+    .kii-app-toolbar-content {
+        a {
+            color:white;
+            border-radius: 50% 50%;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: 100;
+            i {
+                font-size: 25px;
+            }
+            padding-left:10px;
+            padding-right:10px;
+            transition: all 0.2s ease-in-out;
+            opacity:0.7;
+            small {
+                margin-top:3px;
+            }
+        }
+        a:hover {
+            opacity:0.85;
+        }
+        a:active {
+              opacity:1;
+        }
+    }
+  }
+
+}
