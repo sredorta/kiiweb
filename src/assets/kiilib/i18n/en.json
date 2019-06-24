@@ -20,6 +20,10 @@
     "kiilib.test"   : "Test",
     "kiilib.editor.placeholder" : "Enter text here...",
 
+    "kiilib.pwa.update.text"   : "There is a new update available",
+    "kiilib.pwa.update.button" : "Download",
+
+
     "kiilib.user.data": "Contact data",
     "kiilib.user.roles": "Assigned roles", 
 

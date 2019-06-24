@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
+import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,6 @@ import { environment } from '../environments/environment';
 export class AppComponent {
   title = 'kiiweb';
   constructor() {}
-
   ngOnInit() {
   }
 

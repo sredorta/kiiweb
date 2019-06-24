@@ -15,6 +15,11 @@ import {routes} from './app-routing.module';
 import {Location} from '@angular/common';
 import {LocalizeRouterModule, LocalizeParser, ManualParserLoader,LocalizeRouterSettings} from 'localize-router';
 import { environment } from '../environments/environment';
+import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
+import { MatSnackBar } from '@angular/material';
+import { KiiPwaService } from './_kiilib/_services/kii-pwa.service';
+import { KiiApiLanguageService } from './_kiilib/_services/kii-api-language.service';
+import { KiiMiscService } from './_kiilib/_services/kii-misc.service';
 
 
 
@@ -42,11 +47,20 @@ import { environment } from '../environments/environment';
           deps: [TranslateService, Location, LocalizeRouterSettings]
       }
     }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppBrowserModule { }
+export class AppBrowserModule { 
+  constructor(private update: SwUpdate, 
+    private snack : MatSnackBar,
+    private kiiApiLang: KiiApiLanguageService,
+    private translate: TranslateService,
+    private kiiMisc : KiiMiscService) {
+      new KiiPwaService(this.update,this.snack,this.kiiApiLang, this.translate, this.kiiMisc);
+  }
+}
 
 export function HttpLoaderFactory(http: HttpClient,transferState:TransferState) {
   return new KiiTranslateHttpLoader(http,transferState);

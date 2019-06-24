@@ -33,9 +33,9 @@ export class Setting {
         } else {
             this.value = "";
         }
-        console.log("CREATED SETTING --------------------");
+        /*console.log("CREATED SETTING --------------------");
         console.log(this);
-        console.log("------------------------------------");
+        console.log("------------------------------------");*/
     }
 
     /**Returns if setting has been initialized or not */

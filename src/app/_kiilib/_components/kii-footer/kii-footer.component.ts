@@ -18,8 +18,8 @@ export class KiiFooterComponent extends KiiBaseAbstract implements OnInit {
   /**Includes all social links */
   links : SocialLink[] = [];
 
-  setting : Setting;
-  settings :Setting[] = [];
+  /**Link to kubiiks website */
+  kubiiksLink : string = "https://www.kubiiks.com";
 
   constructor(private kiiApiSetting : KiiApiSettingService) {super() }
 

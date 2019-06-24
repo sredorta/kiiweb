@@ -41,7 +41,8 @@ import {MatAutocompleteModule,
   MatToolbarModule,
   MatTooltipModule,
   MatTreeModule,
-  MatPaginatorIntl} from '@angular/material';
+  MatPaginatorIntl,
+  MatSnackBar} from '@angular/material';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -62,6 +63,7 @@ import {routes} from './app-routing.module';
 import { PrixComponent } from './pages/prix/prix.component';
 import { RealisationsComponent } from './pages/realisations/realisations.component';
 import { KiiLanguageSelectorComponent } from './_kiilib/_components/kii-language-selector/kii-language-selector.component';
+import { SwPush, SwUpdate } from '@angular/service-worker';
 
 
 @NgModule({
@@ -125,7 +127,9 @@ import { KiiLanguageSelectorComponent } from './_kiilib/_components/kii-language
     ],    
     //EOF MATERIAL DESIGN
   ],
-  providers: [],
+  providers: [SwUpdate],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

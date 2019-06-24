@@ -20,6 +20,10 @@
     "kiilib.test"   : "Test",
     "kiilib.editor.placeholder" : "Écrire votre texte ici...",
 
+    "kiilib.pwa.update.text"   : "Une nouvelle version est disponible",
+    "kiilib.pwa.update.button" : "Charger",
+
+
     "kiilib.user.data": "Donées de contact",
     "kiilib.user.roles": "Autorizations", 
 

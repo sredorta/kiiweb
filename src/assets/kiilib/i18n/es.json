@@ -18,8 +18,11 @@
     "kiilib.refresh" : "Actualiza",
     "kiilib.edit"   : "Modificar",
     "kiilib.test"   : "Provar",
-
     "kiilib.editor.placeholder" : "Escribe tu texto aqui...",
+
+    "kiilib.pwa.update.text"   : "Una nueva version esta disponible",
+    "kiilib.pwa.update.button" : "Descargar",
+
 
     "kiilib.user.data": "Datos de contacto",
     "kiilib.user.roles": "Autorizaciones", 
