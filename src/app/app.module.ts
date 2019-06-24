@@ -61,6 +61,7 @@ import { RouterModule } from '@angular/router';
 import {routes} from './app-routing.module';
 import { PrixComponent } from './pages/prix/prix.component';
 import { RealisationsComponent } from './pages/realisations/realisations.component';
+import { KiiLanguageSelectorComponent } from './_kiilib/_components/kii-language-selector/kii-language-selector.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { RealisationsComponent } from './pages/realisations/realisations.compone
     SidenavComponent,
     HomeComponent,
     PrixComponent,
-    RealisationsComponent
+    RealisationsComponent,
+    KiiLanguageSelectorComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

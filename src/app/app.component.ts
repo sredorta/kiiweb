@@ -9,14 +9,10 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
   title = 'kiiweb';
-  constructor(private translate : TranslateService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.translate.setDefaultLang(environment.languages[0]);
-    this.translate.use(environment.languages[0]);
   }
-  setLang(lang:string) {
-    this.translate.use(lang);
-  }
+
 }
 

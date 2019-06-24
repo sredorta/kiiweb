@@ -1,4 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     AppRoutingModule,
     AppModule,
     BrowserTransferStateModule,
