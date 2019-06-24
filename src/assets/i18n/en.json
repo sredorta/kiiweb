@@ -1,0 +1,21 @@
+{
+    "title" : "Title in english",
+    "menu.home"  : "Home",
+    "menu.demo"  : "Demo",
+    "menu.blog"  : "Blog",
+    "menu.contact": "Contact",
+    "menu.legal"  : "Legal aspects",
+    "menu.realisations": "Clients",
+    "menu.price"  : "Prices",
+    "ROUTES.sidenav" : "menu",
+    "ROUTES.home"      : "home",
+    "ROUTES.demo"      : "demo",
+    "ROUTES.clients"   : "clients",
+    "ROUTES.prices"    : "prices",
+    "ROUTES.blog"      : "blog",
+    "ROUTES.contact"   : "contact-us",
+    "ROUTES.404"       : "page-not-found",
+    "ROUTES.login"     : "login",
+    "ROUTES.reset-password": "reset-password",
+    "ROUTES.profile"    : "my-account"
+}

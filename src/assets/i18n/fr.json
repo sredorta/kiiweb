@@ -1,0 +1,23 @@
+{
+    "title" : "Titre en francais",
+    "menu.home"  : "Accueil",
+    "menu.demo"  : "Demo",
+    "menu.blog"  : "Blog",
+    "menu.contact": "Contactez-nous",
+    "menu.legal"  : "Mentions légales",
+    "menu.realisations": "Clients",
+    "menu.price"  : "Prix",
+    "ROUTES.sidenav" : "menu",
+    "ROUTES.home"      : "accueil",
+    "ROUTES.demo"      : "demo",
+    "ROUTES.clients"   : "clients",
+    "ROUTES.prices"    : "prix",
+    "ROUTES.blog"      : "blog",
+    "ROUTES.contact"   : "contactez-nous",
+    "ROUTES.404"       : "page-non-trouve",
+    "ROUTES.login"     : "connection",
+    "ROUTES.reset-password": "mot-de-passe-oublie",
+    "ROUTES.profile"    : "mon-compte"
+
+
+}

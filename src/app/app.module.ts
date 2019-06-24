@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+//Translations
+import {TranslateModule} from '@ngx-translate/core';
+
 //MATERIAL DESIGN
 //Material design
 import {MatAutocompleteModule,
@@ -59,6 +62,7 @@ import { NgtUniversalModule } from '@ng-toolkit/universal';
     TransferHttpCacheModule,
     HttpClientModule,
     NgtUniversalModule,
+    TranslateModule.forChild(), //Translations
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,

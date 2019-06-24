@@ -1,4 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<button mat-flat-button color="primary">test</button>
+<button mat-flat-button color="primary" (click)="setLang('fr')">fr</button>
+<button mat-flat-button color="primary" (click)="setLang('en')">en</button>
+<button mat-flat-button color="primary" (click)="setLang('es')">es</button>
 
+<p>{{'kiilib.send' | translate}}</p>
 <router-outlet></router-outlet>
