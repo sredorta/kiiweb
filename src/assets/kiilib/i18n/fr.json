@@ -22,7 +22,8 @@
 
     "kiilib.pwa.update.text"   : "Une nouvelle version est disponible",
     "kiilib.pwa.update.button" : "Charger",
-
+    "kiilib.pwa.install.text"   : "Voulez-vous installer la app ?",
+    "kiilib.pwa.install.button" : "Instaler",
 
     "kiilib.user.data": "Donées de contact",
     "kiilib.user.roles": "Autorizations", 

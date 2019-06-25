@@ -42,7 +42,9 @@ import {MatAutocompleteModule,
   MatTooltipModule,
   MatTreeModule,
   MatPaginatorIntl,
-  MatSnackBar} from '@angular/material';
+  MatSnackBar,
+  MatDialogRef,
+  MatBottomSheetRef} from '@angular/material';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -64,6 +66,8 @@ import { PrixComponent } from './pages/prix/prix.component';
 import { RealisationsComponent } from './pages/realisations/realisations.component';
 import { KiiLanguageSelectorComponent } from './_kiilib/_components/kii-language-selector/kii-language-selector.component';
 import { SwPush, SwUpdate } from '@angular/service-worker';
+import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
+import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 
 
 @NgModule({
@@ -77,7 +81,9 @@ import { SwPush, SwUpdate } from '@angular/service-worker';
     HomeComponent,
     PrixComponent,
     RealisationsComponent,
-    KiiLanguageSelectorComponent
+    KiiLanguageSelectorComponent,
+    KiiBottomSheetSoftwareUpdateComponent,
+    KiiBottomSheetSoftwareInstallComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -127,6 +133,7 @@ import { SwPush, SwUpdate } from '@angular/service-worker';
     ],    
     //EOF MATERIAL DESIGN
   ],
+  entryComponents: [],
   providers: [SwUpdate],
   bootstrap: [AppComponent]
 })

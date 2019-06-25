@@ -20,6 +20,8 @@ import { MatSnackBar } from '@angular/material';
 import { KiiPwaService } from './_kiilib/_services/kii-pwa.service';
 import { KiiApiLanguageService } from './_kiilib/_services/kii-api-language.service';
 import { KiiMiscService } from './_kiilib/_services/kii-misc.service';
+import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
+import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 
 
 
@@ -49,16 +51,14 @@ import { KiiMiscService } from './_kiilib/_services/kii-misc.service';
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
+  entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetSoftwareInstallComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppBrowserModule { 
   constructor(private update: SwUpdate, 
-    private snack : MatSnackBar,
-    private kiiApiLang: KiiApiLanguageService,
-    private translate: TranslateService,
     private kiiMisc : KiiMiscService) {
-      new KiiPwaService(this.update,this.snack,this.kiiApiLang, this.translate, this.kiiMisc);
+      new KiiPwaService(this.update,this.kiiMisc);
   }
 }
 

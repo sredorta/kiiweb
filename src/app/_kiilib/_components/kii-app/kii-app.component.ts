@@ -1,6 +1,10 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
+import { MatBottomSheet } from '@angular/material';
+import { KiiMiscService } from '../../_services/kii-misc.service';
+import { KiiBottomSheetSoftwareUpdateComponent } from '../kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
+import { KiiBottomSheetSoftwareInstallComponent } from '../kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 
 
 @Component({
@@ -10,8 +14,52 @@ import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 })
 export class KiiAppComponent extends KiiBaseAbstract implements OnInit {
 
-  constructor() {super()}
+  constructor(private bottomSheet: MatBottomSheet,
+              @Inject(PLATFORM_ID) private _platformId: any,
+              private kiiMisc : KiiMiscService) {super()}
+  
   ngOnInit() {
+    //Show software update bottom-sheet and install
+    if (isPlatformBrowser(this._platformId)) {
+      //SW update
+      this.addSubscriber(
+        this.kiiMisc.onAppUpdate().subscribe(res => {
+          if (res==true) {
+            let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
+              panelClass :"default-theme",
+            })
+            myBottomSheet.afterDismissed().subscribe(res => {
+              if (res==true) {
+                window.location.reload();
+              }
+            })
+          }
+        })
+      )
+      //SW install
+      this.addSubscriber(
+        this.kiiMisc.onAppCanInstall().subscribe(res => {
+          if (res==true) {
+            //We need to see if 5 connexions are there and then show install
+            if (!localStorage.getItem("app.visit")) localStorage.setItem("app.visit", '1');
+            else localStorage.setItem("app.visit", (parseInt(localStorage.getItem("app.visit")) + 1).toString());
+            if (parseInt(localStorage.getItem("app.visit"))>5) {
+              localStorage.setItem("app.visit", '1');
+              let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareInstallComponent, {
+                panelClass :"default-theme",
+              })
+              myBottomSheet.afterDismissed().subscribe(res => {
+                if (res==true) {
+                  this.kiiMisc.AppInstall();
+                }
+              })
+            } 
+          }
+        })
+      )
+
+    
+    }
 
 
   }

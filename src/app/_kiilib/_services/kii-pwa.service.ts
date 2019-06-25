@@ -5,6 +5,9 @@ import { KiiApiLanguageService } from './kii-api-language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { KiiMiscService } from './kii-misc.service';
 
+
+//NOTE: This service is only running on the browser
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,12 +16,7 @@ export class KiiPwaService {
   promptEvent : any = null;
 
   constructor(private swUpdate: SwUpdate, 
-    private snackBar : MatSnackBar, 
-    private kiiApiLang : KiiApiLanguageService, 
-    private translate:TranslateService,
     private kiiMisc : KiiMiscService) {
-
-    console.log("HANDLING VERSIONS !");
 
     //Tell if SW is available
     this.kiiMisc.hasServiceWorker = this.swUpdate.isEnabled;
@@ -27,16 +25,15 @@ export class KiiPwaService {
       this.kiiMisc.AppUpdate();
     });
 
-    //Handle install button
+    //Handle install button and tell that we show the install bottom sheet
     window.addEventListener('beforeinstallprompt', event => {
       this.promptEvent = event;
-      this.kiiMisc.canInstall = true;
+      this.kiiMisc.AppCanInstall();
     });
 
-    //When we are asked to install the app we do it
+    //When we are asked to install the app so we do it
     this.kiiMisc.onAppInstall().subscribe(res => {
       if ((res == true) && (this.promptEvent!=null)) {
-        console.log("INSTALLING !!!!");
         this.promptEvent.prompt();
       }
     })

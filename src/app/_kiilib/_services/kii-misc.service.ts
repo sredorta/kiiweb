@@ -1,5 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+
 import { BehaviorSubject } from 'rxjs';
+import { MatBottomSheet } from '@angular/material';
+import { KiiBottomSheetSoftwareUpdateComponent } from '../_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 export class KiiMiscService {
 
   private _appinstall$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private _appcaninstall$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   private _appupdate$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   
   /**Tells if the event for installation ready has been recieved */
@@ -23,6 +29,19 @@ export class KiiMiscService {
     return this.canInstall && this.hasServiceWorker;
   }
 
+  /**Triggers event that we can install the app */
+  AppCanInstall() {
+    this._appcaninstall$.next(true);
+  }
+
+  /**When we got the event that we can install the app */
+  onAppCanInstall() {
+    return this._appcaninstall$;
+  }
+
+
+
+
   /**Triggers event to install the app */
   AppInstall() {
     this._appinstall$.next(true);
@@ -33,6 +52,7 @@ export class KiiMiscService {
     return this._appinstall$;
   }
 
+
   /**Triggers event to show update app message */
   AppUpdate() {
     this._appupdate$.next(true);
@@ -42,14 +62,4 @@ export class KiiMiscService {
   onAppUpdate() {
     return this._appupdate$;
   }
-
-//We need to move this in the kii-app, along with the install bottom sheet
-/*
-  this.translate.get(['kiilib.pwa.update.text', 'kiilib.pwa.update.button']).subscribe(trans => {
-    const snack = this.snackBar.open(trans['kiilib.pwa.update.text'], trans['kiilib.pwa.update.button']);
-    snack.onAction().subscribe(res => {
-      window.location.reload();
-    })
-  })*/
-
 }
