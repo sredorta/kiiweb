@@ -21,32 +21,6 @@
     padding-right: 20px;
 }
 
-//Handles local passports expansion
-.expansion {
-    display:flex;
-    text-decoration: none;
-    border-radius: 5px;
-    padding:10px;
-    margin-bottom:15px;
-    min-width:50px;
-    box-sizing: border-box;
-    justify-content: space-between;
-    i {
-        font-size:22px;
-    }
-    transition:all 0.2s ease-in-out;
-}
-.expansion:hover {
-    cursor:pointer;
-}
-
-.expansion-anim {
-    display:flex;
-    flex-direction: column;
-    max-height: 1000px;
-    overflow: hidden;
-}
-
 
 //Side on bigscreens
 .side {
@@ -63,6 +37,15 @@
         height: 100%;
     }
 }
+
+mat-panel-title i {
+    font-size: 22px;
+}
+mat-expansion-panel {
+    margin-bottom:15px;
+    border-radius: 5px !important;
+}
+
 @media only screen and (max-width: 900px) {
     .side { display:none}
     .container {

@@ -5,23 +5,11 @@ import { KiiSpinnerService } from '../../../_services/kii-spinner.service';
 import { User } from '../../../_models/user';
 import { Router } from '@angular/router';
 import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
-import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'kii-login-signup',
   templateUrl: './kii-login-signup.component.html',
-  styleUrls: ['./kii-login-signup.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      transition(':enter', [
-        style({ height:'0px',maxHeight:'0px'}),
-        animate('300ms ease-in', style({ height:'*',maxHeight:'1000px'}))
-      ]),
-      transition(':leave', [
-        animate('300ms ease-in', style({ maxHeight:'0px'}))
-      ])
-    ])
-  ]  
+  styleUrls: ['./kii-login-signup.component.scss']
 })
 export class KiiLoginSignupComponent extends KiiBaseAbstract implements OnInit {
   showLogin : boolean = false;

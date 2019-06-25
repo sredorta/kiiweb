@@ -3,14 +3,31 @@
       <p>header article</p>
       <!--<kii-article class="signup-header-editable-content" key="signup-header" (onEdit)="onEdit()"></kii-article>-->
       <kii-passports></kii-passports>
-      <div class="expansion" (click)="toggleLogin()"><i class="fas fa-sign-in-alt"></i><span>{{"kiilib.login.title" | translate}}</span></div>
-      <div @detailExpand *ngIf="showLogin" class="expansion-anim">
-        <kii-login-form    (kiiOnSubmit)="onSubmitLogin($event)"></kii-login-form>
-      </div>
-      <div class="expansion" (click)="toggleSignup()"><i class="fas fa-user-plus"></i><span>{{"kiilib.signup.title" | translate}}</span></div>
-      <div @detailExpand *ngIf="showSignup" class="expansion-anim">
-        <kii-signup-form  (kiiOnSubmit)="onSubmitSignup($event)"></kii-signup-form>
-      </div>
+      <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="expansion">
+                  <i class="fas fa-sign-in-alt"></i>
+              </mat-panel-title>
+              <mat-panel-description>
+                  {{"kiilib.login.title" | translate}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <kii-login-form    (kiiOnSubmit)="onSubmitLogin($event)"></kii-login-form>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  <i class="fas fa-user-plus"></i>
+              </mat-panel-title>
+              <mat-panel-description>
+                  {{"kiilib.signup.title" | translate}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <kii-signup-form  (kiiOnSubmit)="onSubmitSignup($event)"></kii-signup-form>
+          </mat-expansion-panel>
+        </mat-accordion>
     </div>
     <div class="side">
         <p>side article</p>
