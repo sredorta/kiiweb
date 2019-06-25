@@ -1,0 +1,110 @@
+@import '~@angular/material/theming';
+
+
+
+// Defines the spinner style
+@mixin spinner-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background:map-get($theme,background);
+
+
+    kii-spinner  {
+      
+      //.spinner-container {
+      //      background:radial-gradient(rgba(mat-color($foreground,text),0.2), rgba(mat-color(map-get($theme, background),background),0) 90%);
+      //}
+
+      #spinner-loader .spinner-dot:nth-child(7n+1) {
+        transform: rotate(45deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+1)::before {
+        animation: 0.8s linear 0.1s normal none infinite running spinner-load;
+        background: #00ff80 none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+2) {
+        transform: rotate(90deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+2)::before {
+        animation: 0.8s linear 0.2s normal none infinite running spinner-load;
+        background: #00ffea none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+3) {
+        transform: rotate(135deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+3)::before {
+        animation: 0.8s linear 0.3s normal none infinite running spinner-load;
+        background: #00aaff none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+4) {
+        transform: rotate(180deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+4)::before {
+        animation: 0.8s linear 0.4s normal none infinite running spinner-load;
+        background: #0040ff none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+5) {
+        transform: rotate(225deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+5)::before {
+        animation: 0.8s linear 0.5s normal none infinite running spinner-load;
+        background: #2a00ff none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+6) {
+        transform: rotate(270deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+6)::before {
+        animation: 0.8s linear 0.6s normal none infinite running spinner-load;
+        background: #9500ff none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+7) {
+        transform: rotate(315deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+7)::before {
+        animation: 0.8s linear 0.7s normal none infinite running spinner-load;
+        background: magenta none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+8) {
+        transform: rotate(360deg);
+      }
+      
+      #spinner-loader .spinner-dot:nth-child(7n+8)::before {
+        animation: 0.8s linear 0.8s normal none infinite running spinner-load;
+        background: #ff0095 none repeat scroll 0 0;
+      }
+      
+      #spinner-loader .spinner-loading {
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        bottom: -40px;
+        height: 20px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        width: 180px;
+      }
+      
+      @keyframes spinner-load {
+        100% {
+          opacity: 0;
+          transform: scale(1.5);
+        }
+      }
+    }
+}

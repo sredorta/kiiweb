@@ -68,6 +68,10 @@ import { KiiLanguageSelectorComponent } from './_kiilib/_components/kii-language
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
+import { KiiLoginFormComponent } from './_kiilib/_components/_forms/kii-login-form/kii-login-form.component';
+import { KiiSignupFormComponent } from './_kiilib/_components/_forms/kii-signup-form/kii-signup-form.component';
+import { KiiSpinnerComponent } from './_kiilib/_components/kii-spinner/kii-spinner.component';
+import { KiiSpinnerOverlayComponent } from './_kiilib/_components/kii-spinner-overlay/kii-spinner-overlay.component';
 
 
 @NgModule({
@@ -83,7 +87,11 @@ import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/ki
     RealisationsComponent,
     KiiLanguageSelectorComponent,
     KiiBottomSheetSoftwareUpdateComponent,
-    KiiBottomSheetSoftwareInstallComponent
+    KiiBottomSheetSoftwareInstallComponent,
+    KiiLoginFormComponent,
+    KiiSignupFormComponent,
+    KiiSpinnerComponent,
+    KiiSpinnerOverlayComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

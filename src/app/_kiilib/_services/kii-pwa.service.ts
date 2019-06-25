@@ -39,6 +39,7 @@ export class KiiPwaService {
 
       //Handle install button and tell that we show the install bottom sheet
       window.addEventListener('beforeinstallprompt', event => {
+        console.log("Recieved beforeinstallprompt!")
         this.promptEvent = event;
         if (!localStorage.getItem("app.visits")) localStorage.setItem("app.visits", '1');
         else localStorage.setItem("app.visits", (parseInt(localStorage.getItem("app.visits")) + 1).toString());
@@ -63,7 +64,7 @@ export class KiiPwaService {
 
   /**Requests for subscribription to onPush notifications */
   onPushNotificationSubscription() {
-    if (isPlatformBrowser(this._platformId)) {
+    if (isPlatformBrowser(this._platformId) && this.swPush.isEnabled) {
       this.swPush.requestSubscription({
         serverPublicKey: environment.vapidPublic
       })
