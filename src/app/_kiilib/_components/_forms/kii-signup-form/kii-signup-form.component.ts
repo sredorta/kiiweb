@@ -3,7 +3,6 @@ import { KiiFormAbstract } from '../../../../_kiilib/_abstracts/kii-form.abstrac
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import {KiiCustomValidators} from '../../../_utils/kii-custom-validators';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from '../../../_models/user';
 import { MatDialog } from '@angular/material';
 import { KiiTermsDialogComponent } from '../../kii-terms-dialog/kii-terms-dialog.component';
 

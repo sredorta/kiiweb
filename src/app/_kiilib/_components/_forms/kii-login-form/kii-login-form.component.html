@@ -1,3 +1,25 @@
-<p>
-  kii-login-form works!
-</p>
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+     <mat-form-field [appearance]="kiiInputAppearance">
+         <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
+         <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email">
+         <mat-icon matPrefix class="icon"><i class="fas fa-at"></i></mat-icon>
+         <mat-hint>{{'kiilib.input.email.hint' | translate}}</mat-hint>
+         <mat-error kiiInputError="email"></mat-error>    
+     </mat-form-field>
+
+     <mat-form-field [appearance]="kiiInputAppearance">
+         <mat-label>{{'kiilib.input.password.label' | translate}}</mat-label>
+         <input matInput formControlName="password" placeholder="{{'kiilib.input.password.placeholder' | translate}}" required type="password">
+         <mat-icon matPrefix class="icon"><i class="fas fa-key"></i></mat-icon>
+         <mat-hint>{{'kiilib.input.password.hint' | translate}}</mat-hint>
+         <mat-error kiiInputError="password"></mat-error>
+     </mat-form-field>
+     <mat-checkbox formControlName="keepconnected">{{'kiilib.login.keepconnected' | translate}}</mat-checkbox>
+ 
+     <div class="control-wrapper">
+         <button mat-button type="button" color="primary" routerLink="/reset-password">{{'kiilib.login.forgot' | translate}}</button>
+         <button mat-raised-button type="submit" color="primary">{{'kiilib.login.submit' | translate}}</button>
+     </div>
+   </form>
+</kii-spinner-overlay>
