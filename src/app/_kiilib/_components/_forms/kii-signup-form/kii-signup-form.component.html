@@ -1,3 +1,48 @@
-<p>
-  kii-signup-form works!
-</p>
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.firstName.label' | translate}}</mat-label>
+            <input matInput formControlName="firstName" placeholder="{{'kiilib.input.firstName.placeholder' | translate}}" required type="text">
+            <mat-icon matPrefix class="icon"><i class="fas fa-user-tag"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.firstName.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="firstName"></mat-error>            
+        </mat-form-field>
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.lastName.label' | translate}}</mat-label>
+            <input matInput formControlName="lastName" placeholder="{{'kiilib.input.lastName.placeholder' | translate}}" required type="text">
+            <mat-icon matPrefix class="icon"><i class="fas fa-user-tag"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.lastName.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="lastName"></mat-error>            
+        </mat-form-field>
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
+            <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email">
+            <mat-icon matPrefix class="icon"><i class="fas fa-at"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.email.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="email"></mat-error>            
+        </mat-form-field>
+  
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.password.label' | translate}}</mat-label>
+            <input matInput formControlName="password" placeholder="{{'kiilib.input.password.placeholder' | translate}}" required type="password">
+            <mat-icon matPrefix class="icon"><i class="fas fa-key"></i></mat-icon>
+            <mat-icon matSuffix class="icon"  [matTooltip]="passwordInfo" matTooltipPosition="below"><i class="fas fa-info-circle"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.password.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="password"></mat-error>             
+        </mat-form-field>
+  
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.passwordConfirm.label' | translate}}</mat-label>
+            <input matInput formControlName="passwordConfirm" placeholder="{{'kiilib.input.passwordConfirm.placeholder' | translate}}" required type="password">
+            <mat-icon matPrefix class="icon"><i class="fas fa-key"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.passwordConfirm.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="passwordConfirm"></mat-error>             
+        </mat-form-field>
+        <mat-checkbox #termsCheckbox formControlName="terms"></mat-checkbox><span class="terms1">{{'kiilib.signup.terms1' | translate}}</span> <span class="terms2" (click)="openTermsAndConditionsDialog()">{{'kiilib.signup.terms2' | translate}}</span>
+        <mat-error *ngIf="!termsCheckbox.checked && (myForm.get('terms').dirty || myForm.get('terms').touched)" class="mat-form-field-subscript-wrapper terms-error">{{'kiilib.signup.terms.error' | translate}}</mat-error>
+        <div class="control-wrapper" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+            <button mat-button type="reset" color="primary" >{{'kiilib.reset' | translate}}</button>
+            <button mat-raised-button type="submit" color="primary">{{'kiilib.signup.submit' | translate}}</button>
+        </div>        
+    </form>
+</kii-spinner-overlay>

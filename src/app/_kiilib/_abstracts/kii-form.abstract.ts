@@ -1,8 +1,9 @@
 import {Output, EventEmitter, Input, ViewChild, SimpleChanges, OnChanges} from '@angular/core';
 import { KiiBaseAbstract } from './kii-base.abstract';
 import {FormGroup} from '@angular/forms';
-import {MatFormFieldAppearance } from '@angular/material';
+import { MatFormFieldAppearance } from '@angular/material';
 import {environment} from '../../../environments/environment'
+import { KiiSpinnerOverlayComponent } from '../_components/kii-spinner-overlay/kii-spinner-overlay.component';
 
 export  class KiiFormAbstract extends KiiBaseAbstract implements OnChanges {
     public myForm : FormGroup;
@@ -41,6 +42,7 @@ export  class KiiFormAbstract extends KiiBaseAbstract implements OnChanges {
       if (!this.myForm.valid) console.log("Invalid form");
       if (this.myForm.valid) {
         console.log(value);
+
         this.kiiOnSubmit.emit(value);
       } 
     }

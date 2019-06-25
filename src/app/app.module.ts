@@ -72,6 +72,11 @@ import { KiiLoginFormComponent } from './_kiilib/_components/_forms/kii-login-fo
 import { KiiSignupFormComponent } from './_kiilib/_components/_forms/kii-signup-form/kii-signup-form.component';
 import { KiiSpinnerComponent } from './_kiilib/_components/kii-spinner/kii-spinner.component';
 import { KiiSpinnerOverlayComponent } from './_kiilib/_components/kii-spinner-overlay/kii-spinner-overlay.component';
+import { KiiTermsDialogComponent } from './_kiilib/_components/kii-terms-dialog/kii-terms-dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { KiiInputDefaultValueDirective } from './_kiilib/_directives/kii-input-default-value.directive';
+import { KiiInputDigitOnlyDirective } from './_kiilib/_directives/kii-input-digit-only.directive';
+import { KiiInputErrorDirective } from './_kiilib/_directives/kii-input-error.directive';
 
 
 @NgModule({
@@ -91,7 +96,11 @@ import { KiiSpinnerOverlayComponent } from './_kiilib/_components/kii-spinner-ov
     KiiLoginFormComponent,
     KiiSignupFormComponent,
     KiiSpinnerComponent,
-    KiiSpinnerOverlayComponent
+    KiiSpinnerOverlayComponent,
+    KiiTermsDialogComponent,
+    KiiInputDefaultValueDirective,
+    KiiInputDigitOnlyDirective,
+    KiiInputErrorDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -100,6 +109,7 @@ import { KiiSpinnerOverlayComponent } from './_kiilib/_components/kii-spinner-ov
     TransferHttpCacheModule,
     HttpClientModule,
     NgtUniversalModule,
+    ReactiveFormsModule,  //Reactive forms
     TranslateModule.forChild(), //Translations
     LocalizeRouterModule.forChild(routes),
     RouterModule.forChild(routes),
@@ -141,7 +151,7 @@ import { KiiSpinnerOverlayComponent } from './_kiilib/_components/kii-spinner-ov
     ],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,33 @@
+form {
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.control-wrapper {
+    margin-top:20px;
+    display:flex;
+    justify-content: space-between;
+}
+.terms-error {
+    position:relative;
+    padding-left:15px;
+    padding-top:5px;
+    border-top:1.5px solid;
+}
+.terms1 {
+    margin-left:10px;
+    font-size: 14px;
+}
+.terms2 {
+    font-size: 14px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.terms2:hover {
+    cursor:pointer;
+}
+
+
+mat-form-field {
+    width:100%;
+}
+

@@ -1,8 +1,6 @@
 <div class="wrapper" [ngClass]="classList" >
-    <div [@showAnim]="show">
       <div *ngIf="show==true" class="overlay"  >
           <kii-spinner ></kii-spinner>
       </div>
-    </div>  
       <ng-content></ng-content>
 </div>
