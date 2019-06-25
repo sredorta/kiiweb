@@ -134,7 +134,7 @@ import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/ki
     //EOF MATERIAL DESIGN
   ],
   entryComponents: [],
-  providers: [SwUpdate],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

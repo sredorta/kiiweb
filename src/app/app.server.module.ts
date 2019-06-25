@@ -15,6 +15,7 @@ import { Observable, Observer } from 'rxjs';
 import * as merge from 'deepmerge';
 import { environment } from '../environments/environment';
 import {makeStateKey, StateKey, TransferState} from '@angular/platform-browser';
+import { SwUpdate, SwPush, ServiceWorkerModule } from '@angular/service-worker';
 
 
 //Equivalent to import fs
@@ -43,8 +44,11 @@ const fs = require('fs');
               new ManualParserLoader(translate, location, settings, environment.languages, 'ROUTES.'),
           deps: [TranslateService, Location, LocalizeRouterSettings]
       }
-    }),        
+    }), 
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
+       
   ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}

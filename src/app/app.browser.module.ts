@@ -16,9 +16,7 @@ import {Location} from '@angular/common';
 import {LocalizeRouterModule, LocalizeParser, ManualParserLoader,LocalizeRouterSettings} from 'localize-router';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
-import { MatSnackBar } from '@angular/material';
 import { KiiPwaService } from './_kiilib/_services/kii-pwa.service';
-import { KiiApiLanguageService } from './_kiilib/_services/kii-api-language.service';
 import { KiiMiscService } from './_kiilib/_services/kii-misc.service';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
@@ -56,10 +54,10 @@ import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/ki
   bootstrap: [AppComponent]
 })
 export class AppBrowserModule { 
-  constructor(private update: SwUpdate, 
-    private kiiMisc : KiiMiscService) {
-      new KiiPwaService(this.update,this.kiiMisc);
-  }
+/*  constructor(private swupdate: SwUpdate, private swpush: SwPush,
+    private kiiMisc : KiiMiscService,private http: HttpClient) {
+      new KiiPwaService(this.swupdate, this.swpush, this.kiiMisc, this.http);
+  }*/
 }
 
 export function HttpLoaderFactory(http: HttpClient,transferState:TransferState) {

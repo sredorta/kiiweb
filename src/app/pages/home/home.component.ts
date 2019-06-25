@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   }
 
   install() {
-    this.KiiMisc.AppInstall();
+    //this.KiiMisc.AppInstall();
   }
 
 }
