@@ -80,7 +80,6 @@ export class KiiSignupFormComponent extends KiiFormAbstract implements OnInit {
   /**Override abstract onSubmit due to checkbox checking */
   onSubmit(value:any) {
     this.myForm.controls["terms"].markAsDirty(); //Mark terms as dirty so that error appears
-    console.log(value);
     if (this.myForm.valid) { //Validator doesn't work
       this.kiiOnSubmit.emit(value);
     } 

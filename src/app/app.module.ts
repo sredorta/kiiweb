@@ -77,6 +77,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { KiiInputDefaultValueDirective } from './_kiilib/_directives/kii-input-default-value.directive';
 import { KiiInputDigitOnlyDirective } from './_kiilib/_directives/kii-input-digit-only.directive';
 import { KiiInputErrorDirective } from './_kiilib/_directives/kii-input-error.directive';
+import { KiiLoginSignupComponent } from './_kiilib/_components/_pages/kii-login-signup/kii-login-signup.component';
+import { KiiPassportsComponent } from './_kiilib/_components/kii-passports/kii-passports.component';
 
 
 @NgModule({
@@ -100,7 +102,9 @@ import { KiiInputErrorDirective } from './_kiilib/_directives/kii-input-error.di
     KiiTermsDialogComponent,
     KiiInputDefaultValueDirective,
     KiiInputDigitOnlyDirective,
-    KiiInputErrorDirective
+    KiiInputErrorDirective,
+    KiiLoginSignupComponent,
+    KiiPassportsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

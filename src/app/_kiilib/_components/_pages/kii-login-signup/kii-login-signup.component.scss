@@ -1,0 +1,80 @@
+.wrapper {
+    box-sizing: border-box;
+    width:100%;
+    height:90vh;
+    min-height: 300px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    min-height: 300px;
+}
+.container {
+    padding-top:10vh;
+    flex: 2 2 auto;
+    width:100%;
+    max-width: 500px;
+    min-width: 300px;
+    overflow:auto;
+    box-sizing: border-box;
+    padding-left:20px;
+    padding-right: 20px;
+}
+
+//Handles local passports expansion
+.expansion {
+    display:flex;
+    text-decoration: none;
+    border-radius: 5px;
+    padding:10px;
+    margin-bottom:15px;
+    min-width:50px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    i {
+        font-size:22px;
+    }
+    transition:all 0.2s ease-in-out;
+}
+.expansion:hover {
+    cursor:pointer;
+}
+
+.expansion-anim {
+    display:flex;
+    flex-direction: column;
+    max-height: 1000px;
+    overflow: hidden;
+}
+
+
+//Side on bigscreens
+.side {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    animation: slide-in 1s forwards;
+    -webkit-animation: slide-in 1s forwards;
+    kii-article.signup-side-editable-content {
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .side { display:none}
+    .container {
+        align-self: center;
+        overflow: hidden;
+    }
+    .wrapper {
+        min-height: 80vh;
+        height: auto;
+    }
+}
+
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}

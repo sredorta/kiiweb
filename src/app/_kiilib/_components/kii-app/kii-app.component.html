@@ -8,13 +8,13 @@
               <ng-content select="[kiiToolbarMenu]"></ng-content>
           </div>
           <div class="kii-app-toolbar-icons">
-<!--              <a mat-ripple class="kii-app-toolbar-icon"><i class="fas fa-shopping-cart"></i></a>  
+              <a mat-ripple class="kii-app-toolbar-icon"><i class="fas fa-shopping-cart"></i></a>  
               <a mat-ripple class="kii-app-toolbar-icon" *ngIf="!loggedInUser.exists()" mat-ripple class="kii-app-toolbar-icon" [routerLink]="'/login' | localize">
                   <i class="fas fa-sign-in-alt"></i>
               </a>
               <a mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/profile' | localize">
                   <i class="fas fa-user"></i><small>{{loggedInUser.firstName}}</small>
-              </a>-->
+              </a>
               <kii-language-selector></kii-language-selector>
           </div>
       </div>

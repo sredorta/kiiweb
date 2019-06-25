@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="container" >
+      <p>header article</p>
+      <!--<kii-article class="signup-header-editable-content" key="signup-header" (onEdit)="onEdit()"></kii-article>-->
+      <kii-passports></kii-passports>
+      <div class="expansion" (click)="toggleLogin()"><i class="fas fa-sign-in-alt"></i><span>{{"kiilib.login.title" | translate}}</span></div>
+      <div @detailExpand *ngIf="showLogin" class="expansion-anim">
+        <kii-login-form    (kiiOnSubmit)="onSubmitLogin($event)"></kii-login-form>
+      </div>
+      <div class="expansion" (click)="toggleSignup()"><i class="fas fa-user-plus"></i><span>{{"kiilib.signup.title" | translate}}</span></div>
+      <div @detailExpand *ngIf="showSignup" class="expansion-anim">
+        <kii-signup-form  (kiiOnSubmit)="onSubmitSignup($event)"></kii-signup-form>
+      </div>
+    </div>
+    <div class="side">
+        <p>side article</p>
+        <!--<kii-article isFlex="true" class="signup-side-editable-content" key="signup-side"   (onEdit)="onEdit()"></kii-article>-->
+    </div>
+  </div>

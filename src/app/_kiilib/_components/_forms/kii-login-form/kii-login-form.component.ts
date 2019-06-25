@@ -2,8 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import {KiiCustomValidators} from '../../../_utils/kii-custom-validators';
-import { TranslateService } from '@ngx-translate/core';
-
 
 @Component({
   selector: 'kii-login-form',
@@ -11,9 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./kii-login-form.component.scss']
 })
 export class KiiLoginFormComponent extends KiiFormAbstract implements OnInit {
-  passwordInfo : string = "";
 
-  constructor(private trans : TranslateService) { super(); }
+  constructor() { super(); }
 
   ngOnInit() {
     this.createForm();

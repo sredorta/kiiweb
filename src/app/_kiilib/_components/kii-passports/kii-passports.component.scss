@@ -1,0 +1,38 @@
+.social-passport {
+    text-decoration: none;
+    display:flex;
+    border-radius: 5px;
+    padding:10px;
+    margin-bottom:15px;
+    min-width:50px;
+    box-sizing: border-box;
+    color:white;
+    justify-content: space-between;
+    i {
+        font-size:22px;
+    }
+    transition:all 0.2s ease-in-out;
+}
+.social-passport:active {
+    color:black;
+}
+
+.social-passport.facebook{
+    background-color:rgba(#3C5A99,0.9);
+}
+.social-passport.facebook:hover{
+    background-color:#3C5A99;
+}
+
+.social-passport.google-plus{
+    background-color:rgba(#DC4E41,0.9);
+}
+.social-passport.google-plus:hover{
+    background-color:#DC4E41;
+}
+
+.wrapper {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}

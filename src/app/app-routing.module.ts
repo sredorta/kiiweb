@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { KiiSidenavComponent } from './_kiilib/_components/kii-sidenav/kii-sidenav.component';
 import { PrixComponent } from './pages/prix/prix.component';
 import { RealisationsComponent } from './pages/realisations/realisations.component';
+import { KiiLoginSignupComponent } from './_kiilib/_components/_pages/kii-login-signup/kii-login-signup.component';
 
 export const routes: Routes = [
   {
@@ -20,6 +21,11 @@ export const routes: Routes = [
     path: 'sidenav',
     component: KiiSidenavComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: KiiLoginSignupComponent,
+    pathMatch: "full"
   },  
   {
     path: 'prices',
@@ -30,7 +36,6 @@ export const routes: Routes = [
     path: 'clients',
     component: RealisationsComponent,
     pathMatch: 'full'
-
   }, 
 
 ];
