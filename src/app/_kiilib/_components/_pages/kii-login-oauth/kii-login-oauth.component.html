@@ -1,0 +1,15 @@
+<kii-spinner-overlay [show]="loading">
+<div class="wrapper">
+  <div *ngIf="showTerms" class="wrapper-center">
+      <p>
+          TODO: Load the corresponding article
+      </p>
+      <!--<kii-article class="legal-user-data-editable-content" key="legal-user-data"></kii-article>-->
+      <div class="button-wrapper">
+            <button mat-button color="primary" (click)="onRejectTerms()">{{'kiilib.cancel' | translate}}</button>
+            <button mat-raised-button color="primary" (click)="onAcceptTerms()">{{'kiilib.accept' | translate}}</button>
+      </div>  
+        
+    </div>  
+</div>
+</kii-spinner-overlay>

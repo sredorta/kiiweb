@@ -42,7 +42,7 @@
         <mat-error *ngIf="!termsCheckbox.checked && (myForm.get('terms').dirty || myForm.get('terms').touched)" class="mat-form-field-subscript-wrapper terms-error">{{'kiilib.signup.terms.error' | translate}}</mat-error>
         <div class="control-wrapper">
             <button mat-button type="reset" color="primary" >{{'kiilib.reset' | translate}}</button>
-            <button mat-raised-button type="submit" color="primary">{{'kiilib.signup.submit' | translate}}</button>
+            <button mat-flat-button type="submit" color="primary">{{'kiilib.signup.submit' | translate}}</button>
         </div>        
     </form>
 </kii-spinner-overlay>

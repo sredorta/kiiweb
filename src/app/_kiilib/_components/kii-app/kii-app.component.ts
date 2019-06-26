@@ -21,6 +21,9 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
+    //Subscribe to authUser
+    this.getAuthUserSubscription();
+
     //TODO: Only subscribe if you are admin or registered...
     this.kiiPwa.onPushNotificationSubscription();
 

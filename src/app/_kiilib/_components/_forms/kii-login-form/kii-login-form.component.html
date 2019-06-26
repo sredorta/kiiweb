@@ -18,10 +18,10 @@
      <mat-checkbox formControlName="keepconnected">{{'kiilib.login.keepconnected' | translate}}</mat-checkbox>
  
      <div class="control-wrapper-submit">
-         <button mat-raised-button type="submit" color="primary">{{'kiilib.login.submit' | translate}}</button>
+         <button mat-flat-button type="submit" color="primary">{{'kiilib.login.submit' | translate}}</button>
      </div>
      <div class="control-wrapper-forgot">
-        <button mat-button type="button" color="primary" routerLink="/reset-password">{{'kiilib.login.forgot' | translate}}</button>
+        <button mat-button type="button" color="primary" [routerLink]="'/reset-password' | localize">{{'kiilib.login.forgot' | translate}}</button>
      </div>
 
    </form>

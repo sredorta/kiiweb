@@ -7,6 +7,8 @@ import { RealisationsComponent } from './pages/realisations/realisations.compone
 import { KiiLoginSignupComponent } from './_kiilib/_components/_pages/kii-login-signup/kii-login-signup.component';
 import { KiiNotFoundComponent } from './_kiilib/_components/_pages/kii-not-found/kii-not-found.component';
 import { KiiEmailValidateComponent } from './_kiilib/_components/_pages/kii-email-validate/kii-email-validate.component';
+import { KiiResetPasswordComponent } from './_kiilib/_components/_pages/kii-reset-password/kii-reset-password.component';
+import { KiiLoginOauthComponent } from './_kiilib/_components/_pages/kii-login-oauth/kii-login-oauth.component';
 
 export const routes: Routes = [
   {
@@ -25,21 +27,26 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login-not-translated',
-    redirectTo: 'login',
-    pathMatch: 'full',
-    data: { skipRouteLocalization: true }
-  },
-  {
     path: 'login',
     component: KiiLoginSignupComponent,
     pathMatch: "full"
   },  
   {
+    path: 'login/validate/:token',
+    component: KiiLoginOauthComponent,
+    data: { skipRouteLocalization: true }
+  },
+  {
     path: 'login/validate-email',
     component: KiiEmailValidateComponent,
     data: { skipRouteLocalization: true }
   },
+  {
+    path: 'reset-password',
+    component: KiiResetPasswordComponent,
+    pathMatch: "full"
+  },
+
   {
     path: 'prices',
     component: PrixComponent,

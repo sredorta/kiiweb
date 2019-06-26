@@ -83,6 +83,9 @@ import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-
 import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiNotFoundComponent } from './_kiilib/_components/_pages/kii-not-found/kii-not-found.component';
 import { KiiEmailValidateComponent } from './_kiilib/_components/_pages/kii-email-validate/kii-email-validate.component';
+import { KiiResetPasswordComponent } from './_kiilib/_components/_pages/kii-reset-password/kii-reset-password.component';
+import { KiiResetPasswordFormComponent } from './_kiilib/_components/_forms/kii-reset-password-form/kii-reset-password-form.component';
+import { KiiLoginOauthComponent } from './_kiilib/_components/_pages/kii-login-oauth/kii-login-oauth.component';
 
 
 @NgModule({
@@ -111,7 +114,10 @@ import { KiiEmailValidateComponent } from './_kiilib/_components/_pages/kii-emai
     KiiPassportsComponent,
     KiiHttpErrorComponent,
     KiiNotFoundComponent,
-    KiiEmailValidateComponent
+    KiiEmailValidateComponent,
+    KiiResetPasswordComponent,
+    KiiResetPasswordFormComponent,
+    KiiLoginOauthComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

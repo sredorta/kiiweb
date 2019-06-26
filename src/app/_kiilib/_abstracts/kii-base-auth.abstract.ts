@@ -13,10 +13,17 @@ export abstract class KiiBaseAuthAbstract extends KiiBaseAbstract  {
 
   constructor(private _kiiApiAuth : KiiApiAuthService) {super()}
 
-  /**Add a subscriber in the subscriptions list that will be unsubscribed during destroy */
-  protected getAuthUser() {
+  /**Add subscription to get LoggedInUser */
+  protected getAuthUserSubscription() {
+    this.addSubscriber(
+        this._kiiApiAuth.getAuthUser().subscribe(res => {
+            this._kiiApiAuth.setLoggedInUser(new User(res));
+        })
+    )  
     this.addSubscriber(
         this._kiiApiAuth.getLoggedInUser().subscribe(res => {
+            console.log("AuthUser : ");
+            console.log(res);
           this.loggedInUser = res;
         })
       );    
