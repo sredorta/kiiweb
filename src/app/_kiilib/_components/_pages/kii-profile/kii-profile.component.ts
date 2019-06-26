@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { KiiConfirmDialogComponent } from '../../kii-confirm-dialog/kii-confirm-dialog.component';
 import { KiiProfileFormComponent } from '../../_forms/kii-profile-form/kii-profile-form.component';
+import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 
 @Component({
   selector: 'kii-profile',
@@ -14,14 +15,19 @@ import { KiiProfileFormComponent } from '../../_forms/kii-profile-form/kii-profi
   styleUrls: ['./kii-profile.component.scss']
 })
 export class KiiProfileComponent extends KiiBaseAuthAbstract implements OnInit {
+
+  currentLang :string = ""; 
+
   @ViewChild(KiiProfileFormComponent,{static:false}) profileForm : KiiProfileFormComponent;
 
   constructor(private kiiApiAuth: KiiApiAuthService,
               @Inject(PLATFORM_ID) private platformId: any,
               private router : Router,
+              private kiiApiLang : KiiApiLanguageService,
               private dialog : MatDialog) { super(kiiApiAuth,platformId) }
 
   ngOnInit() {
+    this.currentLang = this.kiiApiLang.get();
     this.getLoggedInUserSubscription();
   }
 

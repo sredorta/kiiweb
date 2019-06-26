@@ -34,13 +34,14 @@ export class KiiHttpInterceptor implements HttpInterceptor {
     
     /** Opens bottomsheet with error or success message */
     openBottomSheet(code:number,  message:string): void {
-        this.bottomSheet.open(KiiHttpErrorComponent, {
-            panelClass :"kii-http-error-panel-class",
-            data: { 
-                    code: code,
-                    message: message
-                  }
-            });
+        if (isPlatformBrowser(this._platformId))
+            this.bottomSheet.open(KiiHttpErrorComponent, {
+                panelClass :"kii-http-error-panel-class",
+                data: { 
+                        code: code,
+                        message: message
+                    }
+                });
     }
 
 

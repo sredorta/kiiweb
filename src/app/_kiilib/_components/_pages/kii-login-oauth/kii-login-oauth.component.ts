@@ -43,9 +43,9 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
         //We got a temporary token... but we still need to check if all parameters are valid in the user
         this.addSubscriber(this.kiiApiAuth.oauth2Validate().subscribe(res => {
             console.log(res);
+            this.loading = false;
             if (res.complete != true) {
               this.user = new User(res.user);
-              this.loading = false;
               this.showTerms = true;
             } else {
               this.kiiApiAuth.setLoggedInUser(new User(res.user));
