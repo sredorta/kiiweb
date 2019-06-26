@@ -1,0 +1,28 @@
+.kii-profile-wrapper {
+    h1 {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    i {
+        margin-right:10px;
+    }
+
+}
+.kii-profile-wrapper-form {
+    padding-left:15px;
+}
+
+::ng-deep .mat-form-field-disabled mat-hint {
+    display:none;
+}
+
+::ng-deep .field-wrapper .mat-form-field-wrapper {
+    transition : padding-bottom 0.2s ease-in-out;
+    padding-bottom:0px;
+}
+::ng-deep .field-wrapper .mat-form-field:not(.mat-form-field-disabled) .mat-form-field-wrapper {
+    padding-bottom:20px;
+}
+::ng-deep .field-wrapper mat-form-field {
+    margin-bottom:3px;
+}

@@ -1,0 +1,82 @@
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+        <div class="field-wrapper">
+          <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+              <mat-label>{{'kiilib.input.firstName.label' | translate}}</mat-label>
+              <input matInput formControlName="firstName" placeholder="{{'kiilib.input.firstName.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="defaults.firstName">
+              <mat-icon matPrefix class="icon"><i class="fas fa-user-tag"></i></mat-icon>
+              <mat-hint>{{'kiilib.input.firstName.hint' | translate}}</mat-hint>
+              <mat-error kiiInputError="firstName"></mat-error>            
+          </mat-form-field>
+          <button mat-icon-button color="primary" type="button" (click)="toggleControl('firstName')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('firstName'),'fa-times' : isEnabled('firstName')}"></i> </button>
+        </div>  
+        <div class="field-wrapper">
+          <mat-form-field  [appearance]="kiiInputAppearance" style="width:100%">
+              <mat-label>{{'kiilib.input.lastName.label' | translate}}</mat-label>
+              <input matInput formControlName="lastName" placeholder="{{'kiilib.input.lastName.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="defaults.lastName">
+              <mat-icon matPrefix class="icon"><i class="fas fa-user-tag"></i></mat-icon>
+              <mat-hint>{{'kiilib.input.lastName.hint' | translate}}</mat-hint>
+              <mat-error kiiInputError="lastName"></mat-error>            
+          </mat-form-field>
+          <button mat-icon-button color="primary" type="button" (click)="toggleControl('lastName')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('lastName'),'fa-times' : isEnabled('lastName')}"></i> </button>
+        </div>      
+        <div class="field-wrapper">
+          <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+              <mat-label>{{'kiilib.input.phone.label' | translate}}</mat-label>
+              <input matInput formControlName="phone" placeholder="{{'kiilib.input.phone.placeholder' | translate}}" inputmode="numeric" pattern="[0-9]*" type="tel" kiiInputDigitOnly [kiiInputDefaultValue]="defaults.phone">
+              <mat-icon matPrefix class="icon"><i class="fas fa-phone"></i></mat-icon>
+              <mat-hint>{{'kiilib.input.phone.hint' | translate}}</mat-hint>
+              <mat-error kiiInputError="phone"></mat-error>            
+          </mat-form-field>
+          <button mat-icon-button color="primary" type="button" (click)="toggleControl('phone')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('phone'),'fa-times' : isEnabled('phone')}"></i> </button>
+        </div>     
+        <div class="field-wrapper">
+          <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+              <mat-label>{{'kiilib.input.mobile.label' | translate}}</mat-label>
+              <input matInput formControlName="mobile" placeholder="{{'kiilib.input.mobile.placeholder' | translate}}"  inputmode="numeric" pattern="[0-9]*" type="tel" kiiInputDigitOnly [kiiInputDefaultValue]="defaults.mobile">
+              <mat-icon matPrefix class="icon"><i class="fas fa-mobile"></i></mat-icon>
+              <mat-hint>{{'kiilib.input.mobile.hint' | translate}}</mat-hint>
+              <mat-error kiiInputError="mobile"></mat-error>            
+          </mat-form-field>
+          <button mat-icon-button color="primary" type="button" (click)="toggleControl('mobile')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('mobile'),'fa-times' : isEnabled('mobile')}"></i> </button>
+        </div>     
+        <div class="field-wrapper">
+          <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+              <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
+              <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email" [kiiInputDefaultValue]="defaults.email">
+              <mat-icon matPrefix class="icon"><i class="fas fa-at"></i></mat-icon>
+              <mat-hint>{{'kiilib.input.email.hint' | translate}}</mat-hint>
+              <mat-error kiiInputError="email"></mat-error>            
+          </mat-form-field>
+          <button mat-icon-button color="primary" type="button" (click)="toggleControl('email')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('email'),'fa-times' : isEnabled('email')}"></i> </button>
+        </div> 
+        <button mat-button type="button" (click)="togglePassword()" class="password-button"><i class="fas fa-edit" style="margin-right:10px;"></i>{{'kiilib.profile.password_modify' | translate}}</button> 
+        <div class="password-area" [ngClass]="{'visible': modifyPassword}">
+                <mat-form-field [appearance]="kiiInputAppearance">
+                        <mat-label>{{'kiilib.input.password.old.label' | translate}}</mat-label>
+                        <input matInput formControlName="passwordOld" placeholder="{{'kiilib.input.password.placeholder' | translate}}" required type="password">
+                        <mat-icon matPrefix class="icon"><i class="fas fa-key"></i></mat-icon>
+                        <mat-hint>{{'kiilib.input.password.old.hint' | translate}}</mat-hint>
+                        <mat-error kiiInputError="passwordOld"></mat-error>             
+                </mat-form-field>        
+                <mat-form-field [appearance]="kiiInputAppearance" >
+                    <mat-label>{{'kiilib.input.password.new.label' | translate}}</mat-label>
+                    <input matInput formControlName="password" placeholder="{{'kiilib.input.password.placeholder' | translate}}" required type="password">
+                    <mat-icon matPrefix class="icon"><i class="fas fa-key"></i></mat-icon>
+                    <mat-icon matSuffix class="icon"  [matTooltip]="passwordInfo" matTooltipPosition="below"><i class="fas fa-info-circle"></i></mat-icon>
+                    <mat-hint>{{'kiilib.input.password.new.hint' | translate}}</mat-hint>
+                    <mat-error kiiInputError="password"></mat-error>             
+                </mat-form-field>
+                <mat-form-field [appearance]="kiiInputAppearance" >
+                    <mat-label>{{'kiilib.input.passwordConfirm.new.label' | translate}}</mat-label>
+                    <input matInput formControlName="passwordConfirm" placeholder="{{'kiilib.input.passwordConfirm.placeholder' | translate}}" required type="password">
+                    <mat-icon matPrefix class="icon"><i class="fas fa-key"></i></mat-icon>
+                    <mat-hint>{{'kiilib.input.passwordConfirm.new.hint' | translate}}</mat-hint>
+                    <mat-error kiiInputError="passwordConfirm"></mat-error>             
+                </mat-form-field>
+        </div>
+        <div class="control-wrapper">
+            <button mat-mini-fab color="primary" type="submit" color="primary"><i class="fas fa-save"></i></button>
+        </div>
+    </form>
+</kii-spinner-overlay>

@@ -88,6 +88,10 @@ import { KiiResetPasswordFormComponent } from './_kiilib/_components/_forms/kii-
 import { KiiLoginOauthComponent } from './_kiilib/_components/_pages/kii-login-oauth/kii-login-oauth.component';
 import { KiiFillSideComponent } from './_kiilib/_components/kii-fill-side/kii-fill-side.component';
 import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/kii-profile.component';
+import { KiiConfirmDialogComponent } from './_kiilib/_components/kii-confirm-dialog/kii-confirm-dialog.component';
+import { KiiNiceDateFormatPipe } from './_kiilib/_pipes/kii-nice-date-format.pipe';
+import { KiiMobileFormatPipe } from './_kiilib/_pipes/kii-mobile-format.pipe';
+import { KiiProfileFormComponent } from './_kiilib/_components/_forms/kii-profile-form/kii-profile-form.component';
 
 
 @NgModule({
@@ -121,7 +125,11 @@ import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/ki
     KiiResetPasswordFormComponent,
     KiiLoginOauthComponent,
     KiiFillSideComponent,
-    KiiProfileComponent
+    KiiProfileComponent,
+    KiiConfirmDialogComponent,
+    KiiNiceDateFormatPipe,
+    KiiMobileFormatPipe,
+    KiiProfileFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -172,7 +180,7 @@ import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/ki
     ],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
