@@ -184,11 +184,28 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 $admin-primary: mat-palette($mat-teal, 400);
 $admin-accent:  mat-palette($mat-yellow, 400, A100, A400);
 $admin-warn:    mat-palette($mat-deep-orange,300);
-$admin-theme: create-light-theme($admin-primary, $admin-accent, $admin-warn, $main-foreground, $mat-dark-theme-background);
+$admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 
 .admin-theme {
     @include angular-material-theme($admin-theme);
     @include design-theme($admin-theme);
     background: map_get($mat-grey, 900);
     color:white;
+}
+
+//TODO: Create mixin !!!
+/*Special things comes here*/
+mat-form-field {
+    margin-bottom:10px;
+    
+    /*kii-input-default-value is Added by kii-input-default-value directive*/
+    .kii-input-default-value {
+        opacity:0.5;
+    }
+    mat-icon {
+        width:35px;
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
 }

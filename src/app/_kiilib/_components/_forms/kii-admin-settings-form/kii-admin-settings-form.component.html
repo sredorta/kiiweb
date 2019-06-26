@@ -1,3 +1,24 @@
-<p>
-  kii-admin-settings-form works!
-</p>
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+        <h2>General</h2>
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.company.phone.hint' | translate}}</mat-label>
+            <input matInput formControlName="companyPhone" placeholder="{{'kiilib.input.company.phone.placeholder' | translate}}" required inputmode="numeric" pattern="[0-9]*" type="tel" kiiInputDigitOnly [kiiInputDefaultValue]="kiiApiSetting.getByKey('companyPhone').value">
+            <mat-icon matPrefix class="icon"><i class="fas fa-phone"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.company.phone.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="companyPhone"></mat-error>    
+        </mat-form-field>
+        <mat-form-field [appearance]="kiiInputAppearance">
+            <mat-label>{{'kiilib.input.company.address.hint' | translate}}</mat-label>
+            <textarea matInput formControlName="companyAddress" placeholder="{{'kiilib.input.company.address.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="kiiApiSetting.getByKey('companyAddress').value"></textarea>
+            <mat-icon matPrefix class="icon"><i class="fas fa-envelope"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.company.address.hint' | translate}}</mat-hint>
+            <mat-error kiiInputError="companyAddress"></mat-error>    
+        </mat-form-field>
+
+        <div class="control-wrapper">
+            <button mat-button type="reset" color="primary"><span><i class="fas fa-undo"></i></span>{{'kiilib.cancel' | translate}}</button>
+            <button mat-flat-button type="submit" color="primary" [disabled]="myForm.pristine">{{'kiilib.submit' | translate}}</button>
+        </div>
+    </form>
+</kii-spinner-overlay>        
