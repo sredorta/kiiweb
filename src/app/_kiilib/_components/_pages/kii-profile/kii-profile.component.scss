@@ -1,9 +1,11 @@
 .kii-profile-wrapper {
+    padding-top:10px;
     h1 {
         font-size: 16px;
         line-height: 16px;
     }
     i {
+        margin-left:10px;
         margin-right:10px;
     }
 
@@ -11,7 +13,14 @@
 .kii-profile-wrapper-form {
     padding-left:15px;
 }
-
+.creation-dates {
+    margin-top:3px;
+    margin-bottom:2px;
+    text-align: right;
+    small {
+        font-size: 10px;
+    }
+}
 ::ng-deep .mat-form-field-disabled mat-hint {
     display:none;
 }
@@ -26,3 +35,4 @@
 ::ng-deep .field-wrapper mat-form-field {
     margin-bottom:3px;
 }
+

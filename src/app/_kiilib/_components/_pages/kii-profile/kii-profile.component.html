@@ -2,18 +2,19 @@
     <div class="kii-profile-wrapper">
         <button mat-menu-item (click)="onLogout()"><i class="fas fa-sign-out-alt"></i>{{'kiilib.profile.logout' | translate}}</button>
         <button mat-menu-item (click)="onDelete()"><i class="fas fa-user-slash"></i>{{'kiilib.profile.delete' | translate}}</button>
+        <p class="creation-dates"><small>{{'kiilib.created' | translate}} : {{{date:loggedInUser.createdAt,lang:currentLang} | kiiNiceDateFormat}}<i class="fas fa-user-clock"></i></small></p>
+        <p class="creation-dates"><small>{{'kiilib.updated' | translate}} : {{{date:loggedInUser.updatedAt,lang:currentLang} | kiiNiceDateFormat}}<i class="fas fa-history"></i></small></p>         
+
         <div *ngIf="loggedInUser.exists()" class="kii-profile-wrapper-form">
             <div class="wrapper-container">
                 <h1><i class="fas fa-id-card"></i>{{'kiilib.profile.details' | translate}}</h1>
-                <kii-profile-form [defaults]="loggedInUser" (kiiOnSubmit)="onSubmit($event)"></kii-profile-form>
-                <p class="creation-dates"><small><i class="fas fa-user-clock"></i>{{'kiilib.created' | translate}} : {{{date:loggedInUser.createdAt,lang:currentLang} | kiiNiceDateFormat}}</small></p>
-                <p class="creation-dates"><small><i class="fas fa-history"></i>{{'kiilib.updated' | translate}} : {{{date:loggedInUser.updatedAt,lang:currentLang} | kiiNiceDateFormat}}</small></p>         
+                <kii-profile-form #kiiProfileForm [defaults]="loggedInUser" (kiiOnSubmit)="onSubmit($event)"></kii-profile-form>
                 <div *ngIf="loggedInUser.hasRoles()">
                     <h1><i class="fas fa-user-lock"></i>{{'kiilib.profile.roles' | translate}}</h1>
                     <mat-chip-list>
                         <mat-chip *ngFor="let role of loggedInUser.roles">{{role.name}}</mat-chip>
                     </mat-chip-list>
-                </div>  
+                </div> 
             </div>
         </div>
     </div>

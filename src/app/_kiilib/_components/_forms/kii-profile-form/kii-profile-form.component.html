@@ -76,7 +76,7 @@
                 </mat-form-field>
         </div>
         <div class="control-wrapper">
-            <button mat-mini-fab color="primary" type="submit" color="primary"><i class="fas fa-save"></i></button>
+            <button mat-fab color="primary" type="submit" color="primary" [disabled]="!myForm.dirty"><i class="fas fa-save" style="font-size:24px"></i></button>
         </div>
     </form>
 </kii-spinner-overlay>
