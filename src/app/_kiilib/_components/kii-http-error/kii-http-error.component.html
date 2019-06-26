@@ -1,0 +1,23 @@
+<div class="kii-http-error-wrapper">
+    <div class="kii-http-error-icon-wrapper" [ngSwitch]="data.code" [ngClass]="{'success' : data.code==200}">
+        <i *ngSwitchCase='401' class="fas fa-key"></i>
+        <mat-icon *ngSwitchCase='403'>pan-tool</mat-icon>
+        <mat-icon *ngSwitchCase='404'>cloud_off</mat-icon>
+        <mat-icon *ngSwitchCase='200'>check_circle</mat-icon>
+        <mat-icon *ngSwitchCase='201'>check_circle</mat-icon>
+        <mat-icon *ngSwitchCase='204'>check_circle</mat-icon>
+        <i *ngSwitchDefault class="fas fa-exclamation"></i>
+    </div>  
+    <div class="kii-http-error-message-wrapper">
+        <p class="title" [ngSwitch]="data.code">
+            <span *ngSwitchCase='401'>{{'kiilib.httperror.unauthorized' | translate}}</span>
+            <span *ngSwitchCase='403'>{{'kiilib.httperror.forbidden' | translate}}</span>
+            <span *ngSwitchCase='404'>{{'kiilib.httperror.notfound' | translate}}</span>
+            <span *ngSwitchCase='200'>{{'kiilib.httperror.success' | translate}}</span>
+            <span *ngSwitchCase='201'>{{'kiilib.httperror.success' | translate}}</span>
+            <span *ngSwitchCase='204'>{{'kiilib.httperror.success' | translate}}</span>
+            <span *ngSwitchDefault>{{'kiilib.httperror.default' | translate}}</span>
+        </p>
+        <p class="subtitle">{{data.message}}</p>
+    </div>
+  </div>

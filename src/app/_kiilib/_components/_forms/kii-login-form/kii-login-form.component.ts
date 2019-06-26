@@ -18,7 +18,7 @@ export class KiiLoginFormComponent extends KiiFormAbstract implements OnInit {
 
   createForm() {
     this.myForm =  new FormGroup({    
-      email: new FormControl('', Validators.compose([
+      username: new FormControl('', Validators.compose([
         Validators.required,
         Validators.email,
         Validators.minLength(5)

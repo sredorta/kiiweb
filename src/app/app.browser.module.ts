@@ -20,6 +20,9 @@ import { KiiPwaService } from './_kiilib/_services/kii-pwa.service';
 import { KiiMiscService } from './_kiilib/_services/kii-misc.service';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
+import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
+import { KiiSpinnerService } from './_kiilib/_services/kii-spinner.service';
+import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
 
 
 
@@ -49,8 +52,8 @@ import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/ki
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetSoftwareInstallComponent],
-  providers: [],
+  entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetSoftwareInstallComponent,KiiHttpErrorComponent],
+  providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppBrowserModule { 

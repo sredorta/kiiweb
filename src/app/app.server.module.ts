@@ -16,6 +16,8 @@ import * as merge from 'deepmerge';
 import { environment } from '../environments/environment';
 import {makeStateKey, StateKey, TransferState} from '@angular/platform-browser';
 import { SwUpdate, SwPush, ServiceWorkerModule } from '@angular/service-worker';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 
 
 //Equivalent to import fs
@@ -48,7 +50,7 @@ const fs = require('fs');
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
        
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}

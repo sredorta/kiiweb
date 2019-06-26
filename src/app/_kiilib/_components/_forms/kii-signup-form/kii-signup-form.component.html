@@ -40,7 +40,7 @@
         </mat-form-field>
         <mat-checkbox #termsCheckbox formControlName="terms"></mat-checkbox><span class="terms1">{{'kiilib.signup.terms1' | translate}}</span> <span class="terms2" (click)="openTermsAndConditionsDialog()">{{'kiilib.signup.terms2' | translate}}</span>
         <mat-error *ngIf="!termsCheckbox.checked && (myForm.get('terms').dirty || myForm.get('terms').touched)" class="mat-form-field-subscript-wrapper terms-error">{{'kiilib.signup.terms.error' | translate}}</mat-error>
-        <div class="control-wrapper" fxLayoutAlign="space-between center" fxLayoutGap="20px">
+        <div class="control-wrapper">
             <button mat-button type="reset" color="primary" >{{'kiilib.reset' | translate}}</button>
             <button mat-raised-button type="submit" color="primary">{{'kiilib.signup.submit' | translate}}</button>
         </div>        

@@ -13,6 +13,32 @@ export interface IOauth2 {
   user: IUser
 }
 
+export interface ILoginCredentials {
+  username:string;
+  password:string;
+  keepconnected:boolean
+}
+export interface ISignupCredentials {
+  firstName:string;
+  lastName:string;
+  email:string;
+  password:string;
+  terms:boolean;
+}
+
+export interface IUserWithToken {
+  token:string;
+  user: IUser
+}
+
+export interface IMessage {
+  message : {
+    show:boolean;
+    text:string;
+  }
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,15 +50,13 @@ export class KiiApiAuthService {
   constructor(private http: HttpClient) { }
 
   /** Login user using local passport */
-  public login(credentials:any) {
-    return this.http.post<any>(environment.apiURL + '/auth/login', credentials);
+  public login(credentials:ILoginCredentials) {
+    return this.http.post<IUserWithToken>(environment.apiURL + '/auth/login', credentials);
   }
 
   /** Signup user using local passport */
-  public signup(credentials:any) {
-    if (credentials.passwordConfirm)
-      credentials.passwordConfirm = null;
-    return this.http.post<any>(environment.apiURL + '/auth/signup', credentials);
+  public signup(credentials:ISignupCredentials) {
+    return this.http.post<IUserWithToken | IMessage>(environment.apiURL + '/auth/signup', credentials);
   }
 
   /** Reset password */

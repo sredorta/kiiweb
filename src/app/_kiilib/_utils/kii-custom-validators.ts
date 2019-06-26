@@ -36,12 +36,19 @@ export class KiiCustomValidators {
     if (fc.value == null) {
         return {boolean:true};
     }
-    if (fc.value === "true" || fc.value === "false")
+    if (fc.value == true || fc.value == false)
         return null;
     return {boolean:true};
-
-
   }    
 
+ /**Validates it's a boolean and true */
+ static isBooleanTrue(fc: FormControl) {
+    if (fc.value == null) {
+        return {boolean:true};
+    }
+    if (fc.value == true)
+        return null;
+    return {boolean:true};
+  }  
 
 }

@@ -51,7 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { TransferHttpCacheModule } from '@nguniversal/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { KiiAppComponent } from './_kiilib/_components/kii-app/kii-app.component';
 import { KiiFooterComponent } from './_kiilib/_components/kii-footer/kii-footer.component';
@@ -79,6 +79,8 @@ import { KiiInputDigitOnlyDirective } from './_kiilib/_directives/kii-input-digi
 import { KiiInputErrorDirective } from './_kiilib/_directives/kii-input-error.directive';
 import { KiiLoginSignupComponent } from './_kiilib/_components/_pages/kii-login-signup/kii-login-signup.component';
 import { KiiPassportsComponent } from './_kiilib/_components/kii-passports/kii-passports.component';
+import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
+import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 
 
 @NgModule({
@@ -104,7 +106,8 @@ import { KiiPassportsComponent } from './_kiilib/_components/kii-passports/kii-p
     KiiInputDigitOnlyDirective,
     KiiInputErrorDirective,
     KiiLoginSignupComponent,
-    KiiPassportsComponent
+    KiiPassportsComponent,
+    KiiHttpErrorComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

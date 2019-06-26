@@ -23,6 +23,12 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login-not-translated',
+    redirectTo: 'login',
+    pathMatch: 'full',
+    data: { skipRouteLocalization: true }
+  },
+  {
     path: 'login',
     component: KiiLoginSignupComponent,
     pathMatch: "full"

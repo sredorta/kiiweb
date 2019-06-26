@@ -1,0 +1,44 @@
+.kii-http-error-wrapper {
+    display:flex;
+}
+.kii-http-error-icon-wrapper {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:red;
+    min-width:64px;
+    mat-icon {
+        font-size: 30px;
+        height:30px;
+        width:30px;
+        line-height: 30px;
+    }
+    i {
+        font-size: 30px;
+    }
+    &.success {
+        color:green;
+    }
+
+
+}
+.kii-http-error-message-wrapper {
+    flex: 1 1 auto;
+    padding-left:20px;
+    padding-right: 20px;
+    .title {
+        font-weight: bold;
+        margin-bottom: 0px;
+        font-size: larger;
+    }
+    .subtitle {
+        margin-top:5px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .kii-http-error-message-wrapper {
+        font-size: 90%;
+    }
+
+}

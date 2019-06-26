@@ -1,5 +1,11 @@
-.control-wrapper {
+button {
     margin-top:20px;
+}
+.control-wrapper-submit {
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+.control-wrapper-forgot {
+    display:flex;
+    justify-content: center;
 }

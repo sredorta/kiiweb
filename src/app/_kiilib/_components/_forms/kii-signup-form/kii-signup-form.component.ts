@@ -58,8 +58,7 @@ export class KiiSignupFormComponent extends KiiFormAbstract implements OnInit {
         KiiCustomValidators.checkPasswordsMatch
       ])),
       terms: new FormControl('', Validators.compose([
-        Validators.required,
-        KiiCustomValidators.boolean
+        KiiCustomValidators.isBooleanTrue
       ])),  
     });
 

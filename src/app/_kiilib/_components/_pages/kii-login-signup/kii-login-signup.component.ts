@@ -4,7 +4,7 @@ import { KiiBaseAbstract } from '../../../../_kiilib/_abstracts/kii-base.abstrac
 import { KiiSpinnerService } from '../../../_services/kii-spinner.service';
 import { User } from '../../../_models/user';
 import { Router } from '@angular/router';
-import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
+import { KiiApiAuthService, IUserWithToken, IMessage } from '../../../_services/kii-api-auth.service';
 
 @Component({
   selector: 'kii-login-signup',
@@ -12,8 +12,7 @@ import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
   styleUrls: ['./kii-login-signup.component.scss']
 })
 export class KiiLoginSignupComponent extends KiiBaseAbstract implements OnInit {
-  showLogin : boolean = false;
-  showSignup : boolean = false;
+
   constructor(private kiiApiAuth: KiiApiAuthService,
     private spinner: KiiSpinnerService, 
     private router:Router,
@@ -24,27 +23,14 @@ export class KiiLoginSignupComponent extends KiiBaseAbstract implements OnInit {
   }
 
 
-  toggleLogin() {
-    this.showLogin = !this.showLogin;
-    if (this.showLogin) this.showSignup = false;
-  }
-
-
-  toggleSignup() {
-    this.showSignup = !this.showSignup;
-    if (this.showSignup) this.showLogin = false;
-  }
-
   onSubmitLogin(value:any) {
     this.spinner.show();
     this.addSubscriber(
       this.kiiApiAuth.login(value).subscribe(res => {
         User.saveToken(res.token);
-        this.kiiApiAuth.getAuthUser().subscribe(res => {
-          this.spinner.hide();
-          this.kiiApiAuth.setLoggedInUser(new User(res));
-          this.router.navigate([""]);
-        }, () => this.spinner.hide());        
+        this.kiiApiAuth.setLoggedInUser(new User(res.user));
+        this.spinner.hide();
+        this.router.navigate([""]);  
       }, () => this.spinner.hide())
     );
   }
@@ -54,19 +40,14 @@ export class KiiLoginSignupComponent extends KiiBaseAbstract implements OnInit {
         this.spinner.show();
         this.addSubscriber(
           this.kiiApiAuth.signup(value).subscribe(res => {
-            //Now create the token, getAuthUser and move to home if we are with direct login
-            if (res.token) {
-              User.saveToken(res.token);
-              this.kiiApiAuth.getAuthUser().subscribe(res => {
-                this.spinner.hide();
-                this.kiiApiAuth.setLoggedInUser(new User(res));
-                this.router.navigate([""]);
-              }, () => this.spinner.hide());
-            } else {
-              //We need to validate email before login
-              this.spinner.hide();
-              this.router.navigate([""]);
-            }
+            let tmp = <any>res;
+            if (tmp.token) {
+              tmp = <IUserWithToken>res;
+              User.saveToken(tmp.token);
+              this.kiiApiAuth.setLoggedInUser(new User(tmp.user));
+            } 
+            this.spinner.hide();
+            this.router.navigate([""]);
           }, () => this.spinner.hide())
         );
       }

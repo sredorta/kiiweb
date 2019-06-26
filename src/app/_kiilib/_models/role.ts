@@ -4,8 +4,8 @@ export interface IRole {
 }
 
 export class Role {
-    id:number;
-    name:string;
+    id:number = null;
+    name:string = null;
 
 
     constructor(obj: IRole | null) {

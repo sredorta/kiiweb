@@ -15,16 +15,16 @@ export interface IUser {
 }
 
 export class User {
-    id:number;
-    firstName:string;
-    lastName:string;
-    email:string;
-    phone:string;
-    mobile:string;
-    language:string;
-    terms:boolean;
-    createdAt:string;
-    updatedAt:string;
+    id:number = null;
+    firstName:string = null;
+    lastName:string = null;
+    email:string = null;
+    phone:string = null;
+    mobile:string = null;
+    language:string = null;
+    terms:boolean = null;
+    createdAt:string = null;
+    updatedAt:string = null;
     roles:Role[] = [];
 
     private _isLoaded:boolean=false;    //Gives if user has been initialized or not
