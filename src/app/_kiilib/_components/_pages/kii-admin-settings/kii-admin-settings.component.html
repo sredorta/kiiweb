@@ -1,0 +1,9 @@
+<div class="admin-theme">
+    <kii-spinner-overlay [show]="isDataLoading">
+        <div class="wrapper">
+          <div *ngIf="!isDataLoading" class="container">
+            <kii-admin-settings-form></kii-admin-settings-form>
+          </div>
+        </div>
+    </kii-spinner-overlay>
+</div>

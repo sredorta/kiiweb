@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Setting } from '../../_models/setting';
 import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
+import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
+import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 
 export interface SocialLink {
   name : string;
@@ -14,16 +16,19 @@ export interface SocialLink {
   templateUrl: './kii-footer.component.html',
   styleUrls: ['./kii-footer.component.scss']
 })
-export class KiiFooterComponent extends KiiBaseAbstract implements OnInit {
+export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
   /**Includes all social links */
   links : SocialLink[] = [];
 
   /**Link to kubiiks website */
   kubiiksLink : string = "https://www.kubiiks.com";
 
-  constructor(private kiiApiSetting : KiiApiSettingService) {super() }
+  constructor(private kiiApiSetting : KiiApiSettingService, 
+              private kiiApiAuth: KiiApiAuthService,
+              @Inject(PLATFORM_ID) private platformId: any) {super(kiiApiAuth,platformId) }
 
   ngOnInit() {
+    this.getLoggedInUserSubscription();
     //If settings changes we update
     this.setLinks();
     this.addSubscriber(

@@ -180,3 +180,15 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 //    @include custom-components-theme($main-theme);
 //    @include design-theme($main-theme);
 //  }
+
+$admin-primary: mat-palette($mat-teal, 400);
+$admin-accent:  mat-palette($mat-yellow, 400, A100, A400);
+$admin-warn:    mat-palette($mat-deep-orange,300);
+$admin-theme: create-light-theme($admin-primary, $admin-accent, $admin-warn, $main-foreground, $mat-dark-theme-background);
+
+.admin-theme {
+    @include angular-material-theme($admin-theme);
+    @include design-theme($admin-theme);
+    background: map_get($mat-grey, 900);
+    color:white;
+}

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
-import { User } from 'src/app/_kiilib/_models/user';
+import { User } from '../../../_models/user';
 import { TranslateService } from '@ngx-translate/core';
-import { KiiApiLanguageService } from 'src/app/_kiilib/_services/kii-api-language.service';
+import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import { KiiCustomValidators } from '../../../_utils/kii-custom-validators';
 

@@ -16,7 +16,7 @@ export abstract class KiiBaseAuthAbstract extends KiiBaseAbstract  {
   constructor(private _kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private _platformId: any,) {super()}
 
   /**Add subscription to get LoggedInUser */
-  protected getAuthUserSubscription() {
+/*  protected getAuthUserSubscription() {
     if (isPlatformBrowser(this._platformId)) {
         if (localStorage.getItem('token')!= null)
             this.addSubscriber(
@@ -26,7 +26,7 @@ export abstract class KiiBaseAuthAbstract extends KiiBaseAbstract  {
             )  
         this.getLoggedInUserSubscription();    
     }
-  }
+  }*/
   protected getLoggedInUserSubscription() {
     this.addSubscriber(
         this._kiiApiAuth.getLoggedInUser().subscribe(res => {

@@ -10,6 +10,8 @@ import { KiiEmailValidateComponent } from './_kiilib/_components/_pages/kii-emai
 import { KiiResetPasswordComponent } from './_kiilib/_components/_pages/kii-reset-password/kii-reset-password.component';
 import { KiiLoginOauthComponent } from './_kiilib/_components/_pages/kii-login-oauth/kii-login-oauth.component';
 import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/kii-profile.component';
+import { KiiAdminMenuComponent } from './_kiilib/_components/_pages/kii-admin-menu/kii-admin-menu.component';
+import { KiiAdminSettingsComponent } from './_kiilib/_components/_pages/kii-admin-settings/kii-admin-settings.component';
 
 export const routes: Routes = [
   {
@@ -61,6 +63,19 @@ export const routes: Routes = [
     component: RealisationsComponent,
     pathMatch: 'full'
   }, 
+
+  /*Admin part*/
+  {
+    path: 'admin/menu',
+    component: KiiAdminMenuComponent,
+    data: { skipRouteLocalization: true }
+  },  
+  {
+    path: 'admin/settings',
+    component: KiiAdminSettingsComponent,
+    data: { skipRouteLocalization: true }
+  },  
+
   {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
   {path: '**', redirectTo: '/404', pathMatch: "full"}
 ];

@@ -6,6 +6,11 @@ import { SwPush } from '@angular/service-worker';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { isPlatformBrowser } from '@angular/common';
+import { KiiMiscService } from '../../_services/kii-misc.service';
+import { Setting } from '../../_models/setting';
+import { IUser, User } from '../../_models/user';
+import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
+
 
 
 @Component({
@@ -18,12 +23,30 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   constructor(private bottomSheet: MatBottomSheet,
               @Inject(PLATFORM_ID) private platformId: any,
               private kiiPwa : KiiPwaService, private swPush : SwPush,
-              private kiiApiAuth: KiiApiAuthService) {super(kiiApiAuth, platformId)}
+              private kiiApiAuth: KiiApiAuthService,
+              private kiiMisc: KiiMiscService,
+              private kiiApiSetting: KiiApiSettingService) {super(kiiApiAuth, platformId)}
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
     //Subscribe to authUser
-      this.getAuthUserSubscription();
+    this.getLoggedInUserSubscription();
+
+    //Get all initial data
+    this.addSubscriber(
+      this.kiiMisc.loadInitialData().subscribe(res => {
+        this.kiiApiAuth.setLoggedInUser(new User(res.user));
+        let mySettings = [];
+        for (let setting of res.settings) {
+          mySettings.push(new Setting(setting));
+        }
+        this.kiiApiSetting.set(mySettings);
+        //TODO: Init articles
+      })
+    )
+
+
+
 
     //TODO: Only subscribe if you are admin or registered...
     this.kiiPwa.onPushNotificationSubscription();

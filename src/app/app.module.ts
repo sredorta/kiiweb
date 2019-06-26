@@ -92,6 +92,9 @@ import { KiiConfirmDialogComponent } from './_kiilib/_components/kii-confirm-dia
 import { KiiNiceDateFormatPipe } from './_kiilib/_pipes/kii-nice-date-format.pipe';
 import { KiiMobileFormatPipe } from './_kiilib/_pipes/kii-mobile-format.pipe';
 import { KiiProfileFormComponent } from './_kiilib/_components/_forms/kii-profile-form/kii-profile-form.component';
+import { KiiAdminMenuComponent } from './_kiilib/_components/_pages/kii-admin-menu/kii-admin-menu.component';
+import { KiiAdminSettingsComponent } from './_kiilib/_components/_pages/kii-admin-settings/kii-admin-settings.component';
+import { KiiAdminSettingsFormComponent } from './_kiilib/_components/_forms/kii-admin-settings-form/kii-admin-settings-form.component';
 
 
 @NgModule({
@@ -129,7 +132,10 @@ import { KiiProfileFormComponent } from './_kiilib/_components/_forms/kii-profil
     KiiConfirmDialogComponent,
     KiiNiceDateFormatPipe,
     KiiMobileFormatPipe,
-    KiiProfileFormComponent
+    KiiProfileFormComponent,
+    KiiAdminMenuComponent,
+    KiiAdminSettingsComponent,
+    KiiAdminSettingsFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
