@@ -1,0 +1,23 @@
+<kii-fill-side key="profile-side">
+    <div class="kii-profile-wrapper">
+      <mat-action-list>
+          <button mat-list-item (click)="onLogout()"><i class="fas fa-sign-out-alt"></i>{{'kiilib.profile.logout' | translate}}</button>
+          <button mat-list-item (click)="onDelete()"><i class="fas fa-user-slash"></i>{{'kiilib.profile.delete' | translate}}</button>
+        </mat-action-list>
+        </div>
+      <!--  <div *ngIf="user" class="wrapper-form">
+            <div class="wrapper-container">
+                <h1><i class="fas fa-id-card"></i>{{'kiilib.profile.details' | translate}}</h1>
+                <p class="creation-dates"><small><i class="fas fa-user-clock"></i>{{'kiilib.created' | translate}} : {{{date:user.createdAt,lang:currentLang} | kiiNiceDateFormat}}</small></p>
+                <p class="creation-dates"><small><i class="fas fa-history"></i>{{'kiilib.updated' | translate}} : {{{date:user.updatedAt,lang:currentLang} | kiiNiceDateFormat}}</small></p>         
+                <kii-profile-form [defaults]="user" (kiiOnSubmit)="onSubmit($event)"></kii-profile-form>
+                <div *ngIf="user.hasRoles()">
+                    <h1><i class="fas fa-user-lock"></i>{{'kiilib.profile.roles' | translate}}</h1>
+                    <mat-chip-list>
+                        <mat-chip *ngFor="let role of user.roles">{{role.name}}</mat-chip>
+                    </mat-chip-list>
+                </div>  
+            </div>
+        </div>
+    </div>-->
+</kii-fill-side>

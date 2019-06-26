@@ -9,6 +9,7 @@ import { KiiNotFoundComponent } from './_kiilib/_components/_pages/kii-not-found
 import { KiiEmailValidateComponent } from './_kiilib/_components/_pages/kii-email-validate/kii-email-validate.component';
 import { KiiResetPasswordComponent } from './_kiilib/_components/_pages/kii-reset-password/kii-reset-password.component';
 import { KiiLoginOauthComponent } from './_kiilib/_components/_pages/kii-login-oauth/kii-login-oauth.component';
+import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/kii-profile.component';
 
 export const routes: Routes = [
   {
@@ -46,7 +47,10 @@ export const routes: Routes = [
     component: KiiResetPasswordComponent,
     pathMatch: "full"
   },
-
+  {
+    path: 'profile',
+    component: KiiProfileComponent
+  },  
   {
     path: 'prices',
     component: PrixComponent,
