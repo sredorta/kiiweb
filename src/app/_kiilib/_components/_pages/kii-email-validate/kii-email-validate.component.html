@@ -1,0 +1,10 @@
+<div *ngIf="!isError && isCompleted" class="wrapper">
+    <i class="fas fa-check-circle success"></i>
+</div>
+<div *ngIf="isError && isCompleted" class="wrapper">
+  <i class="fas fa-times-circle error"></i>
+</div>
+<kii-spinner-overlay [show]="!isCompleted">
+<div *ngIf="!isCompleted" class="wrapper">
+</div>
+</kii-spinner-overlay>

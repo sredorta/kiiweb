@@ -5,6 +5,8 @@ import { KiiSidenavComponent } from './_kiilib/_components/kii-sidenav/kii-siden
 import { PrixComponent } from './pages/prix/prix.component';
 import { RealisationsComponent } from './pages/realisations/realisations.component';
 import { KiiLoginSignupComponent } from './_kiilib/_components/_pages/kii-login-signup/kii-login-signup.component';
+import { KiiNotFoundComponent } from './_kiilib/_components/_pages/kii-not-found/kii-not-found.component';
+import { KiiEmailValidateComponent } from './_kiilib/_components/_pages/kii-email-validate/kii-email-validate.component';
 
 export const routes: Routes = [
   {
@@ -34,6 +36,11 @@ export const routes: Routes = [
     pathMatch: "full"
   },  
   {
+    path: 'login/validate-email',
+    component: KiiEmailValidateComponent,
+    data: { skipRouteLocalization: true }
+  },
+  {
     path: 'prices',
     component: PrixComponent,
     pathMatch: 'full'
@@ -43,7 +50,8 @@ export const routes: Routes = [
     component: RealisationsComponent,
     pathMatch: 'full'
   }, 
-
+  {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
+  {path: '**', redirectTo: '/404', pathMatch: "full"}
 ];
 
 @NgModule({

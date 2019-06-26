@@ -29,10 +29,9 @@
     flex-direction: column;
     justify-content: stretch;
     align-items: stretch;
-    transform: translateX(100%);
-    -webkit-transform: translateX(100%);
-    animation: slide-in 1s forwards;
-    -webkit-animation: slide-in 1s forwards;
+    opacity:0;
+    animation: fade-in 1s forwards;
+    -webkit-animation: fade-in 1s forwards;
     kii-article.signup-side-editable-content {
         height: 100%;
     }
@@ -58,6 +57,6 @@ mat-expansion-panel {
     }
 }
 
-@keyframes slide-in {
-    100% { transform: translateX(0%); }
+@keyframes fade-in {
+    100% { opacity:1; }
 }

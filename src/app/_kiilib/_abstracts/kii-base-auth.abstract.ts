@@ -6,7 +6,7 @@ import { KiiApiAuthService } from '../_services/kii-api-auth.service';
 export abstract class KiiBaseAuthAbstract extends KiiBaseAbstract  {
 
   /**Contains current loggedin user */
-  protected loggedInUser : User = new User(null);
+  public loggedInUser : User = new User(null);
 
   protected _subscriptions : Subscription[] = new Array<Subscription>();        //Subscriptions array
 

@@ -1,0 +1,23 @@
+//MATERIAL THEME
+@import '~@angular/material/theming';
+
+
+// Defines the scrollbar style
+@mixin scrollbar-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background:map-get($theme,background);
+
+  ::-webkit-scrollbar {
+    //opacity: 0.5;
+    background-color:rgba(mat-color(map-get($theme, background),background),0.6);
+    width:5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      border-radius: 50vh;
+      background-color: rgba(mat-color(map-get($theme, foreground),text),0.6);
+  }
+}
