@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import { KiiServiceAbstract } from '../_abstracts/kii-service.abstract';
 import { Setting, ISetting} from '../_models/setting';
 import {map} from 'rxjs/operators';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,12 @@ export class KiiApiSettingService extends KiiServiceAbstract<Setting> {
   constructor(private http: HttpClient) { 
     super(http, "setting");
   }
-  
+
+  /**Update setting in database*/
+  public update(element:Setting) {
+      return this.http.post<Setting>(environment.apiURL + '/' + this.prefix + '/update', {setting: element}).pipe(map(res => new Setting(res)));
+  }   
+
   /**Gets value of desired setting by giving it's key */
   public getByKey(key:string) {
       if (!this._data) return new Setting(null);

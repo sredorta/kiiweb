@@ -10,6 +10,7 @@ import { KiiMiscService } from '../../_services/kii-misc.service';
 import { Setting } from '../../_models/setting';
 import { IUser, User } from '../../_models/user';
 import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
+import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 
 
 
@@ -25,16 +26,42 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               private kiiPwa : KiiPwaService, private swPush : SwPush,
               private kiiApiAuth: KiiApiAuthService,
               private kiiMisc: KiiMiscService,
-              private kiiApiSetting: KiiApiSettingService) {super(kiiApiAuth, platformId)}
+              private kiiApiSetting: KiiApiSettingService,
+              private kiiApiLang: KiiApiLanguageService) {super(kiiApiAuth, platformId)}
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
     //Subscribe to authUser
     this.getLoggedInUserSubscription();
+    this.loadInitialData();
+    //Get initial data when we change language
+    this.addSubscriber(
+      this.kiiApiLang.onChange().subscribe(res => {
+        this.loadInitialData();
+      })
+    )
 
+
+/*
+    //TODO: Only subscribe if you are admin or registered...
+    this.kiiPwa.onPushNotificationSubscription();
+
+    //TODO: Move this to kiiPwa and define actions and what to do with actions...
+    this.swPush.notificationClicks.subscribe( event => {
+      console.log('Received notification: ', event);
+      const url = event.notification.data.url;
+      window.open(url, '_blank');
+    });*/
+
+  }
+
+
+  loadInitialData() {
     //Get all initial data
     this.addSubscriber(
       this.kiiMisc.loadInitialData().subscribe(res => {
+        console.log("INTIAL DATA");
+        console.log(res);
         this.kiiApiAuth.setLoggedInUser(new User(res.user));
         let mySettings = [];
         for (let setting of res.settings) {
@@ -44,21 +71,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         //TODO: Init articles
       })
     )
-
-
-
-
-    //TODO: Only subscribe if you are admin or registered...
-    this.kiiPwa.onPushNotificationSubscription();
-
-    //TODO: Move this to kiiPwa and define actions and what to do with actions...
-    this.swPush.notificationClicks.subscribe( event => {
-      console.log('Received notification: ', event);
-      const url = event.notification.data.url;
-      window.open(url, '_blank');
-    });
-
   }
+
 
   //Each time a route is activated we come here
   onActivate(event : any) {

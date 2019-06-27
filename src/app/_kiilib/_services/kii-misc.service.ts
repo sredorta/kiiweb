@@ -25,7 +25,6 @@ export class KiiMiscService {
   constructor(private http: HttpClient) { }
   /**When we load the app we load everything in one single http call */
   public loadInitialData() {
-    console.log("LOADING INITIAL !!!!");
     return this.http.get<IInitialData>(environment.apiURL + '/initial');
 
   }

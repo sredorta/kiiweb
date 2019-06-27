@@ -11,7 +11,9 @@
             <small style="font-style: italic; margin-left:10px">© kubiiks 2019</small>
         </div>
         <div *ngIf="links.length>0" class="kii-footer-social-wrapper">
-                <a *ngFor="let social of links" [title]="social.name" [href]="social.link" mat-icon-button (click)="onClick(social.title)"> <i [ngClass]="social.icon"></i></a>
+            <ng-container *ngFor="let social of links">
+                <a *ngIf="social.link" [title]="social.name" [href]="social.link" mat-icon-button (click)="onClick(social.title)"> <i [ngClass]="social.icon"></i></a>
+            </ng-container>
         </div>
     </div> 
 </footer>

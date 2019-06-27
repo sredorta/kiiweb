@@ -4,23 +4,14 @@ export interface ISetting {
     key: string,
     type:string,
     value: string,
-    translations: ISettingTranslation[]
-  }
+}
 
-/**Setting translations */  
-export interface ISettingTranslation {
-    id:number;
-    settingId:number;
-    iso:string;
-    value:string;
-}  
 
 export class Setting {
     id:number = null;
     key:string = null;
     type:string = null;
     value:string = null;
-    translations: ISettingTranslation[] = [];
 
     private _isLoaded:boolean=false;    //Gives if user has been initialized or not
     constructor(obj:ISetting | null) {
@@ -33,9 +24,6 @@ export class Setting {
         } else {
             this.value = "";
         }
-        /*console.log("CREATED SETTING --------------------");
-        console.log(this);
-        console.log("------------------------------------");*/
     }
 
     /**Returns if setting has been initialized or not */

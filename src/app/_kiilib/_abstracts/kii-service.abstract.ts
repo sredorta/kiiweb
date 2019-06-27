@@ -13,9 +13,7 @@ export abstract class KiiServiceAbstract<T extends Resource>  {
     protected _changes$ : BehaviorSubject<Array<T>> = new BehaviorSubject<Array<T>>([]);
     protected _data:  Array<T> = null;
 
-    constructor(private _http: HttpClient, private _prefix:string) { 
-        console.log("Prefix is : " + this._prefix);
-    }
+    constructor(private _http: HttpClient, private _prefix:string) { }
 
     /**When we reload the articles because of lang change... */
     public onChange() {
@@ -49,9 +47,9 @@ export abstract class KiiServiceAbstract<T extends Resource>  {
     }*/
 
     /**Update article in database*/
-/*    public update(article:Article) {
-        return this.http.post<Article>(environment.apiURL + '/article/update', {article:article}).pipe(map(res => new Article(res)));
-    }    */
+ /*   public update(element:T) {
+        return this._http.post<T>(environment.apiURL + '/' + this._prefix + '/update', {element}).pipe(map(res => new T(res)));
+    }   */ 
 
 
 

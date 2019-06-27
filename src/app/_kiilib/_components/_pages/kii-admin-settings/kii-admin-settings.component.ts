@@ -17,6 +17,9 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
   /**Contains settings for current lang */
   settings : Setting[];
 
+  /**Shows spinner when loading */
+  loading :boolean = false;
+
   constructor(private kiiApiSetting: KiiApiSettingService) { super() }
 
   ngOnInit() {
@@ -96,6 +99,17 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
 
   /**Saves the setting update */
   save(value:any, key:string) {
-    console.log("SAVING !",value,key);
+    this.loading = true;
+    let mySetting = this.kiiApiSetting.getByKey(key);
+    mySetting.value = value.result;
+    console.log(mySetting);
+
+    this.addSubscriber(
+      this.kiiApiSetting.update(mySetting).subscribe(res => {
+         this.kiiApiSetting.refresh(res);
+         this.loading = false;
+      }, () => this.loading = false)
+    )
+
   }
 }
