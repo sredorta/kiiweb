@@ -6,8 +6,8 @@
 </div>
 <div *ngIf="isEditing" class="kii-editor-wrapper">
   <kii-spinner-overlay [show]="isLoading">
-    <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}"></angular-editor>
-    <div class="button-wrapper"> 
+    <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}" [config]="editorConfig"></angular-editor>
+    <div class="button-wrapper admin-theme"> 
         <div class="background-action"> 
         <button  mat-icon-button type="button" color="primary" (click)="fileInput.click()"><i class="fas fa-image"></i></button>
         <button  mat-icon-button type="button" color="primary" (click)="onRemoveBackgroundImage()"><i class="fas fa-trash"></i></button>

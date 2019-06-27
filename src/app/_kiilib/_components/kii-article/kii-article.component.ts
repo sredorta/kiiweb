@@ -43,7 +43,15 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**When we are saving */
   isLoading : boolean = false;
 
-
+  /**Initial editor Config */
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '250px',
+    minHeight: '200px',
+    placeholder: 'Text ...',
+    translate: 'no',
+    uploadUrl: '/upload/editor/content'};
 
   /**Div where the editable content is placed */
   @ViewChild('container',{static:false}) div:ElementRef;
@@ -90,6 +98,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
       this.storage = "blog";
       this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("blog");
     }  
+    this.editorConfig.uploadUrl = '/upload/editor/' + this.storage;
   }
 
   /**When we enter in edit mode */
@@ -97,15 +106,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
     this.isEditing = !this.isEditing;
     if (this.isEditing == true) {
       setTimeout( () => {
-        this.editor.config = {
-            editable: true,
-            spellcheck: true,
-            height: '250px',
-            minHeight: '200px',
-            placeholder: 'Text ...',
-            translate: 'no',
-            uploadUrl: '/upload/editor/' + this.storage //Server endpoint for image uploading
-          };
           this.editor.textArea.nativeElement.innerHTML = this.article.content;
           this.editor.registerOnChange( () => {
             this.div.nativeElement.innerHTML = this.editor.textArea.nativeElement.innerHTML;
