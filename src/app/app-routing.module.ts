@@ -12,6 +12,7 @@ import { KiiLoginOauthComponent } from './_kiilib/_components/_pages/kii-login-o
 import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/kii-profile.component';
 import { KiiAdminMenuComponent } from './_kiilib/_components/_pages/kii-admin-menu/kii-admin-menu.component';
 import { KiiAdminSettingsComponent } from './_kiilib/_components/_pages/kii-admin-settings/kii-admin-settings.component';
+import { KiiAdminUsersComponent } from './_kiilib/_components/_pages/kii-admin-users/kii-admin-users.component';
 
 export const routes: Routes = [
   {
@@ -73,9 +74,13 @@ export const routes: Routes = [
     path: 'admin-settings',
     component: KiiAdminSettingsComponent,
   },  
-/*
+  {
+    path: 'admin-users',
+    component: KiiAdminUsersComponent,
+  },  
+
   {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  {path: '**', redirectTo: '/404', pathMatch: "full"}*/
+  {path: '**', redirectTo: '/404', pathMatch: "full"}
 ];
 
 @NgModule({

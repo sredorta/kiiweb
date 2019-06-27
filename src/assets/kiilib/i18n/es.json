@@ -188,6 +188,7 @@
     "kiilib.notfound.subtitle"          : "La pagina que buscas no existe",
 
     "kiilib.users.admin.rolescheckbox"  : "Modificar los roles para este usuario",
+    "kiilib.users.admin.isvalidated"    : "Cuenta de correo electronico validada",
 
     "kiilib.article.ispublic"           : "Articulo publicado", 
     "kiilib.article.isnotpublic"        : "Articulo privado",              

@@ -195,6 +195,8 @@
     "kiilib.notfound.subtitle"          : "The requested page doesn't exist",
 
     "kiilib.users.admin.rolescheckbox"  : "Modify the roles for this user",
+    "kiilib.users.admin.isvalidated"    : "Validated email account",
+
 
     "kiilib.article.ispublic"           : "Public article",  
     "kiilib.article.isnotpublic"        : "Private article",              

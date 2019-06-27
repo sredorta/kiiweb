@@ -34,8 +34,6 @@ export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiSetting.onChange().subscribe(res => {
         this.setLinks();
-        console.log(this.links)
-
       })
     )    
   }

@@ -9,6 +9,7 @@ export interface IUser {
     mobile:string;
     terms:boolean;
     language:string;
+    isEmailValidated:boolean;
     createdAt:string;
     updatedAt:string;
     roles?:Role[];
@@ -22,6 +23,7 @@ export class User {
     phone:string = null;
     mobile:string = null;
     language:string = null;
+    isEmailValidated:boolean = null;
     terms:boolean = null;
     createdAt:string = null;
     updatedAt:string = null;

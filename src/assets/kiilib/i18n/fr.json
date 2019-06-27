@@ -187,6 +187,8 @@
     "kiilib.notfound.subtitle"          : "Cette page n'existe pas",
 
     "kiilib.users.admin.rolescheckbox"  : "Modifier les roles pour cet utilizateur",
+    "kiilib.users.admin.isvalidated"    : "Compte de courriel validé",
+
 
     "kiilib.article.ispublic"           : "Article publié", 
     "kiilib.article.isnotpublic"        : "Article privée",              
