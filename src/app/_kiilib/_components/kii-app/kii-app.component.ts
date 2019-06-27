@@ -11,6 +11,9 @@ import { Setting } from '../../_models/setting';
 import { IUser, User } from '../../_models/user';
 import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
+import { Meta, Title } from '@angular/platform-browser';
+import { Article } from '../../_models/article';
+import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 
 
 
@@ -27,7 +30,10 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               private kiiApiAuth: KiiApiAuthService,
               private kiiMisc: KiiMiscService,
               private kiiApiSetting: KiiApiSettingService,
-              private kiiApiLang: KiiApiLanguageService) {super(kiiApiAuth, platformId)}
+              private kiiApiLang: KiiApiLanguageService,
+              private kiiApiArticle: KiiApiArticleService,
+              private title : Title,
+              private meta: Meta) {super(kiiApiAuth, platformId)}
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
@@ -68,11 +74,33 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           mySettings.push(new Setting(setting));
         }
         this.kiiApiSetting.set(mySettings);
-        //TODO: Init articles
+        let myArticles = [];
+        for (let article of res.articles) {
+          myArticles.push(new Article(article));
+        }
+        this.kiiApiArticle.set(myArticles);
+        this.seo();
       })
     )
   }
 
+/**Apply all seo related stuff */
+seo() {
+  if (isPlatformBrowser(this.platformId)) {
+    document.documentElement.lang = this.kiiApiLang.get()
+  }
+  this.title.setTitle(this.kiiApiSetting.getByKey('title').value);
+  this.meta.updateTag({ name: 'description', content: this.kiiApiSetting.getByKey('description').value });
+  this.meta.updateTag({name:"robots", content:"index, follow"});
+  this.meta.updateTag({ property: 'og:title', content: this.kiiApiSetting.getByKey('title').value });
+  this.meta.updateTag({ property: 'og:description', content: this.kiiApiSetting.getByKey('description').value });
+  this.meta.updateTag({ property: 'og:url', content: this.kiiApiSetting.getByKey('url').value });
+  this.meta.updateTag({ property: 'og:image', content: this.kiiApiSetting.getByKey('url_image').value });
+  this.meta.updateTag({ property: 'og:site_name', content: this.kiiApiSetting.getByKey('sitename').value });
+  //TODO:: Add locale
+  //this._meta.updateTag({ property: 'og:locale', content: this._kiiApiSettings.getField('sitename') });
+
+}
 
   //Each time a route is activated we come here
   onActivate(event : any) {

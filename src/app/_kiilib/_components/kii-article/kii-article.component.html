@@ -1,0 +1,7 @@
+<div class="kii-content-wrapper" [ngClass]="{'is-flex' : isFlex, 'is-v-start' : vAlign=='start', 'is-v-center' : vAlign=='center', 'is-v-end' : vAlign=='end'}" [ngStyle]="{'background-image': article.getBackgroundImageUrl()}">
+  <div #container class="kii-content"></div>
+</div>
+<div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
+    <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
+</div>
+
