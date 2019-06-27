@@ -15,10 +15,17 @@ export class KiiApiArticleService extends KiiServiceAbstract<Article> {
     super(http, "article");
   }
 
+  /**Uploads article image to server */
+  public uploadImage(url:string,data:FormData) {
+    return this.http.post<any>(url, data);
+  }
+
   /**Update article in database*/
   public update(element:Article) {
       return this.http.post<Article>(environment.apiURL + '/' + this.prefix + '/update', {article: element}).pipe(map(res => new Article(res)));
   }   
+
+
 
   /**Gets article by key or id */
   public getByIdOrKey(key_or_id:number|string) {
