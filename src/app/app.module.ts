@@ -46,6 +46,9 @@ import {MatAutocompleteModule,
   MatDialogRef,
   MatBottomSheetRef} from '@angular/material';
 
+//EDITOR
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -152,6 +155,7 @@ import { KiiArticleComponent } from './_kiilib/_components/kii-article/kii-artic
     TranslateModule.forChild(), //Translations
     LocalizeRouterModule.forChild(routes),
     RouterModule.forChild(routes),
+    AngularEditorModule,
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,

@@ -1,0 +1,61 @@
+@import '~@angular/material/theming';
+
+// mixin name will be used in main style.scss
+@mixin article-theme($theme) {
+  
+  // retrieve variables from theme 
+  // (all possible variables, use only what you really need)
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background:map-get($theme,background);
+  $is-dark-theme: map-get($theme, is-dark);
+
+
+
+    kii-article {
+        .formatting {   
+            a {
+                font-weight: bold;
+                text-decoration: none;
+            }
+            a:link {
+                color: mat-color($primary);
+            }
+            a:hover {
+                color: mat-color($primary,lighter);
+            }
+            a:active {
+                color: mat-color($accent);
+            }
+            a:visited {
+                color: mat-color($primary,darker);
+            }
+            font-size:18px;
+            img {
+                max-width:100% !important;
+                object-fit: contain;
+            }
+                  
+            //TODO: Add all possible data h1-h6, text...    
+            @media only screen and (max-width: 900px) {
+                font-size: 95%;
+            }
+            @media only screen and (max-width: 700px) {
+                font-size: 90%;
+            }
+            @media only screen and (max-width: 500px) {
+                font-size: 85%;
+            }
+        }
+        .kii-content-wrapper {
+            @extend .formatting;
+        }
+        angular-editor  .angular-editor-textarea {
+            @extend .formatting; 
+        }
+
+    } 
+
+}

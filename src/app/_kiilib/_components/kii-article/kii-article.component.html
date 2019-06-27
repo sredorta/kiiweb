@@ -4,4 +4,19 @@
 <div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
     <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
 </div>
+<div *ngIf="isEditing" class="kii-editor-wrapper">
+    <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}"></angular-editor>
+    <div class="button-wrapper"> 
+        <div class="background-action"> 
+        <button  mat-icon-button type="button" color="primary" (click)="fileInput.click()"><i class="fas fa-image"></i></button>
+        <button  mat-icon-button type="button" color="primary" (click)="onRemoveBackgroundImage()"><i class="fas fa-trash"></i></button>
+        </div>
+        <div class="button-action">   
+            <button  mat-button type="button" color="primary" (click)="onCancel()"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
+            <button  mat-flat-button type="button" color="primary" (click)="onSave()"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
+        </div>
+    </div> 
+    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+    
+</div>
 

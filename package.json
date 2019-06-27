@@ -38,6 +38,7 @@
     "@angular/pwa": "^0.800.3",
     "@angular/router": "^8.0.2",
     "@angular/service-worker": "^8.0.2",
+    "@kolkov/angular-editor": "^0.14.7",
     "@ng-toolkit/universal": "^7.1.2",
     "@nguniversal/common": "0.0.0",
     "@nguniversal/express-engine": "0.0.0",

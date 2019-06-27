@@ -48,3 +48,39 @@
     display:block;
     border:2px solid blue;
 }
+
+//Editing part
+.button-wrapper {
+    padding:10px;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    .button-action {
+        i {
+            margin-right:10px;
+            font-size: 18px;
+        }
+    }
+    button {
+        margin:5px;
+    }
+}
+
+angular-editor {
+    width:100%;
+}
+
+::ng-deep angular-editor .angular-editor-textarea {
+    min-height: 150px !important;
+    padding:10px !important;
+    -webkit-nbsp-mode: space;  //Important to avoid line breaks on the kii-content side
+    box-sizing: border-box;
+    width:100%;
+    background-repeat: no-repeat; //In case background image
+    background-position: 100% 100%;
+    background-size: cover;
+}
+
+::ng-deep angular-editor.is-initial .angular-editor-textarea {
+    opacity:0.5;
+}
