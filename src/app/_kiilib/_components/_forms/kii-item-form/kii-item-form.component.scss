@@ -1,0 +1,20 @@
+.field-wrapper {
+    display:flex;
+    align-items: center;
+    button {
+        margin-left:10px;
+        i {
+            font-size: 18px;
+        }
+    }
+}
+.field-wrapper.is-editor {
+    display:block;
+}
+
+//Do not show cancel button on very small screens
+@media only screen and (max-width: 400px) {
+    .cancel-button {
+        display:none;
+    }
+}

@@ -30,8 +30,6 @@ export abstract class KiiBaseAuthAbstract extends KiiBaseAbstract  {
   protected getLoggedInUserSubscription() {
     this.addSubscriber(
         this._kiiApiAuth.getLoggedInUser().subscribe(res => {
-            console.log("AuthUser : ");
-            console.log(res);
           this.loggedInUser = res;
         })
       );    

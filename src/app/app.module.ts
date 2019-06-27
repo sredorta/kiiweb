@@ -94,7 +94,7 @@ import { KiiMobileFormatPipe } from './_kiilib/_pipes/kii-mobile-format.pipe';
 import { KiiProfileFormComponent } from './_kiilib/_components/_forms/kii-profile-form/kii-profile-form.component';
 import { KiiAdminMenuComponent } from './_kiilib/_components/_pages/kii-admin-menu/kii-admin-menu.component';
 import { KiiAdminSettingsComponent } from './_kiilib/_components/_pages/kii-admin-settings/kii-admin-settings.component';
-import { KiiAdminSettingsFormComponent } from './_kiilib/_components/_forms/kii-admin-settings-form/kii-admin-settings-form.component';
+import { KiiItemFormComponent } from './_kiilib/_components/_forms/kii-item-form/kii-item-form.component';
 
 
 @NgModule({
@@ -135,7 +135,7 @@ import { KiiAdminSettingsFormComponent } from './_kiilib/_components/_forms/kii-
     KiiProfileFormComponent,
     KiiAdminMenuComponent,
     KiiAdminSettingsComponent,
-    KiiAdminSettingsFormComponent
+    KiiItemFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

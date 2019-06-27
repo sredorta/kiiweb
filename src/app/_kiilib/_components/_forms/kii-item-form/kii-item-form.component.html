@@ -1,0 +1,32 @@
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+
+      <ng-container [ngSwitch]="type">   
+        <div *ngSwitchCase="'input'" class="field-wrapper">      
+          <mat-form-field  appearance="standard" style="width:100%">
+              <mat-label>{{label | translate}}</mat-label>
+              <input matInput formControlName="result" type="text" placeholder="{{placeholder | translate}}" spellcheck="true" [kiiInputDefaultValue]="value">
+              <mat-icon matPrefix class="icon"><i [ngClass]="icon"></i></mat-icon>
+              <mat-hint>{{hint | translate}}</mat-hint>
+              <mat-error kiiInputError="result"></mat-error>    
+          </mat-form-field>
+          <button *ngIf="hasCancelSave" mat-icon-button type="submit" color="primary"><i class="fas fa-save"></i></button>
+          <button *ngIf="hasCancelSave" class="cancel-button" mat-icon-button type="reset" color="primary"><i class="fas fa-undo"></i></button>
+        </div>
+        <div *ngSwitchCase="'textarea'" class="field-wrapper">      
+          <mat-form-field  appearance="standard" style="width:100%">
+              <mat-label>{{label | translate}}</mat-label>
+              <textarea matInput formControlName="result" type="text" placeholder="{{placeholder | translate}}" spellcheck="true" [kiiInputDefaultValue]="value"></textarea>
+              <mat-icon matPrefix class="icon"><i [ngClass]="icon"></i></mat-icon>
+              <mat-hint>{{hint | translate}}</mat-hint>
+              <mat-error kiiInputError="result"></mat-error>    
+          </mat-form-field>
+          <button *ngIf="hasCancelSave" mat-icon-button type="submit" color="primary"><i class="fas fa-save"></i></button>
+          <button *ngIf="hasCancelSave" class="cancel-button" mat-icon-button type="reset" color="primary"><i class="fas fa-undo"></i></button>
+        </div>
+    <!--    <div *ngSwitchCase="'editor'" class="field-wrapper is-editor"> 
+          <kii-editor [value]="values[lang]" [hasCancelSave]="hasCancelSave" [storage]="storage" [background]="background" (onContentChange)="onEditorContentChange(lang,$event)" (onBackgroundChange)="onEditorBackgroundChange($event)" (onSubmit)="onEditorSubmit($event)"></kii-editor>
+        </div>-->
+      </ng-container>  
+    </form>
+</kii-spinner-overlay>  

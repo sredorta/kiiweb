@@ -66,18 +66,16 @@ export const routes: Routes = [
 
   /*Admin part*/
   {
-    path: 'admin/menu',
+    path: 'admin-menu',
     component: KiiAdminMenuComponent,
-    data: { skipRouteLocalization: true }
   },  
   {
-    path: 'admin/settings',
+    path: 'admin-settings',
     component: KiiAdminSettingsComponent,
-    data: { skipRouteLocalization: true }
   },  
-
+/*
   {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  {path: '**', redirectTo: '/404', pathMatch: "full"}
+  {path: '**', redirectTo: '/404', pathMatch: "full"}*/
 ];
 
 @NgModule({
