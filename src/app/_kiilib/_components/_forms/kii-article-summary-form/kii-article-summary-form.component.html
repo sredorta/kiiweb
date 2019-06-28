@@ -1,0 +1,24 @@
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+      <mat-form-field [appearance]="kiiInputAppearance">
+          <mat-label>{{'kiilib.input.title.label' | translate }}</mat-label>
+          <input matInput formControlName="title" placeholder="{{'kiilib.input.title.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="article.title">
+          <mat-icon matPrefix class="icon"><i class="fas fa-heading"></i></mat-icon>
+          <mat-hint>{{'kiilib.input.title.hint' | translate }}</mat-hint>
+          <mat-error kiiInputError="title"></mat-error>    
+      </mat-form-field>
+      <mat-form-field [appearance]="kiiInputAppearance">
+          <mat-label>{{'kiilib.input.description.label' | translate}}</mat-label>
+          <textarea matInput formControlName="description" placeholder="{{'kiilib.input.description.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="article.description"></textarea>
+          <mat-icon matPrefix class="icon"><i class="fas fa-paragraph"></i></mat-icon>
+          <mat-hint>{{'kiilib.input.description.hint' | translate}}</mat-hint>
+          <mat-error kiiInputError="description"></mat-error>    
+      </mat-form-field>  
+      <kii-image-upload [storage]="storage" [image]="article.image" (onUpload)="onUpload($event)"></kii-image-upload>
+
+      <div class="kii-button-wrapper">
+            <button  mat-button color="primary" type="reset" (click)="onCancel()"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
+            <button  mat-raised-button  color="primary" type="button" (click)="onSave()"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
+      </div>
+    </form>
+</kii-spinner-overlay>

@@ -1,0 +1,14 @@
+//Editing part
+.kii-button-wrapper {
+    padding:10px;
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+    i {
+        margin-right:10px;
+        font-size: 18px;
+    }
+    button {
+        margin:5px;
+    }
+}

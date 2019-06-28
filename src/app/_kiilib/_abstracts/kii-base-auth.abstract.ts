@@ -13,7 +13,7 @@ export abstract class KiiBaseAuthAbstract extends KiiBaseAbstract  {
   protected _subscriptions : Subscription[] = new Array<Subscription>();        //Subscriptions array
 
 
-  constructor(private _kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private _platformId: any,) {super()}
+  constructor(private _kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private _platformId: any) {super()}
 
   /**Add subscription to get LoggedInUser */
 /*  protected getAuthUserSubscription() {

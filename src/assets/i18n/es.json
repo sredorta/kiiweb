@@ -13,6 +13,7 @@
     "ROUTES.clients"   : "clientes",
     "ROUTES.prices"    : "precios",
     "ROUTES.blog"      : "blog",
+    "ROUTES.articles"   : "articulo",
     "ROUTES.contact"   : "contactanos",
     "ROUTES.404"       : "pagina-no-encontrada",
     "ROUTES.login"     : "conneccion",

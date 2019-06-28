@@ -13,6 +13,9 @@ import { KiiProfileComponent } from './_kiilib/_components/_pages/kii-profile/ki
 import { KiiAdminMenuComponent } from './_kiilib/_components/_pages/kii-admin-menu/kii-admin-menu.component';
 import { KiiAdminSettingsComponent } from './_kiilib/_components/_pages/kii-admin-settings/kii-admin-settings.component';
 import { KiiAdminUsersComponent } from './_kiilib/_components/_pages/kii-admin-users/kii-admin-users.component';
+import { KiiAdminArticlesComponent } from './_kiilib/_components/_pages/kii-admin-articles/kii-admin-articles.component';
+import { KiiBlogComponent } from './_kiilib/_components/_pages/kii-blog/kii-blog.component';
+import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-article-detail/kii-article-detail.component';
 
 export const routes: Routes = [
   {
@@ -64,7 +67,15 @@ export const routes: Routes = [
     component: RealisationsComponent,
     pathMatch: 'full'
   }, 
-
+  {
+    path: 'blog',
+    component: KiiBlogComponent,
+    pathMatch: 'full'
+  }, 
+  {
+    path: 'articles/:id',
+    component: KiiArticleDetailComponent
+  },   
   /*Admin part*/
   {
     path: 'admin-menu',
@@ -78,9 +89,13 @@ export const routes: Routes = [
     path: 'admin-users',
     component: KiiAdminUsersComponent,
   },  
+  {
+    path: 'admin-content',
+    component: KiiAdminArticlesComponent,
+  }, 
 
-  {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  {path: '**', redirectTo: '/404', pathMatch: "full"}
+ /* {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
+  {path: '**', redirectTo: '/404', pathMatch: "full"}*/
 ];
 
 @NgModule({

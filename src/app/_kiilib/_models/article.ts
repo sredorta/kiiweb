@@ -61,12 +61,17 @@ export class Article {
         return <IArticle>JSON.parse(JSON.stringify(this));
     }
 
-    /**Returns article image */
-    public getImageUrl() {
+    /**REturns article image */
+    public getImage() {
         if (this.image) {
-            return 'url(' + this.image + ')';
+            return this.image;
         } else
             return './assets/kiilib/images/no-photo-available.jpg';
+    }
+
+    /**Returns article image url*/
+    public getImageUrl() {
+        return 'url(' + this.getImage() + ')';
     }
 
     /**Returns article background image */

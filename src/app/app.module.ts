@@ -100,6 +100,12 @@ import { KiiAdminSettingsComponent } from './_kiilib/_components/_pages/kii-admi
 import { KiiItemFormComponent } from './_kiilib/_components/_forms/kii-item-form/kii-item-form.component';
 import { KiiAdminUsersComponent } from './_kiilib/_components/_pages/kii-admin-users/kii-admin-users.component';
 import { KiiArticleComponent } from './_kiilib/_components/kii-article/kii-article.component';
+import { KiiArticleSummaryComponent } from './_kiilib/_components/kii-article-summary/kii-article-summary.component';
+import { KiiAdminArticlesComponent } from './_kiilib/_components/_pages/kii-admin-articles/kii-admin-articles.component';
+import { KiiBlogComponent } from './_kiilib/_components/_pages/kii-blog/kii-blog.component';
+import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-article-detail/kii-article-detail.component';
+import { KiiArticleSummaryFormComponent } from './_kiilib/_components/_forms/kii-article-summary-form/kii-article-summary-form.component';
+import { KiiImageUploadComponent } from './_kiilib/_components/kii-image-upload/kii-image-upload.component';
 
 
 @NgModule({
@@ -142,7 +148,13 @@ import { KiiArticleComponent } from './_kiilib/_components/kii-article/kii-artic
     KiiAdminSettingsComponent,
     KiiItemFormComponent,
     KiiAdminUsersComponent,
-    KiiArticleComponent
+    KiiArticleComponent,
+    KiiArticleSummaryComponent,
+    KiiAdminArticlesComponent,
+    KiiBlogComponent,
+    KiiArticleDetailComponent,
+    KiiArticleSummaryFormComponent,
+    KiiImageUploadComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

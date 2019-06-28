@@ -17,6 +17,8 @@ export class KiiApiArticleService extends KiiServiceAbstract<Article> {
 
   /**Uploads article image to server */
   public uploadImage(url:string,data:FormData) {
+    console.log(data);
+    console.log(url);
     return this.http.post<any>(url, data);
   }
 

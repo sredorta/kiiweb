@@ -167,7 +167,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
     this.article.content = this.editor.textArea.nativeElement.innerHTML;
     this.addSubscriber(
       this.kiiApiArticle.update(this.article).subscribe(res => {
-        console.log("Result: ", res);
+        this.kiiApiArticle.refresh(this.article);
         this.isLoading = false;
       }, ()=> this.isLoading = false)
     )

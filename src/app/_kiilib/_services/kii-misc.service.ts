@@ -33,4 +33,11 @@ export class KiiMiscService {
   public contact(value:any) {
     return this.http.post<any>(environment.apiURL + '/contact/email', value);
   }
+
+
+  /**Uploads article image to server */
+  public uploadImage(url:string,data:FormData) {
+    return this.http.post<any>(url, data);
+  }
+    
 }

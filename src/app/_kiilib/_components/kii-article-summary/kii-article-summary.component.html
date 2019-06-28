@@ -1,0 +1,24 @@
+<!--View part-->
+  <div *ngIf="hasRouterLink" class="kii-article-summary-container" [routerLink]="'/articles/' + article.id |localize" mat-ripple>
+    <img class="kii-article-summary-image" [src]="article.getImage()" alt="test">
+    <div class="kii-article-summary-text">
+      <h1>{{article.title}}</h1>
+      <h2>{{article.description}}</h2>
+    </div>
+  </div>
+  <div *ngIf="!hasRouterLink" class="kii-article-summary-container">
+      <img class="kii-article-summary-image" [src]="article.getImage()" alt="test">
+      <div class="kii-article-summary-text">
+        <h1>{{article.title}}</h1>
+        <h2>{{article.description}}</h2>
+      </div>
+  </div>
+<div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
+    <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
+</div>
+<!--Editing part-->
+<div *ngIf="isEditing" class="admin-theme kii-article-summary-edit-wrapper">
+    <kii-article-summary-form [article]="article" [storage]="storage" (kiiOnSubmit)="save($event)"></kii-article-summary-form>
+ </div>
+
+

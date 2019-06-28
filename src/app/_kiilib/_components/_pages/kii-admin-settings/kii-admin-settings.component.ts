@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, ValidatorFn } from '@angular/forms';
-import { Setting } from 'src/app/_kiilib/_models/setting';
-import { KiiApiSettingService } from 'src/app/_kiilib/_services/kii-api-setting.service';
-import { KiiApiLanguageService } from 'src/app/_kiilib/_services/kii-api-language.service';
-import { KiiBaseAbstract } from 'src/app/_kiilib/_abstracts/kii-base.abstract';
+import { Setting } from '../../../_models/setting';
+import { KiiApiSettingService } from '../../../_services/kii-api-setting.service';
+import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
+import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 
 @Component({
   selector: 'app-kii-admin-settings',

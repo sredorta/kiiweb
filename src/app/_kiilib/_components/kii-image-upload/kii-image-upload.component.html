@@ -1,0 +1,18 @@
+<canvas class="shadow" #shadowCanvas></canvas>
+<div class="kii-image-upload-wrapper-all">
+  <kii-spinner-overlay [show]="isLoading">
+  <div class="kii-image-upload-wrapper">
+        <input  class="shadow" type="file" #fileInput (change)="loadImage($event)">  
+        <div class="kii-image-upload-image-wrapper">
+          <img  alt="picture" #realImg class="kii-image-upload-view" [src]="base64" crossOrigin="anonymous">
+        </div>
+        <div class="kii-image-upload-icons">
+          <button mat-icon-button type="button" (click)="fileInput.click()"><i class="fas fa-camera"></i></button>
+          <button mat-icon-button type="button" (click)="removeImage()" [disabled]="!isUploadable"><i class="fas fa-trash"></i></button>
+          <button mat-icon-button type="button" (click)="rotateImage()" [disabled]="!isUploadable"><mat-icon>rotate_right</mat-icon></button>
+        </div>
+  </div>
+  <button mat-flat-button type="button" color="primary" [disabled]="!isUploadable" style="width:140px" (click)="upload()"><i class="fas fa-upload"></i></button>
+  </kii-spinner-overlay>
+</div>
+

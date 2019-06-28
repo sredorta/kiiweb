@@ -1,0 +1,23 @@
+
+.kii-edit-wrapper {
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    position: relative;
+    top:-50px;
+    left:0;
+    background: transparent;
+    box-sizing: border-box;
+    height:0px;
+    button {
+        margin:10px;
+    }
+}
+
+
+
+//TODO:Remove me !!!
+.kii-article-summary-container {
+    border:1px solid;
+    margin:5px;
+}
