@@ -33,30 +33,16 @@ export class KiiArticleSummaryFormComponent extends KiiFormAbstract implements O
         Validators.minLength(5)
       ])),
       image : new FormControl('', Validators.compose([
-        Validators.required
       ]))
     });
     this.myForm.controls["image"].patchValue(this.article.image);
   }
 
-  /**When we cancel */
-  onCancel() {
-    //this.myForm.reset();
-  }
-
+  /**Patch the value of image once we recieve onUpload */
   onUpload(url:string) {
-    console.log("onUpload !!!!");
-    console.log(url);
     this.myForm.controls["image"].setValue(url);
   }
 
-  /**When we submit */
-  onSave() {
-    if (this.myForm.valid) {
-      console.log("EMITTING : ", this.myForm.value);
-      this.kiiOnSubmit.emit(this.myForm.value);
-    }
-  }
 
 
 

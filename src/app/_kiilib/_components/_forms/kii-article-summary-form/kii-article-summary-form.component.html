@@ -17,8 +17,8 @@
       <kii-image-upload [storage]="storage" [image]="article.image" (onUpload)="onUpload($event)"></kii-image-upload>
 
       <div class="kii-button-wrapper">
-            <button  mat-button color="primary" type="reset" (click)="onCancel()"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
-            <button  mat-raised-button  color="primary" type="button" (click)="onSave()"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
+            <button  mat-button color="primary" type="reset"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
+            <button  mat-raised-button  color="primary" type="submit"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
       </div>
     </form>
 </kii-spinner-overlay>

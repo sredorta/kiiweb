@@ -91,8 +91,10 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
   /**When we remove the image */
   removeImage() {
-    this.base64 = this.image;
+    this.base64 = './assets/kiilib/images/no-photo-available.jpg';
     this.isUploadable = false;
+    this.onUpload.emit(null);
+
   }
 
 
