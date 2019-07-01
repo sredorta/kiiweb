@@ -21,21 +21,19 @@
     justify-content: center;
     align-items: center;
     p {
-        transition:all 0.4s ease-in-out;
         margin-top:3px;
-        opacity:0;
     }
 }
 
-.button-wrapper:hover {
-    p {
-        opacity:1;
-    }
-}
 
 button {
     width:200px;
     height:200px;
+    opacity:0.8;
+    transition: all 0.2s ease-in-out;
+}
+button:hover {
+    opacity:1;
 }
 button i {
     font-size:120px;

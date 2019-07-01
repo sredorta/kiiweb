@@ -106,6 +106,10 @@ import { KiiBlogComponent } from './_kiilib/_components/_pages/kii-blog/kii-blog
 import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-article-detail/kii-article-detail.component';
 import { KiiArticleSummaryFormComponent } from './_kiilib/_components/_forms/kii-article-summary-form/kii-article-summary-form.component';
 import { KiiImageUploadComponent } from './_kiilib/_components/kii-image-upload/kii-image-upload.component';
+import { KiiAdminEmailsComponent } from './_kiilib/_components/_pages/kii-admin-emails/kii-admin-emails.component';
+import { KiiEmailNewFormComponent } from './_kiilib/_components/_forms/kii-email-new-form/kii-email-new-form.component';
+import { KiiEmailPreviewComponent } from './_kiilib/_components/kii-email-preview/kii-email-preview.component';
+import { KiiClickStopPropagationDirective } from './_kiilib/_directives/kii-click-stop-propagation.directive';
 
 
 @NgModule({
@@ -154,7 +158,11 @@ import { KiiImageUploadComponent } from './_kiilib/_components/kii-image-upload/
     KiiBlogComponent,
     KiiArticleDetailComponent,
     KiiArticleSummaryFormComponent,
-    KiiImageUploadComponent
+    KiiImageUploadComponent,
+    KiiAdminEmailsComponent,
+    KiiEmailNewFormComponent,
+    KiiEmailPreviewComponent,
+    KiiClickStopPropagationDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

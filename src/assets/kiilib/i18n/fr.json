@@ -189,6 +189,11 @@
     "kiilib.users.admin.rolescheckbox"  : "Modifier les roles pour cet utilizateur",
     "kiilib.users.admin.isvalidated"    : "Compte de courriel validé",
 
+    "kiilib.admin.menu.settings"                  : "Configuration",
+    "kiilib.admin.menu.users"                     : "Utilizateurs",
+    "kiilib.admin.menu.content"                   : "Contenu",
+    "kiilib.admin.menu.emails"                    : "Courriels",
+    "kiilib.admin.menu.stats"                     : "Audience",
 
     "kiilib.article.ispublic"           : "Article publié", 
     "kiilib.article.isnotpublic"        : "Article privée",              

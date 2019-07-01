@@ -1,0 +1,100 @@
+.wrapper {
+    padding:10px;
+    min-height: 80vh;
+    //min-width: 470px; //Exception as it contains emails
+}
+
+//Add part
+mat-panel-title {
+    font-size: 20px;
+    i {
+        font-size: 26px;
+        margin-right:10px;
+    }
+}
+
+.title {
+    margin-top:0px;
+    margin-bottom:2px;
+}
+.description {
+    opacity:0.6;
+    margin-bottom:3px;
+}
+
+//Table part
+.table-wrapper {
+    min-height: 80vh;
+    padding:10px;
+}
+.table {
+    width:100%;
+}
+tr.detail-row {
+    height:0;
+}
+tr.element-row:not(.expanded-row):hover {
+    cursor:pointer;
+}
+.element-row td {
+    border-bottom-width:0;
+}
+.element-detail {
+    overflow: hidden;
+    display: flex;
+}
+.element-detail-wrapper {
+    width:100%;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.mat-column-id {
+    width:60px;
+    min-width:60px;
+    max-width:60px;
+}
+.mat-column-isProtected {
+    width:60px;
+    min-width:60px;
+    max-width:60px;
+}
+@media only screen and (max-width: 900px) {
+    .mat-column-createdAt {
+        display:none;
+    }
+    .mat-column-updatedAt {
+        display:none;
+    }    
+}
+@media only screen and (max-width: 500px) {
+    .mat-column-isProtected {
+        display: none;
+    }
+}
+
+/*Show better reference*/
+.is-reference {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 10%;
+}
+
+
+//detail part
+.button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin:5px;
+    i {
+        margin-right:10px;
+    }
+}
+
+//Create part
+.create-button {
+    margin:10px;
+    i {
+        margin-right:10px;
+    }
+}

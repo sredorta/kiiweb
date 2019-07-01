@@ -16,6 +16,7 @@ import { KiiAdminUsersComponent } from './_kiilib/_components/_pages/kii-admin-u
 import { KiiAdminArticlesComponent } from './_kiilib/_components/_pages/kii-admin-articles/kii-admin-articles.component';
 import { KiiBlogComponent } from './_kiilib/_components/_pages/kii-blog/kii-blog.component';
 import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-article-detail/kii-article-detail.component';
+import { KiiAdminEmailsComponent } from './_kiilib/_components/_pages/kii-admin-emails/kii-admin-emails.component';
 
 export const routes: Routes = [
   {
@@ -93,9 +94,12 @@ export const routes: Routes = [
     path: 'admin-content',
     component: KiiAdminArticlesComponent,
   }, 
-
- /* {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  {path: '**', redirectTo: '/404', pathMatch: "full"}*/
+  {
+    path: 'admin-emails',
+    component: KiiAdminEmailsComponent,
+  }, 
+  {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
+  {path: '**', redirectTo: '/404', pathMatch: "full"}
 ];
 
 @NgModule({

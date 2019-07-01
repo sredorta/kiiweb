@@ -33,6 +33,7 @@ export abstract class KiiServiceAbstract<T extends Resource>  {
 
     /**Loads all elements from http call*/
     public load() {
+        console.log("URL : " + environment.apiURL + '/' + this._prefix + '/all');
         return this._http.get<T[]>(environment.apiURL + '/' + this._prefix + '/all')
     }   
 

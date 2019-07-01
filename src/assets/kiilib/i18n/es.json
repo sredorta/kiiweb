@@ -131,7 +131,6 @@
     "kiilib.input.email.description.hint"         : "Description del modelo de email",
 
 
-
     "kiilib.tooltip.password"           : "El password debe tener una minuscula, una mayuscula e un numero ",
     "kiilib.error.default"              : "Campo incorrecto",
     "kiilib.error.required"             : "Campo obligatorio",
@@ -189,6 +188,12 @@
 
     "kiilib.users.admin.rolescheckbox"  : "Modificar los roles para este usuario",
     "kiilib.users.admin.isvalidated"    : "Cuenta de correo electronico validada",
+
+    "kiilib.admin.menu.settings"                  : "Configuracion",
+    "kiilib.admin.menu.users"                     : "Usuarios",
+    "kiilib.admin.menu.content"                   : "Contenido",
+    "kiilib.admin.menu.emails"                    : "Correos electronicos",
+    "kiilib.admin.menu.stats"                     : "Audiencia",
 
     "kiilib.article.ispublic"           : "Articulo publicado", 
     "kiilib.article.isnotpublic"        : "Articulo privado",              

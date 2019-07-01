@@ -132,13 +132,6 @@
     "kiilib.input.email.description.hint"         : "Description of the email model",
 
 
-
-
-    
-    
-
-
-
     "kiilib.tooltip.password"           : "Password must have one lower case, one upper case and one number",
     "kiilib.error.default"              : "Incorrect field",
     "kiilib.error.required"             : "Required field",
@@ -196,7 +189,12 @@
 
     "kiilib.users.admin.rolescheckbox"  : "Modify the roles for this user",
     "kiilib.users.admin.isvalidated"    : "Validated email account",
-
+    
+    "kiilib.admin.menu.settings"                  : "Configuration",
+    "kiilib.admin.menu.users"                     : "Users",
+    "kiilib.admin.menu.content"                   : "Content",
+    "kiilib.admin.menu.emails"                    : "Emails",
+    "kiilib.admin.menu.stats"                     : "Audience",
 
     "kiilib.article.ispublic"           : "Public article",  
     "kiilib.article.isnotpublic"        : "Private article",              
