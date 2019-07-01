@@ -50,7 +50,7 @@ export class KiiMiscService {
           const progress = Math.round(100 * event.loaded / event.total);
           return { status: 'progress', message: progress };
         case HttpEventType.Response:
-          return { status: 'completed', message:0};
+          return { status: 'completed', message:event.body};
         default:
           return {status: 'unhandled',message:event.type};
         

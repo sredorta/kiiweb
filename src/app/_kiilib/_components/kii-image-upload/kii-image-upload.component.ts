@@ -46,6 +46,11 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   /**Upload progress */
   progress:number = 0;
 
+  /**When we upload svg file */
+  isSVG : boolean =false;
+
+  /**Contains svg blob */
+  svgBlob : Blob = new Blob();
 
   /**Shadow canvas for image manipulation */
   @ViewChild('shadowCanvas', {static:false}) shadowCanvasElem : ElementRef; //Shadow canvas for manipulation
@@ -53,15 +58,22 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   constructor(private kiiApiMisc: KiiMiscService) { super() }
 
   ngOnInit() {
+    if (this.image.includes(".svg")) {
+      this.isSVG = true;
+    }
     this.base64 = this.image; //Initial input image isbeing displayed
   }
 
   loadImage(event:any) {
-    console.log(event.target.files[0])
+    console.log(event.target.files[0]);
+    if (event.target.files[0].name.includes(".svg")) {
+      this.isSVG = true;
+    }
     const reader = new FileReader();
     if(event.target.files && event.target.files.length) {
       const [file] = event.target.files;
       reader.readAsDataURL(file);
+      this.svgBlob = file;
       reader.onloadend = () => {
         this.imageToCanvas(reader.result.toString());
         this.fileName = event.target.files[0].name;
@@ -189,27 +201,35 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
 
   upload() {
-    fetch(this.base64).then(res => res.blob()).then(blob => {
-      const imageFile = new File([blob], this.fileName, { type: 'image/jpeg' });
-      const formData = new FormData();
-      formData.append('file',blob,this.fileName);
-      //Now upload
-      this.isLoading = true;
-      this.addSubscriber(
-        this.kiiApiMisc.uploadImage('/upload/editor/' + this.storage,formData).subscribe(res => {
-          if (res.status == "progress") {
-            this.progress = res.message;
-            console.log(res);
-          } 
-          if (res.status == "completed") {
-            this.isUploaded = true;
-            this.isLoading = false;
-            setTimeout(() => this.progress = 0,200);
-          }
-        }, () => this.isLoading = false)
-      )
+    if (!this.isSVG)
+      fetch(this.base64).then(res => res.blob()).then(blob => {
+        this.uploadFile(blob);
+      })
+    else  
+      this.uploadFile(this.svgBlob);  
+  }
 
-    })
-
+  uploadFile(blob:Blob) {
+    const imageFile = new File([blob], this.fileName, { type: 'image/jpeg' });
+    const formData = new FormData();
+    formData.append('file',blob,this.fileName);
+    //Now upload
+    this.isLoading = true;
+    this.addSubscriber(
+      this.kiiApiMisc.uploadImage('/upload/editor/' + this.storage,formData).subscribe(res => {
+        if (res.status == "progress") {
+          this.progress = res.message;
+          console.log(res);
+        } 
+        if (res.status == "completed") {
+          console.log(res);
+          console.log("EMITTING : " + res.message.imageUrl);
+          this.onUpload.emit(res.message.imageUrl);
+          this.isUploaded = true;
+          this.isLoading = false;
+          setTimeout(() => this.progress = 0,200);
+        }
+      }, () => this.isLoading = false)
+    )
   }
 }
