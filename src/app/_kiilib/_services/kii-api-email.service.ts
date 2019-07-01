@@ -21,9 +21,9 @@ export class KiiApiEmailService extends KiiServiceAbstract<Email> {
   }  
 
   /**Update article in database*/
-  /*public update(element:Article) {
-    return this.http.post<Article>(environment.apiURL + '/' + this.prefix + '/update', {article: element}).pipe(map(res => new Article(res)));
-  } */
+  public update(element:Email) {
+    return this.http.post<Email>(environment.apiURL + '/' + this.prefix + '/update', {email: element}).pipe(map(res => new Email(res)));
+  } 
   
   /**Gets the HTML content of the email */
   public preview(data:Email) {

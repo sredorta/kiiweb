@@ -58,10 +58,17 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   constructor(private kiiApiMisc: KiiMiscService) { super() }
 
   ngOnInit() {
-    if (this.image.includes(".svg")) {
-      this.isSVG = true;
+    if (this.image)
+      if (this.image.includes(".svg")) {
+        this.isSVG = true;
+      }
+    if (!this.image)
+      this.base64 = "./assets/kiilib/images/no-photo-available.jpg";
+    else {  
+      if (this.image == "none")
+        this.base64 = "./assets/kiilib/images/no-photo-available.jpg";
+      this.base64 = this.image; //Initial input image isbeing displayed
     }
-    this.base64 = this.image; //Initial input image isbeing displayed
   }
 
   loadImage(event:any) {

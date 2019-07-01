@@ -39,9 +39,7 @@ export class KiiEmailPreviewComponent extends KiiBaseAbstract implements OnInit 
   /**Loads current preview */
   loadPreview() {
     this.isPreviewLoading = true;
-    console.log(this.email);
     let subscription =  this.kiiApiEmail.preview(this.email).subscribe(html => {
-      console.log(html);
         this.container.nativeElement.innerHTML = html;
         this.isPreviewLoading = false;
       }, () => {

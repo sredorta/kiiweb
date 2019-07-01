@@ -14,3 +14,11 @@
 h2 {
     border-bottom:1px solid;
 }
+
+.preview-button {
+    margin-top:20px;
+}
+//Setup editor with default colors
+::ng-deep angular-editor .angular-editor-textarea {
+    background:white !important;
+}

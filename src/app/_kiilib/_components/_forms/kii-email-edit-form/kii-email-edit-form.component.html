@@ -1,8 +1,14 @@
+<div class="preview">
+    <div class="preview-button">
+      <button  mat-flat-button type="button" color="primary" (click)="onSendEmailTest()"><i class="fas fa-paper-plane"></i>{{'kiilib.test' | translate}}</button>
+    </div>
+    <kii-email-preview [email]="previewEmail"></kii-email-preview>
+</div> 
 <kii-spinner-overlay [show]="isFormLoading">
   <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
       <h2>{{'kiilib.email.config.logo' | translate}}</h2>
       <kii-image-upload size="100" [image]="email.logo" (onUpload)="onLogoUpload($event)"></kii-image-upload>
-      <h2>{{'kiilib.email.config.header' | translate}}</h2>
+      <h2>{{'kiilib.email.config.colors' | translate}}</h2>
       <div class="colors-part">
           <mat-form-field>
               <input matInput formControlName="headerColor" [required]="true" type="color" [kiiInputDefaultValue]="email.headerColor">
@@ -44,6 +50,12 @@
           <mat-hint>{{'kiilib.input.email.subtitle.hint' | translate}}</mat-hint>
           <mat-error kiiInputError="subtitle"></mat-error>            
       </mat-form-field>
+      <h2>{{'kiilib.email.config.header' | translate}}</h2>
+      <angular-editor id="editorHeader" formControlName="header" [ngClass]="{'is-initial' : isInitial}" [config]="editorConfig" [ngStyle]="{'color': previewEmail.textColor}" [kiiInputDefaultValue]="email.header"></angular-editor>
+      <kii-image-upload size="600" [crop]="false" [image]="email.backgroundHeader" (onUpload)="onBackgroundHeader($event)"></kii-image-upload>
+      <h2>{{'kiilib.email.config.content' | translate}}</h2>
+      <angular-editor id="editorContent" formControlName="content" [ngClass]="{'is-initial' : isInitial}" [config]="editorConfig" [ngStyle]="{'color': previewEmail.textColor}" [kiiInputDefaultValue]="email.content"></angular-editor>
+      <kii-image-upload size="600" [crop]="false" [image]="email.backgroundContent" (onUpload)="onBackgroundContent($event)"></kii-image-upload>
 
       <div class="control-wrapper">
           <button mat-button type="reset" color="primary"><span><i class="fas fa-undo"></i></span>{{'kiilib.cancel' | translate}}</button>
@@ -51,11 +63,5 @@
       </div>
   </form>
 </kii-spinner-overlay>
-<div class="preview">
-    <div class="preview-button">
-      <button  mat-raised-button type="button" color="primary" (click)="onSendEmailTest()"><i class="fas fa-paper-plane"></i>{{'kiilib.test' | translate}}</button>
-      <button  mat-raised-button type="button" color="primary" (click)="onPreviewRefresh()"><i class="fas fa-sync"></i>{{'kiilib.refresh' | translate}}</button>
-    </div>
-    <kii-email-preview [email]="previewEmail"></kii-email-preview>
-</div> 
+
 

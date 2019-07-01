@@ -145,9 +145,21 @@ export class KiiAdminEmailsComponent extends KiiTableAbstract implements OnInit 
     )
   }
 
-  onSave(value:any) {
+  onSave(email:Email,value:any) {
     console.log("onSave : ", value);
-    
+    let myNewEmail = JSON.parse(JSON.stringify(email));
+    Object.keys(value).forEach((key) => {
+      myNewEmail[key] = value[key];
+    })
+    console.log(email,myNewEmail);
+    this.isDataLoading = true;
+    this.addSubscriber(
+      this.kiiApiEmail.update(myNewEmail).subscribe(res => {
+        console.log("Result is : " , res);
+        this.isDataLoading = false;
+      }, () => this.isDataLoading = false)
+    )
+
   }
 
 }

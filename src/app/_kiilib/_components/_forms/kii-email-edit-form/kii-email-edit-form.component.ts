@@ -14,11 +14,31 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
 
   previewEmail : Email = new Email(null);
 
+  /**Initial editor Config */
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '250px',
+    minHeight: '200px',
+    placeholder: 'Text ...',
+    translate: 'no',
+    uploadUrl: '/upload/editor/emails'};
+
   constructor() { super() }
 
   ngOnInit() {
+    console.log("Initial email",this.email);
     this.previewEmail = JSON.parse(JSON.stringify(this.email));
     this.createForm();
+
+    Object.keys(this.myForm.controls).forEach( (key) => {
+      this.addSubscriber(
+        this.myForm.controls[key].valueChanges.subscribe(res => {
+          this.refreshPreview();
+        })
+      )
+    })
+
   }
 
   createForm() {
@@ -50,7 +70,15 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
       subtitle: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(2)
-      ])),         
+      ])),      
+      header: new FormControl('', Validators.compose([
+      ])),  
+      backgroundHeader: new FormControl('', Validators.compose([
+      ])),        
+      content: new FormControl('', Validators.compose([
+      ])),      
+      backgroundContent: new FormControl('', Validators.compose([
+      ])),           
       logo: new FormControl('', Validators.compose([
       ])),
     });  
@@ -61,14 +89,23 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
     this.myForm.controls["logo"].patchValue(image);
   }
 
-  /**When we want to see the preview */
-  onPreviewRefresh() {
+  /**When we change the backgroundHeader */
+  onBackgroundHeader(image:string) {
+    this.myForm.controls["backgroundHeader"].patchValue(image);
+  }
+
+  /**When we change the backgroundHeader */
+  onBackgroundContent(image:string) {
+    this.myForm.controls["backgroundContent"].patchValue(image);
+  }
+
+  /**Refreshes the preview*/
+  refreshPreview() {
     let result = JSON.parse(JSON.stringify(this.email));
     Object.keys(this.myForm.controls).forEach( (key) => {
       result[key] = this.myForm.controls[key].value;
     });
     this.previewEmail = result;
-
   }
 
 }
