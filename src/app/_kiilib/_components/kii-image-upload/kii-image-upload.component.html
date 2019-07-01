@@ -1,9 +1,10 @@
 <canvas class="shadow" #shadowCanvas></canvas>
 <div class="kii-image-upload-wrapper-all">
-  <kii-spinner-overlay [show]="isLoading">
+  <mat-progress-bar mode="determinate" [value]="progress" [ngClass]="{'is-visible' : isLoading}"></mat-progress-bar>
+
   <div class="kii-image-upload-wrapper">
         <input  class="shadow" type="file" #fileInput (change)="loadImage($event)">  
-        <div class="kii-image-upload-image-wrapper">
+        <div class="kii-image-upload-image-wrapper" [ngClass]="{'is-uploaded' : isUploaded}">
           <img  alt="picture" #realImg class="kii-image-upload-view" [src]="base64" crossOrigin="anonymous">
         </div>
         <div class="kii-image-upload-icons">
@@ -12,7 +13,6 @@
           <button mat-icon-button type="button" (click)="rotateImage()" [disabled]="!isUploadable"><mat-icon>rotate_right</mat-icon></button>
         </div>
   </div>
-  <button mat-flat-button type="button" color="primary" [disabled]="!isUploadable" style="width:140px" (click)="upload()"><i class="fas fa-upload"></i></button>
-  </kii-spinner-overlay>
+  <button mat-flat-button type="button" color="primary" [disabled]="!isUploadable || isLoading" style="width:140px" (click)="upload()"><i class="fas fa-upload"></i></button>
 </div>
 

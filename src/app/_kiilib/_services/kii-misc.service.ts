@@ -5,10 +5,12 @@ import { MatBottomSheet } from '@angular/material';
 import { KiiBottomSheetSoftwareUpdateComponent } from '../_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { isPlatformBrowser } from '@angular/common';
 import { SwUpdate } from '@angular/service-worker';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
 import { Setting } from '../_models/setting';
 import { IUser } from '../_models/user';
+import {map} from 'rxjs/operators';
+
 
 export interface IInitialData  {
   settings: Setting[],
@@ -37,7 +39,24 @@ export class KiiMiscService {
 
   /**Uploads article image to server */
   public uploadImage(url:string,data:FormData) {
-    return this.http.post<any>(url, data);
+    return this.http.post<any>(url, data, {
+      reportProgress: true,
+      observe: 'events'
+    }).pipe(map((event) => {
+
+      switch (event.type) {
+
+        case HttpEventType.UploadProgress:
+          const progress = Math.round(100 * event.loaded / event.total);
+          return { status: 'progress', message: progress };
+        case HttpEventType.Response:
+          return { status: 'completed', message:0};
+        default:
+          return {status: 'unhandled',message:event.type};
+        
+      }
+    })
+    );
   }
     
 }

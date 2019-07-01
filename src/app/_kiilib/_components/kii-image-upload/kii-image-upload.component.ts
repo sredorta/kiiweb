@@ -34,11 +34,18 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   /**Defines if image has been selected and can be uploaded */
   isUploadable : boolean = false;
 
+  /**Defines if the image has been uploaded or not */
+  isUploaded : boolean = true;
+
   /**Contains original file name loaded */
   fileName : string = "";
 
   /**Show spinner when loading */
   isLoading:boolean = false;
+
+  /**Upload progress */
+  progress:number = 0;
+
 
   /**Shadow canvas for image manipulation */
   @ViewChild('shadowCanvas', {static:false}) shadowCanvasElem : ElementRef; //Shadow canvas for manipulation
@@ -59,6 +66,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
         this.imageToCanvas(reader.result.toString());
         this.fileName = event.target.files[0].name;
         this.isUploadable = true;
+        this.isUploaded = false;
       };
     }
   }
@@ -83,9 +91,9 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     let myImage = new Image();
     myImage.src = this.base64;
     myImage.onload = function () {
-      //obj.realImgElem.nativeElement.src = myImage.src;
       let result = obj._rotateImage(myImage,obj.shadowCanvasElem);
       obj.base64 = result;
+      obj.isUploaded = false;
     };
   }  
 
@@ -94,6 +102,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     this.base64 = './assets/kiilib/images/no-photo-available.jpg';
     this.isUploadable = false;
     this.onUpload.emit(null);
+    this.isUploaded = false;
 
   }
 
@@ -188,8 +197,15 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
       this.isLoading = true;
       this.addSubscriber(
         this.kiiApiMisc.uploadImage('/upload/editor/' + this.storage,formData).subscribe(res => {
-          this.onUpload.emit(res.imageUrl);
-          this.isLoading = false;
+          if (res.status == "progress") {
+            this.progress = res.message;
+            console.log(res);
+          } 
+          if (res.status == "completed") {
+            this.isUploaded = true;
+            this.isLoading = false;
+            setTimeout(() => this.progress = 0,200);
+          }
         }, () => this.isLoading = false)
       )
 
