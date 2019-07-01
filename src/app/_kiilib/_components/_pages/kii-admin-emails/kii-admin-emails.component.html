@@ -53,8 +53,8 @@
                                           <button  mat-raised-button  color="primary" (click)="onEditEmail()"><i class="fas fa-edit"></i>{{'kiilib.edit' | translate}}</button>                        
                                       </div>
                                       <kii-email-preview *ngIf="!isEditing" [email]="element"></kii-email-preview>
-                                      <!--<kii-email-config *ngIf="isEditing" [email]="element"></kii-email-config>
-                                      -->
+                                      <kii-email-edit-form *ngIf="isEditing" [email]="element" (kiiOnSubmit)="onSave($event)"></kii-email-edit-form>
+                                      <!--<kii-email-config *ngIf="isEditing" [email]="element"></kii-email-config>-->
                                   </div>  
                                 </div>
                             </div>

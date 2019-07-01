@@ -1,9 +1,11 @@
 .wrapper {
     //position:relative;
     border:1px solid red;
-
 }
 .container {
-
-
+    transform:scale(0.4);
+    transform-origin: left top;
+    margin-right:-150%;
+    margin-bottom:-380px;
+    border:1px solid blue;
 }

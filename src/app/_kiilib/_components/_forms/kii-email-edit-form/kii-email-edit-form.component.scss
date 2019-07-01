@@ -1,0 +1,16 @@
+.colors-part {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    mat-form-field {
+        margin-left:30px;
+        margin-right:30px;
+        max-width:150px;
+    }
+}
+
+h2 {
+    border-bottom:1px solid;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, QueryList, ElementRef, ViewChild, HostListener, SimpleChanges } from '@angular/core';
 import { Email } from '../../_models/email';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiEmailService } from '../../_services/kii-api-email.service';
@@ -16,14 +16,24 @@ export class KiiEmailPreviewComponent extends KiiBaseAbstract implements OnInit 
   /**Shows preview spinner if preview is loading */
   isPreviewLoading : boolean = false;
   
-  /**Contains the preview of the email */
-  //@ViewChildren('preview') preview : QueryList<ElementRef>;
+  /**Contains the wrapper of the email */
+  @ViewChild('wrapper',{static:false}) wrapper : ElementRef;
+
+  /**Contains the preview of the email  scaled*/
   @ViewChild('container',{static:false}) container : ElementRef;
 
   constructor(private kiiApiEmail: KiiApiEmailService) { super() }
 
   ngOnInit() {
     this.loadPreview();
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if (changes.email)
+      if (changes.email.currentValue != undefined) {
+          this.email = changes.email.currentValue;
+          this.loadPreview();
+      }
   }
 
   /**Loads current preview */

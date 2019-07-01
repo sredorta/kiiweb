@@ -110,6 +110,7 @@ import { KiiAdminEmailsComponent } from './_kiilib/_components/_pages/kii-admin-
 import { KiiEmailNewFormComponent } from './_kiilib/_components/_forms/kii-email-new-form/kii-email-new-form.component';
 import { KiiEmailPreviewComponent } from './_kiilib/_components/kii-email-preview/kii-email-preview.component';
 import { KiiClickStopPropagationDirective } from './_kiilib/_directives/kii-click-stop-propagation.directive';
+import { KiiEmailEditFormComponent } from './_kiilib/_components/_forms/kii-email-edit-form/kii-email-edit-form.component';
 
 
 @NgModule({
@@ -162,7 +163,8 @@ import { KiiClickStopPropagationDirective } from './_kiilib/_directives/kii-clic
     KiiAdminEmailsComponent,
     KiiEmailNewFormComponent,
     KiiEmailPreviewComponent,
-    KiiClickStopPropagationDirective
+    KiiClickStopPropagationDirective,
+    KiiEmailEditFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

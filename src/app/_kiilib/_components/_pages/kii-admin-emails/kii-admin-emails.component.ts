@@ -145,4 +145,9 @@ export class KiiAdminEmailsComponent extends KiiTableAbstract implements OnInit 
     )
   }
 
+  onSave(value:any) {
+    console.log("onSave : ", value);
+    
+  }
+
 }
