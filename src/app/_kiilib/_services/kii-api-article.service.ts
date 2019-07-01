@@ -27,6 +27,10 @@ export class KiiApiArticleService extends KiiServiceAbstract<Article> {
       return this.http.post<Article>(environment.apiURL + '/' + this.prefix + '/update', {article: element}).pipe(map(res => new Article(res)));
   }   
 
+  /**Creates new article in database*/
+  public create(cathegory:string) {
+        return this.http.post<Article>(environment.apiURL  + '/' + this.prefix + '/create', {cathegory:cathegory}).pipe(map(res => new Article(res)));
+  }
 
 
   /**Gets article by key or id */

@@ -76,10 +76,11 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   ngAfterViewInit() {
     this.addSubscriber(
       this.kiiApiArticle.onChange().subscribe(res => {
-        console.log(res);
         this.article = this.kiiApiArticle.getByIdOrKey(this.key);
-        this.div.nativeElement.innerHTML= this.article.content;
-        this.backgroundImage = this.article.backgroundImage;
+        if (this.article) {
+          this.div.nativeElement.innerHTML= this.article.content;
+          this.backgroundImage = this.article.backgroundImage;
+        }
       })
     )
   }
@@ -167,7 +168,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
     this.article.content = this.editor.textArea.nativeElement.innerHTML;
     this.addSubscriber(
       this.kiiApiArticle.update(this.article).subscribe(res => {
-        this.kiiApiArticle.refresh(this.article);
+        //this.kiiApiArticle.refresh(this.article);
         this.isLoading = false;
       }, ()=> this.isLoading = false)
     )

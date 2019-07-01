@@ -78,7 +78,7 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     //TODO: Add image here !
     this.addSubscriber(
       this.kiiApiArticle.update(this.article).subscribe(res => {
-        this.kiiApiArticle.refresh(this.article);
+        //this.kiiApiArticle.refresh(this.article);
         this.form.isFormLoading = false;
       }, ()=> this.form.isFormLoading = false)
     )

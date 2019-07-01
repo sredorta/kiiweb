@@ -11,7 +11,7 @@ export class Role {
     constructor(obj: IRole | null) {
         if (obj) {
             Object.keys(this).forEach(key => {
-                if (obj[key]) 
+                if (obj[key] != undefined) 
                     this[key] = obj[key];
             });
         } 

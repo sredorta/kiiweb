@@ -32,7 +32,7 @@ export class Article {
     constructor(obj: IArticle | null) {
         if (obj) {
             Object.keys(this).forEach(key => {
-                if (obj[key]) 
+                if (obj[key] != undefined) 
                     this[key] = obj[key];
             });
             this._isLoaded = true;

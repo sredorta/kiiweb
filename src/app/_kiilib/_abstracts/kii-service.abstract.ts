@@ -41,6 +41,7 @@ export abstract class KiiServiceAbstract<T extends Resource>  {
         return this._http.post<any>(environment.apiURL + '/' + this._prefix + '/delete', {id:element.id});
     }
 
+
     /**Creates new element in database*/
 /*    public create(cathegory:string) {
         return this.http.post<Article>(environment.apiURL + '/article/create', {cathegory:cathegory}).pipe(map(res => new Article(res)));
@@ -50,10 +51,6 @@ export abstract class KiiServiceAbstract<T extends Resource>  {
  /*   public update(element:T) {
         return this._http.post<T>(environment.apiURL + '/' + this._prefix + '/update', {element}).pipe(map(res => new T(res)));
     }   */ 
-
-
-
-
 
     /**Removes element from memory and triggers onChange*/
     public splice(element:T) {
