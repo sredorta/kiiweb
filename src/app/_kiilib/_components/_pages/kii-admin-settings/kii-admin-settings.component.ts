@@ -102,7 +102,6 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
     this.loading = true;
     let mySetting = this.kiiApiSetting.getByKey(key);
     mySetting.value = value.result;
-    console.log(mySetting);
 
     this.addSubscriber(
       this.kiiApiSetting.update(mySetting).subscribe(res => {
@@ -110,6 +109,28 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
          this.loading = false;
       }, () => this.loading = false)
     )
-
   }
+
+  /**Gets the image from a key */
+  getImage(key:string) {
+    let mySetting = this.kiiApiSetting.getByKey(key);
+    //console.log("getImage", mySetting.value);
+    return mySetting.value;
+  }
+
+  /**Saves the image of a key */
+  saveImage(image:string, key:string) {
+    console.log("Saving image", image)
+    let mySetting = this.kiiApiSetting.getByKey(key);
+    mySetting.value = image;
+    this.loading = true;
+    this.addSubscriber(
+      this.kiiApiSetting.update(mySetting).subscribe(res => {
+         this.kiiApiSetting.refresh(res);
+         this.loading = false;
+      }, () => this.loading = false)
+    )
+  }
+
+
 }

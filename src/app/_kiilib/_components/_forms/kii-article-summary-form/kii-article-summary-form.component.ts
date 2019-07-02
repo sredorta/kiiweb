@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Article } from 'src/app/_kiilib/_models/article';
-import { KiiFormAbstract } from 'src/app/_kiilib/_abstracts/kii-form.abstract';
+import { Article } from '../../../_models/article';
+import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({

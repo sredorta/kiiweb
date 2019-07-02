@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KiiBlogAbstract } from '../../../_abstracts/kii-blog.abstract';
-import { KiiApiArticleService } from 'src/app/_kiilib/_services/kii-api-article.service';
+import { KiiApiArticleService } from '../../../_services/kii-api-article.service';
 
 @Component({
   selector: 'app-kii-blog',

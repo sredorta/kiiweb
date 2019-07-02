@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiMiscService } from '../../_services/kii-misc.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
@@ -20,7 +20,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   @Input() crop : boolean = true;
 
   /**Storage to be used for images : content (default), blog */
-  @Input() storage : "content" | "blog" | "email" = "content";
+  @Input() storage : "content" | "blog" | "email" | "defaults" = "content";
 
   /**Emit link to the uploaded file */
   @Output() onUpload = new EventEmitter<string>();
@@ -58,7 +58,12 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   constructor(private kiiApiMisc: KiiMiscService) { super() }
 
   ngOnInit() {
-    console.log("ngOnInit : ", this.image);
+    console.log("Using storage : ", this.storage);
+    this.setInitialImage();
+  }
+
+  /**Sets the initial image */
+  setInitialImage() {
     if (this.image)
       if (this.image.includes(".svg")) {
         this.isSVG = true;
@@ -71,9 +76,17 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
       else  
         this.base64 = this.image; //Initial input image isbeing displayed
     }
-    console.log(this.base64);
   }
 
+  /**When input image changes */
+  ngOnChanges(changes:SimpleChanges) {
+    if (changes.image) {
+      this.image = changes.image.currentValue;
+      this.setInitialImage();
+    }
+  }
+
+  /**Loads the image file */
   loadImage(event:any) {
     console.log(event.target.files[0]);
     if (event.target.files[0].name.includes(".svg")) {
