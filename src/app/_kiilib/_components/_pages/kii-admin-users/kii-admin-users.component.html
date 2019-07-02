@@ -2,7 +2,7 @@
 
     <kii-spinner-overlay [show]="isDataLoading">
       <div class="table-wrapper">
-        <mat-form-field appearance="standard" style="padding-top:10px;min-width:250px;max-width:400px">
+        <mat-form-field appearance="standard" style="padding-top:10px;min-width:250px;max-width:350px">
             <mat-label>{{'kiilib.search' | translate}}</mat-label>
             <input matInput  (keyup)="keyUp.next($event.target.value)" autocomplete="off">
             <i matSuffix class="fas fa-search"></i>

@@ -71,6 +71,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
         this.setCanEdit();
       })
     )
+    
   }
 
   ngAfterViewInit() {
@@ -128,8 +129,10 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
   /**When user clicks on remove current background image */
-  onRemoveBackgroundImage() {
-      this.clearBackground();
+  onUploadBackgroundImage(image:string) {
+    console.log(image);
+    this.article.backgroundImage = image;
+    this.setBackground();
   }
   /**Sets editor background image to the editor */
   setBackground() {
@@ -140,10 +143,10 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
   /**Removes editor background image */
-  clearBackground() {
+ /* clearBackground() {
     this.article.backgroundImage = "none";
     this.setBackground();
-  }
+  }*/
 
   /**When background is clicked to upload an image */
   onFileChanged(event : any) {

@@ -8,16 +8,12 @@
   <kii-spinner-overlay [show]="isLoading">
     <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}" [config]="editorConfig"></angular-editor>
     <div class="button-wrapper admin-theme"> 
-        <div class="background-action"> 
-        <button  mat-icon-button type="button" color="primary" (click)="fileInput.click()"><i class="fas fa-image"></i></button>
-        <button  mat-icon-button type="button" color="primary" (click)="onRemoveBackgroundImage()"><i class="fas fa-trash"></i></button>
-        </div>
+        <kii-image-upload [crop]="false" [maxSize]="900" [image]="article.backgroundImage" (onUpload)="onUploadBackgroundImage($event)"></kii-image-upload>
         <div class="button-action">   
             <button  mat-button type="button" color="primary" (click)="onCancel()"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
             <button  mat-flat-button type="button" color="primary" (click)="onSave()"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
         </div>
     </div> 
-    <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
   </kii-spinner-overlay>  
 </div>
 

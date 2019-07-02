@@ -58,6 +58,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   constructor(private kiiApiMisc: KiiMiscService) { super() }
 
   ngOnInit() {
+    console.log("ngOnInit : ", this.image);
     if (this.image)
       if (this.image.includes(".svg")) {
         this.isSVG = true;
@@ -67,8 +68,10 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     else {  
       if (this.image == "none")
         this.base64 = "./assets/kiilib/images/no-photo-available.jpg";
-      this.base64 = this.image; //Initial input image isbeing displayed
+      else  
+        this.base64 = this.image; //Initial input image isbeing displayed
     }
+    console.log(this.base64);
   }
 
   loadImage(event:any) {
@@ -120,7 +123,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   removeImage() {
     this.base64 = './assets/kiilib/images/no-photo-available.jpg';
     this.isUploadable = false;
-    this.onUpload.emit(null);
+    this.onUpload.emit("none");
     this.isUploaded = false;
 
   }

@@ -2,7 +2,7 @@
     <kii-spinner-overlay [show]="isDataLoading">
         <div class="wrapper">
               <div class="table-wrapper">
-                  <mat-form-field appearance="standard" style="padding-top:10px;min-width:250px">
+                  <mat-form-field appearance="standard" style="padding-top:10px;min-width:250px;max-width:350px">
                       <mat-label>{{'kiilib.search' | translate}}</mat-label>
                       <input matInput  (keyup)="keyUp.next($event.target.value)" autocomplete="off">
                       <i matSuffix class="fas fa-search"></i>
@@ -54,7 +54,6 @@
                                       </div>
                                       <kii-email-preview *ngIf="!isEditing" [email]="element"></kii-email-preview>
                                       <kii-email-edit-form *ngIf="isEditing" [email]="element" (kiiOnSubmit)="onSave(element,$event)"></kii-email-edit-form>
-                                      <!--<kii-email-config *ngIf="isEditing" [email]="element"></kii-email-config>-->
                                   </div>  
                                 </div>
                             </div>

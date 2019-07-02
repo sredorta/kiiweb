@@ -17,7 +17,22 @@ h2 {
 
 .preview-button {
     margin-top:20px;
+    i {
+        margin-right: 10px;
+        font-size: 20px;
+    }
 }
+
+.control-wrapper {
+    display:flex;
+    justify-content: flex-end;
+    i {
+        font-size: 16px;
+        margin-right: 10px;
+    }
+}
+
+
 //Setup editor with default colors
 ::ng-deep angular-editor .angular-editor-textarea {
     background:white !important;

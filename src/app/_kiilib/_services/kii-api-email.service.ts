@@ -30,4 +30,8 @@ export class KiiApiEmailService extends KiiServiceAbstract<Email> {
     return this.http.post<any>(environment.apiURL + '/email/preview',{email:data});
   }  
 
+  /**Sends email to myself for testing purposes*/
+  public sendToMe(email:Email) {
+    return this.http.post<any>(environment.apiURL + '/email/send-test', {email:email});
+  }  
 }

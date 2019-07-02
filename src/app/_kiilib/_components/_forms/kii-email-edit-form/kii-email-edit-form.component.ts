@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { KiiFormAbstract } from 'src/app/_kiilib/_abstracts/kii-form.abstract';
+import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Email } from 'src/app/_kiilib/_models/email';
+import { Email } from '../../../_models/email';
+import { KiiApiEmailService } from '../../../_services/kii-api-email.service';
 
 @Component({
   selector: 'kii-email-edit-form',
@@ -24,7 +25,7 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
     translate: 'no',
     uploadUrl: '/upload/editor/emails'};
 
-  constructor() { super() }
+  constructor(private kiiApiEmail: KiiApiEmailService) { super() }
 
   ngOnInit() {
     console.log("Initial email",this.email);
@@ -106,6 +107,16 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
       result[key] = this.myForm.controls[key].value;
     });
     this.previewEmail = result;
+  }
+
+  /**Sends email to current loggedin user for testing */
+  onSendEmailTest() {
+    this.addSubscriber(
+      this.kiiApiEmail.sendToMe(this.previewEmail).subscribe(res => {
+        console.log(res);
+      })
+    )
+
   }
 
 }
