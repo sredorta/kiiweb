@@ -61,10 +61,12 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
         if (!this.loggedInUser.hasRole('kubiiks')) {
           res = res.filter(obj => obj.cathegory != 'content');
         }
-        this.articles = res;
-        this.filterCathegories();
-        this.initTable(this.articles);
-        this.tableSettings();
+        if (res.length>0) {
+          this.articles = res;
+          this.filterCathegories();
+          this.initTable(this.articles);
+          this.tableSettings();
+        }
       })
     )
     //Update nice time format language when we change language

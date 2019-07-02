@@ -1,4 +1,6 @@
 <kii-spinner-overlay [show]="isLoading">
+    <kii-article class="contact-price-header" key="price-header"></kii-article>
+
     <div class="gap">
       <kii-article-summary class="prices-summary" *ngFor="let article of articles" [key]="article.id"></kii-article-summary>  
     </div>

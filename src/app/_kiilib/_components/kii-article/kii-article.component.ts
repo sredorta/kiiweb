@@ -43,6 +43,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**When we are saving */
   isLoading : boolean = false;
 
+
   /**Initial editor Config */
   editorConfig = {
     editable: true,
@@ -75,15 +76,17 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
   ngAfterViewInit() {
-    this.addSubscriber(
-      this.kiiApiArticle.onChange().subscribe(res => {
-        this.article = this.kiiApiArticle.getByIdOrKey(this.key);
-        if (this.article) {
-          this.div.nativeElement.innerHTML= this.article.content;
-          this.backgroundImage = this.article.backgroundImage;
-        }
-      })
-    )
+    setTimeout(()=> {
+      this.addSubscriber(
+        this.kiiApiArticle.onChange().subscribe(res => {
+            this.article = this.kiiApiArticle.getByIdOrKey(this.key);
+            if (this.article) {
+              this.div.nativeElement.innerHTML= this.article.content;
+              this.backgroundImage = this.article.backgroundImage;
+            }
+        })
+      )
+    });
   }
 
 
@@ -142,11 +145,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
       }
   }
 
-  /**Removes editor background image */
- /* clearBackground() {
-    this.article.backgroundImage = "none";
-    this.setBackground();
-  }*/
 
   /**When background is clicked to upload an image */
   onFileChanged(event : any) {

@@ -34,8 +34,10 @@
             }
             font-size:18px;
             img {
+                margin:auto auto;
+                display:block;
                 max-width:100% !important;
-                object-fit: contain;
+                object-fit:cover;
             }
                   
             //TODO: Add all possible data h1-h6, text...    
