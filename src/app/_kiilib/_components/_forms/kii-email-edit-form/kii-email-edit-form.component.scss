@@ -33,7 +33,13 @@ h2 {
 }
 
 
-//Setup editor with default colors
+
 ::ng-deep angular-editor .angular-editor-textarea {
-    background:white !important;
+    padding:10px !important;
+    -webkit-nbsp-mode: space;  //Important to avoid line breaks on the kii-content side
+    box-sizing: border-box;
+    width:100%;
+    background-repeat: no-repeat; //In case background image
+    background-position: 100% 100%;
+    background-size: cover;
 }

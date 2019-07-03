@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Renderer2, ViewChild } from '@angular/core';
 import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Email } from '../../../_models/email';
 import { KiiApiEmailService } from '../../../_services/kii-api-email.service';
+import { AngularEditorComponent } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'kii-email-edit-form',
@@ -24,8 +25,11 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
     placeholder: 'Text ...',
     translate: 'no',
     uploadUrl: '/upload/editor/emails'};
+    @ViewChild('editorHeader',{static:false}) editorHeader : AngularEditorComponent;
 
-  constructor(private kiiApiEmail: KiiApiEmailService) { super() }
+    @ViewChild('editorContent',{static:false}) editorContent : AngularEditorComponent;
+
+  constructor(private kiiApiEmail: KiiApiEmailService, private renderer: Renderer2) { super() }
 
   ngOnInit() {
     console.log("Initial email",this.email);
@@ -83,8 +87,30 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
       logo: new FormControl('', Validators.compose([
       ])),
     });  
-    this.myForm.controls["logo"].patchValue(this.email.logo)
+    this.myForm.controls["logo"].patchValue(this.email.logo);
+    this.myForm.controls["backgroundHeader"].patchValue(this.email.backgroundHeader);
+    this.myForm.controls["backgroundContent"].patchValue(this.email.backgroundContent);
+    this.addSubscriber(
+      this.myForm.controls["textColor"].valueChanges.subscribe(color => {
+        this.setColor(color);
+      })
+    )
   }
+
+  ngAfterViewInit() {
+    this.setColor(this.email.textColor);
+    this.setHeaderBackground(this.email.backgroundHeader);
+    this.setContentBackground(this.email.backgroundContent);
+  }
+
+  /**Sets color for textareas so that they match with email */
+  setColor(color:string) {
+    this.renderer.removeStyle(this.editorHeader.textArea.nativeElement, 'color');
+    this.renderer.setStyle(this.editorHeader.textArea.nativeElement, 'color', color,1);
+    this.renderer.removeStyle(this.editorContent.textArea.nativeElement, 'color');
+    this.renderer.setStyle(this.editorContent.textArea.nativeElement, 'color', color,1);
+  }
+
   /**When we upload a logo */
   onLogoUpload(image:string) {
     this.myForm.controls["logo"].patchValue(image);
@@ -93,11 +119,14 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
   /**When we change the backgroundHeader */
   onBackgroundHeader(image:string) {
     this.myForm.controls["backgroundHeader"].patchValue(image);
+    this.setHeaderBackground(this.email.backgroundHeader);
   }
 
   /**When we change the backgroundHeader */
   onBackgroundContent(image:string) {
     this.myForm.controls["backgroundContent"].patchValue(image);
+    this.setContentBackground(this.email.backgroundContent);
+
   }
 
   /**Refreshes the preview*/
@@ -116,7 +145,21 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
         console.log(res);
       })
     )
-
   }
 
+  /**Sets editor background image to the editor of the header */
+  setHeaderBackground(background:string) {
+    console.log("Setting background to ", background);
+      this.renderer.removeStyle(this.editorHeader.textArea.nativeElement, 'backgroundImage');
+        if (background.match("http")) {
+            this.renderer.setStyle(this.editorHeader.textArea.nativeElement, 'backgroundImage', 'url(' + background + ')',1);
+        }
+  }
+  /**Sets editor background image to the editor of the header */
+  setContentBackground(background:string) {
+    this.renderer.removeStyle(this.editorContent.textArea.nativeElement, 'backgroundImage');
+      if (background.match("http")) {
+          this.renderer.setStyle(this.editorContent.textArea.nativeElement, 'backgroundImage', 'url(' + background + ')',1);
+      }
+  }
 }
