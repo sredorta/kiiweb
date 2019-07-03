@@ -1,0 +1,70 @@
+@import '~@angular/material/theming';
+
+// mixin name will be used in main style.scss
+@mixin realisations-theme($theme) {
+  
+  // retrieve variables from theme 
+  // (all possible variables, use only what you really need)
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background:map-get($theme,background);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  app-realisations .gap {
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top:30px;
+      padding-bottom:30px;
+      padding-left:10px;
+      padding-right:10px;
+  }
+
+  app-realisations kii-article-summary .kii-article-summary-container {
+      display:block;
+      h1 {
+          font-size: 30px;
+      }
+      h2 {
+          display:none;
+      }
+      padding:20px;
+      @include style-paper-polaroid();
+  }
+  app-realisations kii-article-summary {
+    transition: all 0.35s;
+
+  }
+  app-realisations kii-article-summary:nth-child(even) {
+    filter: grayscale(80%);
+    transform: scale(0.8, 0.8) rotate(5deg);
+  }
+  app-realisations kii-article-summary:nth-child(odd) {
+    filter: grayscale(80%);
+    transform: scale(0.8, 0.8) rotate(-5deg);
+  }  
+  app-realisations kii-article-summary:hover {
+        filter: none;
+        transform: scale(1, 1) rotate(0deg) !important;
+  }
+
+}
+@mixin style-paper-polaroid() {
+    width:300px;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+
+    & > img {
+        width: 100%;
+        height: auto;
+    }
+    h1 {
+        text-align: center;
+    }
+
+ 
+ }  

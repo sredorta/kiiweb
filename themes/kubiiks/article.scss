@@ -13,6 +13,14 @@
   $is-dark-theme: map-get($theme, is-dark);
 
 
+    kii-article-detail kii-article {
+        background: white;
+        margin-top:20px;
+        margin-bottom:20px;
+        //box-shadow: 1px 1px 10px 2px;
+        box-shadow: 0 0.1rem 1.2rem rgba(0,0,0,0.2);
+    }
+
 
     kii-article {
         .formatting {   

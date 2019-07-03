@@ -3,7 +3,7 @@ import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-kii-article-detail',
+  selector: 'kii-article-detail',
   templateUrl: './kii-article-detail.component.html',
   styleUrls: ['./kii-article-detail.component.scss']
 })
