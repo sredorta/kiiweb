@@ -1,5 +1,31 @@
-<p>
-  kii-contact works!
-</p>
-<kii-contact-form></kii-contact-form>
-<kii-gmap style="width:100%"></kii-gmap>
+<kii-article  class="contact-header-editable-content" key="contact-header"></kii-article>
+<div class="wrapper default-inv-theme">
+    <div class="wrapper-icons">  
+      <div class="icon-header" *ngFor="let icon of icons" [ngClass]="{'is-active' : icon.isActive}" (click)="activateIcon(icon.id)">    
+        <i  [ngClass]="icon.class" ></i>
+      </div>  
+    </div>
+    <div class="wrapper-text">
+        <div [@detailExpand]="isActive(0) ? 'expanded' : 'collapsed'" *ngIf="isActive(0)" class="item-container">
+            <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
+        </div>
+        <div [@detailExpand]="isActive(1) ? 'expanded' : 'collapsed'" *ngIf="isActive(1)" class="item-container">
+            <kii-article class="contact-time-editable-content" key="contact-time"></kii-article>
+        </div>
+        <div [@detailExpand]="isActive(2) ? 'expanded' : 'collapsed'" *ngIf="isActive(2)" class="item-container">
+            <p>Chat</p>
+        </div>  
+        <div [@detailExpand]="isActive(3) ? 'expanded' : 'collapsed'" *ngIf="isActive(3)" class="item-container">
+            <kii-article class="contact-form-editable-content" key="contact-form"></kii-article>
+            <div class="form-container default-theme">
+                <kii-contact-form (kiiOnSubmit)="onSubmit($event)"></kii-contact-form>
+            </div>
+        </div>  
+        <div [@detailExpand]="isActive(4) ? 'expanded' : 'collapsed'" *ngIf="isActive(4)" class="item-container">
+              <kii-article class="contact-address-editable-content" key="contact-address"></kii-article>
+              <kii-gmap style="width:100%"></kii-gmap>
+        </div>  
+    </div>
+  </div>  
+<kii-article class="contact-footer-editable-content" key="contact-footer"></kii-article>
+
