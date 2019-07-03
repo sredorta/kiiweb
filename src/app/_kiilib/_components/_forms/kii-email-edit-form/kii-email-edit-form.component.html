@@ -37,15 +37,13 @@
           </mat-form-field>
       </div>   
       <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
-          <mat-label>{{'kiilib.input.email.title.label' | translate}}</mat-label>
-          <input matInput formControlName="title" placeholder="{{'kiilib.input.email.title.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="email.title">
+          <input matInput formControlName="title"  required type="text" [kiiInputDefaultValue]="email.title">
           <mat-icon matPrefix class="icon"><i class="fas fa-heading"></i></mat-icon>
           <mat-hint>{{'kiilib.input.email.title.hint' | translate}}</mat-hint>
           <mat-error kiiInputError="title"></mat-error>            
       </mat-form-field>
       <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
-          <mat-label>{{'kiilib.input.email.subtitle.label' | translate}}</mat-label>
-          <input matInput formControlName="subtitle" placeholder="{{'kiilib.input.email.subtitle.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="email.subtitle">
+          <input matInput formControlName="subtitle"  required type="text" [kiiInputDefaultValue]="email.subtitle">
           <mat-icon matPrefix class="icon"><i class="fas fa-paragraph"></i></mat-icon>
           <mat-hint>{{'kiilib.input.email.subtitle.hint' | translate}}</mat-hint>
           <mat-error kiiInputError="subtitle"></mat-error>            

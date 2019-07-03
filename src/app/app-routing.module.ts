@@ -17,6 +17,7 @@ import { KiiAdminArticlesComponent } from './_kiilib/_components/_pages/kii-admi
 import { KiiBlogComponent } from './_kiilib/_components/_pages/kii-blog/kii-blog.component';
 import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-article-detail/kii-article-detail.component';
 import { KiiAdminEmailsComponent } from './_kiilib/_components/_pages/kii-admin-emails/kii-admin-emails.component';
+import { KiiContactComponent } from './_kiilib/_components/_pages/kii-contact/kii-contact.component';
 
 export const routes: Routes = [
   {
@@ -74,8 +75,15 @@ export const routes: Routes = [
     pathMatch: 'full'
   }, 
   {
+    path: 'contact',
+    component: KiiContactComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'articles/:id',
-    component: KiiArticleDetailComponent
+    component: KiiArticleDetailComponent,
+    //data: { skipRouteLocalization: true }
+
   },   
   /*Admin part*/
   {

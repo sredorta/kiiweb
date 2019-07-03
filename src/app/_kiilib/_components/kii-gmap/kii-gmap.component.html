@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <ng-container *ngIf="isBrowser">
+      <agm-map [latitude]="latitude" [longitude]="longitude"  [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="true">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+      </agm-map>
+    </ng-container>
+    <ng-container *ngIf="!isBrowser">
+        <div class="dummy">
+          <img src="./assets/kiilib/images/gmaps.svg" alt="gmaps logo"/>
+          <p>{{'kiilib.loading' | translate}}</p>
+        </div>
+    </ng-container>
+    
+  </div>

@@ -49,6 +49,8 @@ import {MatAutocompleteModule,
 //EDITOR
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
+//GMAPS
+import {AgmCoreModule} from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -111,6 +113,10 @@ import { KiiEmailNewFormComponent } from './_kiilib/_components/_forms/kii-email
 import { KiiEmailPreviewComponent } from './_kiilib/_components/kii-email-preview/kii-email-preview.component';
 import { KiiClickStopPropagationDirective } from './_kiilib/_directives/kii-click-stop-propagation.directive';
 import { KiiEmailEditFormComponent } from './_kiilib/_components/_forms/kii-email-edit-form/kii-email-edit-form.component';
+import { KiiContactComponent } from './_kiilib/_components/_pages/kii-contact/kii-contact.component';
+import { KiiContactFormComponent } from './_kiilib/_components/_forms/kii-contact-form/kii-contact-form.component';
+import { KiiGmapComponent } from './_kiilib/_components/kii-gmap/kii-gmap.component';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -164,7 +170,10 @@ import { KiiEmailEditFormComponent } from './_kiilib/_components/_forms/kii-emai
     KiiEmailNewFormComponent,
     KiiEmailPreviewComponent,
     KiiClickStopPropagationDirective,
-    KiiEmailEditFormComponent
+    KiiEmailEditFormComponent,
+    KiiContactComponent,
+    KiiContactFormComponent,
+    KiiGmapComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -178,6 +187,9 @@ import { KiiEmailEditFormComponent } from './_kiilib/_components/_forms/kii-emai
     LocalizeRouterModule.forChild(routes),
     RouterModule.forChild(routes),
     AngularEditorModule,
+    AgmCoreModule.forRoot( { //GMAPS
+      apiKey: environment.gmapsKey
+    }),
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,

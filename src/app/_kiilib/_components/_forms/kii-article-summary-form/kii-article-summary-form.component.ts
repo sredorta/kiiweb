@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Article } from '../../../_models/article';
 import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -15,6 +15,7 @@ export class KiiArticleSummaryFormComponent extends KiiFormAbstract implements O
   /**Storage to be used for images : content (default), blog */
   @Input() storage : "content" | "blog" | "email" = "content";
 
+  @Output() onChange = new EventEmitter<any>();
 
   constructor() { super() }
 
@@ -36,6 +37,13 @@ export class KiiArticleSummaryFormComponent extends KiiFormAbstract implements O
       ]))
     });
     this.myForm.controls["image"].patchValue(this.article.image);
+    
+    //Emit changes each time the form changes
+    this.addSubscriber(
+      this.myForm.valueChanges.subscribe(res => {
+        this.onChange.emit(res);
+      })
+    )
   }
 
   /**Patch the value of image once we recieve onUpload */

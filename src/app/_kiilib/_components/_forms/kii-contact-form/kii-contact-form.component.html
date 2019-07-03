@@ -1,0 +1,29 @@
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+     <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+         <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
+         <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email">
+         <mat-icon matPrefix class="icon"><i class="fas fa-at"></i></mat-icon>
+         <mat-hint>{{'kiilib.input.email.hint' | translate}}</mat-hint>
+         <mat-error kiiInputError="email"></mat-error>    
+     </mat-form-field>
+     
+     <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+       <mat-label>{{'kiilib.input.subject.label' | translate}}</mat-label>
+       <input matInput formControlName="subject" placeholder="{{'kiilib.input.subject.placeholder' | translate}}" required type="text">
+       <mat-hint>{{'kiilib.input.subject.hint' | translate}}</mat-hint>
+       <mat-error kiiInputError="subject"></mat-error>            
+    </mat-form-field>
+
+     <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+         <mat-label>{{'kiilib.input.message.label' | translate}}</mat-label>
+         <textarea matInput formControlName="message" placeholder="{{'kiilib.input.message.placeholder' | translate}}" required type="text" rows="5"></textarea>
+         <mat-hint>{{'kiilib.input.message.hint' | translate}}</mat-hint>
+         <mat-error kiiInputError="message"></mat-error>
+     </mat-form-field>
+    
+     <div class="control-wrapper">
+         <button mat-flat-button type="submit" color="primary"><i class="fas fa-paper-plane" style="margin-right:10px"></i> {{'kiilib.send' | translate}}</button>
+     </div>
+   </form>
+</kii-spinner-overlay>

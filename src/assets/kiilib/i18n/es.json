@@ -202,6 +202,7 @@
     "kiilib.email.config.logo.text"     : "Carga el logotipo de la empresa (100px x 100px)",
     "kiilib.email.config.header"        : "Cabecera del correo",
     "kiilib.email.config.content"       : "Contenido del correo",
+    "kiilib.email.config.colors"        :"Colores",
 
 
     "kiilib.confirm.title"              : "Atencion",

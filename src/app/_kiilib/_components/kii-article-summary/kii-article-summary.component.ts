@@ -84,4 +84,12 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     )
   }
 
+  /**When form is modified we actualize the gui */
+  update(value:any) {
+    console.log("update !",value);
+    this.article.title = value.title;
+    this.article.description = value.description;
+    this.article.image = value.image;
+  }
+
 }

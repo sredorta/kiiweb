@@ -3,7 +3,7 @@ import { KiiBlogAbstract } from '../../../_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../../_services/kii-api-article.service';
 
 @Component({
-  selector: 'app-kii-blog',
+  selector: 'kii-blog',
   templateUrl: './kii-blog.component.html',
   styleUrls: ['./kii-blog.component.scss']
 })

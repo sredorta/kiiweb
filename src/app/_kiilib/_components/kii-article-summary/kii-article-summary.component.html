@@ -18,7 +18,7 @@
 </div>
 <!--Editing part-->
 <div *ngIf="isEditing" class="admin-theme kii-article-summary-edit-wrapper">
-    <kii-article-summary-form [article]="article" [storage]="storage" (kiiOnSubmit)="save($event)"></kii-article-summary-form>
+    <kii-article-summary-form [article]="article" [storage]="storage" (kiiOnSubmit)="save($event)" (onChange)="update($event)"></kii-article-summary-form>
  </div>
 
 
