@@ -22,11 +22,11 @@
 
 tr {
     opacity:1;
+    font-weight: bold;
     transition:all 0.2s ease-in-out;
 }
 tr.is-read {
     opacity:0.5;
-    font-weight: bold;
 }
 
 tr.detail-row {

@@ -22,8 +22,6 @@ import { User } from 'src/app/_kiilib/_models/user';
 })
 export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   
-  /**Contains user alerts */
-  alerts: Alert[] = [];
   
   /**When articles are loading we show spinner with this variable */
   isDataLoading : boolean = false;
@@ -41,9 +39,8 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
         this.loggedInUser = res;
-        this.alerts = res.alerts;
         this.displayedColumns = ['id', 'message', 'createdAt','isRead'];
-        this.initTable(this.alerts);
+        this.initTable(this.loggedInUser.alerts.sort((a,b) => b.id - a.id));
         this.tableSettings();
       })
     )
@@ -72,18 +69,28 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
 
   /**When user deletes an alert */
   onDeleteAlert(alert:Alert) {
-    console.log("deleteing", alert);
+    this.isDataLoading = true;
+    this.addSubscriber(
+      this.kiiApiAlert.delete(alert).subscribe(res => {
+        const index = this.loggedInUser.alerts.findIndex(obj => obj.id == alert.id);
+        if (index>=0) {
+          this.loggedInUser.alerts.slice(index,1);
+          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
+          this.deleteRow(alert.id);
+        }
+        this.isDataLoading = false;
+      }, () => this.isDataLoading = false)
+    )
   }
 
   /**Marks alert as read */
   markAsRead(alert:Alert) {
-    console.log("marking as read : ", alert);
-    alert.isRead = true;
-    //this.addSubscriber(
+    alert.isRead = !alert.isRead;
+    this.isDataLoading = true;
+    this.addSubscriber(
       this.kiiApiAlert.update(alert).subscribe(res => {
-        console.log(res);
-        console.log("HERE!");
-      })
-    //)
+        this.isDataLoading = false;
+      }, () => this.isDataLoading = false)
+    )
   }
 }
