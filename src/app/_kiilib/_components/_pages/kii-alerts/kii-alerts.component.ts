@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { KiiTableAbstract } from '../../../_abstracts/kii-table.abstract';
 import { KiiApiAlertService } from '../../../_services/kii-api-alert.service';
 import { Alert } from '../../../_models/alert';
-import { KiiApiLanguageService } from 'src/app/_kiilib/_services/kii-api-language.service';
+import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { element } from 'protractor';
-import { KiiApiAuthService } from 'src/app/_kiilib/_services/kii-api-auth.service';
-import { User } from 'src/app/_kiilib/_models/user';
+import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
+import { User } from '../../../_models/user';
 
 @Component({
   selector: 'kii-alerts',
@@ -50,6 +49,11 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
             this.currentLang = res;
       })
     )
+  }
+  
+  /**Track by id */
+  trackById(index:number,item:any) {
+    return item.id;
   }
 
   /**Defines all filtering and sorting table settings */

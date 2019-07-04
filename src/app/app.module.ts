@@ -125,7 +125,6 @@ import { environment } from '../environments/environment';
 import { KiiShareComponent } from './_kiilib/_components/kii-share/kii-share.component';
 import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
-import { KiiAdminAlertsComponent } from './_kiilib/_components/_pages/kii-admin-alerts/kii-admin-alerts.component';
 
 
 @NgModule({
@@ -186,7 +185,6 @@ import { KiiAdminAlertsComponent } from './_kiilib/_components/_pages/kii-admin-
     KiiShareComponent,
     KiiBottomSheetCookiesComponent,
     KiiAlertsComponent,
-    KiiAdminAlertsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

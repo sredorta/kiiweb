@@ -69,13 +69,13 @@ export class KiiPwaService {
         serverPublicKey: environment.vapidPublic
       })
       .then(sub => {
-        console.log(sub);
-        this.http.post(environment.apiURL + '/notifications', { notification : sub }).subscribe();
+        this.http.post(environment.apiURL + '/notification/settings', { onPush : sub }).subscribe(res => {
+          console.log("RESULT :",res);
+        });
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
     }
   }
-
 
 
 

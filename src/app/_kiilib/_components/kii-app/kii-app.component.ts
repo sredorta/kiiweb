@@ -57,12 +57,12 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
       }
     }  
 
-/*
+
     //TODO: Only subscribe if you are admin or registered...
     this.kiiPwa.onPushNotificationSubscription();
 
     //TODO: Move this to kiiPwa and define actions and what to do with actions...
-    this.swPush.notificationClicks.subscribe( event => {
+/*    this.swPush.notificationClicks.subscribe( event => {
       console.log('Received notification: ', event);
       const url = event.notification.data.url;
       window.open(url, '_blank');
@@ -84,7 +84,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     this.addSubscriber(
       this.kiiMisc.loadInitialData().subscribe(res => {
         console.log("INTIAL DATA");
-        console.log(res);
+        //console.log(res);
         this.kiiApiAuth.setLoggedInUser(new User(res.user));
         let mySettings = [];
         for (let setting of res.settings) {
