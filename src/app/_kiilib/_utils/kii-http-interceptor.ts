@@ -88,6 +88,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
             request = Object.assign(request, newUrl);
         }
         let newRequest = request.clone({headers});
+        console.log(newRequest);
         return next.handle(newRequest).pipe(
             map((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {
@@ -109,6 +110,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
                 return event;
             }),
             catchError((error: HttpErrorResponse) => {
+                console.log(error);
                 let data = {};
                 data = {
                     reason: error && error.error.reason ? error.error.reason : '',

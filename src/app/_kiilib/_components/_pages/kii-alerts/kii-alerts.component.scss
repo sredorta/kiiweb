@@ -19,6 +19,16 @@
 .table {
     width:100%;
 }
+
+tr {
+    opacity:1;
+    transition:all 0.2s ease-in-out;
+}
+tr.is-read {
+    opacity:0.5;
+    font-weight: bold;
+}
+
 tr.detail-row {
     height:0;
 }
@@ -26,9 +36,9 @@ tr.element-row:not(.expanded-row):hover {
     cursor:pointer;
 }
 .element-row td {
-    border-bottom-width:0;
-    padding-left:2px;
-    padding-right:2px;
+    //border-bottom-width:0;
+    padding-left:4px;
+    padding-right:4px;
 }
 .element-detail {
     overflow: hidden;
@@ -45,11 +55,19 @@ tr.element-row:not(.expanded-row):hover {
     min-width:40px;
     max-width:40px;
 }
-
+.mat-column-isRead {
+    min-width:70px;
+}
+.mat-column-id {
+    display: none;
+}
 
 @media only screen and (max-width: 500px) {
-    .mat-column-id {
-        display: none;
+    .title,.description {
+        font-size: 90%;
+    }
+    .mat-column-createdAt {
+        font-size: 60%;
     }
 }
 

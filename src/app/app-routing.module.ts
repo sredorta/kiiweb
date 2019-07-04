@@ -62,7 +62,8 @@ export const routes: Routes = [
   },  
   {
     path: 'alerts',
-    component: KiiAlertsComponent
+    component: KiiAlertsComponent,
+    pathMatch: "full"
   },  
 
   {

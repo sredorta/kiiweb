@@ -58,13 +58,13 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   /**Defines all filtering and sorting table settings */
   tableSettings() {
     this.dataSource.filterPredicate = function(data, filter: string): boolean {
-      return data.translations[0].title.toLowerCase().includes(filter) || data.cathegory.toLowerCase().includes(filter);
+      return data.title.toLowerCase().includes(filter) || data.id.toLowerCase().includes(filter);
     };
     //Define the sorting if special
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {
          case 'id': return item.id;
-         case 'title': return item.translations[0].title;
+         case 'title': return item.title;
          default: return item[property];
       }
     };
@@ -79,19 +79,11 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   markAsRead(alert:Alert) {
     console.log("marking as read : ", alert);
     alert.isRead = true;
-    this.addSubscriber(
+    //this.addSubscriber(
       this.kiiApiAlert.update(alert).subscribe(res => {
         console.log(res);
         console.log("HERE!");
-        //Refresh the loggedInUser and propagate changes
-        /*let index = this.loggedInUser.alerts.findIndex(obj => obj.id == res.id);
-        console.log("FOUND INDEX : " + index);
-        if (index>=0) {
-          this.loggedInUser.alerts[index] = res;
-          console.log("UPDATING TO: ",res);
-          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);  //Propagate changes
-        }*/
       })
-    )
+    //)
   }
 }

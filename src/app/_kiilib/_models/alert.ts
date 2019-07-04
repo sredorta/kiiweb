@@ -30,9 +30,4 @@ export class Alert {
     }
 
 
-    /**Extracts the current user and formats it to the interface required */
-    toJSON() {
-        return <IAlert>JSON.parse(JSON.stringify(this));
-    }
-
 }

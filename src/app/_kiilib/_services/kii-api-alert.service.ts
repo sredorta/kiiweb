@@ -17,7 +17,7 @@ export class KiiApiAlertService extends KiiServiceAbstract<Alert> {
 
   /**Update alert in database*/
   public update(element:Alert) {
-    return this.http.post<Alert>(environment.apiURL + '/' + this.prefix + '/update', {alert: element}).pipe(map(res => new Alert(res)));
+    return this.http.post<any>(environment.apiURL + '/' + this.prefix + '/update', {alert: element});//.pipe(map(res => new Alert(res)));
   }   
-  
+
 }
