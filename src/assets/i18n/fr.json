@@ -18,7 +18,6 @@
     "ROUTES.404"       : "page-non-trouve",
     "ROUTES.login"     : "connection",
     "ROUTES.reset-password": "mot-de-passe-oublie",
-    "ROUTES.profile"    : "mon-compte"
-
-
+    "ROUTES.profile"    : "mon-compte",
+    "ROUTES.alerts"     : "notifications"
 }

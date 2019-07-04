@@ -18,6 +18,7 @@ import { KiiBlogComponent } from './_kiilib/_components/_pages/kii-blog/kii-blog
 import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-article-detail/kii-article-detail.component';
 import { KiiAdminEmailsComponent } from './_kiilib/_components/_pages/kii-admin-emails/kii-admin-emails.component';
 import { KiiContactComponent } from './_kiilib/_components/_pages/kii-contact/kii-contact.component';
+import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
 
 export const routes: Routes = [
   {
@@ -59,6 +60,11 @@ export const routes: Routes = [
     path: 'profile',
     component: KiiProfileComponent
   },  
+  {
+    path: 'alerts',
+    component: KiiAlertsComponent
+  },  
+
   {
     path: 'prices',
     component: PrixComponent,

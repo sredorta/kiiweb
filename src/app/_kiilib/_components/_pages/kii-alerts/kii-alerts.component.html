@@ -1,0 +1,50 @@
+<kii-spinner-overlay [show]="isDataLoading">
+    <div class="wrapper">
+          <div class="table-wrapper">
+              <table mat-table  [dataSource]="dataSource" matSort multiTemplateDataRows class="table" [trackBy]="trackById">
+                  <ng-container matColumnDef="id">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'id' | translate}}</th>
+                      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+                  </ng-container>
+                  <ng-container matColumnDef="message">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'kiilib.input.title.label' | translate}}</th>
+                      <td mat-cell *matCellDef="let element">
+                          <p class="title">{{element.title}}</p>
+                          <small class="description">{{element.message}}</small>
+                        </td>
+                  </ng-container>   
+                  <ng-container matColumnDef="createdAt">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'kiilib.created' | translate}}</th>
+                      <td mat-cell *matCellDef="let element">{{{date:element.createdAt,lang:currentLang} | kiiNiceDateFormat}}</td>
+                  </ng-container>         
+                  <ng-container matColumnDef="isRead">
+                      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+                      <td mat-cell *matCellDef="let element">
+                          <i *ngIf="element.isRead" class="fas fa-eye"></i>
+                          <i *ngIf="!element.isRead" style="opacity:0.5" class="fas fa-eye-slash"></i>
+                          <button mat-icon-button (click)="onDeleteAlert($element)"><i class="fas fa-trash"></i></button>
+                      </td>
+                  </ng-container>  
+                           
+                  <ng-container matColumnDef="expandedDetail">
+                      <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+                        <div class="element-detail"
+                            [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                            <div class="element-detail-wrapper">
+                              <p *ngIf="element == expandedElement">Expansiopn</p>
+                            </div>
+                        </div>
+                      </td>
+                    </ng-container>        
+                  
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let element; columns: displayedColumns;" 
+                      class="element-row"
+                      [class.expanded-row] = "expandedElement === element"
+                      (click)="expandedElement = expandedElement === element ? null : element;markAsRead(element)"></tr>
+                  <tr mat-row *matRowDef="let element; columns: ['expandedDetail']" class="detail-row"></tr>
+              </table>  
+              <mat-paginator [pageSizeOptions]="[10, 20, 50]"></mat-paginator>
+          </div>  
+    </div>  
+</kii-spinner-overlay>

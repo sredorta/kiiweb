@@ -1,4 +1,5 @@
 import {Role, IRole} from "./role";
+import { Alert, IAlert } from './alert';
 
 export interface IUser {
     id: number;
@@ -13,6 +14,7 @@ export interface IUser {
     createdAt:string;
     updatedAt:string;
     roles?:Role[];
+    alerts?:Alert[];
 }
 
 export class User {
@@ -28,6 +30,7 @@ export class User {
     createdAt:string = null;
     updatedAt:string = null;
     roles:Role[] = [];
+    alerts:Alert[] = [];
 
     private _isLoaded:boolean=false;    //Gives if user has been initialized or not
 
@@ -43,6 +46,12 @@ export class User {
                     this.roles.push(new Role(<IRole>role));
                 }
             }
+            if (obj.alerts) {
+                this.alerts = [];
+                for(let alert of obj.alerts) {
+                    this.alerts.push(new Alert(<IAlert>alert));
+                }
+            }
             this._isLoaded = true;
         } 
     }
@@ -52,6 +61,12 @@ export class User {
         return this._isLoaded;
     }
 
+    /**Returns alert count */
+    getUnreadAlertCount() {
+        if (this.alerts)
+            return this.alerts.filter(obj => obj.isRead == false).length;
+        return 0;    
+    }
 
     /**Updates current user values by adding new elements */
     update(obj: any){
