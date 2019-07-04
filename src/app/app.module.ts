@@ -52,6 +52,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 //GMAPS
 import {AgmCoreModule} from '@agm/core';
 
+//SOCIAL SHARE
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
@@ -117,6 +122,8 @@ import { KiiContactComponent } from './_kiilib/_components/_pages/kii-contact/ki
 import { KiiContactFormComponent } from './_kiilib/_components/_forms/kii-contact-form/kii-contact-form.component';
 import { KiiGmapComponent } from './_kiilib/_components/kii-gmap/kii-gmap.component';
 import { environment } from '../environments/environment';
+import { KiiShareComponent } from './_kiilib/_components/kii-share/kii-share.component';
+import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 
 
 @NgModule({
@@ -173,7 +180,9 @@ import { environment } from '../environments/environment';
     KiiEmailEditFormComponent,
     KiiContactComponent,
     KiiContactFormComponent,
-    KiiGmapComponent
+    KiiGmapComponent,
+    KiiShareComponent,
+    KiiBottomSheetCookiesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -190,6 +199,7 @@ import { environment } from '../environments/environment';
     AgmCoreModule.forRoot( { //GMAPS
       apiKey: environment.gmapsKey
     }),
+    JwSocialButtonsModule, //SOCIAL SHARE
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,

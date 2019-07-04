@@ -1,0 +1,38 @@
+.kii-cookies-title {
+    display:flex;
+    img {
+        margin-right:20px;
+        object-fit: contain;
+        width:60px;
+    }
+}
+.kii-cookies-title {
+    font-size:20px;
+    font-weight: bold;
+}
+.kii-cookies-text {
+    font-size: 16px;
+    margin-top:3px;
+    padding-top:10px;
+    border-top: 1px solid rgba(black,0.2);
+}
+
+.kii-cookies-buttons {
+    display:flex;
+    justify-content: center;
+    button {
+        margin-right:10px;
+        margin-left:10px;
+    }
+}
+
+
+@media only screen and (max-width: 500px) { 
+    .kii-cookies-title {
+        font-size: 18px;
+    }
+    .kii-cookies-text {
+        font-size: 14px;
+    }
+
+}

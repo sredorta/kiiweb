@@ -51,6 +51,7 @@
     "express": "^4.15.2",
     "fs": "0.0.1-security",
     "hammerjs": "^2.0.8",
+    "jw-angular-social-buttons": "^1.0.0",
     "localize-router": "github:andrewwhitehead/localize-router",
     "rxjs": "^6.5.2",
     "tslib": "^1.9.0",

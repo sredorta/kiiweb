@@ -3,6 +3,7 @@
     "kiilib.submit" : "Submit",
     "kiilib.reset"  : "Reset",
     "kiilib.accept" : "Accept",
+    "kiilib.decline": "Decline",
     "kiilib.cancel" : "Cancel",
     "kiilib.search" : "Search",
     "kiilib.delete" : "Delete",
@@ -205,6 +206,8 @@
     "kiilib.email.config.content"       : "Main content",
     "kiilib.email.config.colors"        :"Colors",
 
+    "kiilib.cookies.title"              : "Cookies usage",
+    "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",
 
     "kiilib.confirm.title"              : "Attention",
     "kiilib.confirm.text"               : "This operation is irreversible, are you sure ?"

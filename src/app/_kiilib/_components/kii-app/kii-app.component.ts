@@ -14,6 +14,7 @@ import { KiiApiLanguageService } from '../../_services/kii-api-language.service'
 import { Meta, Title } from '@angular/platform-browser';
 import { Article } from '../../_models/article';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
+import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 
 
 
@@ -46,7 +47,15 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         this.loadInitialData();
       })
     )
-
+    //Initialize cookies
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem("cookies") == "true") {
+        this.kiiMisc.cookiesAccept();
+      } else {
+        //Show cookies accept !
+        this.openBottomSheetCookies();
+      }
+    }  
 
 /*
     //TODO: Only subscribe if you are admin or registered...
@@ -62,6 +71,14 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
 
+  /** Shows cookies acceptance bottom sheet */
+  openBottomSheetCookies(): void {
+          this.bottomSheet.open(KiiBottomSheetCookiesComponent, {
+              panelClass :"default-theme",
+              });
+  }
+
+  /**Loads all initial data like articles,settings and auth user */
   loadInitialData() {
     //Get all initial data
     this.addSubscriber(

@@ -23,8 +23,22 @@ export interface IInitialData  {
 })
 export class KiiMiscService {
 
+  private _cookies$ = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient) { }
+
+  /**Accept cookies */
+  public cookiesAccept() {
+    this._cookies$.next(true);
+  }
+
+  /**Returns observable with cookies status */
+  public onCookiesChange() {
+    return this._cookies$;
+  }
+
+
+
   /**When we load the app we load everything in one single http call */
   public loadInitialData() {
     return this.http.get<IInitialData>(environment.apiURL + '/initial');
