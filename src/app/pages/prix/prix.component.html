@@ -1,7 +1,9 @@
 <kii-spinner-overlay [show]="isLoading">
     <kii-article class="contact-price-header" key="price-header"></kii-article>
-
-    <div class="gap">
-      <kii-article-summary class="prices-summary" *ngFor="let article of articles" [key]="article.id"></kii-article-summary>  
+  <div class="gap">
+    <div class="price-element" *ngFor="let article of articles">
+        <kii-article-summary [hasRouterLink]="false" class="prices-summary"  [key]="article.id"></kii-article-summary>  
+        <kii-article class="prices-article"  [key]="article.id"></kii-article>  
     </div>
+  </div>
 </kii-spinner-overlay>

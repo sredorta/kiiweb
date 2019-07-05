@@ -33,6 +33,9 @@
       }
       padding:20px;
       @include style-paper-polaroid();
+      &:hover {
+        cursor:pointer;
+      }
   }
   app-realisations kii-article-summary {
     transition: all 0.35s;

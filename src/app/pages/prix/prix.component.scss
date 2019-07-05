@@ -1,0 +1,37 @@
+.gap {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top:30px;
+    padding-bottom:30px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.price-element {
+    flex:1;
+    border-radius: 10px;
+    margin:10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background:white;
+    display:block;
+    transition:all 0.35s;
+    width:320px;   
+    max-width: 320px;
+    min-width: 320px; 
+}
+.price-element:hover {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+}
+
+
+kii-article, kii-article-summary {
+    width:100%;
+}
+
+@media only screen and (max-width: 700px) { 
+    .price-element {
+        max-width:300px;
+    }
+}

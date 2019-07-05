@@ -18,7 +18,7 @@
       flex-wrap: wrap;
   }
 
-  kii-blog kii-article-summary.blog-summary .kii-article-summary-container {
+  kii-blog kii-article-summary .kii-article-summary-container {
       display:block;
       img{display:none}
       h1 {
@@ -27,11 +27,27 @@
       h2 {
           font-size: 20px;
       }
-      h1,h2 {
-        transform:skewY(10deg);
-      }
+
       padding:20px;
       @include style-paper-postit();
+      &:hover {
+        cursor:pointer;
+        transform: scale(1, 1) rotate(0deg) !important;
+      }
+      transition: all 0.35s;
+  }
+
+  kii-blog kii-article-summary:nth-child(even) .kii-article-summary-container {
+    transform: scale(0.8, 0.8) rotate(5deg);
+    h1,h2 {
+      transform:skewY(9deg);
+    }
+  }
+  kii-blog kii-article-summary:nth-child(odd) .kii-article-summary-container {
+    transform: scale(0.8, 0.8) rotate(-5deg);
+    h1,h2 {
+      transform:skewY(-7deg);
+    }
   }
 
 }
