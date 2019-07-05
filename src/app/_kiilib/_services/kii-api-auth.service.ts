@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { tap, map, filter } from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import { IUser, User } from '../_models/user';
+import { LocalizeRouterService, DefaultLanguageFunction } from 'localize-router';
+import { TranslateService } from '@ngx-translate/core';
 
 export interface IOauth2 {
   /**Tells if the user has all fields */
@@ -47,7 +49,7 @@ export class KiiApiAuthService {
   /** Contains current loggedIn user */
   private _user = new BehaviorSubject<User>(new User(null)); //Stores the current user
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private localize: LocalizeRouterService, private translate: TranslateService) { }
 
   /** Login user using local passport */
   public login(credentials:ILoginCredentials) {

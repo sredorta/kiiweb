@@ -3,9 +3,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import {environment} from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 import { LocalizeRouterService } from 'localize-router';
 import {map} from 'rxjs/operators';
+import { KiiApiAuthService } from './kii-api-auth.service';
 
 /**All languages supported by kiilib. The app languages must be a subset of it */
 export const KiiLanguages = [
@@ -33,7 +34,7 @@ export class KiiApiLanguageService {
   constructor(@Inject(PLATFORM_ID) private _platformId: Object, 
               @Optional() @Inject(REQUEST) private _request: Request,
               private _translate:TranslateService, private _router : Router,
-              private _localize : LocalizeRouterService
+              private _localize : LocalizeRouterService,
               ) { 
               }
 
@@ -59,6 +60,7 @@ export class KiiApiLanguageService {
       if (!lang) lang = environment.languages[0];
       return lang ; //localStorage.getItem("LOCALIZE_DEFAULT_LANGUAGE");
     } else {
+      //If we are loggedIn we get the language from user if not from headers
       return this.getFromUrlOrHeaders();
     }
   }

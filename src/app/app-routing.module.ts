@@ -24,7 +24,7 @@ export const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
@@ -113,8 +113,8 @@ export const routes: Routes = [
     path: 'admin-emails',
     component: KiiAdminEmailsComponent,
   }, 
-  {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  {path: '**', redirectTo: '/404', pathMatch: "full"}
+  /*{path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
+  {path: '**', redirectTo: '/404', pathMatch: "full"}*/
 ];
 
 @NgModule({

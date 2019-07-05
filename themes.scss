@@ -147,6 +147,8 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @import './themes/kubiiks/forms.scss';
 @import './themes/kubiiks/scrollbar.scss';
 @import './themes/kubiiks/article.scss';
+@import './themes/kubiiks/alert.scss';
+
 @import './themes/kubiiks/blog.scss';
 @import './themes/kubiiks/contact.scss';
 @import './themes/kubiiks/realisations.scss';
@@ -173,6 +175,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
     @include article-theme($theme);
     @include blog-theme($theme);
     @include contact-theme($theme);
+    @include alert-theme($theme);
     @include realisations-theme($theme);
 
 

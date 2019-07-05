@@ -1,14 +1,14 @@
+
 .wrapper {
     padding:10px;
     min-height: 80vh;
 }
 .title {
-    margin-top:0px;
+    margin-top:5px;
     margin-bottom:2px;
 }
 .description {
     opacity:0.6;
-    margin-bottom:3px;
 }
 
 //Table part
@@ -18,15 +18,6 @@
 }
 .table {
     width:100%;
-}
-
-tr {
-    opacity:1;
-    font-weight: bold;
-    transition:all 0.2s ease-in-out;
-}
-tr.is-read {
-    opacity:0.5;
 }
 
 tr.detail-row {

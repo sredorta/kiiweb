@@ -15,6 +15,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { Article } from '../../_models/article';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
+import { LocalizeRouterService } from 'localize-router';
 
 
 
@@ -33,13 +34,23 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               private kiiApiSetting: KiiApiSettingService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiArticle: KiiApiArticleService,
+              private localize: LocalizeRouterService,
               private title : Title,
               private meta: Meta) {super(kiiApiAuth, platformId)}
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
     //Subscribe to authUser
-    this.getLoggedInUserSubscription();
+    this.addSubscriber(
+      this.kiiApiAuth.getLoggedInUser().subscribe(res => {
+        this.loggedInUser = res;
+        if (this.loggedInUser.exists()) {
+            //Subscribe to onPush notifications
+            this.kiiPwa.onPushNotificationSubscription();
+        }
+      })
+    )
+
     this.loadInitialData();
     //Get initial data when we change language
     this.addSubscriber(
@@ -58,8 +69,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     }  
 
 
-    //TODO: Only subscribe if you are admin or registered...
-    this.kiiPwa.onPushNotificationSubscription();
+
 
     //TODO: Move this to kiiPwa and define actions and what to do with actions...
 /*    this.swPush.notificationClicks.subscribe( event => {
@@ -86,6 +96,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         console.log("INTIAL DATA");
         //console.log(res);
         this.kiiApiAuth.setLoggedInUser(new User(res.user));
+            //Set language based on user language 
         let mySettings = [];
         for (let setting of res.settings) {
           mySettings.push(new Setting(setting));
