@@ -6,9 +6,22 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { KiiBottomSheetSoftwareUpdateComponent } from '../_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiBottomSheetSoftwareInstallComponent } from '../_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
+import {map} from 'rxjs/operators';
+import { KiiApiAuthService } from './kii-api-auth.service';
+import { User } from '../_models/user';
 
 
 //NOTE: This service is only running on the browser
+export interface Notification {
+  action:string;
+  data:any;
+  title:string;
+  body:string;
+  icon:string;
+  vibrate:any;
+
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +34,7 @@ export class KiiPwaService {
               private swPush: SwPush,
               private http : HttpClient,
               private bottomSheet: MatBottomSheet,
+              private kiiApiAuth: KiiApiAuthService,
               @Inject(PLATFORM_ID) private _platformId: any,) {
 
 
@@ -69,11 +83,29 @@ export class KiiPwaService {
         serverPublicKey: environment.vapidPublic
       })
       .then(sub => {
-        this.http.post(environment.apiURL + '/notification/settings', { onPush : sub }).subscribe(res => {
-          console.log("RESULT :",res);
-        });
+        this.http.post(environment.apiURL + '/notification/settings', { onPush : sub }).subscribe();
       })
       .catch(err => console.error('Could not subscribe to notifications', err));
+
+      //When we recieve an onPush notification let's do whatever is required
+      this.swPush.messages.pipe(map((res:any) => <Notification>res.notification)).subscribe(notification => {
+        console.log("swPush.messages.subscription");
+        console.log("Notification is:",notification)
+        //res.notification.data contains the following structure:
+        //action: <action to be performed>
+        //result => data required to perform the action
+        this._performAction(notification.action, notification.data)
+      })
+    }
+  }
+
+  private _performAction(action:string, data:any) {
+    switch (action) {
+      case "reload-user": 
+        this.kiiApiAuth.setLoggedInUser(new User(data.user));
+        break;
+      default:
+        console.log("Don't know how to handle notification !");
     }
   }
 

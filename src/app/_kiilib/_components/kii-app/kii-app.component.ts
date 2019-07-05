@@ -68,15 +68,16 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
       }
     }  
 
-
-
-
-    //TODO: Move this to kiiPwa and define actions and what to do with actions...
-/*    this.swPush.notificationClicks.subscribe( event => {
-      console.log('Received notification: ', event);
-      const url = event.notification.data.url;
-      window.open(url, '_blank');
-    });*/
+    //Subscribe to notifications click and redirect to site if click
+    if (isPlatformBrowser(this.platformId)) {
+      this.addSubscriber(
+        this.swPush.notificationClicks.subscribe( event => {
+          console.log('Received notification: ', event);
+          const url = event.notification.data.url;
+          window.open(url, '_blank');
+        })
+      )
+    }
 
   }
 

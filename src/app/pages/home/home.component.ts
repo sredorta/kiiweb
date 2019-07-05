@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KiiMiscService } from '../../_kiilib/_services/kii-misc.service';
+//import { Socket } from 'ngx-socket-io';
+import { KiiChatService } from '../../_kiilib/_services/kii-chat.service';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +15,5 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  install() {
-    //this.KiiMisc.AppInstall();
-  }
 
 }

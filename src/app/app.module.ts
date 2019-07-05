@@ -127,6 +127,8 @@ import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
 
 
+//import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -202,6 +204,7 @@ import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-
       apiKey: environment.gmapsKey
     }),
     JwSocialButtonsModule, //SOCIAL SHARE
+    //SocketIoModule.forRoot({url: environment.socketURL,options:{secure:true}}),
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,
