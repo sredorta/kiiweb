@@ -16,6 +16,7 @@ import { Article } from '../../_models/article';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { LocalizeRouterService } from 'localize-router';
+import { KiiSocketService } from '../../_services/kii-socket.service';
 
 
 
@@ -29,6 +30,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   constructor(private bottomSheet: MatBottomSheet,
               @Inject(PLATFORM_ID) private platformId: any,
               private kiiPwa : KiiPwaService, private swPush : SwPush,
+              private kiiSocket: KiiSocketService, //Required to start sockets !
               private kiiApiAuth: KiiApiAuthService,
               private kiiMisc: KiiMiscService,
               private kiiApiSetting: KiiApiSettingService,
@@ -48,6 +50,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
             //Subscribe to onPush notifications
             this.kiiPwa.onPushNotificationSubscription();
         }
+        this.kiiSocket.updateAuth();
       })
     )
 
@@ -56,6 +59,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiLang.onChange().subscribe(res => {
         this.loadInitialData();
+        this.kiiSocket.updateLanguage();
       })
     )
     //Initialize cookies

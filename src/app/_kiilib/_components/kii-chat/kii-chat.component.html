@@ -14,14 +14,13 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+        <form [formGroup]="myForm" novalidate> 
             <mat-form-field [appearance]="kiiInputAppearance">
-                <textarea matInput formControlName="newMessage" rows="2" placeholder="{{'kiilib.input.message.placeholder' | translate}}" required type="text"></textarea>
+                <textarea #control matInput formControlName="newMessage" rows="2" placeholder="{{'kiilib.input.message.placeholder' | translate}}" type="text"></textarea>
                 <mat-hint>{{'kiilib.input.message.hint' | translate}}</mat-hint>
-                <mat-error kiiInputError="newMessage"></mat-error>    
             </mat-form-field>        
             <div class="kii-button-wrapper">
-                  <button  mat-mini-fab  color="primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+                  <button  mat-mini-fab  color="primary" type="button" (click)="onSubmit()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </form>
     </mat-card-actions>
