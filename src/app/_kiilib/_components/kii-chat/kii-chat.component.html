@@ -1,0 +1,29 @@
+<mat-card class="chat-card">
+    <mat-card-header>
+      <!--<div mat-card-avatar class="example-header-image"></div>-->
+      <mat-card-title>Chat</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content #content>
+      <div *ngFor="let message of messages">
+          <div class="message" [ngClass]="{'i-am-sender' : message.iAmSender}">
+             <div class="message-content">{{message.message}}</div>
+             <div class="message-date">{{message.date | date:'HH:mm'}}</div>
+          </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+            <mat-form-field [appearance]="kiiInputAppearance">
+                <textarea matInput formControlName="newMessage" rows="2" placeholder="{{'kiilib.input.message.placeholder' | translate}}" required type="text"></textarea>
+                <mat-hint>{{'kiilib.input.message.hint' | translate}}</mat-hint>
+                <mat-error kiiInputError="newMessage"></mat-error>    
+            </mat-form-field>        
+            <div class="kii-button-wrapper">
+                  <button  mat-mini-fab  color="primary" type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </mat-card-actions>
+</mat-card>
+

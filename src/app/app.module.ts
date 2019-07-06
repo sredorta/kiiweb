@@ -125,6 +125,7 @@ import { environment } from '../environments/environment';
 import { KiiShareComponent } from './_kiilib/_components/kii-share/kii-share.component';
 import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
+import { KiiChatComponent } from './_kiilib/_components/kii-chat/kii-chat.component';
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -187,6 +188,7 @@ import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-
     KiiShareComponent,
     KiiBottomSheetCookiesComponent,
     KiiAlertsComponent,
+    KiiChatComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
