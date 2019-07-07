@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
-import { MatBottomSheet } from '@angular/material';
+import { MatBottomSheet, MatDialog } from '@angular/material';
 import { KiiPwaService } from '../../_services/kii-pwa.service';
 import { SwPush } from '@angular/service-worker';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
@@ -17,6 +17,7 @@ import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { LocalizeRouterService } from 'localize-router';
 import { KiiSocketService } from '../../_services/kii-socket.service';
+import { KiiChatDialogComponent } from '../kii-chat-dialog/kii-chat-dialog.component';
 
 
 
@@ -37,6 +38,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiArticle: KiiApiArticleService,
               private localize: LocalizeRouterService,
+              private dialog: MatDialog,
               private title : Title,
               private meta: Meta) {super(kiiApiAuth, platformId)}
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
@@ -87,6 +89,19 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
 
   }
 
+  /**Opens chat dialog */
+  onOpenChat():void {
+    if (isPlatformBrowser(this.platformId)) {
+        let dialogRef = this.dialog.open(KiiChatDialogComponent, {
+          panelClass: 'kii-chat-dialog',
+          minWidth:'300px',
+          data:  null 
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log(result);
+        });
+    }
+  }
 
   /** Shows cookies acceptance bottom sheet */
   openBottomSheetCookies(): void {

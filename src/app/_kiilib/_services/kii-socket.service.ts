@@ -20,6 +20,7 @@ export enum SocketEvents {
   CHAT_JOIN = "chat-join",
   CHAT_LEAVE = "chat-leave",
   CHAT_ECHO = "chat-echo",
+  CHAT_BOT_MESSAGE= "chat-bot-message",
   CHAT_MESSAGE = "chat-message",
   CHAT_WRITTING = "chat-writting"
 
@@ -46,6 +47,8 @@ export interface IChatMessage {
   date:Date;  
   /**Defines if message is incomming or outgoing */
   iAmSender:boolean;
+  /**Defines if the message is generated from bot */
+  isBot:boolean;
 }
 
 export interface IChatUser {
@@ -84,6 +87,7 @@ export class KiiSocketService {
       this.socket = io(environment.socketURL,{secure:true});
       this.loadOnAuthentication();  //Answers authentication requests
       this.loadOnChatMessage();     //Handles incoming chat messages
+      this.loadOnChatBotMessage();     //Handles incoming chat messages
       this.loadOnChatAdminsData();  //Handles when we recieve the chat admins
       this.loadOnChatJoin();
       this.loadOnChatLeave();
@@ -106,11 +110,25 @@ export class KiiSocketService {
       let result : IChatMessage = {
         message:msg,
         date:new Date(),
-        iAmSender:false
+        iAmSender:false,
+        isBot:false
       }
       this._chatMessages.push(result); //Add message
       this._chatMessages$.next(this._chatMessages);
     })    
+  }
+  /**Adds bot message when we recieve it */
+  private loadOnChatBotMessage() {
+      this.socket.on(SocketEvents.CHAT_BOT_MESSAGE, (msg:any) => {
+        let result : IChatMessage = {
+          message:msg,
+          date:new Date(),
+          iAmSender:false,
+          isBot:true
+        }
+        this._chatMessages.push(result); //Add message
+        this._chatMessages$.next(this._chatMessages);
+      })    
   }
 
   /**Adds message when somebody joins the chat */
@@ -119,7 +137,8 @@ export class KiiSocketService {
       let result : IChatMessage = {
         message:msg,
         date:new Date(),
-        iAmSender:false
+        iAmSender:false,
+        isBot:true
       }
       this._chatMessages.push(result); //Add message
       this._chatMessages$.next(this._chatMessages);
@@ -131,7 +150,8 @@ export class KiiSocketService {
       let result : IChatMessage = {
         message:msg,
         date:new Date(),
-        iAmSender:false
+        iAmSender:false,
+        isBot:true
       }
       this._chatMessages.push(result); //Add message
       this._chatMessages$.next(this._chatMessages);
@@ -187,7 +207,8 @@ export class KiiSocketService {
     let result : IChatMessage = {
       message:msg,
       date:new Date(),
-      iAmSender:true
+      iAmSender:true,
+      isBot:false
     }
     this._chatMessages.push(result);
     this._chatMessages$.next(this._chatMessages);
@@ -199,7 +220,8 @@ export class KiiSocketService {
     let result : IChatMessage = {
       message:msg,
       date:new Date(),
-      iAmSender:true
+      iAmSender:true,
+      isBot:false
     }
     this._chatMessages.push(result);
     this._chatMessages$.next(this._chatMessages);

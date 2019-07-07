@@ -17,7 +17,17 @@
   $sentMessage:mat-color($primary);
   $recievedMessage:mat-color($mat-grey,200);
 
+  .kii-chat-dialog {
+      overflow-y: auto;
+      mat-dialog-container {
+          padding:0px;
+      }
+  }
+
   kii-chat {
+    mat-card {
+        box-shadow: none !important;
+    }  
     mat-card-content {
         background:$backgroundContainer;
         border:1px solid rgba(mat-color($primary),0.6);

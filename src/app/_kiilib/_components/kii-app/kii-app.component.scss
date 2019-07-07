@@ -58,6 +58,16 @@ $toolbar-height : 65px;
 .kii-app-toolbar-button {
     display:none;
 }
+
+.kii-app-chat-button {
+    right:20px;
+    top:80vh;
+    position: absolute;
+    z-index: 100000;
+    font-size: 22px;
+
+}
+
 @media only screen and (max-width: 700px) { 
     .kii-app-toolbar-content {
         display:none;

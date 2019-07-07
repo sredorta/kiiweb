@@ -126,6 +126,7 @@ import { KiiShareComponent } from './_kiilib/_components/kii-share/kii-share.com
 import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
 import { KiiChatComponent } from './_kiilib/_components/kii-chat/kii-chat.component';
+import { KiiChatDialogComponent } from './_kiilib/_components/kii-chat-dialog/kii-chat-dialog.component';
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -189,6 +190,7 @@ import { KiiChatComponent } from './_kiilib/_components/kii-chat/kii-chat.compon
     KiiBottomSheetCookiesComponent,
     KiiAlertsComponent,
     KiiChatComponent,
+    KiiChatDialogComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -245,7 +247,7 @@ import { KiiChatComponent } from './_kiilib/_components/kii-chat/kii-chat.compon
     ],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
