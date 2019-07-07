@@ -14,6 +14,10 @@ import { KiiCustomValidators } from '../../../_utils/kii-custom-validators';
 })
 export class KiiProfileFormComponent extends KiiFormAbstract implements OnInit {
 
+  /**Defines storage */
+  //TODO: create enum for storage and add avatars storage
+  storage : string = 'content';
+
   /**Input user set for defaults */
   @Input() defaults : User = new User(null);  //Default values if any
 
@@ -70,6 +74,7 @@ export class KiiProfileFormComponent extends KiiFormAbstract implements OnInit {
           Validators.minLength(10),
           Validators.maxLength(10)
         ])),
+        avatar: new FormControl('', Validators.compose([])),
         passwordOld: new FormControl('', Validators.compose([
           Validators.required,
           Validators.minLength(3),
@@ -84,7 +89,15 @@ export class KiiProfileFormComponent extends KiiFormAbstract implements OnInit {
           KiiCustomValidators.checkPasswordsMatch
         ])),
       });
+      this.myForm.controls["avatar"].patchValue(this.defaults.avatar);
       this.disableControls();
+  }
+
+  /**Patch the value of image once we recieve onUpload */
+  onUpload(url:string) {
+    this.myForm.controls["avatar"].setValue(url);
+    this.myForm.controls["avatar"].enable();
+    this.myForm.markAsDirty();
   }
 
   /**Disables all controls */

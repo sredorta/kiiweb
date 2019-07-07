@@ -50,7 +50,9 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
             //Subscribe to onPush notifications
             this.kiiPwa.onPushNotificationSubscription();
         }
-        this.kiiSocket.updateAuth();
+        if (isPlatformBrowser(this.platformId)) {
+            this.kiiSocket.updateAuth();
+        }
       })
     )
 

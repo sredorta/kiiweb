@@ -1,11 +1,15 @@
 <mat-card class="chat-card">
     <mat-card-header>
-      <!--<div mat-card-avatar class="example-header-image"></div>-->
       <mat-card-title>Chat</mat-card-title>
       <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
-    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-    <mat-card-content #content>
+    <div class="admin-wrapper">
+        <div *ngFor="let admin of admins" class="admin-user" [ngClass]="{'is-connected': admin.connected}">
+                <img mat-card-avatar class="avatar" [src]="getAvatar(admin.avatar)">
+                <small>{{admin.firstName}}</small>
+        </div>   
+    </div>
+    <mat-card-content #content> 
       <div *ngFor="let message of messages">
           <div class="message" [ngClass]="{'i-am-sender' : message.iAmSender}">
              <div class="message-content">{{message.message}}</div>

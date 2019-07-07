@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material';
 import { KiiConfirmDialogComponent } from '../../kii-confirm-dialog/kii-confirm-dialog.component';
 import { KiiProfileFormComponent } from '../../_forms/kii-profile-form/kii-profile-form.component';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
+import { KiiSocketService } from 'src/app/_kiilib/_services/kii-socket.service';
 
 @Component({
   selector: 'kii-profile',
@@ -24,6 +25,7 @@ export class KiiProfileComponent extends KiiBaseAuthAbstract implements OnInit {
               @Inject(PLATFORM_ID) private platformId: any,
               private router : Router,
               private kiiApiLang : KiiApiLanguageService,
+              private kiiSocket: KiiSocketService,
               private dialog : MatDialog) { super(kiiApiAuth,platformId) }
 
   ngOnInit() {
@@ -62,6 +64,7 @@ export class KiiProfileComponent extends KiiBaseAuthAbstract implements OnInit {
   onSubmit(value:any) {
     this.profileForm.isFormLoading = true;
       this.addSubscriber(this.kiiApiAuth.updateAuthUser(value).subscribe(res => {
+        console.log("Recived result: ",res);
         this.kiiApiAuth.setLoggedInUser(new User(res));
         this.profileForm.disableControls();
         this.profileForm.resetPasswords();

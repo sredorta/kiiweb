@@ -10,6 +10,7 @@ export interface IUser {
     mobile:string;
     terms:boolean;
     language:string;
+    avatar:string;
     isEmailValidated:boolean;
     createdAt:string;
     updatedAt:string;
@@ -25,6 +26,7 @@ export class User {
     phone:string = null;
     mobile:string = null;
     language:string = null;
+    avatar:string=null;
     isEmailValidated:boolean = null;
     terms:boolean = null;
     createdAt:string = null;

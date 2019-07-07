@@ -75,6 +75,8 @@
                     <mat-error kiiInputError="passwordConfirm"></mat-error>             
                 </mat-form-field>
         </div>
+        <kii-image-upload [storage]="storage" [maxSize]="200" [crop]="true" [image]="defaults.avatar" (onUpload)="onUpload($event)"></kii-image-upload>
+
         <div class="control-wrapper">
             <button mat-fab color="primary" type="submit" color="primary" [disabled]="!myForm.dirty"><i class="fas fa-save" style="font-size:24px"></i></button>
         </div>
