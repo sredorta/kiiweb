@@ -35,6 +35,11 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
     this.kiiSocket.leaveRoom(room.id);
   }
 
+  deleteRoom(room:IChatRoom) {
+    console.log("Deleting room",room);
+    this.kiiSocket.deleteRoom(room.id);
+  }
+
 }
 /*
 1) Ask for the current chat rooms
