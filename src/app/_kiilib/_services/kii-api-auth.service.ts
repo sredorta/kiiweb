@@ -49,6 +49,8 @@ export class KiiApiAuthService {
   /** Contains current loggedIn user */
   private _user = new BehaviorSubject<User>(new User(null)); //Stores the current user
 
+  /**Contains current number of unread notifications of the user */
+  private _alerts = new BehaviorSubject<number>(0);
 
   constructor(private http: HttpClient, private localize: LocalizeRouterService, private translate: TranslateService) { }
 
@@ -89,6 +91,7 @@ export class KiiApiAuthService {
     console.log(user);
     console.log("----------------------------------");
     this._user.next(user);
+    this._alerts.next(user.getUnreadAlertCount());
   }
 
   /**Gets current loggedIn user as an observable */
@@ -96,6 +99,16 @@ export class KiiApiAuthService {
     return this._user;
   }
 
+
+  /**Sets unread notifications */
+  public setUnreadNotifications(count:number) {
+    console.log("SETTING COUNT", count);
+     this._alerts.next(count);
+  }
+  /**Gets observable with notifications unread */
+  public getUnreadNotifications() {
+    return this._alerts;
+  }
 
   /** getAuthUser expects that we send the bearer token and will return the current user details */
   public getAuthUser() {

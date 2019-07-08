@@ -6,6 +6,8 @@ import { KiiApiLanguageService } from '../../../_services/kii-api-language.servi
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
 import { User } from '../../../_models/user';
+import { Router } from '@angular/router';
+import { LocalizeRouterService } from 'localize-router';
 
 @Component({
   selector: 'kii-alerts',
@@ -33,7 +35,8 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   constructor(private kiiApiAlert: KiiApiAlertService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiAuth: KiiApiAuthService,
-              private changeDetectorRef: ChangeDetectorRef) { super() }
+              private router: Router,
+              private localize : LocalizeRouterService) { super() }
 
   ngOnInit() {
     this.addSubscriber(
@@ -80,9 +83,9 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
       this.kiiApiAlert.delete(alert).subscribe(res => {
         const index = this.loggedInUser.alerts.findIndex(obj => obj.id == alert.id);
         if (index>=0) {
-          this.loggedInUser.alerts.slice(index,1);
+          this.loggedInUser.alerts.splice(index,1);
           this.deleteRow(alert.id);
-          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
+          this.kiiApiAuth.setUnreadNotifications(this.loggedInUser.getUnreadAlertCount());
         }
         this.isDataLoading = false;
       }, () => this.isDataLoading = false)
@@ -92,21 +95,31 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   /**Marks alert as read */
   markAsRead(alert:Alert) {
     alert.isRead = !alert.isRead;
-    console.log(alert);
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiAlert.update(alert).subscribe(res => {
-        console.log("Recieved alert",res);
         let index = this.loggedInUser.alerts.findIndex(obj => obj.id == res.id);
         if (index>=0) {
           this.loggedInUser.alerts[index] = res;
-          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
+          this.kiiApiAuth.setUnreadNotifications(this.loggedInUser.getUnreadAlertCount());
         }
         this.isDataLoading = false;
-      }, (error) => {
-        console.log("GOT ERROR:", error);
       }, () => this.isDataLoading = false)
     )
+  }
+
+  /**Moves user to the corresponding route depending on the notification type */
+  rowClick(alert:Alert) {
+    console.log("We got type", alert.type);
+    switch (alert.type) {
+        case "chat": 
+          let translatedPath: any = this.localize.translateRoute('/admin-chats');
+          this.router.navigate([translatedPath]);
+          break;
+        default: 
+          //Do nothing  
+    }
+
   }
 
 }

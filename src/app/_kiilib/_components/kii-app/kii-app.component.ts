@@ -58,7 +58,11 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
             this.kiiSocket.updateAuth();
         }
-        this.alertCount = this.loggedInUser.getUnreadAlertCount();
+      })
+    )
+    this.addSubscriber(
+      this.kiiApiAuth.getUnreadNotifications().subscribe(count => {
+        this.alertCount = count;
       })
     )
 
