@@ -1,4 +1,4 @@
-import { Injectable, Inject, PLATFORM_ID, NgZone } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID, NgZone, ChangeDetectorRef } from '@angular/core';
 import * as io from 'socket.io-client';
 import { environment } from '../../../environments/environment';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
@@ -188,8 +188,11 @@ export class KiiSocketService {
   private loadOnUpdateUser() {
     if (isPlatformBrowser(this.platformId)) {
       this.socket.on(SocketEvents.UPDATE_USER, (user:IUser) => {
+        //WARNING:: NGZone is required if we want to see change detection working !!!!
+        this.ngZone.run((status: string) => {
           console.log("ON-USER-UPDATE !!!", user);
           this.kiiApiAuth.setLoggedInUser(new User(user));
+        })
       })
     }
   }

@@ -49,6 +49,7 @@ export class KiiApiAuthService {
   /** Contains current loggedIn user */
   private _user = new BehaviorSubject<User>(new User(null)); //Stores the current user
 
+
   constructor(private http: HttpClient, private localize: LocalizeRouterService, private translate: TranslateService) { }
 
   /** Login user using local passport */
@@ -94,6 +95,7 @@ export class KiiApiAuthService {
   public getLoggedInUser() {
     return this._user;
   }
+
 
   /** getAuthUser expects that we send the bearer token and will return the current user details */
   public getAuthUser() {

@@ -59,7 +59,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
             this.kiiSocket.updateAuth();
         }
         this.alertCount = this.loggedInUser.getUnreadAlertCount();
-        this.changeDetectorRef.detectChanges();
       })
     )
 

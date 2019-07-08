@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, SimpleChanges } from '@angular/core';
 import { KiiTableAbstract } from '../../../_abstracts/kii-table.abstract';
 import { KiiApiAlertService } from '../../../_services/kii-api-alert.service';
 import { Alert } from '../../../_models/alert';
@@ -38,11 +38,11 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   ngOnInit() {
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
+        console.log("Recieved new loggedInUser", res);
         this.loggedInUser = res;
         this.displayedColumns = ['id', 'message', 'createdAt','isRead'];
-        this.initTable(this.loggedInUser.alerts.sort((a,b) => b.id - a.id));
+        this.initTable(res.alerts.sort((a,b) => b.id - a.id));
         this.tableSettings();
-        this.changeDetectorRef.detectChanges();
       })
     )
     //Update nice time format language when we change language
@@ -81,8 +81,8 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
         const index = this.loggedInUser.alerts.findIndex(obj => obj.id == alert.id);
         if (index>=0) {
           this.loggedInUser.alerts.slice(index,1);
-          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
           this.deleteRow(alert.id);
+          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
         }
         this.isDataLoading = false;
       }, () => this.isDataLoading = false)
@@ -96,15 +96,17 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiAlert.update(alert).subscribe(res => {
-        console.log(res);
+        console.log("Recieved alert",res);
         let index = this.loggedInUser.alerts.findIndex(obj => obj.id == res.id);
         if (index>=0) {
           this.loggedInUser.alerts[index] = res;
           this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
         }
-
         this.isDataLoading = false;
+      }, (error) => {
+        console.log("GOT ERROR:", error);
       }, () => this.isDataLoading = false)
     )
   }
+
 }

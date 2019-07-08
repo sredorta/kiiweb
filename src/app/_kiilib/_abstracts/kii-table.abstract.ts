@@ -28,7 +28,7 @@ export  class KiiTableAbstract extends KiiBaseAbstract  {
     /**Initializes the table with all the data and subscribes to the keyUp of the search */
     initTable(data : any[]) {
         if (data != null) {
-            this.dataSource = new MatTableDataSource(data);
+            this.dataSource = new MatTableDataSource([...data]);
             this.dataSource.sort = this.sort;
             this.dataSource.paginator = this.paginator;
             this.applyFilter(this.searchString);
