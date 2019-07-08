@@ -19,6 +19,7 @@ import { KiiArticleDetailComponent } from './_kiilib/_components/_pages/kii-arti
 import { KiiAdminEmailsComponent } from './_kiilib/_components/_pages/kii-admin-emails/kii-admin-emails.component';
 import { KiiContactComponent } from './_kiilib/_components/_pages/kii-contact/kii-contact.component';
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
+import { KiiAdminChatsComponent } from './_kiilib/_components/_pages/kii-admin-chats/kii-admin-chats.component';
 
 export const routes: Routes = [
   {
@@ -112,6 +113,10 @@ export const routes: Routes = [
   {
     path: 'admin-emails',
     component: KiiAdminEmailsComponent,
+  }, 
+  {
+    path: 'admin-chats',
+    component: KiiAdminChatsComponent,
   }, 
   /*{path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
   {path: '**', redirectTo: '/404', pathMatch: "full"}*/

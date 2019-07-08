@@ -16,7 +16,7 @@
                   <i class="fas fa-user"></i><small>{{loggedInUser.firstName}}</small>
               </a>
               <a  mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/alerts' | localize">
-                <i class="fas fa-bell" [matBadge]="loggedInUser.getUnreadAlertCount()" [matBadgeOverlap]="true" [matBadgeHidden]="loggedInUser.getUnreadAlertCount()==0"  matBadgeColor="warn" mat-icon-button></i>
+                <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>
               </a>
               <kii-language-selector></kii-language-selector>
           </div>
@@ -29,7 +29,7 @@
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>
-  <button mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
+  <button *ngIf="!loggedInUser.hasRole('admin') && !loggedInUser.hasRole('chat')" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
 
   </mat-sidenav-container>
 

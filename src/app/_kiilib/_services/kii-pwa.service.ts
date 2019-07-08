@@ -91,23 +91,10 @@ export class KiiPwaService {
       this.swPush.messages.pipe(map((res:any) => <Notification>res.notification)).subscribe(notification => {
         console.log("swPush.messages.subscription");
         console.log("Notification is:",notification)
-        //res.notification.data contains the following structure:
-        //action: <action to be performed>
-        //result => data required to perform the action
-        this._performAction(notification.action, notification.data)
       })
     }
   }
 
-  private _performAction(action:string, data:any) {
-    switch (action) {
-      case "reload-user": 
-        this.kiiApiAuth.setLoggedInUser(new User(data.user));
-        break;
-      default:
-        console.log("Don't know how to handle notification !");
-    }
-  }
 
 
 

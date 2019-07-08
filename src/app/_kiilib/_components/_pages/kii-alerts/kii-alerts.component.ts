@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { KiiTableAbstract } from '../../../_abstracts/kii-table.abstract';
 import { KiiApiAlertService } from '../../../_services/kii-api-alert.service';
 import { Alert } from '../../../_models/alert';
@@ -32,7 +32,8 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
 
   constructor(private kiiApiAlert: KiiApiAlertService,
               private kiiApiLang: KiiApiLanguageService,
-              private kiiApiAuth: KiiApiAuthService) { super() }
+              private kiiApiAuth: KiiApiAuthService,
+              private changeDetectorRef: ChangeDetectorRef) { super() }
 
   ngOnInit() {
     this.addSubscriber(
@@ -41,6 +42,7 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
         this.displayedColumns = ['id', 'message', 'createdAt','isRead'];
         this.initTable(this.loggedInUser.alerts.sort((a,b) => b.id - a.id));
         this.tableSettings();
+        this.changeDetectorRef.detectChanges();
       })
     )
     //Update nice time format language when we change language
@@ -90,9 +92,17 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   /**Marks alert as read */
   markAsRead(alert:Alert) {
     alert.isRead = !alert.isRead;
+    console.log(alert);
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiAlert.update(alert).subscribe(res => {
+        console.log(res);
+        let index = this.loggedInUser.alerts.findIndex(obj => obj.id == res.id);
+        if (index>=0) {
+          this.loggedInUser.alerts[index] = res;
+          this.kiiApiAuth.setLoggedInUser(this.loggedInUser);
+        }
+
         this.isDataLoading = false;
       }, () => this.isDataLoading = false)
     )

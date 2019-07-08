@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material';
 import { KiiConfirmDialogComponent } from '../../kii-confirm-dialog/kii-confirm-dialog.component';
 import { KiiProfileFormComponent } from '../../_forms/kii-profile-form/kii-profile-form.component';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
-import { KiiSocketService } from 'src/app/_kiilib/_services/kii-socket.service';
+import { KiiSocketService } from '../../../_services/kii-socket.service';
 
 @Component({
   selector: 'kii-profile',

@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { MatBottomSheet, MatDialog } from '@angular/material';
 import { KiiPwaService } from '../../_services/kii-pwa.service';
@@ -28,6 +28,8 @@ import { KiiChatDialogComponent } from '../kii-chat-dialog/kii-chat-dialog.compo
 })
 export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
 
+  public alertCount : number = 0;
+
   constructor(private bottomSheet: MatBottomSheet,
               @Inject(PLATFORM_ID) private platformId: any,
               private kiiPwa : KiiPwaService, private swPush : SwPush,
@@ -38,6 +40,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiArticle: KiiApiArticleService,
               private localize: LocalizeRouterService,
+              private changeDetectorRef: ChangeDetectorRef,
               private dialog: MatDialog,
               private title : Title,
               private meta: Meta) {super(kiiApiAuth, platformId)}
@@ -55,6 +58,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
             this.kiiSocket.updateAuth();
         }
+        this.alertCount = this.loggedInUser.getUnreadAlertCount();
+        this.changeDetectorRef.detectChanges();
       })
     )
 

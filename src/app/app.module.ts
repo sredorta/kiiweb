@@ -127,6 +127,7 @@ import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
 import { KiiChatComponent } from './_kiilib/_components/kii-chat/kii-chat.component';
 import { KiiChatDialogComponent } from './_kiilib/_components/kii-chat-dialog/kii-chat-dialog.component';
+import { KiiAdminChatsComponent } from './_kiilib/_components/_pages/kii-admin-chats/kii-admin-chats.component';
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -191,6 +192,7 @@ import { KiiChatDialogComponent } from './_kiilib/_components/kii-chat-dialog/ki
     KiiAlertsComponent,
     KiiChatComponent,
     KiiChatDialogComponent,
+    KiiAdminChatsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

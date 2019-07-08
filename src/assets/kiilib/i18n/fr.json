@@ -195,6 +195,7 @@
     "kiilib.admin.menu.content"                   : "Contenu",
     "kiilib.admin.menu.emails"                    : "Courriels",
     "kiilib.admin.menu.stats"                     : "Audience",
+    "kiilib.admin.menu.chats"                     : "Chats",
 
     "kiilib.article.ispublic"           : "Article publié", 
     "kiilib.article.isnotpublic"        : "Article privée",              

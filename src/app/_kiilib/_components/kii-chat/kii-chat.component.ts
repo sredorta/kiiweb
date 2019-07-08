@@ -79,7 +79,11 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   onSubmit() {
     if (this.myForm.controls["newMessage"].value!="") {
       this.socket.chatSendMessage(this.myForm.controls["newMessage"].value);
-      //this.socket.chatSendEcho(this.myForm.controls["newMessage"].value);
+      //If is first message we write then request admins to join
+      if (this.socket.isFirstChatMessage()) {
+          this.socket.chatNewNotify(this.myForm.controls["newMessage"].value);
+      }
+      //Reset form value
       this.myForm.controls["newMessage"].setValue("");
     }
   }
