@@ -200,6 +200,9 @@
     "kiilib.article.ispublic"           : "Article publié", 
     "kiilib.article.isnotpublic"        : "Article privée",              
 
+    "kiilib.chat.rooms.empty"           : "Il n'y a pas des chats en cours actuellement",
+
+
     "kiilib.email.config.logo"          : "Logotype",
     "kiilib.email.config.logo.text"     : "Charger le logotype de l'entreprise(100px x 100px)",
     "kiilib.email.config.header"        : "Entête du courriel",

@@ -63,7 +63,7 @@ export interface IChatUser {
   connected:boolean;
 }
 
-interface IChatRoom {
+export interface IChatRoom {
   id:string;
   date:Date;
 }
@@ -84,6 +84,11 @@ export class KiiSocketService {
   /**Chat admins */
   private _chatAdmins:Array<IChatUser> = [];
   private _chatAdmins$ = new BehaviorSubject<IChatUser[]>([]); 
+
+  /**Current chatRooms */
+  private _chatRooms:Array<IChatRoom> = [];
+  private _chatRooms$ = new BehaviorSubject<IChatRoom[]>([]); 
+
 
 
   /**Contains observable with messages sent/recieved recieved */
@@ -124,63 +129,73 @@ export class KiiSocketService {
   /**Adds message when we recieve it */
   private loadOnChatMessage() {
     this.socket.on(SocketEvents.CHAT_MESSAGE, (msg:any) => {
-      let result : IChatMessage = {
-        message:msg,
-        date:new Date(),
-        iAmSender:false,
-        isBot:false
-      }
-      this._chatMessages.push(result); //Add message
-      this._chatMessages$.next(this._chatMessages);
-    })    
+      this.ngZone.run((status: string) => {
+          let result : IChatMessage = {
+            message:msg,
+            date:new Date(),
+            iAmSender:false,
+            isBot:false
+          }
+          this._chatMessages.push(result); //Add message
+          this._chatMessages$.next(this._chatMessages);
+      })    
+    });
   }
   /**Adds bot message when we recieve it */
   private loadOnChatBotMessage() {
       this.socket.on(SocketEvents.CHAT_BOT_MESSAGE, (msg:any) => {
-        let result : IChatMessage = {
-          message:msg,
-          date:new Date(),
-          iAmSender:false,
-          isBot:true
-        }
-        this._chatMessages.push(result); //Add message
-        this._chatMessages$.next(this._chatMessages);
-      })    
+        this.ngZone.run((status: string) => {
+            let result : IChatMessage = {
+              message:msg,
+              date:new Date(),
+              iAmSender:false,
+              isBot:true
+            }
+            this._chatMessages.push(result); //Add message
+            this._chatMessages$.next(this._chatMessages);
+        })    
+      });
   }
 
   /**Adds message when somebody joins the chat */
   private loadOnChatJoin() {
     this.socket.on(SocketEvents.CHAT_JOIN, (msg:any) => {
-      let result : IChatMessage = {
-        message:msg,
-        date:new Date(),
-        iAmSender:false,
-        isBot:true
-      }
-      this._chatMessages.push(result); //Add message
-      this._chatMessages$.next(this._chatMessages);
-    })    
+      this.ngZone.run((status: string) => {
+          let result : IChatMessage = {
+            message:msg,
+            date:new Date(),
+            iAmSender:false,
+            isBot:true
+          }
+          this._chatMessages.push(result); //Add message
+          this._chatMessages$.next(this._chatMessages);
+      })    
+    });
   }
   /**Adds message when somebody joins the chat */
   private loadOnChatLeave() {
     this.socket.on(SocketEvents.CHAT_LEAVE, (msg:any) => {
-      let result : IChatMessage = {
-        message:msg,
-        date:new Date(),
-        iAmSender:false,
-        isBot:true
-      }
-      this._chatMessages.push(result); //Add message
-      this._chatMessages$.next(this._chatMessages);
-    })    
+      this.ngZone.run((status: string) => {
+          let result : IChatMessage = {
+            message:msg,
+            date:new Date(),
+            iAmSender:false,
+            isBot:true
+          }
+          this._chatMessages.push(result); //Add message
+          this._chatMessages$.next(this._chatMessages);
+      })    
+    })
   }
 
   /**Get who are the chat admins at this moment and if they are connected */
   private loadOnChatAdminsData() {
     this.socket.on(SocketEvents.CHAT_ADMINS_DATA, (users:IChatUser[]) => {
-      console.log("Recieved chat admins",users);
-      this._chatAdmins = users;
-      this._chatAdmins$.next(this._chatAdmins);
+      this.ngZone.run((status: string) => {
+        console.log("Recieved chat admins",users);
+        this._chatAdmins = users;
+        this._chatAdmins$.next(this._chatAdmins);
+      });
     })
   }
 
@@ -200,9 +215,10 @@ export class KiiSocketService {
   private loadOnChatRoomsUpdate() {
     if (isPlatformBrowser(this.platformId)) {
       this.socket.on(SocketEvents.CHAT_ROOM_UPDATE, (rooms:IChatRoom[]) => {
-        
+        this.ngZone.run((status: string) => {
+          this.setChatRooms(rooms);
           console.log("ON-ROOMS-UPDATE !!!", rooms);
-
+        });
       })
     }
   }
@@ -244,6 +260,23 @@ export class KiiSocketService {
   /**Notifies all admin that a new chat is waiting */
   chatNewNotify(msg:string) {
     this.socket.emit(SocketEvents.CHAT_NEW_NOTIFY,msg);
+  }
+
+  /**Request server to provide list of chat rooms */
+  chatRooms() {
+    this.socket.emit(SocketEvents.CHAT_ROOM_UPDATE);
+  }
+
+  /**Join a room */
+  joinRoom(room:string) {
+    console.log("Joining room:",room)
+    this.socket.emit(SocketEvents.CHAT_JOIN,room);
+  }
+
+  /**Leave a room */
+  leaveRoom(room:string) {
+    console.log("Leaving room:",room);
+    this.socket.emit(SocketEvents.CHAT_LEAVE, room);
   }
 
 
@@ -296,5 +329,17 @@ export class KiiSocketService {
   onChatAdmins() {
     return this._chatAdmins$;
   }
+
+  /**Sets current chat rooms */
+  setChatRooms(rooms:IChatRoom[]) {
+    this._chatRooms = rooms;
+    this._chatRooms$.next(this._chatRooms);
+  }
+
+  /**Returns current chat rooms */
+  onChatRooms() {
+    return this._chatRooms$;
+  }
+
 
 }

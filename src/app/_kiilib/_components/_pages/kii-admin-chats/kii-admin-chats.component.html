@@ -1,3 +1,14 @@
-<p>
-  kii-admin-chats works!
-</p>
+<div class="admin-theme kii-admin-chats-wrapper">
+  <div *ngIf="rooms.length>0" class="kii-admin-chats-content">
+    <mat-tab-group >
+        <mat-tab *ngFor="let room of rooms" [label]="room.id"> 
+            <div class="kii-admin-chats-header">
+                <button mat-flat-button (click)="joinRoom(room)">Join</button>
+                <button mat-flat-button (click)="leaveRoom(room)">Leave</button>
+                <button mat-flat-button (click)="deleteRoom(room)">Delete</button>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+  </div>  
+  <h1 *ngIf="rooms.length==0">{{'kiilib.chat.rooms.empty' | translate}}</h1>
+</div>
