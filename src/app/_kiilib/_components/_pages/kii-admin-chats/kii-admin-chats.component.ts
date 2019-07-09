@@ -18,7 +18,7 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
     this.kiiSocket.chatRooms();
 
     this.addSubscriber(
-      this.kiiSocket.onChatRooms().subscribe(res => {
+      this.kiiSocket.onChatAllRooms().subscribe(res => {
         this.rooms = res;
         console.log("Current chat rooms",res);
       })

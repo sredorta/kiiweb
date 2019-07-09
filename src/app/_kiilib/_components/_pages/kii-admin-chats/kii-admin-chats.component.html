@@ -6,6 +6,8 @@
                 <button mat-flat-button (click)="joinRoom(room)">Join</button>
                 <button mat-flat-button (click)="leaveRoom(room)">Leave</button>
                 <button mat-flat-button (click)="deleteRoom(room)">Delete</button>
+                <p>participants : {{room.participants}}</p>
+                <kii-chat [isAdminContext]="true" [room]="room"></kii-chat>
             </div>
         </mat-tab>
     </mat-tab-group>

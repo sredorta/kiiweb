@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import * as io from 'socket.io-client';
 import { environment } from '../../../../environments/environment';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 import { KiiFormAbstract } from '../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { KiiSocketService, IChatMessage, IChatUser } from '../../_services/kii-socket.service';
+import { KiiSocketService, IChatMessage, IChatUser, IChatRoom } from '../../_services/kii-socket.service';
 
 @Component({
   selector: 'kii-chat',
@@ -13,6 +13,13 @@ import { KiiSocketService, IChatMessage, IChatUser } from '../../_services/kii-s
   styleUrls: ['./kii-chat.component.scss']
 })
 export class KiiChatComponent extends KiiFormAbstract implements OnInit {
+  /**In the admin context we do some things differently like we do not trigger start of rooms... */
+  @Input() isAdminContext : boolean = false;
+
+
+  /**Contains current chat rooom */
+  @Input() room : IChatRoom;
+
 
   /**Contains current chat messages */
   messages : IChatMessage[] = [];
@@ -29,20 +36,37 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
 
   constructor(private socket: KiiSocketService, private kiiApiLang: KiiApiLanguageService) {super()}
 
+  ngOnChanges(changes:SimpleChanges) {
+    if (changes.room) {
+      this.room = changes.room.currentValue;
+      console.log("Changes",this.room);
+    }
+  }
+
   ngOnInit() {
     this.createForm();
-    //Recieve the messages and show them and scroll to bottom of window
-    this.addSubscriber(
-      this.socket.onChatMessages().subscribe((msgs) => {
-        if (msgs.length <= 0 ) this.socket.chatStart();
-        this.messages = msgs;
-        this.scrollBottom();
-      })
-    )
+    if (!this.isAdminContext) this.socket.chatStart();  //Triggers chat start !
+
     //Get chat admins
     this.addSubscriber(
       this.socket.onChatAdmins().subscribe(admins => {
         this.admins = admins;
+      })
+    )
+    //Get current chat room if we are not admin
+    if (!this.isAdminContext)
+      this.addSubscriber(
+        this.socket.onChatRoom().subscribe(room => {
+          console.log("We recieved the room :", room);
+          this.room = room;
+        })
+      )
+
+    //Get current chat messages
+    this.addSubscriber(
+      this.socket.onChatMessages().subscribe(res => {
+        //Filter messages with only current room (admins have all of them)
+        this.messages = res.filter(obj=> obj.room == this.room.id);
       })
     )
 
@@ -78,13 +102,33 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   /**When se submit the form we send the message */
   onSubmit() {
     if (this.myForm.controls["newMessage"].value!="") {
-      this.socket.chatSendMessage(this.myForm.controls["newMessage"].value);
+      let myMessage : IChatMessage = {
+        message: this.myForm.controls["newMessage"].value,
+        sender: this.socket.socket.id,
+        date: new Date(),
+        room: this.room.id
+      }
+      console.log("Sending message:",myMessage);
+      this.socket.chatSendMessage(myMessage);
       //If is first message we write then request admins to join
-      if (this.socket.isFirstChatMessage()) {
-          this.socket.chatNewNotify(this.myForm.controls["newMessage"].value);
+      if (this.socket.isFirstChatMessage() && !this.isAdminContext) {
+          this.socket.chatNewNotify(myMessage);
       }
       //Reset form value
       this.myForm.controls["newMessage"].setValue("");
     }
   }
+
+  /**Returns if message is bot */
+  isBot(message:IChatMessage) {
+      if (message.sender == "bot") return true;
+      return false;
+  }
+
+  /**Returns if I am the sender of the message */
+  iAmSender(message:IChatMessage) {
+    if (message.sender == this.socket.socket.id) return true;
+    return false;
+  }
+
 }

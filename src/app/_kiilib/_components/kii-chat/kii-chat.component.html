@@ -1,7 +1,7 @@
 <mat-card class="chat-card">
     <mat-card-header>
       <mat-card-title>Chat</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <mat-card-subtitle>{{room.id}}</mat-card-subtitle>
     </mat-card-header>
     <div class="admin-wrapper">
         <div *ngFor="let admin of admins" class="admin-user" [ngClass]="{'is-connected': admin.connected}">
@@ -11,7 +11,7 @@
     </div>
     <mat-card-content #content> 
       <div *ngFor="let message of messages">
-          <div class="message" [ngClass]="{'i-am-sender' : message.iAmSender, 'is-bot':message.isBot}">
+          <div class="message" [ngClass]="{'i-am-sender' : iAmSender(message), 'is-bot': isBot(message)}">
              <div class="message-content">{{message.message}}</div>
              <div class="message-date">{{message.date | date:'HH:mm'}}</div>
           </div>
