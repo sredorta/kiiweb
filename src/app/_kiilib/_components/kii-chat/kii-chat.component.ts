@@ -39,6 +39,8 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   ngOnChanges(changes:SimpleChanges) {
     if (changes.room) {
       this.room = changes.room.currentValue;
+      //Trigger to get all chat messages  
+      this.socket.getChatStoredMessages(this.room.id);
       console.log("Changes",this.room);
     }
   }
@@ -59,13 +61,15 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
         this.socket.onChatRoom().subscribe(room => {
           console.log("We recieved the room :", room);
           this.room = room;
+          //Trigger to get all chat messages  
+          this.socket.getChatStoredMessages(this.room.id);
         })
       )
 
     //Get current chat messages
     this.addSubscriber(
       this.socket.onChatMessages().subscribe(res => {
-        //Filter messages with only current room (admins have all of them)
+        //Filter messages with only current room (admins have messages with all rooms)
         this.messages = res.filter(obj=> obj.room == this.room.id);
       })
     )

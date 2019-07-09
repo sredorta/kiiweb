@@ -56,7 +56,7 @@ mat-card-content {
     position: relative;
 }
 
-.message:not(.i-am-sender) {
+.message.i-am-reciever {
     margin-right:25%;
 }
 .message.is-bot {
@@ -66,7 +66,7 @@ mat-card-content {
     font-weight: bold;
 }
 
-.message:not(.i-am-sender,.is-bot):before {
+.message.i-am-reciever:not(.is-bot):before {
     content: "";
     position: absolute;
     z-index: 0;
@@ -76,7 +76,7 @@ mat-card-content {
     width: 20px;
     border-bottom-right-radius: 15px;
   }
-.message:not(.i-am-sender,.is-bot):after {
+.message.i-am-reciever:not(.is-bot):after {
     content: "";
     position: absolute;
     z-index: 1;
@@ -91,7 +91,7 @@ mat-card-content {
     margin-left:25%;
 }
 
-.message.i-am-sender:not(.is-bot):before {
+.message.i-am-sender:before {
     content: "";
     position: absolute;
     z-index: 0;
@@ -103,7 +103,7 @@ mat-card-content {
     border-bottom-left-radius: 15px;
   }
   
-.message.i-am-sender:not(.is-bot):after {
+.message.i-am-sender:after {
     content: "";
     position: absolute;
     z-index: 1;

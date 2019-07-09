@@ -16,6 +16,14 @@
   $backgroundContainer:mat-color($background,card);
   $sentMessage:mat-color($primary);
   $recievedMessage:mat-color($mat-grey,200);
+  $textColor :black;
+  @if ($is-dark-theme) {
+    $recievedMessage:mat-color($mat-grey,200);
+    $textColor :black;
+  } @else {
+    $recievedMessage:mat-color($mat-grey,600);
+    $textColor: white;
+  }
 
   .kii-chat-dialog {
       overflow-y: auto;
@@ -34,14 +42,18 @@
         border-radius: 3px;
     }
 
-    .message:not(.i-am-sender) {
+    .message {
+        color: $textColor;
+    }
+
+    .message.i-am-reciever {
         background:$recievedMessage;
     }
     
-    .message:not(.i-am-sender):before {
+    .message.i-am-reciever:not(.is-bot):before {
         background: $recievedMessage;
       }
-    .message:not(.i-am-sender):after {
+    .message.i-am-reciever:not(.is-bot):after {
         background: $backgroundContainer;
     }
     

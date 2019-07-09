@@ -20,6 +20,8 @@ export enum SocketEvents {
   CHAT_NEW_NOTIFY ="chat-new-notify",
   CHAT_ROOM_ASSIGN ="chat-room-assign",  //Current chat room assigned
   CHAT_ROOMS_UPDATE ="chat-rooms-update",
+  CHAT_STORED_MESSAGES = "chat-stored-messages", //Gets stored messages
+  CHAT_MESSAGE = "chat-message",
 
 
   CHAT_ROOM_DELETE ="chat-room-delete",
@@ -27,8 +29,6 @@ export enum SocketEvents {
   CHAT_JOIN = "chat-join",
   CHAT_LEAVE = "chat-leave",
   CHAT_ECHO = "chat-echo",
-  CHAT_BOT_MESSAGE= "chat-bot-message",
-  CHAT_MESSAGE = "chat-message",
   CHAT_WRITTING = "chat-writting"
 }
 
@@ -114,7 +114,7 @@ export class KiiSocketService {
       //Chat part
       this.loadOnChatAdminsData();  //Handles when we recieve the chat admins status
       this.loadOnChatRoomAssign(); //When server assigns us a room
-
+      this.loadOnGetStoredMessages();
       this.loadOnChatMessage();     //Handles incoming chat messages
       this.loadOnChatRoomsUpdate(); //When chat rooms are updated
 
@@ -215,7 +215,16 @@ export class KiiSocketService {
     });
   }
 
-
+  /**When we get a chat room assigned then we store all the data */
+  private loadOnGetStoredMessages() {
+    this.socket.on(SocketEvents.CHAT_STORED_MESSAGES, (msgs:IChatMessage[]) => {
+      console.log("Recieved stored messages!!!!!!!!!!!!!!!!!!", msgs);
+      this.ngZone.run((status: string) => {
+         this._chatMessages = msgs;
+         this._chatMessages$.next(msgs);
+      })   
+    });
+  }
 
 
   ////////////////////////////////////////////////////////////
@@ -327,6 +336,10 @@ export class KiiSocketService {
 
   onChatMessages() {
     return this._chatMessages$;
+  }
+
+  getChatStoredMessages(room:string) {
+    this.socket.emit(SocketEvents.CHAT_STORED_MESSAGES, room);
   }
 
   /**Request server to provide list of chat rooms */
