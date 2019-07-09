@@ -6,6 +6,7 @@ import { KiiApiLanguageService } from './kii-api-language.service';
 import { isPlatformBrowser } from '@angular/common';
 import { IUser, User } from '../_models/user';
 import { KiiApiAuthService } from './kii-api-auth.service';
+import { Socket } from 'net';
 
 
 /**Enumerator with all socket events*/
@@ -14,26 +15,11 @@ export enum SocketEvents {
   DISCONNECT = "disconnect",
   AUTHENTICATE = "authenticate",
   UPDATE_USER = "update-user-data",
-  CHAT_LANGUAGE = "chat-update-language",  //Defines the language of the chat room
-  CHAT_START = "chat-start",
   CHAT_ADMINS_DATA = "chat-admins",
+  CHAT_ADMIN_ROOMS="chat-admin-rooms",
   CHAT_NEW_NOTIFY ="chat-new-notify",
-  CHAT_ROOM_ASSIGN ="chat-room-assign",  //Current chat room assigned
-  CHAT_ROOMS_UPDATE ="chat-rooms-update",
-  CHAT_STORED_MESSAGES = "chat-stored-messages", //Gets stored messages
-  CHAT_MESSAGE = "chat-message",
-
-
-  CHAT_ROOM_DELETE ="chat-room-delete",
-  CHAT_ROOM_CLOSE ="chat-room-close",
-  CHAT_JOIN = "chat-join",
-  CHAT_LEAVE = "chat-leave",
-  CHAT_ECHO = "chat-echo",
-  CHAT_WRITTING = "chat-writting"
+  CHAT_DATA="chat-data",
 }
-
-
-
 
 /**Socket auth data format */
 export interface ISocketToken {
@@ -63,11 +49,27 @@ export interface IChatUser {
   connected:boolean;
 }
 
+/**Room structure */
 export interface IChatRoom {
-  id:string;
-  participants:number;
-  date:Date;
+    id:string;
+    participants:number;
+    date:Date;
+    messages: IChatMessage[];
 }
+
+  /**Chat data structure */
+export  interface IChatData {
+    room:string | null;
+    type:ChatDataType;
+    object:any;
+}
+
+export enum ChatDataType {
+     Message = "message",
+     Room = "room",
+}
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -76,28 +78,20 @@ export class KiiSocketService {
   /**Socket for comunication */
   socket: SocketIOClient.Socket;
 
-  /**Contains current chat room*/
-  private _chatRoom:IChatRoom;
-  private _chatRoom$ = new BehaviorSubject<IChatRoom>({id:null,participants:0,date:new Date()}); 
-
-  /**Contains all available chat-rooms only for admins */
-  private _chatAllRooms:Array<IChatRoom>;
-  private _chatAllRooms$ = new BehaviorSubject<IChatRoom[]>([]); 
-
 
   /**Contains current chat messages */
   private _chatMessages:Array<IChatMessage> = [];
   private _chatMessages$ = new BehaviorSubject<IChatMessage[]>([]); 
 
-
-
   /**Chat admins */
   private _chatAdmins:Array<IChatUser> = [];
   private _chatAdmins$ = new BehaviorSubject<IChatUser[]>([]); 
 
-  /**Current Chat messages */
-  //private _chatMessages:Array<IChatMessage> = [];
-  //private _chatMessages$ = new BehaviorSubject<IChatMessage[]>([]); 
+  private _chatRooms$ = new BehaviorSubject<any[]>([]);
+
+  /**Data provided by socket */
+  private _data$ = new BehaviorSubject<IChatData>(null);
+
 
 
   constructor(private kiiApiLang: KiiApiLanguageService,
@@ -111,17 +105,9 @@ export class KiiSocketService {
       });
       this.loadOnAuthentication();  //Answers authentication requests
       this.loadOnUpdateUser();      //Updates user if required to show new alerts...
-      //Chat part
       this.loadOnChatAdminsData();  //Handles when we recieve the chat admins status
-      this.loadOnChatRoomAssign(); //When server assigns us a room
-      this.loadOnGetStoredMessages();
-      this.loadOnChatMessage();     //Handles incoming chat messages
-      this.loadOnChatRoomsUpdate(); //When chat rooms are updated
-
-/*      this.loadOnChatRoomsUpdate(); //When new user has joined a chat and written a first message
-      //this.loadOnChatRoomClose(); //When new user has joined a chat and written a first message
-      this.loadOnChatJoin();
-      this.loadOnChatLeave();*/
+      this.loadOnChatAdminStart();  //Finds rooms....
+      this.loadOnChatData();        //Interface for all socket room to room data
     }
   }
 
@@ -159,13 +145,6 @@ export class KiiSocketService {
     }
   }
 
-
-
-  /**Starts chat so that we get the current assigned room with the welcome message and notify all admins that a new chat has started. We will recieve chat admins... */
-  chatStart() {
-    this.socket.emit(SocketEvents.CHAT_START);
-  }
-
   /**Get who are the chat admins at this moment and if they are connected */
   private loadOnChatAdminsData() {
     this.socket.on(SocketEvents.CHAT_ADMINS_DATA, (users:IChatUser[]) => {
@@ -182,80 +161,62 @@ export class KiiSocketService {
     this.socket.emit(SocketEvents.CHAT_NEW_NOTIFY,msg);
   }
 
-  /**Updates language, only if we are on browser */
-  updateLanguage() {
-    if (isPlatformBrowser(this.platformId)) {
-      let data : ISocketLanguage = {
-        language : this.kiiApiLang.get()
-      }
-      this.socket.emit(SocketEvents.CHAT_LANGUAGE,data);
-    }
-  }
 
-
-  /**Adds message when we recieve it */
-  private loadOnChatMessage() {
-    this.socket.on(SocketEvents.CHAT_MESSAGE, (msg:IChatMessage) => {
-      console.log("Recieved message", msg);
+  /**Loads chat data */
+  private loadOnChatData() {
+    this.socket.on(SocketEvents.CHAT_DATA, (data:IChatData) => {
+      console.log("Recieved CHAT_DATA data",data);
+      console.log("DATA !!!!")
+      console.log(data);
+      console.log("END DATA");
       this.ngZone.run((status: string) => {
-        this._chatMessages.push(msg);
-        this._chatMessages$.next(this._chatMessages);
-      })    
-    });
-  }
-
-  /**When we get a chat room assigned then we store all the data */
-  private loadOnChatRoomAssign() {
-    this.socket.on(SocketEvents.CHAT_ROOM_ASSIGN, (room:IChatRoom) => {
-      console.log("Recieved room assigned!!!!!!!!!!!!!!!!!!", room);
-      this.ngZone.run((status: string) => {
-         this._chatRoom = room;
-         this._chatRoom$.next(this._chatRoom);
+           this._data$.next(data);
       })   
     });
   }
 
-  /**When we get a chat room assigned then we store all the data */
-  private loadOnGetStoredMessages() {
-    this.socket.on(SocketEvents.CHAT_STORED_MESSAGES, (msgs:IChatMessage[]) => {
-      console.log("Recieved stored messages!!!!!!!!!!!!!!!!!!", msgs);
+  /**Sends chat data to the room */
+  sendChatData(data:IChatData) {
+    console.log("Sending CHAT_DATA to room " + data.room)
+    this.socket.emit(SocketEvents.CHAT_DATA,data);
+  }
+
+  getChatAdmins() {
+    this.socket.emit(SocketEvents.CHAT_ADMINS_DATA);
+  }
+
+  /////////////////////////////////////////////////////////////////////////////////////////////
+  // ADMIN PART
+  /////////////////////////////////////////////////////////////////////////////////////////////
+  startChatAdmin() {
+    this.socket.emit(SocketEvents.CHAT_ADMIN_ROOMS);
+  }
+  private loadOnChatAdminStart() {
+    this.socket.on(SocketEvents.CHAT_ADMIN_ROOMS, (res:IChatRoom[]) => {
+      console.log("Recieved CHAT_ADMIN_START data",res);
       this.ngZone.run((status: string) => {
-         this._chatMessages = msgs;
-         this._chatMessages$.next(msgs);
+          this._chatRooms$.next(res);
       })   
     });
   }
 
-
-  ////////////////////////////////////////////////////////////
-  //ADMIN PART
-  ////////////////////////////////////////////////////////////
-  /**When a new chat is waiting for admins, only chat admins recieves such notif*/
-  private loadOnChatRoomsUpdate() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.socket.on(SocketEvents.CHAT_ROOMS_UPDATE, (rooms:IChatRoom[]) => {
-        this.ngZone.run((status: string) => {
-          console.log("ON-ROOMS-UPDATE !!!", rooms);
-          this._chatAllRooms = rooms;
-          this._chatAllRooms$.next(this._chatAllRooms);
-        });
-      })
-    }
+  /**Returns rooms for admin */
+  onChatRooms() {
+    return this._chatRooms$;
   }
 
 
-  /**Returns current chat rooms */
-  onChatAllRooms() {
-    return this._chatAllRooms$;
+  /**Returns data when recieved by socket */
+  onDataChange() {
+    return this._data$;
   }
 
-  /**Returns current active room when there are updates */
-  onChatRoom() {
-    return this._chatRoom$;
+  /**Returns chat admins */
+  onChatAdmins() {
+    return this._chatAdmins$;
   }
 
 
-  //This is the missing part now....
 
 
 
@@ -264,47 +225,7 @@ export class KiiSocketService {
 
 
 
-
-
-
-
-  /**Adds message when somebody joins the chat */
-  /*private loadOnChatJoin() {
-    this.socket.on(SocketEvents.CHAT_JOIN, (msg:any) => {
-      this.ngZone.run((status: string) => {
-          let result : IChatMessage = {
-            message:msg,
-            date:new Date(),
-            iAmSender:false,
-            isBot:true
-          }
-          this._chatMessages.push(result); //Add message
-          this._chatMessages$.next(this._chatMessages);
-      })    
-    });
-  }*/
-  /**Adds message when somebody joins the chat */
-  /*private loadOnChatLeave() {
-    this.socket.on(SocketEvents.CHAT_LEAVE, (msg:any) => {
-      this.ngZone.run((status: string) => {
-          let result : IChatMessage = {
-            message:msg,
-            date:new Date(),
-            iAmSender:false,
-            isBot:true
-          }
-          this._chatMessages.push(result); //Add message
-          this._chatMessages$.next(this._chatMessages);
-      })    
-    })
-  }*/
-
-
-
-
-
-
-  /**When the chat room closes*/
+/*
   private loadOnChatRoomClose(callback: () => void) {
     if (isPlatformBrowser(this.platformId)) {
       this.socket.on(SocketEvents.CHAT_ROOM_CLOSE, () => {
@@ -316,19 +237,8 @@ export class KiiSocketService {
     }
   }  
 
-  ////////////////////////////////////////////////////////////////////////
-  //Functions for triggering socket events
-  ////////////////////////////////////////////////////////////////////////
+ 
 
-
-
-
-  ///////////////////////////////////////////////////////
-  // CHAT PART
-  // Chat part is protected as only is shown after a click that server cannot handle
-  ///////////////////////////////////////////////////////
-
-  /**Returns current chat messages (all rooms for admins)*/
   addChatMessage(message:IChatMessage) {
     this._chatMessages.push(message);
     this._chatMessages$.next(this._chatMessages);
@@ -342,31 +252,27 @@ export class KiiSocketService {
     this.socket.emit(SocketEvents.CHAT_STORED_MESSAGES, room);
   }
 
-  /**Request server to provide list of chat rooms */
   chatRooms() {
     console.log("Sending to socket CHAT_ROOM_UPDATE");
     this.socket.emit(SocketEvents.CHAT_ROOMS_UPDATE);
   }
 
-  /**Join a room */
   joinRoom(room:string) {
     console.log("Joining room:",room)
     this.socket.emit(SocketEvents.CHAT_JOIN,room);
   }
 
-  /**Leave a room */
   leaveRoom(room:string) {
     console.log("Leaving room:",room);
     this.socket.emit(SocketEvents.CHAT_LEAVE, room);
   }
 
-  /**Deletes a room */
   deleteRoom(room:string) {
     console.log("Deleting room:",room);
     this.socket.emit(SocketEvents.CHAT_ROOM_DELETE, room);
   }
 
-  /**Emits message and recieves same message */
+
   chatSendEcho(msg:string) {
     /*let result : IChatMessage = {
       message:msg,
@@ -376,40 +282,82 @@ export class KiiSocketService {
     }
     this._chatMessages.push(result);
     this._chatMessages$.next(this._chatMessages);
-    this.socket.emit(SocketEvents.CHAT_ECHO,msg);*/
+    this.socket.emit(SocketEvents.CHAT_ECHO,msg);
   }
 
-
-  /**Emits message to the chat */
-  chatSendMessage(msg:IChatMessage) {
-    this._chatMessages.push(msg);
-    this._chatMessages$.next(this._chatMessages);
-    this.socket.emit(SocketEvents.CHAT_MESSAGE,msg);
-  }
-
-
-  /**Emits when user is writting or not in the chat */
   chatSetWritting(value:boolean) {
     this.socket.emit(SocketEvents.CHAT_WRITTING, value);
   }
-
+*/
 
   /**Returns if this is the first chat message sent */
-  isFirstChatMessage() {
+  /*isFirstChatMessage() {
     const myMsgs = this._chatMessages.filter(obj => obj.sender == this.socket.id);
     if (!myMsgs) return false;
     if (myMsgs.length == 1) return true;
     return false;
-  }
-
-  /**Returns chat admins */
-  onChatAdmins() {
-    return this._chatAdmins$;
-  }
+  }*/
 
 
 
 
+
+
+  /**When we get a chat room assigned then we store all the data */
+ /* private loadOnChatRoomAssign() {
+    this.socket.on(SocketEvents.CHAT_ROOM_ASSIGN, (room:IChatRoom) => {
+      console.log("Recieved room assigned!!!!!!!!!!!!!!!!!!", room);
+      this.ngZone.run((status: string) => {
+         this._chatRoom = room;
+         this._chatRoom$.next(this._chatRoom);
+      })   
+    });
+  }*/  
+
+
+   
+   
+     /**Returns current chat rooms */
+     /*onChatAllRooms() {
+       return this._chatAllRooms$;
+     }*/
+   
+     /**Returns current active room when there are updates */
+     /*onChatRoom() {
+       return this._chatRoom$;
+     }*/
+     //This is the missing part now....
+   
+     /**Adds message when somebody joins the chat */
+     /*private loadOnChatJoin() {
+       this.socket.on(SocketEvents.CHAT_JOIN, (msg:any) => {
+         this.ngZone.run((status: string) => {
+             let result : IChatMessage = {
+               message:msg,
+               date:new Date(),
+               iAmSender:false,
+               isBot:true
+             }
+             this._chatMessages.push(result); //Add message
+             this._chatMessages$.next(this._chatMessages);
+         })    
+       });
+     }*/
+     /**Adds message when somebody joins the chat */
+     /*private loadOnChatLeave() {
+       this.socket.on(SocketEvents.CHAT_LEAVE, (msg:any) => {
+         this.ngZone.run((status: string) => {
+             let result : IChatMessage = {
+               message:msg,
+               date:new Date(),
+               iAmSender:false,
+               isBot:true
+             }
+             this._chatMessages.push(result); //Add message
+             this._chatMessages$.next(this._chatMessages);
+         })    
+       })
+     }*/
 
 
 }

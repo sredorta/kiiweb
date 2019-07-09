@@ -2,3 +2,53 @@
     padding:10px;
     min-height: 80vh;
 }
+.kii-admin-chats-rooms-wrapper {
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+}
+.kii-room-button {
+    margin:20px;
+}
+.kii-admin-room {
+    padding:10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    small {
+        opacity:0.5;
+    }
+    i {
+        font-size: 50px;
+        margin:10px;
+    }
+    .date-wrapper {
+        width:100%;
+        display: flex;
+        justify-content: flex-end;
+        font-weight: bold;
+        i {
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    }
+}
+
+.chat-wrapper {
+    padding:20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.chat-wrapper-container {
+    width:100%;
+    max-width: 700px;
+}
+kii-chat {
+    width:100%;
+}

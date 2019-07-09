@@ -1,16 +1,24 @@
 <div class="admin-theme kii-admin-chats-wrapper">
   <div *ngIf="rooms.length>0" class="kii-admin-chats-content">
-    <mat-tab-group >
-        <mat-tab *ngFor="let room of rooms" [label]="room.id"> 
-            <div class="kii-admin-chats-header">
-                <button mat-flat-button (click)="joinRoom(room)">Join</button>
-                <button mat-flat-button (click)="leaveRoom(room)">Leave</button>
-                <button mat-flat-button (click)="deleteRoom(room)">Delete</button>
-                <p>participants : {{room.participants}}</p>
-                <kii-chat [isAdminContext]="true" [room]="room"></kii-chat>
-            </div>
-        </mat-tab>
-    </mat-tab-group>
+    <div class="kii-admin-chats-rooms-wrapper">
+        <div *ngFor="let room of rooms">
+            <button class="kii-room-button" mat-stroked-button color="primary" [matBadge]="room.messages.length" matBadgePosition="before" matBadgeColor="accent" (click)="openRoom(room)">
+                <div class="kii-admin-room">
+                  <div class="date-wrapper">
+                    <small><i class="far fa-clock"></i>{{room.date | date:'HH:mm'}}</small>
+                  </div>
+                  <i class="fas fa-person-booth"></i>
+                  <small>{{room.id}}</small>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="chat-wrapper">
+        <div *ngFor="let room of rooms" class="chat-wrapper-container">
+          <p *ngIf="currentRoom.id == room.id">{{room.id}}</p>
+          <kii-chat *ngIf="currentRoom.id == room.id" [messages]="room.messages" [room]="currentRoom"></kii-chat>
+        </div>
+    </div>
   </div>  
   <h1 *ngIf="rooms.length==0">{{'kiilib.chat.rooms.empty' | translate}}</h1>
 </div>

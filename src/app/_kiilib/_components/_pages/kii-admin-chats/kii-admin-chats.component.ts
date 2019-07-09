@@ -10,20 +10,33 @@ import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
 
   rooms : IChatRoom[] = [];
+  currentRoom: IChatRoom;
 
   constructor(private kiiSocket: KiiSocketService) { super() }
 
   ngOnInit() {
-    //Ask for open chat rooms just in case we had missed them
-    this.kiiSocket.chatRooms();
+    //Ask to all connections if they have messages
 
+    this.kiiSocket.startChatAdmin();
     this.addSubscriber(
-      this.kiiSocket.onChatAllRooms().subscribe(res => {
-        this.rooms = res;
-        console.log("Current chat rooms",res);
+      this.kiiSocket.onChatRooms().subscribe(res => {
+        if (res.length) {
+          console.log("Rooms are",res);
+          console.log("Current is", res[0]);
+          this.currentRoom = res[0];
+          this.rooms = res;
+          this.kiiSocket.sendChatData({room:res[0].id, currentRoom:res[0]})
+        }
       })
     )
   }
+
+  openRoom(room:IChatRoom) {
+    console.log("openning room",room);
+    this.currentRoom = room;
+  }
+
+
 
   joinRoom(room:IChatRoom) {
     console.log("Joining room", room);

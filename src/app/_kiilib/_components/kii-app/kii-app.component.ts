@@ -71,7 +71,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiLang.onChange().subscribe(res => {
         this.loadInitialData();
-        this.kiiSocket.updateLanguage();
       })
     )
     //Initialize cookies

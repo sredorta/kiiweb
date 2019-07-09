@@ -1,7 +1,7 @@
 <mat-card class="chat-card">
     <mat-card-header>
       <mat-card-title>Chat</mat-card-title>
-      <mat-card-subtitle>{{room.id}}</mat-card-subtitle>
+      <mat-card-subtitle><i class="fas fa-user-friends" style="margin-right:5px;"></i>{{room.participants}}</mat-card-subtitle>
     </mat-card-header>
     <div class="admin-wrapper">
         <div *ngFor="let admin of admins" class="admin-user" [ngClass]="{'is-connected': admin.connected}">
