@@ -16,12 +16,16 @@
   $backgroundContainer:mat-color($background,card);
   $sentMessage:mat-color($primary);
   $recievedMessage:mat-color($mat-grey,200);
+  $botMessage:mat-color($mat-grey,100);
   $textColor :black;
   @if ($is-dark-theme) {
     $recievedMessage:mat-color($mat-grey,200);
+    $botMessage:mat-color($mat-grey,600);
     $textColor :black;
   } @else {
-    $recievedMessage:mat-color($mat-grey,600);
+    $recievedMessage:mat-color($mat-grey,700);
+    $botMessage:mat-color($mat-grey,400);
+
     $textColor: white;
   }
 
@@ -45,8 +49,15 @@
         border-radius: 3px;
     }
 
+    .message-owner {
+        color: mat-color($accent);
+    }
+
     .message {
         color: $textColor;
+    }
+    .message.i-am-reciever.is-bot {
+        background:$botMessage;
     }
 
     .message.i-am-reciever {

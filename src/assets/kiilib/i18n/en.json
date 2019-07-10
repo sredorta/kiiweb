@@ -19,6 +19,7 @@
     "kiilib.refresh" : "Refresh",
     "kiilib.edit"   : "Modify",
     "kiilib.test"   : "Test",
+    "kiilib.you"    : "You",
     "kiilib.editor.placeholder" : "Enter text here...",
 
     "kiilib.pwa.update.text"   : "There is a new version available",
@@ -203,6 +204,8 @@
     "kiilib.article.isnotpublic"        : "Private article",   
     "kiilib.chat.rooms.empty"           : "There are no currently opened chats",
     "kiilib.chat.rooms.title"           : "Currently open chats",
+    "kiilib.chat.title"                 : "Chat",
+    "kiilib.chat.subtitle"              : "Ask us what you want",
     
     
     "kiilib.email.config.logo"          : "Company logo",

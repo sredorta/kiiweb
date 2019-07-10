@@ -41,6 +41,7 @@ export interface IChatMessage {
   sender:string;
   room:string;
   isBot:boolean;
+  senderName:string | null,
 }
 
 export interface IChatUser {

@@ -68,6 +68,10 @@ $toolbar-height : 65px;
 
 }
 
+.kii-app-wrapper textarea {
+    resize:none
+}
+
 @media only screen and (max-width: 700px) { 
     .kii-app-toolbar-content {
         display:none;

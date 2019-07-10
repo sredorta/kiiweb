@@ -1,7 +1,7 @@
 <mat-card class="chat-card">
     <mat-card-header>
-      <mat-card-title>Chat</mat-card-title>
-      <mat-card-subtitle><i class="fas fa-user-friends" style="margin-right:5px;"></i>{{room.participants}}</mat-card-subtitle>
+      <mat-card-title><i class="fas fa-user-friends" style="margin-right:25px;" [matBadge]="room.participants" matBadgeOverlap="true"></i>{{'kiilib.chat.title' |translate}}</mat-card-title>
+      <mat-card-subtitle>{{'kiilib.chat.subtitle' | translate}}</mat-card-subtitle>
     </mat-card-header>
     <div class="admin-wrapper">
         <div *ngFor="let admin of admins" class="admin-user" [ngClass]="{'is-connected': admin.connected}">
@@ -12,6 +12,7 @@
     <mat-card-content #content> 
       <div *ngFor="let message of messages">
           <div class="message" [ngClass]="{'i-am-sender' : iAmSender(message), 'i-am-reciever': !iAmSender(message), 'is-bot': isBot(message)}">
+             <div class="message-owner">{{getMessageOwner(message)}}</div>
              <div class="message-content">{{message.message}}</div>
              <div class="message-date"><span>{{message.date | date:'HH:mm'}}</span></div>
           </div>

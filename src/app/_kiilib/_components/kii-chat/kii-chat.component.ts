@@ -6,6 +6,10 @@ import { KiiApiLanguageService } from '../../_services/kii-api-language.service'
 import { KiiFormAbstract } from '../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { KiiSocketService, IChatMessage, IChatUser, IChatRoom, IChatData, ChatDataType, SocketEvents } from '../../_services/kii-socket.service';
+import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
+import { User } from '../../_models/user';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'kii-chat',
@@ -38,6 +42,10 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   /**Contains if is first message sent */
   isFirstMessage : boolean = true;
 
+  loggedInUser: User = new User(null);
+
+  you: string = 'You';
+
 
   /**Content of the chat */
   @ViewChild('content',{static:false}) content : ElementRef;
@@ -45,12 +53,20 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   /**Message control */
   @ViewChild('control',{static:false}) control : ElementRef;
 
-  constructor(private socket: KiiSocketService, private kiiApiLang: KiiApiLanguageService) {super()}
+  constructor(private socket: KiiSocketService, 
+              private kiiApiLang: KiiApiLanguageService, 
+              private kiiApiAuth: KiiApiAuthService,
+              private translate: TranslateService) {super()}
 
   ngOnInit() {
     this.createForm();
     this.socket.getChatAdmins();  //Request chat admins
     this.socket.chatStart();      //Creates and gets room if we are not admin
+    this.addSubscriber(
+      this.translate.get("kiilib.you").subscribe(message => {
+          this.you = message;
+      })
+    )
 
     //Get chat admins
     this.addSubscriber(
@@ -58,7 +74,11 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
         this.admins = admins;
       })
     )
-
+    this.addSubscriber(
+      this.kiiApiAuth.getLoggedInUser().subscribe(user => {
+        this.loggedInUser = user;
+      })
+    )
     //Gets all room-to-room data
     this.addSubscriber(
       this.socket.onDataChange().subscribe((data:IChatData) => {
@@ -125,7 +145,8 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
         sender: this.socket.socket.id,
         date: new Date(),
         room:this.room.id,
-        isBot:false
+        isBot:false,
+        senderName: this.loggedInUser.firstName
       }
       if (this.isFirstMessage && !this.isAdminContext) {
          this.socket.sendChatData({room:this.room.id, type: ChatDataType.FirstMessage, object: {message:myMessage}});
@@ -147,6 +168,13 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   iAmSender(message:IChatMessage) {
     if ((message.sender == this.socket.socket.id) && (message.isBot == false)) return true;
     return false;
+  }
+
+  getMessageOwner(message:IChatMessage) {
+    if (message.isBot) return 'bot';
+    if (message.sender == this.socket.socket.id) return this.you;
+    if (message.senderName) return message.senderName;
+    return null;
   }
 
 }

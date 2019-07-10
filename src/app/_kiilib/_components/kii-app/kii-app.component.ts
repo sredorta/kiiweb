@@ -103,7 +103,10 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           panelClass: 'kii-chat-dialog',
           minWidth:'300px',
           maxWidth:'700px',
-          width:'80vw',
+          width:'100vw',
+          height:'540px',
+          //minHeight:'400px',
+          //maxHeight:'450px',
           data:  null 
         });
         dialogRef.afterClosed().subscribe(result => {

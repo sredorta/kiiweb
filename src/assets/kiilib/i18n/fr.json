@@ -19,6 +19,7 @@
     "kiilib.refresh" : "Actualizér",
     "kiilib.edit"   : "Editer",
     "kiilib.test"   : "Test",
+    "kiilib.you"    : "Vous",
     "kiilib.editor.placeholder" : "Écrire votre texte ici...",
 
     "kiilib.pwa.update.text"   : "Une nouvelle version est disponible",
@@ -202,7 +203,8 @@
 
     "kiilib.chat.rooms.empty"           : "Il n'y a pas des chats en cours actuellement",
     "kiilib.chat.rooms.title"           : "Discussions ouvertes en ce moment",
-
+    "kiilib.chat.title"                 : "Chat",
+    "kiilib.chat.subtitle"              : "Demandez ce que vous voulez",
 
     "kiilib.email.config.logo"          : "Logotype",
     "kiilib.email.config.logo.text"     : "Charger le logotype de l'entreprise(100px x 100px)",
