@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IChatMessage, IChatRoom } from '../../_services/kii-socket.service';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from '../../../../environments/environment';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { Subscription } from 'rxjs';
 import { KiiChatComponent } from '../kii-chat/kii-chat.component';
