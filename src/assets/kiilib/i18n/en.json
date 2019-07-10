@@ -201,8 +201,8 @@
 
     "kiilib.article.ispublic"           : "Public article",  
     "kiilib.article.isnotpublic"        : "Private article",   
-    
     "kiilib.chat.rooms.empty"           : "There are no currently opened chats",
+    "kiilib.chat.rooms.title"           : "Currently open chats",
     
     
     "kiilib.email.config.logo"          : "Company logo",

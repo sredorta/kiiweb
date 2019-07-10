@@ -201,6 +201,7 @@
     "kiilib.article.isnotpublic"        : "Article privée",              
 
     "kiilib.chat.rooms.empty"           : "Il n'y a pas des chats en cours actuellement",
+    "kiilib.chat.rooms.title"           : "Discussions ouvertes en ce moment",
 
 
     "kiilib.email.config.logo"          : "Logotype",

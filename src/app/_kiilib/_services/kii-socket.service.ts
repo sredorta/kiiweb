@@ -188,8 +188,8 @@ export class KiiSocketService {
   }
 
   /**Leaves all the chats */
-  chatLeave() {
-    this.socket.emit(SocketEvents.CHAT_DATA,{room:null, type:ChatDataType.LeaveRoom, object:null});
+  chatLeave(room:IChatRoom) {
+    this.socket.emit(SocketEvents.CHAT_DATA,{room:null, type:ChatDataType.LeaveRoom, object:{room:room}});
     this._data$.next(null);
   }
 

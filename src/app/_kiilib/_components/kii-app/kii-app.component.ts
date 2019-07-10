@@ -107,8 +107,9 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           data:  null 
         });
         dialogRef.afterClosed().subscribe(result => {
+          console.log("Now we need to close room", result);
            //Leave all rooms
-           this.kiiSocket.chatLeave();
+           this.kiiSocket.chatLeave(result);
 
         });
     }

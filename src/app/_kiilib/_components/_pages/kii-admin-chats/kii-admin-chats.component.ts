@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { KiiSocketService, IChatRoom, ChatDataType, IChatData, SocketEvents } from '../../../_services/kii-socket.service';
+import { KiiSocketService, IChatRoom, ChatDataType, IChatData, SocketEvents, IChatMessage } from '../../../_services/kii-socket.service';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 import { isPlatformBrowser } from '@angular/common';
 import { MatDialog } from '@angular/material';
@@ -68,10 +68,15 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
       });
       dialogRef.afterClosed().subscribe(result => {
          //Leave all rooms
-         this.kiiSocket.chatLeave();
+         this.kiiSocket.chatLeave(result);
 
       });
     }
+  }
+
+  /**Remove any bot counts */
+  countMessages(messages:IChatMessage[]) {
+      return messages.filter(obj=> obj.isBot == false).length;
   }
 
 

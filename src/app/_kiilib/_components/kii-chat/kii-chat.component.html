@@ -13,7 +13,7 @@
       <div *ngFor="let message of messages">
           <div class="message" [ngClass]="{'i-am-sender' : iAmSender(message), 'i-am-reciever': !iAmSender(message), 'is-bot': isBot(message)}">
              <div class="message-content">{{message.message}}</div>
-             <div class="message-date">{{message.date | date:'HH:mm'}}</div>
+             <div class="message-date"><span>{{message.date | date:'HH:mm'}}</span></div>
           </div>
       </div>
     </mat-card-content>

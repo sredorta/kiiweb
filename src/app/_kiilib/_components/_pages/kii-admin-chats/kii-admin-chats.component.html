@@ -1,8 +1,9 @@
 <div class="admin-theme kii-admin-chats-wrapper">
   <div *ngIf="rooms.length>0" class="kii-admin-chats-content">
+    <p class="kii-admin-chats-title"><i class="fas fa-comments" style="margin-right:10px"></i>{{'kiilib.chat.rooms.title' | translate}}</p>
     <div class="kii-admin-chats-rooms-wrapper">
         <div *ngFor="let room of rooms">
-            <button class="kii-room-button" mat-stroked-button color="primary" [matBadge]="room.messages.length" matBadgePosition="before" matBadgeColor="accent" (click)="openRoom(room)">
+            <button class="kii-room-button" mat-stroked-button color="primary" [matBadge]="countMessages(room.messages)" matBadgePosition="before" matBadgeColor="accent" (click)="openRoom(room)">
                 <div class="kii-admin-room">
                   <div class="date-wrapper">
                     <small><i class="far fa-clock"></i>{{room.date | date:'HH:mm'}}</small>
@@ -13,12 +14,8 @@
             </button>
         </div>
     </div>
-    <!--<div *ngIf="!initialStatus" class="chat-wrapper">
-        <div *ngFor="let room of rooms" class="chat-wrapper-container">
-          <p *ngIf="currentRoom.id == room.id">{{room.id}}</p>
-          <kii-chat *ngIf="currentRoom.id == room.id" [isAdminContext]="true" [messages]="room.messages" [room]="currentRoom"></kii-chat>
-        </div>
-    </div>
-  </div>  -->
-  <h1 *ngIf="rooms.length==0">{{'kiilib.chat.rooms.empty' | translate}}</h1>
+</div>
+<div *ngIf="rooms.length==0" class="kii-admin-chats-empty-wrapper">
+    <h1 class="kii-admin-chats-title empty">{{'kiilib.chat.rooms.empty' | translate}}</h1>
+</div>
 </div>

@@ -1,6 +1,9 @@
 .kii-admin-chats-wrapper {
     padding:10px;
     min-height: 80vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 .kii-admin-chats-rooms-wrapper {
     width:100%;
@@ -51,4 +54,31 @@
 }
 kii-chat {
     width:100%;
+}
+
+.kii-admin-chats-empty-wrapper {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 80vh;
+}
+
+.kii-admin-chats-title {
+    opacity: 0.7;
+    font-size: 28px;
+    padding:20px;
+
+}
+
+.kii-admin-chats-title.empty {
+    border:1px solid;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 700px) {
+    .kii-admin-chats-title  {
+        font-size:22px;
+    }
 }
