@@ -16,7 +16,7 @@ import { Article } from '../../_models/article';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { LocalizeRouterService } from 'localize-router';
-import { KiiSocketService } from '../../_services/kii-socket.service';
+import { KiiSocketService, SocketEvents, ChatDataType } from '../../_services/kii-socket.service';
 import { KiiChatDialogComponent } from '../kii-chat-dialog/kii-chat-dialog.component';
 
 
@@ -107,7 +107,9 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           data:  null 
         });
         dialogRef.afterClosed().subscribe(result => {
-          console.log(result);
+           //Leave all rooms
+           this.kiiSocket.chatLeave();
+
         });
     }
   }

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { KiiSocketService, IChatRoom, ChatDataType, IChatData, SocketEvents } from '../../../_services/kii-socket.service';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
+import { isPlatformBrowser } from '@angular/common';
+import { MatDialog } from '@angular/material';
+import { KiiChatDialogComponent } from '../../kii-chat-dialog/kii-chat-dialog.component';
 
 @Component({
   selector: 'kii-admin-chats',
@@ -14,7 +17,9 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
   
   initialStatus:boolean = true;
 
-  constructor(private kiiSocket: KiiSocketService) { super() }
+  constructor(private kiiSocket: KiiSocketService,
+              private dialog: MatDialog,
+              @Inject(PLATFORM_ID) private platformId: any) { super() }
 
   ngOnInit() {
     //Ask for all current open rooms
@@ -35,7 +40,10 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
                 break;
             case ChatDataType.StoredMessagesResponse:
                 let myRoomIndex = this.rooms.findIndex(obj=> obj.id == res.room);
-                if (myRoomIndex>=0) this.rooms[myRoomIndex].messages = res.object.messages; 
+                if (myRoomIndex>=0) {
+                  this.rooms[myRoomIndex].messages = res.object.messages; 
+                  this.rooms[myRoomIndex].language = res.object.language;
+                }
                 break;
             default:
               break;   
@@ -47,13 +55,23 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
   }
 
   openRoom(room:IChatRoom) {
-    this.initialStatus = false;
-    console.log("openning room",room);
-    this.currentRoom = room;
-    this.kiiSocket.socket.emit(SocketEvents.CHAT_DATA,{room:this.currentRoom.id, type:ChatDataType.JoinRoom, object:null});
+    if (isPlatformBrowser(this.platformId)) {
+      this.currentRoom = room;
+      this.kiiSocket.socket.emit(SocketEvents.CHAT_DATA,{room:this.currentRoom.id, type:ChatDataType.JoinRoom, object:{room:this.currentRoom}});
+  
+      let dialogRef = this.dialog.open(KiiChatDialogComponent, {
+        panelClass: 'kii-chat-dialog',
+        minWidth:'300px',
+        maxWidth:'700px',
+        width:'80vw',
+        data:  {messages:this.currentRoom.messages,room:this.currentRoom, isAdmin:true} 
+      });
+      dialogRef.afterClosed().subscribe(result => {
+         //Leave all rooms
+         this.kiiSocket.chatLeave();
 
-    //this.kiiSocket.socket.emit(SocketEvents.CHAT_DATA,{room:this.currentRoom, type:ChatDataType.StoredMessages, object:null});
-
+      });
+    }
   }
 
 

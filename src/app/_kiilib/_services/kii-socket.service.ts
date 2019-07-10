@@ -56,6 +56,7 @@ export interface IChatRoom {
     participants:number;
     date:Date;
     messages: IChatMessage[];
+    language:string;
 }
 
   /**Chat data structure */
@@ -70,6 +71,7 @@ export enum ChatDataType {
      FirstMessage = "first-message",
      WaitingRooms = "waiting-rooms",
      JoinRoom = "join-room",
+     LeaveRoom = "leave-room",
      StoredMessagesRequest = "stored-messages-request",
      StoredMessagesResponse = "stored-messages-response",
      Participants = "room-participants",
@@ -182,7 +184,13 @@ export class KiiSocketService {
   }
 
   chatStart() {
-    this.socket.emit(SocketEvents.CHAT_DATA, {room:null, type:ChatDataType.CreateRoom, object:null});
+    this.socket.emit(SocketEvents.CHAT_DATA, {room:null, type:ChatDataType.CreateRoom, object:{language:this.kiiApiLang.get()}});
+  }
+
+  /**Leaves all the chats */
+  chatLeave() {
+    this.socket.emit(SocketEvents.CHAT_DATA,{room:null, type:ChatDataType.LeaveRoom, object:null});
+    this._data$.next(null);
   }
 
   /////////////////////////////////////////////////////////////////////////////////////////////

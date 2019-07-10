@@ -6,7 +6,6 @@ import { KiiApiLanguageService } from '../../_services/kii-api-language.service'
 import { KiiFormAbstract } from '../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { KiiSocketService, IChatMessage, IChatUser, IChatRoom, IChatData, ChatDataType, SocketEvents } from '../../_services/kii-socket.service';
-import { userInfo } from 'os';
 
 @Component({
   selector: 'kii-chat',
@@ -32,7 +31,8 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
     id:null,
     participants:1,
     date: new Date(),
-    messages: []
+    messages: [],
+    language: environment.languages[0]
   };
 
   /**Contains if is first message sent */
@@ -71,7 +71,7 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
             case ChatDataType.StoredMessagesRequest:
               //Give back our stored messages
               console.log("EMITTING OUR MESSAGES !!!!", this.messages);
-              this.socket.socket.emit(SocketEvents.CHAT_DATA, {room:this.room.id, type:ChatDataType.StoredMessagesResponse, object:{messages:this.messages}});
+              this.socket.socket.emit(SocketEvents.CHAT_DATA, {room:this.room.id, type:ChatDataType.StoredMessagesResponse, object:{messages:this.messages,language:this.kiiApiLang.get()}});
               break;
             case ChatDataType.Room :
               this.room = data.object.room;  
