@@ -38,7 +38,6 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
     this.displayedColumns = ['id','lastName', 'firstName', 'email','createdAt'];
     //Get all users
     this.addSubscriber(this.kiiApiUser.load().subscribe(res => {
-      console.log(res);
       this.initTable(res);
       //Define the filtering
       this.dataSource.filterPredicate = function(data, filter: string): boolean {

@@ -41,7 +41,6 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
   ngOnInit() {
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
-        console.log("Recieved new loggedInUser", res);
         this.loggedInUser = res;
         this.displayedColumns = ['id', 'message', 'createdAt','isRead'];
         this.initTable(res.alerts.sort((a,b) => b.id - a.id));

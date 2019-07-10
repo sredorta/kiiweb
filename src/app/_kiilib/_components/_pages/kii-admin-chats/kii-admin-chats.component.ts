@@ -27,7 +27,6 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
     
     this.addSubscriber(
       this.kiiSocket.onDataChange().subscribe(res => {
-        console.log("RECIEVED ONDATACHANGE",res);
         if (res) {
           switch (res.type) {
             case ChatDataType.WaitingRooms:

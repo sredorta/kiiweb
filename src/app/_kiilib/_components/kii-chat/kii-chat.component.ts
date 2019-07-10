@@ -62,7 +62,6 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
     //Gets all room-to-room data
     this.addSubscriber(
       this.socket.onDataChange().subscribe((data:IChatData) => {
-        console.log("Recieved data:",data);
         if (data) {
           switch (data.type) {
             case ChatDataType.Message :
@@ -70,7 +69,6 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
               break;
             case ChatDataType.StoredMessagesRequest:
               //Give back our stored messages
-              console.log("EMITTING OUR MESSAGES !!!!", this.messages);
               this.socket.socket.emit(SocketEvents.CHAT_DATA, {room:this.room.id, type:ChatDataType.StoredMessagesResponse, object:{messages:this.messages,language:this.kiiApiLang.get()}});
               break;
             case ChatDataType.Room :

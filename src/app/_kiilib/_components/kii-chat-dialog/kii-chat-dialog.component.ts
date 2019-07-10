@@ -1,9 +1,10 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { IChatMessage, IChatRoom } from '../../_services/kii-socket.service';
 import { environment } from 'src/environments/environment.prod';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { Subscription } from 'rxjs';
+import { KiiChatComponent } from '../kii-chat/kii-chat.component';
 
 @Component({
   selector: 'kii-chat-dialog',
@@ -21,6 +22,9 @@ export class KiiChatDialogComponent implements OnInit {
     language: environment.languages[0]};
 
     subscrition : Subscription = new Subscription();
+
+    @ViewChild(KiiChatComponent, {static:false}) chat : KiiChatComponent;
+
   constructor(public dialogRef: MatDialogRef<KiiChatDialogComponent>,@Inject(MAT_DIALOG_DATA) data:any) { 
       if (data) {
         if (data.isAdmin) this.isAdmin = data.isAdmin;
@@ -32,7 +36,7 @@ export class KiiChatDialogComponent implements OnInit {
   ngOnInit() {
     this.dialogRef.disableClose = true;//disable default close operation
     this.subscrition = this.dialogRef.beforeClose().subscribe(result => {
-      this.dialogRef.close(this.room);
+      this.dialogRef.close(this.chat.room);
     })
   }
 

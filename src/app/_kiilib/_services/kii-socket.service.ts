@@ -130,7 +130,6 @@ export class KiiSocketService {
         token: localStorage.getItem('token'),
         language: this.kiiApiLang.get()
       }
-      console.log("update auth sending event",data)
       this.socket.emit(SocketEvents.AUTHENTICATE,data);
     }
   }
@@ -141,7 +140,6 @@ export class KiiSocketService {
       this.socket.on(SocketEvents.UPDATE_USER, (user:IUser) => {
         //WARNING:: NGZone is required if we want to see change detection working !!!!
         this.ngZone.run((status: string) => {
-          console.log("ON-USER-UPDATE !!!", user);
           this.kiiApiAuth.setLoggedInUser(new User(user));
         })
       })
@@ -152,7 +150,6 @@ export class KiiSocketService {
   private loadOnChatAdminsData() {
     this.socket.on(SocketEvents.CHAT_ADMINS_DATA, (users:IChatUser[]) => {
       this.ngZone.run((status: string) => {
-        console.log("Recieved chat admins",users);
         this._chatAdmins = users;
         this._chatAdmins$.next(this._chatAdmins);
       });
@@ -163,10 +160,7 @@ export class KiiSocketService {
   /**Loads chat data */
   private loadOnChatData() {
     this.socket.on(SocketEvents.CHAT_DATA, (data:IChatData) => {
-      console.log("Recieved CHAT_DATA data",data);
-      console.log("DATA !!!!")
-      console.log(data);
-      console.log("END DATA");
+      console.log("Recieved CHAT_DATA",data);
       this.ngZone.run((status: string) => {
            this._data$.next(data);
       })   
@@ -175,7 +169,6 @@ export class KiiSocketService {
 
   /**Sends chat data to the room */
   sendChatData(data:IChatData) {
-    console.log("Sending CHAT_DATA to room " + data.room)
     this.socket.emit(SocketEvents.CHAT_DATA,data);
   }
 
