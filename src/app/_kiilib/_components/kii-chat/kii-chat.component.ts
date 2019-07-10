@@ -5,7 +5,8 @@ import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 import { KiiFormAbstract } from '../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { KiiSocketService, IChatMessage, IChatUser, IChatRoom, IChatData, ChatDataType } from '../../_services/kii-socket.service';
+import { KiiSocketService, IChatMessage, IChatUser, IChatRoom, IChatData, ChatDataType, SocketEvents } from '../../_services/kii-socket.service';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'kii-chat',
@@ -17,8 +18,14 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   /**Contains current chat messages */
   @Input() messages : IChatMessage[] = [];
 
+  /**If we are in the admin context we don't send FirstMessage */
+  @Input() isAdminContext : boolean = false;
+
   /**Contains chat administrators */
   admins: IChatUser[] = [];
+
+  /**When other chat partner is writting message */
+  writting : boolean = false;
 
   /**Contains current room info */
   @Input() room : IChatRoom = {
@@ -43,6 +50,8 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   ngOnInit() {
     this.createForm();
     this.socket.getChatAdmins();  //Request chat admins
+    this.socket.chatStart();      //Creates and gets room if we are not admin
+
     //Get chat admins
     this.addSubscriber(
       this.socket.onChatAdmins().subscribe(admins => {
@@ -59,9 +68,20 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
             case ChatDataType.Message :
               this.messages.push(data.object.message);
               break;
+            case ChatDataType.StoredMessagesRequest:
+              //Give back our stored messages
+              console.log("EMITTING OUR MESSAGES !!!!", this.messages);
+              this.socket.socket.emit(SocketEvents.CHAT_DATA, {room:this.room.id, type:ChatDataType.StoredMessagesResponse, object:{messages:this.messages}});
+              break;
             case ChatDataType.Room :
               this.room = data.object.room;  
               break;
+            case ChatDataType.Participants :
+              this.room.participants = data.object.participants;
+              break;  
+            case ChatDataType.Writting :
+              this.writting = data.object.value; 
+              break;   
             default:
           }
         }
@@ -72,8 +92,8 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
 
   /**Emit when we are writting in the form */
   ngAfterViewInit() {
-    //this.control.nativeElement.onfocus = () => (this.socket.chatSetWritting(true));
-    //this.control.nativeElement.onblur = () => (this.socket.chatSetWritting(false));
+    this.control.nativeElement.onfocus = () => (this.socket.sendChatData({room:this.room.id,type:ChatDataType.Writting,object:{value:true}}));
+    this.control.nativeElement.onblur = () => (this.socket.sendChatData({room:this.room.id,type:ChatDataType.Writting,object:{value:false}}));
   }
 
   /**Creates the form */
@@ -106,16 +126,15 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
         message: this.myForm.controls["newMessage"].value,
         sender: this.socket.socket.id,
         date: new Date(),
-        room:this.room.id
+        room:this.room.id,
+        isBot:false
       }
-      this.socket.sendChatData({room:this.room.id, type: ChatDataType.Message, object: {message:myMessage}});
+      if (this.isFirstMessage && !this.isAdminContext) {
+         this.socket.sendChatData({room:this.room.id, type: ChatDataType.FirstMessage, object: {message:myMessage}});
+         this.isFirstMessage = false;
+      } else
+         this.socket.sendChatData({room:this.room.id, type: ChatDataType.Message, object: {message:myMessage}});
       this.messages.push(myMessage);
-      //If is first message we write then request admins to join
-      if (!this.room.id && this.isFirstMessage) {
-          console.log("Sending notification to all admins !!!!");
-          this.socket.chatNewNotify(myMessage);
-          this.isFirstMessage = false;
-      }
       //Reset form value
       this.myForm.controls["newMessage"].setValue("");
     }
@@ -123,13 +142,12 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
 
   /**Returns if message is bot */
   isBot(message:IChatMessage) {
-      if (message.sender == "bot") return true;
-      return false;
+      return message.isBot;
   }
 
   /**Returns if I am the sender of the message */
   iAmSender(message:IChatMessage) {
-    if (message.sender == this.socket.socket.id) return true;
+    if ((message.sender == this.socket.socket.id) && (message.isBot == false)) return true;
     return false;
   }
 

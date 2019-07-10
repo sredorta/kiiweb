@@ -29,7 +29,7 @@
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>
-  <button *ngIf="!loggedInUser.hasRole('admin') && !loggedInUser.hasRole('chat')" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
+  <button *ngIf="!loggedInUser.hasRole('chat')" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
 
   </mat-sidenav-container>
 

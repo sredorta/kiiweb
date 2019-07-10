@@ -13,10 +13,10 @@
             </button>
         </div>
     </div>
-    <div class="chat-wrapper">
+    <div *ngIf="!initialStatus" class="chat-wrapper">
         <div *ngFor="let room of rooms" class="chat-wrapper-container">
           <p *ngIf="currentRoom.id == room.id">{{room.id}}</p>
-          <kii-chat *ngIf="currentRoom.id == room.id" [messages]="room.messages" [room]="currentRoom"></kii-chat>
+          <kii-chat *ngIf="currentRoom.id == room.id" [isAdminContext]="true" [messages]="room.messages" [room]="currentRoom"></kii-chat>
         </div>
     </div>
   </div>  

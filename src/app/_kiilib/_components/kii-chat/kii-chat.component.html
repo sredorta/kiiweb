@@ -17,6 +17,7 @@
           </div>
       </div>
     </mat-card-content>
+    <div class="writting-part"><mat-progress-bar *ngIf="writting" mode="buffer"></mat-progress-bar></div>
     <mat-card-actions>
         <form [formGroup]="myForm" novalidate> 
             <mat-form-field [appearance]="kiiInputAppearance">

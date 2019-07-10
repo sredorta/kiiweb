@@ -102,6 +102,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         let dialogRef = this.dialog.open(KiiChatDialogComponent, {
           panelClass: 'kii-chat-dialog',
           minWidth:'300px',
+          maxWidth:'700px',
+          width:'80vw',
           data:  null 
         });
         dialogRef.afterClosed().subscribe(result => {
