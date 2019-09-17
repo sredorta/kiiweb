@@ -10,7 +10,7 @@
       </mat-form-field>
       <angular-editor id="editorAdditionalHtml" formControlName="additionalHtml" [ngClass]="{'hidden' : hideToEmail}"></angular-editor>
       <mat-form-field>
-          <mat-label>Selectioner un modele de courriel</mat-label>
+          <mat-label>{{'kiilib.input.email.select.model' | translate}}</mat-label>
           <mat-select formControlName="emailModel">
             <mat-option *ngFor="let email of emails" [value]="email.name">
               {{email.name}}

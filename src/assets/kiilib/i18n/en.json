@@ -132,8 +132,8 @@
     "kiilib.input.email.description.label"        : "Description",
     "kiilib.input.email.description.placeholder"  : "Description",
     "kiilib.input.email.description.hint"         : "Description of the email model",
+    "kiilib.input.email.select.model"             : "Select an email model",
     "kiilib.input.language.hint"                  : "Used language",
-
 
     "kiilib.tooltip.password"           : "Password must have one lower case, one upper case and one number",
     "kiilib.error.default"              : "Incorrect field",

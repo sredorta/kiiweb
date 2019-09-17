@@ -131,6 +131,7 @@
     "kiilib.input.email.description.label"        : "Descripcion",
     "kiilib.input.email.description.placeholder"  : "Descripcion",
     "kiilib.input.email.description.hint"         : "Description del modelo de email",
+    "kiilib.input.email.select.model"             : "Selecciona un modelo de email",
     "kiilib.input.language.hint"                  : "Idioma utilizado",
 
 

@@ -39,13 +39,13 @@
                         <p><span><i class="fas fa-envelope header-icon"></i></span>{{element.email}}</p>
                         <p *ngIf="element.mobile!=null && element.mobile!=undefined"><span><i class="fas fa-mobile-alt header-icon"></i></span>{{element.mobile | kiiMobileFormat}}</p>
                         <p *ngIf="element.phone!=null && element.phone!=undefined"><span><i class="fas fa-phone header-icon"></i></span>{{element.phone | kiiMobileFormat}}</p>
+                        <p><span><i class="fas fa-globe-europe header-icon"></i></span>{{element.language}}</p>
 
-                        <div *ngIf="isMobile" class="button-icons">
-                            <a *ngIf="element.mobile!=null && element.mobile!=undefined" href="tel:{{element.mobile}}" mat-button color="primary"><i class="fas fa-mobile-alt"></i></a>   
-                            <a *ngIf="element.phone!=null && element.phone!=undefined" href="tel:{{element.phone}}" mat-button color="primary"><i class="fas fa-phone"></i></a>                    
-                            <a href="mailto:{{element.email}}" mat-button color="primary"><i class="fas fa-envelope"></i></a>
+                        <div class="button-icons">
+                            <a *ngIf="element.mobile!=null && element.mobile!=undefined && isMobile" href="tel:{{element.mobile}}" mat-button color="primary"><i class="fas fa-mobile-alt"></i></a>   
+                            <a *ngIf="element.phone!=null && element.phone!=undefined && isMobile" href="tel:{{element.phone}}" mat-button color="primary"><i class="fas fa-phone"></i></a>                    
+                            <a *ngIf="loggedInUser.hasRole('email') || loggedInUser.hasRole('admin')" mat-button color="primary" (click)="loadEmails()"><i class="fas fa-envelope"></i></a>
                         </div>
-                        <button *ngIf="loggedInUser.hasRole('email') || loggedInUser.hasRole('admin')"mat-button (click)="loadEmails()">Send formatted email to user</button>
                         <kii-email-compose-form *ngIf="emails.length>0" [emails]="emails" [user]="element"></kii-email-compose-form>
                         <div class="roles-wrapper">
                           <mat-checkbox  (change)="disableRoleSliders = !disableRoleSliders">{{'kiilib.users.admin.rolescheckbox' | translate}}</mat-checkbox>
