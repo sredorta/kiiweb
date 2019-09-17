@@ -50,6 +50,17 @@
           </mat-form-field>
           <button mat-icon-button color="primary" type="button" (click)="toggleControl('email')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('email'),'fa-times' : isEnabled('email')}"></i> </button>
         </div> 
+        <div class="field-wrapper">
+          <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
+            <mat-select formControlName="language" [kiiInputDefaultValue]="defaults.language">
+               <mat-option *ngFor="let language of languages" [value]="language.iso">{{language.name}}</mat-option>
+            </mat-select>
+            <mat-icon matPrefix class="icon"><i class="fas fa-globe-europe"></i></mat-icon>
+            <mat-hint>{{'kiilib.input.language.hint' | translate}}</mat-hint>
+          </mat-form-field>  
+          <button mat-icon-button color="primary" type="button" (click)="toggleControl('language')"><i class="fas" [ngClass]="{'fa-edit' : !isEnabled('language'),'fa-times' : isEnabled('language')}"></i> </button>
+        </div> 
+
         <button mat-button type="button" (click)="togglePassword()" class="password-button"><i class="fas fa-edit" style="margin-right:10px;"></i>{{'kiilib.profile.password_modify' | translate}}</button> 
         <div class="password-area" [ngClass]="{'visible': modifyPassword}">
                 <mat-form-field [appearance]="kiiInputAppearance">

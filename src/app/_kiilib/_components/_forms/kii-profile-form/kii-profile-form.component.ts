@@ -27,12 +27,15 @@ export class KiiProfileFormComponent extends KiiFormAbstract implements OnInit {
   /**Contains the tooltip of the password info */
   passwordInfo : string = "";
 
+  /**Contains all languages */
+  languages : any = this.kiiApiLang.getSupportedLanguages();
+
   constructor(private kiiApiLang : KiiApiLanguageService,
             private trans: TranslateService) {super() }
 
   ngOnInit() {
     console.log("ngOnInit !!!");
-    console.log(this.defaults);
+    console.log(this.languages);
     this.createForm();
     this.addSubscriber(this.kiiApiLang.onChange().subscribe((res : any) => {
       this.getPasswordInfo();
@@ -73,6 +76,9 @@ export class KiiProfileFormComponent extends KiiFormAbstract implements OnInit {
           Validators.required,
           Validators.minLength(10),
           Validators.maxLength(10)
+        ])),
+        language: new FormControl('', Validators.compose([
+          Validators.required,
         ])),
         avatar: new FormControl('', Validators.compose([])),
         passwordOld: new FormControl('', Validators.compose([

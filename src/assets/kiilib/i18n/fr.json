@@ -131,6 +131,7 @@
     "kiilib.input.email.description.label"        : "Description",
     "kiilib.input.email.description.placeholder"  : "Description",
     "kiilib.input.email.description.hint"         : "Description du modèle de courriel",
+    "kiilib.input.language.hint"                  : "Langue utilizé",
 
 
     "kiilib.tooltip.password"           : "Le mot de passe doit avoir une minuscule, une majuscule et un numéro",
