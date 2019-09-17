@@ -40,7 +40,7 @@
                         <p *ngIf="element.mobile!=null && element.mobile!=undefined"><span><i class="fas fa-mobile-alt header-icon"></i></span>{{element.mobile | kiiMobileFormat}}</p>
                         <p *ngIf="element.phone!=null && element.phone!=undefined"><span><i class="fas fa-phone header-icon"></i></span>{{element.phone | kiiMobileFormat}}</p>
 
-                        <div *ngIf="!isMobile" class="button-icons">
+                        <div *ngIf="isMobile" class="button-icons">
                             <a *ngIf="element.mobile!=null && element.mobile!=undefined" href="tel:{{element.mobile}}" mat-button color="primary"><i class="fas fa-mobile-alt"></i></a>   
                             <a *ngIf="element.phone!=null && element.phone!=undefined" href="tel:{{element.phone}}" mat-button color="primary"><i class="fas fa-phone"></i></a>                    
                             <a href="mailto:{{element.email}}" mat-button color="primary"><i class="fas fa-envelope"></i></a>
