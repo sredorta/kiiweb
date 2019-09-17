@@ -1,0 +1,26 @@
+<kii-spinner-overlay [show]="isFormLoading">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+      <mat-checkbox class="checkbox" formControlName="sendToAll" (change)="onSendToAllChange($event)">{{'kiilib.email.send.all' | translate}}</mat-checkbox>
+      <mat-form-field [appearance]="kiiInputAppearance" style="width:100%" [ngClass]="{'hidden' : hideToEmail}">
+          <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
+          <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email">
+          <mat-icon matPrefix class="icon"><i class="fas fa-at"></i></mat-icon>
+          <mat-hint>{{'kiilib.input.email.hint' | translate}}</mat-hint>
+          <mat-error kiiInputError="email"></mat-error>    
+      </mat-form-field>
+      <angular-editor id="editorAdditionalHtml" formControlName="additionalHtml" [ngClass]="{'hidden' : hideToEmail}"></angular-editor>
+      <mat-form-field>
+          <mat-label>Selectioner un modele de courriel</mat-label>
+          <mat-select formControlName="emailModel">
+            <mat-option *ngFor="let email of emails" [value]="email.name">
+              {{email.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      <div class="control-wrapper">
+          <button mat-flat-button type="submit" color="primary"><i class="fas fa-paper-plane" style="margin-right:10px"></i> {{'kiilib.send' | translate}}</button>
+      </div>
+   </form>
+</kii-spinner-overlay>
+<h2 class="preview-title" [ngClass]="{'hidden' : !showPreview}">{{'kiilib.email.preview' | translate}}</h2>
+<div #previewEmail></div>

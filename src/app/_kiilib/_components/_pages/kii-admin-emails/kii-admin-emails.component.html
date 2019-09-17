@@ -1,6 +1,9 @@
 <div class="admin-theme">
     <kii-spinner-overlay [show]="isDataLoading">
         <div class="wrapper">
+            <h1>{{'kiilib.email.title.send' | translate}}</h1>
+            <kii-email-compose-form [emails]="emails"></kii-email-compose-form>
+            <h1>{{'kiilib.email.title.models' | translate}}</h1>
               <div class="table-wrapper">
                   <mat-form-field appearance="standard" style="padding-top:10px;min-width:250px;max-width:350px">
                       <mat-label>{{'kiilib.search' | translate}}</mat-label>

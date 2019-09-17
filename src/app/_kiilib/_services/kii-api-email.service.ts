@@ -34,4 +34,14 @@ export class KiiApiEmailService extends KiiServiceAbstract<Email> {
   public sendToMe(email:Email) {
     return this.http.post<any>(environment.apiURL + '/email/send-test', {email:email});
   }  
+
+  /**Sends email to email address given in to*/
+  public sendTo(to:string,additionalHtml:string,email:Email) {
+      return this.http.post<any>(environment.apiURL + '/email/send-to', {to:to,additionalHtml:additionalHtml,email:email});
+  } 
+  /**Sends email to all registered users*/
+  public sendToAll(email:Email) {
+    return this.http.post<any>(environment.apiURL + '/email/send-to-all', {email:email});
+}   
+
 }

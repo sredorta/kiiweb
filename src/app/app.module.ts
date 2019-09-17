@@ -128,6 +128,7 @@ import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-
 import { KiiChatComponent } from './_kiilib/_components/kii-chat/kii-chat.component';
 import { KiiChatDialogComponent } from './_kiilib/_components/kii-chat-dialog/kii-chat-dialog.component';
 import { KiiAdminChatsComponent } from './_kiilib/_components/_pages/kii-admin-chats/kii-admin-chats.component';
+import { KiiEmailComposeFormComponent } from './_kiilib/_components/_forms/kii-email-compose-form/kii-email-compose-form.component';
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -193,6 +194,7 @@ import { KiiAdminChatsComponent } from './_kiilib/_components/_pages/kii-admin-c
     KiiChatComponent,
     KiiChatDialogComponent,
     KiiAdminChatsComponent,
+    KiiEmailComposeFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

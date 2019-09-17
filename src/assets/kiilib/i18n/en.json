@@ -207,12 +207,16 @@
     "kiilib.chat.title"                 : "Chat",
     "kiilib.chat.subtitle"              : "Ask us what you want",
     
-    
     "kiilib.email.config.logo"          : "Company logo",
     "kiilib.email.config.logo.text"     : "Upload the company's logo (100px x 100px)",
     "kiilib.email.config.header"        : "Email header",
     "kiilib.email.config.content"       : "Main content",
     "kiilib.email.config.colors"        : "Colors",
+    "kiilib.email.title.models"         : "Email models",
+    "kiilib.email.title.send"           : "Send an email",
+    "kiilib.email.preview"              : "Preview email",
+    "kiilib.email.send.all"             : "Send to all registered users",
+
 
     "kiilib.cookies.title"              : "Cookies usage",
     "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",

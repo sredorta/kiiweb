@@ -211,6 +211,11 @@
     "kiilib.email.config.header"        : "Cabecera del correo",
     "kiilib.email.config.content"       : "Contenido del correo",
     "kiilib.email.config.colors"        :"Colores",
+    "kiilib.email.title.models"         : "Modelos de correos electronicos",
+    "kiilib.email.title.send"           : "Enviar un correo electronico",
+    "kiilib.email.preview"              : "Vista preliminar",
+    "kiilib.email.send.all"             : "Enviar a todos los usuarios registrados",
+
 
     "kiilib.cookies.title"              : "Utilización de Cookies",
     "kiilib.cookies.subtitle"           : "Esta pagina web o algunos de sus componentes utilizan cookies, que son necessarias para algunas funcionalidades como la generación de stadisticas o el compartir en redes sociales. Acceptas el uso de cookies ?",
