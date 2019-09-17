@@ -1,7 +1,7 @@
 <footer class="footer-theme kii-footer-wrapper">
     <kii-share></kii-share>
     <div class="kii-footer-content-wrapper">
-      <div *ngIf="loggedInUser.hasRole('admin')" class="kii-footer-admin">
+      <div *ngIf="loggedInUser.hasRoles()" class="kii-footer-admin">
           <button mat-stroked-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
       </div>
       <ng-content></ng-content>

@@ -7,6 +7,10 @@ import { KiiApiLanguageService } from '../../../_services/kii-api-language.servi
 import { IUser, User } from '../../../_models/user';
 import { IRole } from '../../../_models/role';
 import { MatSlideToggleChange, MatDialog, MatCheckboxChange } from '@angular/material';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { Email } from '../../../_models/email';
+import { KiiApiEmailService } from '../../../_services/kii-api-email.service';
+import { KiiApiAuthService } from 'src/app/_kiilib/_services/kii-api-auth.service';
 
 @Component({
   selector: 'app-kii-admin-users',
@@ -30,11 +34,28 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
   /**Current language in use */
   currentLang : string;
 
+  /**All emails templates */
+  emails : Email[] = [];
+
+  /**Checks if user is on a mobile device */
+  isMobile : boolean = this.device.isMobile();
+  
+  /**Contains current loggedin user */
+  public loggedInUser : User = new User(null);
+
   constructor(private kiiApiUser : KiiApiUserService,
               private kiiApiLang : KiiApiLanguageService,
-              private dialog : MatDialog) { super() }
+              private dialog : MatDialog, 
+              private device : DeviceDetectorService,
+              private kiiApiEmail: KiiApiEmailService,
+              private kiiApiAuth: KiiApiAuthService) { super() }
 
   ngOnInit() {
+    this.addSubscriber(
+      this.kiiApiAuth.getLoggedInUser().subscribe(res => {
+        this.loggedInUser = res;
+      })
+    )
     this.displayedColumns = ['id','lastName', 'firstName', 'email','createdAt'];
     //Get all users
     this.addSubscriber(this.kiiApiUser.load().subscribe(res => {
@@ -63,11 +84,30 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
     }))
   }
 
+  /**Loads all email templates */
+  loadEmails() {
+    if (this.emails.length>0) {
+      this.emails = [];
+    } else {
+      this.isDataLoading = true;
+      this.emails = [];
+      this.addSubscriber(
+        this.kiiApiEmail.load().subscribe(emails => {
+          this.emails = emails;    
+          this.kiiApiEmail.set(this.emails);    
+          console.log(this.emails);
+          this.isDataLoading = false;
+        })
+      )
+    }
+  }
+
   /**Checks if specific user has the role */
   hasRole(user: IUser, id:number) {
     const myUser = new User(user);
     return myUser.hasRole(id);
   }
+
 
   /**When a role changes it's status */
   onRoleChange(event: MatSlideToggleChange, userId:number,roleId:number) {

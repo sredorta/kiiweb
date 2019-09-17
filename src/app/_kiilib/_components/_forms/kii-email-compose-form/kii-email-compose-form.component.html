@@ -1,6 +1,6 @@
 <kii-spinner-overlay [show]="isFormLoading">
     <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
-      <mat-checkbox class="checkbox" formControlName="sendToAll" (change)="onSendToAllChange($event)">{{'kiilib.email.send.all' | translate}}</mat-checkbox>
+      <mat-checkbox class="checkbox" formControlName="sendToAll" (change)="onSendToAllChange($event)" [ngClass]="{'hidden' : user!=null}">{{'kiilib.email.send.all' | translate}}</mat-checkbox>
       <mat-form-field [appearance]="kiiInputAppearance" style="width:100%" [ngClass]="{'hidden' : hideToEmail}">
           <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
           <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email">

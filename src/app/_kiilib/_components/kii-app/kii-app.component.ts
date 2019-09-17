@@ -123,6 +123,14 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           this.bottomSheet.open(KiiBottomSheetCookiesComponent, {
               panelClass :"default-theme",
               });
+          //When cookies form is closed    
+          this.addSubscriber(    
+            this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe(res => {
+              if (localStorage.getItem("cookies") == "true") {
+                this.sendStats();
+              }
+            })    
+          )
   }
 
   /**Loads all initial data like articles,settings and auth user */
@@ -167,9 +175,20 @@ seo() {
 
 }
 
-  //Each time a route is activated we come here
+  //Each time a route is activated we come here and we send stats if cookies accepted
   onActivate(event : any) {
+    //Send stats if we are in browser and cookies accepted
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem("cookies") == "true") {
+          this.sendStats();
+      }
+    }
     //Scroll to sidenav top !
     //this.sidenavContent.scrollTo({top:0,left:0, behavior: 'smooth'});
   } 
+
+  sendStats() {
+    console.log("STATS TO SERVER !!!");
+  }
+
 }

@@ -29,6 +29,8 @@ export class KiiEmailComposeFormComponent  extends KiiFormAbstract implements On
   /**Contains all email models */
   @Input() emails : Email[] = [];
   
+  /**Contains input user if any */
+  @Input() user : User = null;
 
   /**When emails are loading we show spinner with this variable */
   isDataLoading : boolean = true;
@@ -42,6 +44,7 @@ export class KiiEmailComposeFormComponent  extends KiiFormAbstract implements On
   }
 
   ngOnInit() {  
+    if (this.user!=null) this.hideToEmail = false;
     this.createForm();
     this.addSubscriber(
     this.myForm.valueChanges.subscribe(res => {
@@ -73,6 +76,13 @@ export class KiiEmailComposeFormComponent  extends KiiFormAbstract implements On
         Validators.required
       ])),
     });  
+    if (this.user!=null) {
+      this.myForm.controls["email"].patchValue(this.user.email);
+      this.myForm.controls["email"].enable();
+      this.myForm.controls["additionalHtml"].enable();
+      this.myForm.controls["sendToAll"].patchValue(false);
+
+    }
   }
   onSendToAllChange(change:MatCheckboxChange) {
     this.hideToEmail = !this.hideToEmail;

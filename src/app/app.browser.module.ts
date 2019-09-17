@@ -24,6 +24,7 @@ import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiSpinnerService } from './_kiilib/_services/kii-spinner.service';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
 import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 
 
@@ -54,7 +55,7 @@ import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetSoftwareInstallComponent,KiiBottomSheetCookiesComponent, KiiHttpErrorComponent],
-  providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true }],
+  providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService],
   bootstrap: [AppComponent]
 })
 export class AppBrowserModule { 

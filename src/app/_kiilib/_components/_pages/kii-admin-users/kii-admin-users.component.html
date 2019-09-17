@@ -40,12 +40,13 @@
                         <p *ngIf="element.mobile!=null && element.mobile!=undefined"><span><i class="fas fa-mobile-alt header-icon"></i></span>{{element.mobile | kiiMobileFormat}}</p>
                         <p *ngIf="element.phone!=null && element.phone!=undefined"><span><i class="fas fa-phone header-icon"></i></span>{{element.phone | kiiMobileFormat}}</p>
 
-                        <!--<div *ngIf="isMobile" class="button-icons">
-                            <a href="mailto:{{element.email}}" mat-icon-button color="primary"><i class="fas fa-envelope"></i></a>   
-                            <a *ngIf="element.mobile!=null && element.mobile!=undefined" href="tel:{{element.mobile}}" mat-icon-button color="primary"><i class="fas fa-mobile-alt"></i></a>   
-                            <a *ngIf="element.phone!=null && element.phone!=undefined" href="tel:{{element.phone}}" mat-icon-button color="primary"><i class="fas fa-phone"></i></a>                    
-                        </div>-->
-                        <h2>{{'kiilib.user.roles' | translate}}</h2>
+                        <div *ngIf="!isMobile" class="button-icons">
+                            <a *ngIf="element.mobile!=null && element.mobile!=undefined" href="tel:{{element.mobile}}" mat-button color="primary"><i class="fas fa-mobile-alt"></i></a>   
+                            <a *ngIf="element.phone!=null && element.phone!=undefined" href="tel:{{element.phone}}" mat-button color="primary"><i class="fas fa-phone"></i></a>                    
+                            <a href="mailto:{{element.email}}" mat-button color="primary"><i class="fas fa-envelope"></i></a>
+                        </div>
+                        <button *ngIf="loggedInUser.hasRole('email') || loggedInUser.hasRole('admin')"mat-button (click)="loadEmails()">Send formatted email to user</button>
+                        <kii-email-compose-form *ngIf="emails.length>0" [emails]="emails" [user]="element"></kii-email-compose-form>
                         <div class="roles-wrapper">
                           <mat-checkbox  (change)="disableRoleSliders = !disableRoleSliders">{{'kiilib.users.admin.rolescheckbox' | translate}}</mat-checkbox>
                           <mat-slide-toggle *ngFor="let role of roles" [checked]="hasRole(element, role.id)" (change)="onRoleChange($event,element.id, role.id)" [disabled]="disableRoleSliders">{{role.name}}</mat-slide-toggle>
