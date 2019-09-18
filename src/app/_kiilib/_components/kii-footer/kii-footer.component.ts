@@ -4,6 +4,8 @@ import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
+import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
+import { StatAction } from '../../_models/stat';
 
 export interface SocialLink {
   name : string;
@@ -25,6 +27,7 @@ export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
 
   constructor(private kiiApiSetting : KiiApiSettingService, 
               private kiiApiAuth: KiiApiAuthService,
+              private kiiApiStats : KiiApiStatsService,
               @Inject(PLATFORM_ID) private platformId: any) {super(kiiApiAuth,platformId) }
 
   ngOnInit() {
@@ -80,5 +83,9 @@ export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
     this.links = this.links.filter(obj => obj.link!="");
   }
 
+  onClick(social:string) {
+    console.log("Clicked : " + social);
+    this.kiiApiStats.send(StatAction.SOCIAL_CLICK, social);
+  }
 
 }

@@ -22,7 +22,7 @@
           <p>{{'kiilib.admin.menu.chats' | translate}}</p>
     </div> 
       <div class="button-wrapper">
-          <button mat-button color="primary" routerLink="/admin-stats"><i class="fas fa-chart-line"></i></button>
+          <button mat-button color="primary" [routerLink]="'/admin-stats' | localize"><i class="fas fa-chart-line"></i></button>
           <p>{{'kiilib.admin.menu.stats' | translate}}</p>
       </div>  
       <div class="button-wrapper">

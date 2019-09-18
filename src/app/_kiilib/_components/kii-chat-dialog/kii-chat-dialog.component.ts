@@ -5,6 +5,8 @@ import { environment } from '../../../../environments/environment';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { Subscription } from 'rxjs';
 import { KiiChatComponent } from '../kii-chat/kii-chat.component';
+import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
+import { StatAction } from '../../_models/stat';
 
 @Component({
   selector: 'kii-chat-dialog',
@@ -25,7 +27,7 @@ export class KiiChatDialogComponent implements OnInit {
 
     @ViewChild(KiiChatComponent, {static:false}) chat : KiiChatComponent;
 
-  constructor(public dialogRef: MatDialogRef<KiiChatDialogComponent>,@Inject(MAT_DIALOG_DATA) data:any) { 
+  constructor(public kiiApiStats: KiiApiStatsService,public dialogRef: MatDialogRef<KiiChatDialogComponent>,@Inject(MAT_DIALOG_DATA) data:any) { 
       if (data) {
         if (data.isAdmin) this.isAdmin = data.isAdmin;
         if (data.messages)this.messages = data.messages;
@@ -34,10 +36,13 @@ export class KiiChatDialogComponent implements OnInit {
     }
 
   ngOnInit() {
+    //Send stats
+    this.kiiApiStats.send(StatAction.CHAT_ENTER,null);
     this.dialogRef.disableClose = true;//disable default close operation
     this.subscrition = this.dialogRef.beforeClose().subscribe(result => {
       this.dialogRef.close(this.chat.room);
-    })
+      this.kiiApiStats.send(StatAction.CHAT_LEAVE,null);
+    });
   }
 
   ngOnDestroy() {

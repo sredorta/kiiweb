@@ -218,6 +218,10 @@
     "kiilib.email.preview"              : "Vue preliminaire",
     "kiilib.email.send.all"             : "Envoyer à tous les utilizateurs registrés",
 
+    "kiilib.stats.title"                : "Statistics du site web",
+    "kiilib.stats.days"                 : "Sélectioner la quantité de jours a analizer",
+
+
     "kiilib.cookies.title"              : "Utilization de Cookies",
     "kiilib.cookies.subtitle"           : "Ce site utilize cookies, qui sont necessaires pour des fonctionnalités comme la generation de statistics ou le partage dans les reseaux sociaux. Accpeter vous l'utlization de cookies ?",
 

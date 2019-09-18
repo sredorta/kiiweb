@@ -218,6 +218,8 @@
     "kiilib.email.preview"              : "Preview email",
     "kiilib.email.send.all"             : "Send to all registered users",
 
+    "kiilib.stats.title"                : "Site statistics",
+    "kiilib.stats.days"                 : "Select the amount of days to analyze",
 
     "kiilib.cookies.title"              : "Cookies usage",
     "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",

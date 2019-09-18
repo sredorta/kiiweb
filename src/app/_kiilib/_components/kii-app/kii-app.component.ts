@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, HostListener } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { MatBottomSheet, MatDialog } from '@angular/material';
 import { KiiPwaService } from '../../_services/kii-pwa.service';
@@ -18,6 +18,10 @@ import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-
 import { LocalizeRouterService } from 'localize-router';
 import { KiiSocketService, SocketEvents, ChatDataType } from '../../_services/kii-socket.service';
 import { KiiChatDialogComponent } from '../kii-chat-dialog/kii-chat-dialog.component';
+import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
+import { Router, RouterEvent,NavigationStart, NavigationEnd } from '@angular/router';
+import { StatAction } from '../../_models/stat';
+import { start } from 'repl';
 
 
 
@@ -30,20 +34,24 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
 
   public alertCount : number = 0;
 
-  constructor(private bottomSheet: MatBottomSheet,
+  constructor(
               @Inject(PLATFORM_ID) private platformId: any,
               private kiiPwa : KiiPwaService, private swPush : SwPush,
               private kiiSocket: KiiSocketService, //Required to start sockets !
+              private bottomSheet: MatBottomSheet,
               private kiiApiAuth: KiiApiAuthService,
               private kiiMisc: KiiMiscService,
               private kiiApiSetting: KiiApiSettingService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiArticle: KiiApiArticleService,
+              private kiiApiStats: KiiApiStatsService,
               private localize: LocalizeRouterService,
               private changeDetectorRef: ChangeDetectorRef,
+              private router : Router,
               private dialog: MatDialog,
               private title : Title,
-              private meta: Meta) {super(kiiApiAuth, platformId)}
+              private meta: Meta
+              ) {super(kiiApiAuth, platformId)}
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
@@ -127,7 +135,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           this.addSubscriber(    
             this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe(res => {
               if (localStorage.getItem("cookies") == "true") {
-                this.sendStats();
+                this.kiiApiStats.send(StatAction.NAVIGATION_START ,this.router.url);
               }
             })    
           )
@@ -178,17 +186,19 @@ seo() {
   //Each time a route is activated we come here and we send stats if cookies accepted
   onActivate(event : any) {
     //Send stats if we are in browser and cookies accepted
-    if (isPlatformBrowser(this.platformId)) {
-      if (localStorage.getItem("cookies") == "true") {
-          this.sendStats();
-      }
-    }
+    this.kiiApiStats.send(StatAction.NAVIGATION_START, this.router.url);
+
+    //this.kiiApiStats.send(this.router.url);
     //Scroll to sidenav top !
     //this.sidenavContent.scrollTo({top:0,left:0, behavior: 'smooth'});
   } 
 
-  sendStats() {
-    console.log("STATS TO SERVER !!!");
-  }
 
+  //Detect when user closes the app so that we can save end-time of the session
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    console.log("Destroying here !!!!!!!!!!!!!!!!!!!");
+    this.kiiApiStats.send(StatAction.APP_END,this.router.url);
+    this.kiiApiStats.clearSession();
+  }
 }

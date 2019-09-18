@@ -10,7 +10,7 @@ import { MatSlideToggleChange, MatDialog, MatCheckboxChange } from '@angular/mat
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { Email } from '../../../_models/email';
 import { KiiApiEmailService } from '../../../_services/kii-api-email.service';
-import { KiiApiAuthService } from 'src/app/_kiilib/_services/kii-api-auth.service';
+import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
 
 @Component({
   selector: 'app-kii-admin-users',
