@@ -10,12 +10,14 @@ export class KiiStatsIndicatorComponent implements OnInit {
   @Input() prev_value : number = 0;
   @Input() size : number = 1;
   @Input() text : string = "";
+  @Input() value_suffix : string = "";
 
 
 
   constructor() { }
 
   ngOnInit() {
+    console.log("Value suffix : " + this.value_suffix);
   }
 
   getDifferencePercentage() {

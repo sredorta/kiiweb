@@ -1,8 +1,10 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Stat, StatAction } from '../_models/stat';
+import { Stat, StatAction, StatResult } from '../_models/stat';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -80,5 +82,8 @@ export class KiiApiStatsService {
     }
   }
 
+  public analyze(days:number) :Observable<any> {
+    return this.http.post(environment.apiURL + '/stats/analyze', {days: days}).pipe(map(res => new StatResult(res)));
+  }
 
 }

@@ -4,6 +4,6 @@
       <i *ngIf="!isMore()" class="fas fa-arrow-circle-down" [ngClass]="{'red' : !isMore()}"></i>
       <span style="margin-left:5px; font-weight: bold" [ngClass]="{'green' : isMore(),'red' : !isMore()}">{{getDifferencePercentage()}}</span>
   </div>
-  <div class="kii-stats-indicator-middle">{{value | kiiThousandsSuffix}}</div>
+  <div class="kii-stats-indicator-middle">{{value | kiiThousandsSuffix}}{{value_suffix}}</div>
   <div class="kii-stats-indicator-bottom">{{text}}</div>
 </div>

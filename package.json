@@ -46,6 +46,7 @@
     "@nguniversal/module-map-ngfactory-loader": "0.0.0",
     "@ngx-translate/core": "^11.0.1",
     "@types/socket.io-client": "^1.4.32",
+    "angular-google-charts": "^0.1.6",
     "core-js": "^2.5.4",
     "deepmerge": "^3.3.0",
     "domino": "^2.1.3",

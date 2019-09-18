@@ -18,7 +18,26 @@ export interface IStat {
     ressource:string;  //It contains the page in the case of navigation, and facebook... in case of social
 }
 
-
+export interface IStatWindow {
+    current : number;
+    previous:number;
+  }
+  
+export class StatResult {
+    visits_count : IStatWindow = {current:0,previous:0};
+    visits_duration : IStatWindow = {current:0,previous:0};
+    visits_hours_histogram : any[] = [];
+    
+    constructor(obj: any | null) {
+        if (obj) {
+            Object.keys(this).forEach(key => {
+                if (obj[key] != undefined) 
+                    this[key] = obj[key];
+            });
+        } 
+    }
+  
+}
 
 export class Stat {
     id:number = null;

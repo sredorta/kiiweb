@@ -55,6 +55,8 @@ import {AgmCoreModule} from '@agm/core';
 //SOCIAL SHARE
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
+//Google charts
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -214,6 +216,7 @@ import { KiiThousandsSuffixPipe } from './_kiilib/_pipes/kii-thousands-suffix.pi
     LocalizeRouterModule.forChild(routes),
     RouterModule.forChild(routes),
     AngularEditorModule,
+    GoogleChartsModule.forRoot(), //Google charts
     AgmCoreModule.forRoot( { //GMAPS
       apiKey: environment.gmapsKey
     }),

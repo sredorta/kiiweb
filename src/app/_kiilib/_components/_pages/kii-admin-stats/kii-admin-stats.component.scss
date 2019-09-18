@@ -23,8 +23,20 @@
         flex-wrap: wrap;
     }
 }
-
+.stats-indicators-wrapper.loading {
+    opacity:0.4;
+}
 .stats-current {
     font-style: italic;
     opacity: 0.6;
+}
+
+.stats-histo-hours-chart-wrapper {
+    min-height: 400px;
+    width:100%;
+
+    border:1px solid yellow;
+}
+.stats-histo-hours-chart {
+    border:1px solid green;
 }

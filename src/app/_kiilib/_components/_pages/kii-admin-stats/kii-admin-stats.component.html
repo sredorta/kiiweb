@@ -7,20 +7,25 @@
     <mat-slider style="width:100%" thumbLabel tickInterval="1" min="1" max="365" (change)="onDaysSliderChange($event)"></mat-slider>
   </div>
   <p class="stats-current"><i class="fas fa-calendar-day" [matBadge]="days" style="margin-right:20px"></i> {{'kiilib.stats.current' | translate}}</p>
-  <div class="stats-indicators-wrapper">
-    <kii-stats-indicator [size]="2" [value]="100000" [prev_value]="90000" [text]="'kiilib.stats.metric.visits' | translate"></kii-stats-indicator>
-    <div>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.visitsduration' | translate"></kii-stats-indicator>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pages' | translate"></kii-stats-indicator>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagespersession' | translate"></kii-stats-indicator>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagesduration' | translate"></kii-stats-indicator>
+  <kii-spinner-overlay [show]="isDataLoading">
+    <div class="stats-indicators-wrapper" [ngClass]="{'loading' : isDataLoading == true}">
+      <kii-stats-indicator [size]="2" [value]="result.visits_count.current" [prev_value]="result.visits_count.previous" [text]="'kiilib.stats.metric.visits' | translate"></kii-stats-indicator>
+      <div>
+        <kii-stats-indicator value_suffix="s" [value]="result.visits_duration.current" [prev_value]="result.visits_duration.previous"  [text]="'kiilib.stats.metric.visitsduration' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pages' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagespersession' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagesduration' | translate"></kii-stats-indicator>
+      </div>
+      <div>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
+      </div>
     </div>
-    <div>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
-      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
+    <div class="stats-histo-hours-chart-wrapper">
+      <google-chart width="300" class="stats-histo-hours-chart" type="ColumnChart" [data]="result.visits_hours_histogram" [columnNames]="['time','count']" [options]="histoHoursVisits"></google-chart>
     </div>
-  </div>
+  </kii-spinner-overlay>
 
 
   <!--"kiilib.stats.metric.visits"        : "Visites uniques",
