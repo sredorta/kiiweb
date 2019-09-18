@@ -220,7 +220,15 @@
 
     "kiilib.stats.title"                : "Estadisticas del sitio web",
     "kiilib.stats.days"                 : "Selecciona la cantidad de dias a analizar",
-
+    "kiilib.stats.current"              : "Periodo de l'analysis actual (en dias) ",
+    "kiilib.stats.metric.visits"        : "Visitas unicas",
+    "kiilib.stats.metric.visitsduration": "Promedio de duracion de las visitas",
+    "kiilib.stats.metric.pages"         : "Total de paginas visitadas",
+    "kiilib.stats.metric.pagespersession" : "Promedio de paginas visitadas por visita",
+    "kiilib.stats.metric.pagesduration" : "Promedio de duracion de las paginas",
+    "kiilib.stats.metric.socialclicks"  : "Total clicks redes sociales",
+    "kiilib.stats.metric.chatclicks"    : "Total clicks chat",
+    "kiilib.stats.metric.chatduration"  : "Promedio de duracion del chat",
 
     "kiilib.cookies.title"              : "Utilización de Cookies",
     "kiilib.cookies.subtitle"           : "Esta pagina web o algunos de sus componentes utilizan cookies, que son necessarias para algunas funcionalidades como la generación de stadisticas o el compartir en redes sociales. Acceptas el uso de cookies ?",

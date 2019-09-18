@@ -5,7 +5,31 @@
   <div class="stats-settings">
     <p>{{'kiilib.stats.days' | translate}}</p>
     <mat-slider style="width:100%" thumbLabel tickInterval="1" min="1" max="365" (change)="onDaysSliderChange($event)"></mat-slider>
-
   </div>
+  <p class="stats-current"><i class="fas fa-calendar-day" [matBadge]="days" style="margin-right:20px"></i> {{'kiilib.stats.current' | translate}}</p>
+  <div class="stats-indicators-wrapper">
+    <kii-stats-indicator [size]="2" [value]="100000" [prev_value]="90000" [text]="'kiilib.stats.metric.visits' | translate"></kii-stats-indicator>
+    <div>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.visitsduration' | translate"></kii-stats-indicator>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pages' | translate"></kii-stats-indicator>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagespersession' | translate"></kii-stats-indicator>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagesduration' | translate"></kii-stats-indicator>
+    </div>
+    <div>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
+      <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
+    </div>
+  </div>
+
+
+  <!--"kiilib.stats.metric.visits"        : "Visites uniques",
+  "kiilib.stats.metric.visitsduration": "Moyenne de durée d'une visite",
+  "kiilib.stats.metric.pages"         : "Total de pages consultés par visite",
+  "kiilib.stats.metric.pagespersession" : "Moyenne de pages consultés par visite",
+  "kiilib.stats.metric.pagesduration" : "Moyenne durée consultation des pages",
+  "kiilib.stats.metric.socialclicks"  : "Total clicks vers reseaux sociaux",
+  "kiilib.stats.metric.chatclicks"    : "Total clicks vers chat",
+  "kiilib.stats.metric.chatduration"  : "Durée moyenne du chat",-->
 
 </div>

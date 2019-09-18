@@ -11,7 +11,8 @@ import { MatSliderChange } from '@angular/material';
 })
 export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnInit {
 
-
+  /**Days of the analysis */
+  days : number = 1;
 
   constructor(private translate: TranslateService,private kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private platformId: any) { super(kiiApiAuth,platformId); }
 
@@ -21,10 +22,11 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
 
   //When we change the period we recompute the stats
   onDaysSliderChange(event:MatSliderChange) {
+    this.days = event.value;
     console.log(event);
   }
 
-  
+
 
 
 

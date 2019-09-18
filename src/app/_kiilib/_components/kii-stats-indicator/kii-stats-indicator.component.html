@@ -1,0 +1,9 @@
+<div class="kii-stats-indicator-wrapper" [ngClass]="{'big' : size==2}">
+  <div *ngIf="prev_value!=0" class="kii-stats-indicator-top">
+      <i *ngIf="isMore()" class="fas fa-arrow-circle-up" [ngClass]="{'green' : isMore()}" ></i>
+      <i *ngIf="!isMore()" class="fas fa-arrow-circle-down" [ngClass]="{'red' : !isMore()}"></i>
+      <span style="margin-left:5px; font-weight: bold" [ngClass]="{'green' : isMore(),'red' : !isMore()}">{{getDifferencePercentage()}}</span>
+  </div>
+  <div class="kii-stats-indicator-middle">{{value | kiiThousandsSuffix}}</div>
+  <div class="kii-stats-indicator-bottom">{{text}}</div>
+</div>

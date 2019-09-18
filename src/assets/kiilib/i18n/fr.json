@@ -218,9 +218,17 @@
     "kiilib.email.preview"              : "Vue preliminaire",
     "kiilib.email.send.all"             : "Envoyer à tous les utilizateurs registrés",
 
-    "kiilib.stats.title"                : "Statistics du site web",
+    "kiilib.stats.title"                : "Statistiques du site web",
     "kiilib.stats.days"                 : "Sélectioner la quantité de jours a analizer",
-
+    "kiilib.stats.current"              : "Période de l'analyse actuel (en jours)",
+    "kiilib.stats.metric.visits"        : "Visites uniques",
+    "kiilib.stats.metric.visitsduration": "Moyenne de durée d'une visite",
+    "kiilib.stats.metric.pages"         : "Total de pages consultés par visite",
+    "kiilib.stats.metric.pagespersession" : "Moyenne de pages consultés par visite",
+    "kiilib.stats.metric.pagesduration" : "Moyenne durée consultation des pages",
+    "kiilib.stats.metric.socialclicks"  : "Total clicks vers reseaux sociaux",
+    "kiilib.stats.metric.chatclicks"    : "Total clicks vers chat",
+    "kiilib.stats.metric.chatduration"  : "Durée moyenne du chat",
 
     "kiilib.cookies.title"              : "Utilization de Cookies",
     "kiilib.cookies.subtitle"           : "Ce site utilize cookies, qui sont necessaires pour des fonctionnalités comme la generation de statistics ou le partage dans les reseaux sociaux. Accpeter vous l'utlization de cookies ?",

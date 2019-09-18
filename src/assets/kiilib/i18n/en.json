@@ -220,6 +220,17 @@
 
     "kiilib.stats.title"                : "Site statistics",
     "kiilib.stats.days"                 : "Select the amount of days to analyze",
+    "kiilib.stats.current"              : "Current analysis period (in days)",
+    "kiilib.stats.metric.visits"        : "Unique visits",
+    "kiilib.stats.metric.visitsduration": "Average visit duration",
+    "kiilib.stats.metric.pages"         : "Total pages visited",
+    "kiilib.stats.metric.pagespersession" : "Average pages consulted per visit",
+    "kiilib.stats.metric.pagesduration" : "Average pages duration",
+    "kiilib.stats.metric.socialclicks"  : "Total of social clicks",
+    "kiilib.stats.metric.chatclicks"    : "Total of chat clicks",
+    "kiilib.stats.metric.chatduration"  : "Average chat duration",
+
+
 
     "kiilib.cookies.title"              : "Cookies usage",
     "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",

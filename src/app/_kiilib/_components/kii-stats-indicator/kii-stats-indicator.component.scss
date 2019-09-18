@@ -1,0 +1,51 @@
+
+.kii-stats-indicator-wrapper {
+    border:1px solid;
+    width:140px;
+    height:140px;
+    margin:5px;
+    padding:5px;
+    display:flex;
+    flex-direction: column;
+}
+
+.kii-stats-indicator-top {
+    display:flex;
+    justify-content: flex-end;
+}
+
+.kii-stats-indicator-middle {
+    flex:1;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.kii-stats-indicator-bottom {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.green {
+    color:green;
+}
+.red {
+    color:red;
+}
+
+.kii-stats-indicator-wrapper.big {
+    width:290px;
+    height:290px;
+    margin:5px;
+    padding:10px;
+    font-size: 200%;
+    .kii-stats-indicator-middle {
+        font-size: 90px;
+    }
+    .kii-stats-indicator-bottom {
+        font-size: 30px;
+    }
+}
