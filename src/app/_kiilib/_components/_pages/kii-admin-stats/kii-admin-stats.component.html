@@ -9,21 +9,38 @@
   <p class="stats-current"><i class="fas fa-calendar-day" [matBadge]="days" style="margin-right:20px"></i> {{'kiilib.stats.current' | translate}}</p>
   <kii-spinner-overlay [show]="isDataLoading">
     <div class="stats-indicators-wrapper" [ngClass]="{'loading' : isDataLoading == true}">
+      <div class="stats-indicators-bucket">
       <kii-stats-indicator [size]="2" [value]="result.visits_count.current" [prev_value]="result.visits_count.previous" [text]="'kiilib.stats.metric.visits' | translate"></kii-stats-indicator>
-      <div>
+      </div>
+      <div  class="stats-indicators-bucket">
         <kii-stats-indicator value_suffix="s" [value]="result.visits_duration.current" [prev_value]="result.visits_duration.previous"  [text]="'kiilib.stats.metric.visitsduration' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pages' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagespersession' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagesduration' | translate"></kii-stats-indicator>
       </div>
-      <div>
+      <div  class="stats-indicators-bucket">
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
       </div>
     </div>
-    <div class="stats-histo-hours-chart-wrapper">
-      <google-chart width="300" class="stats-histo-hours-chart" type="ColumnChart" [data]="result.visits_hours_histogram" [columnNames]="['time','count']" [options]="histoHoursVisits"></google-chart>
+    <div class="chart-wrapper">
+        <p class="chart-title">Visits over time</p>
+        <p class="chart-subtitle">Shows unique visits per day</p>
+        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="BubbleChart" [data]="testData" [options]="histoHoursVisitsOptions"></google-chart>
+      </div>
+    <div class="stats-charts-visits">
+      <div class="chart-wrapper">
+        <p class="chart-title">Visits over time</p>
+        <p class="chart-subtitle">Shows unique visits per day</p>
+        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="LineChart" [data]="result.visits_over_day" [columnNames]="['time','count']" [options]="visitsOverTimeOptions"></google-chart>
+      </div>
+      <div class="chart-wrapper">
+          <p class="chart-title">Visiting times</p>
+          <p class="chart-subtitle">Shows hours and days of visits</p>
+          <google-chart [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.visits_hours_histogram" [columnNames]="['time','count']" [options]="histoHoursVisitsOptions"></google-chart>
+      </div>
     </div>
   </kii-spinner-overlay>
 

@@ -1,4 +1,5 @@
 <div class="kii-stats-indicator-wrapper" [ngClass]="{'big' : size==2}">
+  <div class="kii-stats-indicator-container">
   <div *ngIf="prev_value!=0" class="kii-stats-indicator-top">
       <i *ngIf="isMore()" class="fas fa-arrow-circle-up" [ngClass]="{'green' : isMore()}" ></i>
       <i *ngIf="!isMore()" class="fas fa-arrow-circle-down" [ngClass]="{'red' : !isMore()}"></i>
@@ -6,4 +7,5 @@
   </div>
   <div class="kii-stats-indicator-middle">{{value | kiiThousandsSuffix}}{{value_suffix}}</div>
   <div class="kii-stats-indicator-bottom">{{text}}</div>
+  </div>
 </div>

@@ -8,21 +8,28 @@
     width:100%;
 }
 
+
 .stats-indicators-wrapper {
     width:100%;
-    margin:0 auto;
-    max-width: 950px;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    div {
-        display:flex;
-        max-width: 300px;
-        min-width: 300px;
-        flex-wrap: wrap;
+    justify-content: stretch;
+}
+.stats-indicators-bucket {
+    flex:1;
+    width:100%;
+    min-width: 300px;
+    min-height: 300px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    kii-stats-indicator {
+        flex:1;
     }
 }
+
+
 .stats-indicators-wrapper.loading {
     opacity:0.4;
 }
@@ -32,11 +39,41 @@
 }
 
 .stats-histo-hours-chart-wrapper {
-    min-height: 400px;
-    width:100%;
 
     border:1px solid yellow;
 }
-.stats-histo-hours-chart {
-    border:1px solid green;
+.chart-title {
+    text-align: center;
+    margin-bottom:3px;
+}
+.chart-subtitle {
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    margin:0;
+    opacity: 0.6;
+}
+
+.stats-charts-visits {
+    width:100%;
+    border:1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-wrapper {
+    min-width: 300px;
+    width:100%;
+    height:100%;
+}
+
+@media only screen and (max-width: 900px) {
+    .stats-charts-visits {
+        flex-direction: column;
+        .chart-wrapper {
+            width:100%;
+        }
+    }
+
 }

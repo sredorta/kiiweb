@@ -27,7 +27,8 @@ export class StatResult {
     visits_count : IStatWindow = {current:0,previous:0};
     visits_duration : IStatWindow = {current:0,previous:0};
     visits_hours_histogram : any[] = [];
-    
+    visits_over_day : any[] = [];
+
     constructor(obj: any | null) {
         if (obj) {
             Object.keys(this).forEach(key => {
