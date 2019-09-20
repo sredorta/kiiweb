@@ -62,61 +62,12 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
 
   visitsOverTimeOptions : any = {};
   histoHoursVisitsOptions : any = {};
+  dayOfWeek : number = 8;
 
-  testData = [
-    //['ID', 'DAY', 'HOUR', 'BubbleColor', 'BubbleSize'],
-    ['',  1, 0, 1,100],
-    ['',  1, 1, 1,150],
-    ['',  1, 2, 1,80],
-    ['',  1, 3, 1,20],
-    ['',  2, 0, 1,10],
-    ['',  2, 1, 1,7000],
-    ['',  2, 2, 1,20],
-    ['',  2, 3, 1,30],
-    ['',  3, 0, 1,40],
-    ['',  3, 1, 1,60],
-    ['',  3, 2, 1, 60],
-    ['',  3, 3, 1, 60],
-    ['',  4, 0, 1,40],
-    ['',  4, 1, 1,60],
-    ['',  4, 2, 1, 60],
-    ['',  4, 3, 1, 60],
-    ['',  5, 0, 1,40],
-    ['',  5, 1, 1,60],
-    ['',  5, 2, 1, 60],
-    ['',  5, 3, 1, 60],
-    ['',  6, 0, 1,40],
-    ['',  6, 1, 1,60],
-    ['',  6, 2, 1, 60],
-    ['',  6, 3, 1, 60],
-    ['',  7, 0, 1,40],
-    ['',  7, 1, 1,60],
-    ['',  7, 2, 1, 60],
-    ['',  7, 3, 1, 60],
-    ['',  8, 0, 1,40],
-    ['',  8, 1, 1,60],
-    ['',  8, 2, 1, 60],
-    ['',  8, 3, 1, 60],
-    ['',  9, 0, 1,40],
-    ['',  9, 1, 1,60],
-    ['',  9, 2, 1, 60],
-    ['',  9, 3, 1, 60],
-/*
-    ['0-1', 10,      10,    10,    10,    10,   10,    10],
-    ['1-2', 1,        2,     4,     1,     1,    1,     1],
-    ['2-3', 0,        2,     4,     0,     0,    5,     1],
-    ['3-4', 1,        2,     4,     1,     1,    1,     1],
-    ['4-5', 1,        2,     4,     1,     1,    1,     1],
-    ['5-6', 1,        2,     4,     1,     1,    1,     1],*/
-
-  ]
 
   constructor(private kiiApiStats: KiiApiStatsService,private translate: TranslateService,private kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private platformId: any) { super(kiiApiAuth,platformId); }
 
 
-
-
-  
 
 
   ngOnInit() {
@@ -179,6 +130,8 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
           elem[0] = new Date(elem[0]);
         }
         this.result = res;
+        console.log("STATS RESULT:",res);
+        console.log("Showing: ", res.visits_hours_histogram[8]);
         this.isDataLoading = false;
       },
       () => this.isDataLoading = false)

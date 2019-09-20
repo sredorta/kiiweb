@@ -26,7 +26,7 @@ export interface IStatWindow {
 export class StatResult {
     visits_count : IStatWindow = {current:0,previous:0};
     visits_duration : IStatWindow = {current:0,previous:0};
-    visits_hours_histogram : any[] = [];
+    visits_hours_histogram : any[] = [null,[],[],[],[],[],[],[],[]];
     visits_over_day : any[] = [];
 
     constructor(obj: any | null) {

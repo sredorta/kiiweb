@@ -25,11 +25,6 @@
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
       </div>
     </div>
-    <div class="chart-wrapper">
-        <p class="chart-title">Visits over time</p>
-        <p class="chart-subtitle">Shows unique visits per day</p>
-        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="BubbleChart" [data]="testData" [options]="histoHoursVisitsOptions"></google-chart>
-      </div>
     <div class="stats-charts-visits">
       <div class="chart-wrapper">
         <p class="chart-title">Visits over time</p>
@@ -39,7 +34,20 @@
       <div class="chart-wrapper">
           <p class="chart-title">Visiting times</p>
           <p class="chart-subtitle">Shows hours and days of visits</p>
-          <google-chart [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.visits_hours_histogram" [columnNames]="['time','count']" [options]="histoHoursVisitsOptions"></google-chart>
+          <mat-form-field>
+              <mat-label>Jour de la semaine</mat-label>
+              <mat-select [(value)]="dayOfWeek" placeholder="Hello !">
+                <mat-option value="8"><span style="font-weight:bold">Tous</span></mat-option>
+                <mat-option value="1">Lundi</mat-option>
+                <mat-option value="2">Mardi</mat-option>
+                <mat-option value="3">Mercredi</mat-option>
+                <mat-option value="4">Jeudi</mat-option>
+                <mat-option value="5">Vendredi</mat-option>
+                <mat-option value="6">Samedi</mat-option>
+                <mat-option value="7">Dimanche</mat-option>
+              </mat-select>
+            </mat-form-field>
+          <google-chart [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.visits_hours_histogram[dayOfWeek]" [columnNames]="['time','count']" [options]="histoHoursVisitsOptions"></google-chart>
       </div>
     </div>
   </kii-spinner-overlay>
