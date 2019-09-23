@@ -26,8 +26,11 @@ export interface IStatWindow {
 export class StatResult {
     visits_count : IStatWindow = {current:0,previous:0};
     visits_duration : IStatWindow = {current:0,previous:0};
-    visits_hours_histogram : any[] = [null,[],[],[],[],[],[],[],[]];
+    visits_hours_histogram : any[] = [[],[],[],[],[],[],[],[]];
     visits_over_day : any[] = [];
+    referrals_histogram : any[] = [];
+    pages_visited_histogram : any = {};
+    languages : any[] = [];
 
     constructor(obj: any | null) {
         if (obj) {
@@ -48,6 +51,7 @@ export class Stat {
 
 
     constructor(obj: IStat | null) {
+        console.log("Creating Stats with result" ,obj);
         if (obj) {
             Object.keys(this).forEach(key => {
                 if (obj[key] != undefined) 

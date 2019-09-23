@@ -8,6 +8,7 @@ import { StatResult } from 'src/app/_kiilib/_models/stat';
 import { angularEditorConfig } from '@kolkov/angular-editor/lib/config';
 import * as deepmerge from 'deepmerge';
 import { GoogleChartComponent } from 'angular-google-charts';
+import { KiiApiLanguageService } from 'src/app/_kiilib/_services/kii-api-language.service';
 
 @Component({
   selector: 'kii-admin-stats',
@@ -20,7 +21,7 @@ import { GoogleChartComponent } from 'angular-google-charts';
 export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**Days of the analysis */
-  days : number = 1;
+  days : number = 7;
 
   /**When we are loading new analyisis */
   isDataLoading : boolean = false;
@@ -30,7 +31,7 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
   /**Default options for google charts */
   defaultChartOptions : any = {
     backgroundColor:'#212121',
-    colors:['#26a69a'], 
+    colors:['#9ccc65','#ffee58','#ffa726','#8d6e63','#78909C'], 
     vAxis:{
       textStyle:{
         color:'white',
@@ -60,21 +61,24 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
     },
   }
 
+  pagesVisitedHistogram : any[] = [];
+
+
   visitsOverTimeOptions : any = {};
   histoHoursVisitsOptions : any = {};
-  dayOfWeek : number = 8;
+  referralsOptions : any = {};
+  languagesOptions : any = {};
+  dayOfWeek : number = 7;
+  language : string = this.kiiApiLang.get();
+  languagesAvailable : any = this.kiiApiLang.getSupportedLanguages();
 
 
-  constructor(private kiiApiStats: KiiApiStatsService,private translate: TranslateService,private kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private platformId: any) { super(kiiApiAuth,platformId); }
+  constructor(private kiiApiLang: KiiApiLanguageService ,private kiiApiStats: KiiApiStatsService,private translate: TranslateService,private kiiApiAuth : KiiApiAuthService,@Inject(PLATFORM_ID) private platformId: any) { super(kiiApiAuth,platformId); }
 
 
 
 
   ngOnInit() {
-
-
-
-
     this.histoHoursVisitsOptions = deepmerge.all([this.defaultChartOptions,
       {
         bar: {
@@ -93,7 +97,23 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
         }
       }
     ]);
+    this.referralsOptions = deepmerge.all([this.defaultChartOptions,
+      {
+        bar: {
+          groupWidth: '90%'
+        },
+        hAxis:{
+          slantedText:true,
+          slantedTextAngle:90,
+          title: "Traffic source"
+        },
+        vAxis: {
+          title:"Visits"
+        },
+        chartArea: {left:50,right:20,top:10,bottom:200,width: '100%', 'height': '100%'},
 
+      }
+    ]);
     this.visitsOverTimeOptions = deepmerge.all([this.defaultChartOptions,
       {
         curveType: 'function',
@@ -108,7 +128,14 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
         }
       }
     ]);
-    
+    this.languagesOptions = deepmerge.all([this.defaultChartOptions,
+      {
+        pieHole:0.4,
+        pieSliceTextStyle: {
+          color: 'white',
+        },
+      }
+    ]);    
 
 
     this.generateStats();
@@ -130,8 +157,8 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
           elem[0] = new Date(elem[0]);
         }
         this.result = res;
+        this.pagesVisitedHistogram = this.result.pages_visited_histogram[this.language];
         console.log("STATS RESULT:",res);
-        console.log("Showing: ", res.visits_hours_histogram[8]);
         this.isDataLoading = false;
       },
       () => this.isDataLoading = false)

@@ -4,7 +4,7 @@
 
   <div class="stats-settings">
     <p>{{'kiilib.stats.days' | translate}}</p>
-    <mat-slider style="width:100%" thumbLabel tickInterval="1" min="1" max="365" (change)="onDaysSliderChange($event)"></mat-slider>
+    <mat-slider style="width:100%" [(value)]="days" thumbLabel tickInterval="1" min="1" max="365" (change)="onDaysSliderChange($event)"></mat-slider>
   </div>
   <p class="stats-current"><i class="fas fa-calendar-day" [matBadge]="days" style="margin-right:20px"></i> {{'kiilib.stats.current' | translate}}</p>
   <kii-spinner-overlay [show]="isDataLoading">
@@ -29,27 +29,62 @@
       <div class="chart-wrapper">
         <p class="chart-title">Visits over time</p>
         <p class="chart-subtitle">Shows unique visits per day</p>
-        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="LineChart" [data]="result.visits_over_day" [columnNames]="['time','count']" [options]="visitsOverTimeOptions"></google-chart>
+        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="LineChart" [data]="result.visits_over_day"  [options]="visitsOverTimeOptions"></google-chart>
       </div>
       <div class="chart-wrapper">
+        <div class="chart-titile-with-input">
+          <div>
           <p class="chart-title">Visiting times</p>
           <p class="chart-subtitle">Shows hours and days of visits</p>
-          <mat-form-field>
-              <mat-label>Jour de la semaine</mat-label>
+          </div>
+          <div>          
+            <mat-form-field>
+              <mat-label>Jour</mat-label>
               <mat-select [(value)]="dayOfWeek" placeholder="Hello !">
-                <mat-option value="8"><span style="font-weight:bold">Tous</span></mat-option>
+                <mat-option value="7"><span style="font-weight:bold">Tous</span></mat-option>
                 <mat-option value="1">Lundi</mat-option>
                 <mat-option value="2">Mardi</mat-option>
                 <mat-option value="3">Mercredi</mat-option>
                 <mat-option value="4">Jeudi</mat-option>
                 <mat-option value="5">Vendredi</mat-option>
                 <mat-option value="6">Samedi</mat-option>
-                <mat-option value="7">Dimanche</mat-option>
+                <mat-option value="0">Dimanche</mat-option>
               </mat-select>
-            </mat-form-field>
-          <google-chart [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.visits_hours_histogram[dayOfWeek]" [columnNames]="['time','count']" [options]="histoHoursVisitsOptions"></google-chart>
+            </mat-form-field></div>
+        </div>
+        <google-chart [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.visits_hours_histogram[dayOfWeek]"  [options]="histoHoursVisitsOptions"></google-chart>
       </div>
     </div>
+
+    <div class="chart-wrapper">
+        <p class="chart-title">Sources du traffic</p>
+        <p class="chart-subtitle">Sites refererents</p>
+        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.referrals_histogram"  [options]="referralsOptions"></google-chart>
+    </div>
+    <div class="chart-wrapper">
+        <div class="chart-titile-with-input">
+            <div>
+            <p class="chart-title">Pages visités</p>
+            <p class="chart-subtitle">Histogram des pages visités</p>
+            </div>
+            <div>          
+                <mat-form-field style="width:80%;max-width:200px;align-self: flex-end">
+                    <mat-label>Language</mat-label>
+                    <mat-select [(value)]="language" placeholder="Hello !">
+                      <mat-option *ngFor="let lang of languagesAvailable" [value]="lang.iso">{{lang.iso}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+          </div>
+        <google-chart *ngIf="result.pages_visited_histogram[language]" [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.pages_visited_histogram[language]"  [options]="referralsOptions"></google-chart>
+    </div>
+
+    <div class="chart-wrapper">
+        <p class="chart-title">Languages</p>
+        <p class="chart-subtitle">Languages used on pages</p>
+        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="PieChart" [data]="result.languages"  [options]="languagesOptions"></google-chart>
+    </div>
+
   </kii-spinner-overlay>
 
 
