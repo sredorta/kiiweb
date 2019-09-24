@@ -242,6 +242,7 @@
     "kiilib.stats.metric.chatclicks"    : "Total clicks chat",
     "kiilib.stats.metric.chatduration"  : "Promedio de duracion del chat",
     "kiilib.stats.metric.appinstall"    : "Numero de instalaciones de la app",
+    "kiilib.stats.metric.chatmessages"  : "Mensajes enviados en el chat",
     "kiilib.stats.visits_over_time.title" : "Visitas",
     "kiilib.stats.visits_over_time.subtitle" : "Visitas por dia en el tiempo",
     "kiilib.stats.visits_hours.title" : "Horas de las visitas",

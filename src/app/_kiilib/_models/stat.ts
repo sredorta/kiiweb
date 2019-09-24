@@ -7,6 +7,7 @@ export enum StatAction {
     SOCIAL_SHARE = "social_share",
     CHAT_ENTER = "chat_enter",
     CHAT_LEAVE = "chat_leave",
+    CHAT_MESSAGE = "chat_message",
     APP_INSTALL = "app_install",
     UNDEFINED = "unknown"
 }
@@ -32,6 +33,7 @@ export class StatResult {
     social_click_count : IStatWindow = {current:0,previous:0};
     chat_click_count : IStatWindow = {current:0,previous:0};
     chat_duration : IStatWindow = {current:0,previous:0};
+    chat_message_count : IStatWindow = {current:0,previous:0};
     app_install_count : IStatWindow = {current:0,previous:0};
 
 

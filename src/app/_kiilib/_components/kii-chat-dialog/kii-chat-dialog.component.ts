@@ -37,11 +37,9 @@ export class KiiChatDialogComponent implements OnInit {
 
   ngOnInit() {
     //Send stats
-    this.kiiApiStats.send(StatAction.CHAT_ENTER,null);
     this.dialogRef.disableClose = true;//disable default close operation
     this.subscrition = this.dialogRef.beforeClose().subscribe(result => {
       this.dialogRef.close(this.chat.room);
-      this.kiiApiStats.send(StatAction.CHAT_LEAVE,null);
     });
   }
 

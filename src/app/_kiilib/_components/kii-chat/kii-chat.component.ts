@@ -10,6 +10,8 @@ import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { User } from '../../_models/user';
 import { TranslateService } from '@ngx-translate/core';
+import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
+import { StatAction } from '../../_models/stat';
 
 @Component({
   selector: 'kii-chat',
@@ -53,12 +55,14 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   /**Message control */
   @ViewChild('control',{static:false}) control : ElementRef;
 
-  constructor(private socket: KiiSocketService, 
+  constructor(private kiiApiStats : KiiApiStatsService,
+              private socket: KiiSocketService, 
               private kiiApiLang: KiiApiLanguageService, 
               private kiiApiAuth: KiiApiAuthService,
               private translate: TranslateService) {super()}
 
   ngOnInit() {
+    this.kiiApiStats.send(StatAction.CHAT_ENTER,null);
     this.createForm();
     this.socket.getChatAdmins();  //Request chat admins
     this.socket.chatStart();      //Creates and gets room if we are not admin
@@ -151,8 +155,9 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
       if (this.isFirstMessage && !this.isAdminContext) {
          this.socket.sendChatData({room:this.room.id, type: ChatDataType.FirstMessage, object: {message:myMessage}});
          this.isFirstMessage = false;
-      } else
+      } else 
          this.socket.sendChatData({room:this.room.id, type: ChatDataType.Message, object: {message:myMessage}});
+      this.kiiApiStats.send(StatAction.CHAT_MESSAGE,null);
       this.messages.push(myMessage);
       //Reset form value
       this.myForm.controls["newMessage"].setValue("");
@@ -175,6 +180,14 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
     if (message.sender == this.socket.socket.id) return this.you;
     if (message.senderName) return message.senderName;
     return null;
+  }
+
+  ngOnDestroy() {
+    this.kiiApiStats.send(StatAction.CHAT_LEAVE,null);
+    //Unsubscribe all
+    for (let subscription of this._subscriptions) {
+      subscription.unsubscribe();
+    }
   }
 
 }

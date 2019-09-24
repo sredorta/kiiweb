@@ -21,7 +21,7 @@
         <kii-stats-indicator [value]="result.social_click_count.current" [prev_value]="result.social_click_count.previous"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="result.chat_click_count.current" [prev_value]="result.chat_click_count.previous"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
         <kii-stats-indicator value_suffix="s" [value]="result.chat_duration.current" [prev_value]="result.chat_duration.previous"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="result.chat_message_count.current" [prev_value]="result.chat_message_count.previous"  [text]="'kiilib.stats.metric.chatmessages' | translate"></kii-stats-indicator>
       </div>
     </div>
     <div class="stats-two-columns">
