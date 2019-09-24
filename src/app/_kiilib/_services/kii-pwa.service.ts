@@ -9,6 +9,8 @@ import { KiiBottomSheetSoftwareInstallComponent } from '../_components/kii-botto
 import {map} from 'rxjs/operators';
 import { KiiApiAuthService } from './kii-api-auth.service';
 import { User } from '../_models/user';
+import { KiiApiStatsService } from './kii-api-stats.service';
+import { StatAction } from '../_models/stat';
 
 
 //NOTE: This service is only running on the browser
@@ -30,7 +32,8 @@ export class KiiPwaService {
 
   promptEvent : any = null;
 
-  constructor(private swUpdate: SwUpdate, 
+  constructor(private kiiStats : KiiApiStatsService,
+              private swUpdate: SwUpdate, 
               private swPush: SwPush,
               private http : HttpClient,
               private bottomSheet: MatBottomSheet,
@@ -66,6 +69,7 @@ export class KiiPwaService {
           myBottomSheet.afterDismissed().subscribe(res => {
             if (res==true) {
               this.promptEvent.prompt();
+              this.kiiStats.send(StatAction.APP_INSTALL,null)
             }
           })
         } 

@@ -7,6 +7,7 @@ export enum StatAction {
     SOCIAL_SHARE = "social_share",
     CHAT_ENTER = "chat_enter",
     CHAT_LEAVE = "chat_leave",
+    APP_INSTALL = "app_install",
     UNDEFINED = "unknown"
 }
 
@@ -26,9 +27,19 @@ export interface IStatWindow {
 export class StatResult {
     visits_count : IStatWindow = {current:0,previous:0};
     visits_duration : IStatWindow = {current:0,previous:0};
+    pages_count : IStatWindow = {current:0,previous:0};
+    pages_per_visit : IStatWindow = {current:0,previous:0};
+    social_click_count : IStatWindow = {current:0,previous:0};
+    chat_click_count : IStatWindow = {current:0,previous:0};
+    chat_duration : IStatWindow = {current:0,previous:0};
+    app_install_count : IStatWindow = {current:0,previous:0};
+
+
     visits_hours_histogram : any[] = [[],[],[],[],[],[],[],[]];
     visits_over_day : any[] = [];
     referrals_histogram : any[] = [];
+    social_over_day : any = {all:[]};
+    social_histogram : any[] = [];
     pages_visited_histogram : any = {};
     languages : any[] = [];
 

@@ -17,7 +17,6 @@ export class KiiStatsIndicatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("Value suffix : " + this.value_suffix);
   }
 
   getDifferencePercentage() {

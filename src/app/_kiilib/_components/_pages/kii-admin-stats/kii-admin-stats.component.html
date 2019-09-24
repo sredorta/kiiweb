@@ -1,7 +1,6 @@
 <div class="admin-theme stats-wrapper">  
   <h1>{{'kiilib.stats.title' | translate}}</h1>
 
-
   <div class="stats-settings">
     <p>{{'kiilib.stats.days' | translate}}</p>
     <mat-slider style="width:100%" [(value)]="days" thumbLabel tickInterval="1" min="1" max="365" (change)="onDaysSliderChange($event)"></mat-slider>
@@ -14,87 +13,112 @@
       </div>
       <div  class="stats-indicators-bucket">
         <kii-stats-indicator value_suffix="s" [value]="result.visits_duration.current" [prev_value]="result.visits_duration.previous"  [text]="'kiilib.stats.metric.visitsduration' | translate"></kii-stats-indicator>
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pages' | translate"></kii-stats-indicator>
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagespersession' | translate"></kii-stats-indicator>
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.pagesduration' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="result.pages_count.current" [prev_value]="result.pages_count.previous"  [text]="'kiilib.stats.metric.pages' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="result.pages_per_visit.current" [prev_value]="result.pages_per_visit.previous"  [text]="'kiilib.stats.metric.pagespersession' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="result.app_install_count.current" [prev_value]="result.app_install_count.previous"  [text]="'kiilib.stats.metric.appinstall' | translate"></kii-stats-indicator>
       </div>
       <div  class="stats-indicators-bucket">
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
-        <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="result.social_click_count.current" [prev_value]="result.social_click_count.previous"  [text]="'kiilib.stats.metric.socialclicks' | translate"></kii-stats-indicator>
+        <kii-stats-indicator [value]="result.chat_click_count.current" [prev_value]="result.chat_click_count.previous"  [text]="'kiilib.stats.metric.chatclicks' | translate"></kii-stats-indicator>
+        <kii-stats-indicator value_suffix="s" [value]="result.chat_duration.current" [prev_value]="result.chat_duration.previous"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
         <kii-stats-indicator [value]="8000" [prev_value]="90000"  [text]="'kiilib.stats.metric.chatduration' | translate"></kii-stats-indicator>
       </div>
     </div>
-    <div class="stats-charts-visits">
+    <div class="stats-two-columns">
       <div class="chart-wrapper">
-        <p class="chart-title">Visits over time</p>
-        <p class="chart-subtitle">Shows unique visits per day</p>
-        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="LineChart" [data]="result.visits_over_day"  [options]="visitsOverTimeOptions"></google-chart>
+        <p class="chart-title">{{'kiilib.stats.visits_over_time.title' | translate}}</p>
+        <p class="chart-subtitle">{{'kiilib.stats.visits_over_time.subtitle' | translate}}</p>
+        <google-chart  [dynamicResize]="true" type="LineChart" [data]="result.visits_over_day"  [options]="visitsOverTimeOptions"></google-chart>
       </div>
       <div class="chart-wrapper">
         <div class="chart-titile-with-input">
           <div>
-          <p class="chart-title">Visiting times</p>
-          <p class="chart-subtitle">Shows hours and days of visits</p>
+          <p class="chart-title">{{'kiilib.stats.visits_hours.title' | translate}}</p>
+          <p class="chart-subtitle">{{'kiilib.stats.visits_hours.subtitle' | translate}}</p>
           </div>
           <div>          
             <mat-form-field>
-              <mat-label>Jour</mat-label>
-              <mat-select [(value)]="dayOfWeek" placeholder="Hello !">
-                <mat-option value="7"><span style="font-weight:bold">Tous</span></mat-option>
-                <mat-option value="1">Lundi</mat-option>
-                <mat-option value="2">Mardi</mat-option>
-                <mat-option value="3">Mercredi</mat-option>
-                <mat-option value="4">Jeudi</mat-option>
-                <mat-option value="5">Vendredi</mat-option>
-                <mat-option value="6">Samedi</mat-option>
-                <mat-option value="0">Dimanche</mat-option>
+              <mat-label>{{'kiilib.day' | translate}}</mat-label>
+              <mat-select [(value)]="dayOfWeek">
+                <mat-option [value]="7"><span style="font-weight:bold">{{'kiilib.all' | translate}}</span></mat-option>
+                <mat-option [value]="1">{{'kiilib.monday' | translate}}</mat-option>
+                <mat-option [value]="2">{{'kiilib.tuesday' | translate}}</mat-option>
+                <mat-option [value]="3">{{'kiilib.wednesday' | translate}}</mat-option>
+                <mat-option [value]="4">{{'kiilib.thursday' | translate}}</mat-option>
+                <mat-option [value]="5">{{'kiilib.friday' | translate}}</mat-option>
+                <mat-option [value]="6">{{'kiilib.saturday' | translate}}</mat-option>
+                <mat-option [value]="0">{{'kiilib.sunday' | translate}}</mat-option>
               </mat-select>
             </mat-form-field></div>
         </div>
-        <google-chart [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.visits_hours_histogram[dayOfWeek]"  [options]="histoHoursVisitsOptions"></google-chart>
+        <google-chart [dynamicResize]="true"  type="ColumnChart" [data]="result.visits_hours_histogram[dayOfWeek]"  [options]="histoHoursVisitsOptions"></google-chart>
       </div>
     </div>
 
     <div class="chart-wrapper">
-        <p class="chart-title">Sources du traffic</p>
-        <p class="chart-subtitle">Sites refererents</p>
-        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.referrals_histogram"  [options]="referralsOptions"></google-chart>
-    </div>
-    <div class="chart-wrapper">
-        <div class="chart-titile-with-input">
-            <div>
-            <p class="chart-title">Pages visités</p>
-            <p class="chart-subtitle">Histogram des pages visités</p>
-            </div>
-            <div>          
-                <mat-form-field style="width:80%;max-width:200px;align-self: flex-end">
-                    <mat-label>Language</mat-label>
-                    <mat-select [(value)]="language" placeholder="Hello !">
-                      <mat-option *ngFor="let lang of languagesAvailable" [value]="lang.iso">{{lang.iso}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-            </div>
-          </div>
-        <google-chart *ngIf="result.pages_visited_histogram[language]" [dynamicResize]="true"  style="width:100%;height:400px"  type="ColumnChart" [data]="result.pages_visited_histogram[language]"  [options]="referralsOptions"></google-chart>
+        <p class="chart-title">{{'kiilib.stats.sources.title' | translate}}</p>
+        <p class="chart-subtitle">{{'kiilib.stats.sources.subtitle' | translate}}</p>
+        <google-chart  [dynamicResize]="true"  type="ColumnChart" [data]="result.referrals_histogram"  [options]="referralsOptions"></google-chart>
     </div>
 
-    <div class="chart-wrapper">
-        <p class="chart-title">Languages</p>
-        <p class="chart-subtitle">Languages used on pages</p>
-        <google-chart  [dynamicResize]="true"  style="width:100%;height:400px"  type="PieChart" [data]="result.languages"  [options]="languagesOptions"></google-chart>
+    <div class="stats-two-columns">
+      <div class="chart-wrapper">
+          <div class="chart-titile-with-input">
+              <div>
+              <p class="chart-title">{{'kiilib.stats.pages.title' | translate}}</p>
+              <p class="chart-subtitle">{{'kiilib.stats.pages.subtitle' | translate}}</p>
+              </div>
+              <div>          
+                  <mat-form-field style="width:80%;max-width:200px;align-self: flex-end">
+                      <mat-label>{{'kiilib.language' | translate}}</mat-label>
+                      <mat-select [(value)]="language">
+                        <mat-option *ngFor="let lang of languagesAvailable" [value]="lang.iso">{{lang.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+              </div>
+            </div>
+          <google-chart *ngIf="result.pages_visited_histogram[language]" [dynamicResize]="true" type="ColumnChart" [data]="result.pages_visited_histogram[language]"  [options]="histoPagesOptions"></google-chart>
+      </div>
+
+      <div class="chart-wrapper chart-languages">
+          <p class="chart-title">{{'kiilib.stats.language.title' | translate}}</p>
+          <p class="chart-subtitle">{{'kiilib.stats.language.subtitle' | translate}}</p>
+          <google-chart  [dynamicResize]="true"  type="PieChart" [data]="result.languages"  [options]="languagesOptions"></google-chart>
+      </div>
     </div>
+
+    <div class="stats-two-columns">
+        <div class="chart-wrapper">
+            <div class="chart-titile-with-input">
+                <div>
+                <p class="chart-title">{{'kiilib.stats.social_over_time.title' | translate}}</p>
+                <p class="chart-subtitle">{{'kiilib.stats.social_over_time.subtitle' | translate}}</p>
+                </div>
+                <div>          
+                    <mat-form-field style="width:80%;max-width:200px;align-self: flex-end">
+                        <mat-label>{{'kiilib.network' | translate}}</mat-label>
+                        <mat-select [(value)]="social">
+                          <mat-option  value="all">{{'kiilib.all' | translate}}</mat-option>
+                          <ng-container *ngFor="let type of socialTypes">
+                            <mat-option *ngIf="type!='all'" [value]="type">{{type}}</mat-option>
+                          </ng-container>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+              </div>
+            <google-chart *ngIf="result.social_over_day[social]" [dynamicResize]="true"  type="LineChart" [data]="result.social_over_day[social]"  [options]="socialOverTimeOptions"></google-chart>
+        </div>
+  
+        <div class="chart-wrapper">
+            <p class="chart-title">{{'kiilib.stats.social_histo.title' | translate}}</p>
+            <p class="chart-subtitle">{{'kiilib.stats.social_histo.subtitle' | translate}}</p>
+            <google-chart  [dynamicResize]="true"  type="ColumnChart" [data]="result.social_histogram"  [options]="socialHistoOptions"></google-chart>
+        </div>
+    </div>
+
 
   </kii-spinner-overlay>
+  <button mat-button color="primary" class="stats-reset-button" (click)="onDelete()"><i class="fas fa-trash"></i>{{'kiilib.stats.reset' | translate}}</button>
 
-
-  <!--"kiilib.stats.metric.visits"        : "Visites uniques",
-  "kiilib.stats.metric.visitsduration": "Moyenne de durée d'une visite",
-  "kiilib.stats.metric.pages"         : "Total de pages consultés par visite",
-  "kiilib.stats.metric.pagespersession" : "Moyenne de pages consultés par visite",
-  "kiilib.stats.metric.pagesduration" : "Moyenne durée consultation des pages",
-  "kiilib.stats.metric.socialclicks"  : "Total clicks vers reseaux sociaux",
-  "kiilib.stats.metric.chatclicks"    : "Total clicks vers chat",
-  "kiilib.stats.metric.chatduration"  : "Durée moyenne du chat",-->
 
 </div>

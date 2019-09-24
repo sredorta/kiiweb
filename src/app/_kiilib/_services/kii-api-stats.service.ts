@@ -81,9 +81,13 @@ export class KiiApiStatsService {
 
     }
   }
-
+  /**Gets stats */
   public analyze(days:number) :Observable<any> {
     return this.http.post(environment.apiURL + '/stats/analyze', {days: days}).pipe(map(res => new StatResult(res)));
+  }
+  /**Removes all fields */
+  public reset() :Observable<any> {
+    return this.http.post(environment.apiURL + '/stats/delete', {});
   }
 
 }
