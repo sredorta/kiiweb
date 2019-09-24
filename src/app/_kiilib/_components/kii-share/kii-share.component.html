@@ -1,6 +1,6 @@
 <div *ngIf="cookies" class="kii-share-wrapper">
-  <!--<google-plus url="http://jasonwatmore.com"></google-plus>-->
-  <linkedin-share class="kii-share-item" url="http://jasonwatmore.com"></linkedin-share>
-  <tweet class="kii-share-item" url="http://jasonwatmore.com"></tweet>
-  <fb-like class="kii-share-item" url="http://jasonwatmore.com"></fb-like>
+  <!--<google-plus [url]="url"></google-plus>-->
+  <div class="button-wrapper" (click)="sendStats('linkedin')"><linkedin-share class="kii-share-item" [url]="url" ></linkedin-share></div>
+  <div class="button-wrapper" (click)="sendStats('tweeter')"><tweet class="kii-share-item" [url]="url"></tweet></div>
+  <div class="button-wrapper" (click)="sendStats('facebook')"><fb-like class="kii-share-item" [url]="url"></fb-like></div>
 </div>
