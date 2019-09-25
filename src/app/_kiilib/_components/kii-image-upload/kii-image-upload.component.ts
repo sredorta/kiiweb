@@ -10,6 +10,12 @@ import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 })
 export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
+  /**Contains the label of the element if any */
+  @Input() label : string = null;
+
+  /**Contains the label of the element if any */
+  @Input() hint : string = null;
+
   /**Contains the current image */
   @Input() image : string = './assets/kiilib/images/no-photo-available.jpg';
   
@@ -18,6 +24,10 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
   /**Crop image or not */
   @Input() crop : boolean = true;
+
+  /**Keep name of the file*/
+  @Input() keepName : string = null;
+
 
   /**Storage to be used for images : content (default), blog */
   @Input() storage : "content" | "blog" | "email" | "defaults" = "content";
@@ -49,8 +59,15 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   /**When we upload svg file */
   isSVG : boolean =false;
 
+  /**When we upload png file */
+  isPNG : boolean =false;
+
   /**Contains svg blob */
   svgBlob : Blob = new Blob();
+
+  /**Formats of images accepted */
+  @Input() imageFormat : string = "image/*";
+
 
   /**Shadow canvas for image manipulation */
   @ViewChild('shadowCanvas', {static:false}) shadowCanvasElem : ElementRef; //Shadow canvas for manipulation
@@ -64,10 +81,14 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
   /**Sets the initial image */
   setInitialImage() {
-    if (this.image)
+    if (this.image) {
       if (this.image.includes(".svg")) {
         this.isSVG = true;
       }
+      if (this.image.includes(".png")) {
+        this.isPNG = true;
+      }
+    }
     if (!this.image)
       this.base64 = "./assets/kiilib/images/no-photo-available.jpg";
     else {  
@@ -91,6 +112,9 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     console.log(event.target.files[0]);
     if (event.target.files[0].name.includes(".svg")) {
       this.isSVG = true;
+    }
+    if (event.target.files[0].name.includes(".png")) {
+      this.isPNG = true;
     }
     const reader = new FileReader();
     if(event.target.files && event.target.files.length) {
@@ -168,7 +192,12 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
       canvas.nativeElement.height = img.height;
       ctx.drawImage(img, 0, 0);
     }
-    return canvas.nativeElement.toDataURL("image/jpeg",this.compression_rate);
+    if (!this.isPNG)
+      return canvas.nativeElement.toDataURL("image/jpeg",this.compression_rate);
+    else {
+      return canvas.nativeElement.toDataURL("image/png",1);
+    }
+    //return canvas.nativeElement.toDataURL("image/jpeg",this.compression_rate);
   }
 
   /**Resizes and crops image */
@@ -192,7 +221,10 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     ctx.clearRect(0,0,canvas.nativeElement.width, canvas.nativeElement.height);
     ctx.drawImage(img, sourceX,sourceY, sourceSize, sourceSize, 0, 0, this.maxSize,this.maxSize);
    //Disable compression now
+   if (!this.isPNG)
     return canvas.nativeElement.toDataURL("image/jpeg",this.compression_rate);
+   else
+    return canvas.nativeElement.toDataURL("image/png",1);
   }
 
   /** Rotate the image by rotating the canvas */
@@ -218,7 +250,11 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
       var origY = -(canvas.nativeElement.height/2) - delta ;
     } 
     ctx.drawImage(img, 0,0,img.width,img.height,origX,origY,img.width,img.height); 
-    return canvas.nativeElement.toDataURL("image/jpeg",1);
+    if (!this.isPNG)
+      return canvas.nativeElement.toDataURL("image/jpeg",1);
+    else
+      return canvas.nativeElement.toDataURL("image/png",1);
+
   }
 
 
@@ -233,9 +269,11 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   }
 
   uploadFile(blob:Blob) {
-    const imageFile = new File([blob], this.fileName, { type: 'image/jpeg' });
+    //Add random string on fileName so that we get unique name
+    let tmp = this.fileName.split('.');
+    this.fileName = tmp[0] + "__" + new Date().getTime() + '.' + tmp[1];
     const formData = new FormData();
-    formData.append('file',blob,this.fileName);
+    formData.append('file',blob,this.keepName==null?this.fileName:this.keepName);
     //Now upload
     this.isLoading = true;
     this.addSubscriber(

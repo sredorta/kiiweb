@@ -134,6 +134,7 @@ import { KiiEmailComposeFormComponent } from './_kiilib/_components/_forms/kii-e
 import { KiiAdminStatsComponent } from './_kiilib/_components/_pages/kii-admin-stats/kii-admin-stats.component';
 import { KiiStatsIndicatorComponent } from './_kiilib/_components/kii-stats-indicator/kii-stats-indicator.component';
 import { KiiThousandsSuffixPipe } from './_kiilib/_pipes/kii-thousands-suffix.pipe';
+import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-disk/kii-admin-disk.component';
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -203,6 +204,7 @@ import { KiiThousandsSuffixPipe } from './_kiilib/_pipes/kii-thousands-suffix.pi
     KiiAdminStatsComponent,
     KiiStatsIndicatorComponent,
     KiiThousandsSuffixPipe,
+    KiiAdminDiskComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

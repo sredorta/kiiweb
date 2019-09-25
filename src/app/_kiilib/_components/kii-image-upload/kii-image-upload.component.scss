@@ -50,3 +50,13 @@ mat-progress-bar {
 mat-progress-bar.is-visible {
     opacity:1;
 }
+
+.kii-image-upload-text-wrapper {
+    display:flex;
+    flex-direction: column;
+    font-size: 80%;
+    .label {
+        margin-top:10px;
+    }
+    border-bottom: 1px solid;
+}

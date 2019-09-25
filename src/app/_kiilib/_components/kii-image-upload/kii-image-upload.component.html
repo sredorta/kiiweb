@@ -1,9 +1,14 @@
 <canvas class="shadow" #shadowCanvas></canvas>
+<div *ngIf="label!=null || hint!=null" class="kii-image-upload-text-wrapper">
+  <mat-label class="label">{{label | translate}}</mat-label>
+  <mat-hint class="hint">{{hint | translate}}</mat-hint>
+</div>
+
 <div class="kii-image-upload-wrapper-all">
   <mat-progress-bar mode="determinate" [value]="progress" [ngClass]="{'is-visible' : isLoading}"></mat-progress-bar>
-
   <div class="kii-image-upload-wrapper">
-        <input  class="shadow" type="file" #fileInput (change)="loadImage($event)">  
+        <input class="shadow" type="file" #fileInput (change)="loadImage($event)" [accept]="imageFormat">  
+
         <div class="kii-image-upload-image-wrapper" [ngClass]="{'is-uploaded' : isUploaded}">
           <img  alt="picture" #realImg class="kii-image-upload-view" [src]="base64" crossOrigin="anonymous">
         </div>

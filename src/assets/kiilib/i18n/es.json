@@ -145,7 +145,14 @@
     "kiilib.input.email.description.hint"         : "Description del modelo de email",
     "kiilib.input.email.select.model"             : "Selecciona un modelo de email",
     "kiilib.input.language.hint"                  : "Idioma utilizado",
-
+    "kiilib.input.logo.label"                     : "Logotipo",
+    "kiilib.input.logo.hint"                      : "Logotipo utilitzado en la pagina web",
+    "kiilib.input.favicon.label"                  : "Favicon",
+    "kiilib.input.favicon.hint"                   : "Icono visible en la barra del navegador",
+    "kiilib.input.appicon512.label"                  : "Icono de la app",
+    "kiilib.input.appicon512.hint"                   : "Icono utilizada por la app en el escritorio (512x512)",
+    "kiilib.input.appicon192.label"                  : "Icono de la app",
+    "kiilib.input.appicon192.hint"                   : "Icono utilizada por la app en el escritorio (192x192)",
 
     "kiilib.tooltip.password"           : "El password debe tener una minuscula, una mayuscula e un numero ",
     "kiilib.error.default"              : "Campo incorrecto",

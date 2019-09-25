@@ -21,6 +21,7 @@ import { KiiContactComponent } from './_kiilib/_components/_pages/kii-contact/ki
 import { KiiAlertsComponent } from './_kiilib/_components/_pages/kii-alerts/kii-alerts.component';
 import { KiiAdminChatsComponent } from './_kiilib/_components/_pages/kii-admin-chats/kii-admin-chats.component';
 import { KiiAdminStatsComponent } from './_kiilib/_components/_pages/kii-admin-stats/kii-admin-stats.component';
+import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-disk/kii-admin-disk.component';
 
 export const routes: Routes = [
   {
@@ -119,6 +120,10 @@ export const routes: Routes = [
     path: 'admin-chats',
     component: KiiAdminChatsComponent,
   }, 
+  {
+    path: 'admin-disk',
+    component: KiiAdminDiskComponent,
+  },
   {
     path: 'admin-stats',
     component: KiiAdminStatsComponent,

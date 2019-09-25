@@ -114,7 +114,6 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
   /**Gets the image from a key */
   getImage(key:string) {
     let mySetting = this.kiiApiSetting.getByKey(key);
-    //console.log("getImage", mySetting.value);
     return mySetting.value;
   }
 
