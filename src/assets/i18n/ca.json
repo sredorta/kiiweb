@@ -1,0 +1,25 @@
+{
+    "title" : "Titul en català",
+    "menu.home"  : "Inici",
+    "menu.demo"  : "Demo",
+    "menu.blog"  : "Blog",
+    "menu.contact": "Contacta'ns",
+    "menu.legal"  : "Mencions legals",
+    "menu.realisations": "Clients",
+    "menu.price"  : "Preus",
+    "ROUTES.sidenav" : "menu",
+    "ROUTES.home"      : "inici",
+    "ROUTES.demo"      : "demo",
+    "ROUTES.clients"   : "clients",
+    "ROUTES.prices"    : "preus",
+    "ROUTES.blog"      : "blog",
+    "ROUTES.articles"   : "articule",
+    "ROUTES.contact"   : "contacta'ns",
+    "ROUTES.404"       : "pagina-no-trobada",
+    "ROUTES.login"     : "connecció",
+    "ROUTES.reset-password": "password-perdut",
+    "ROUTES.profile"    : "compte",
+    "ROUTES.alerts"     : "notificacions"
+
+
+}
