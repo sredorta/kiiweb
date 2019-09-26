@@ -28,8 +28,11 @@
         flex:1;
     }
 }
+.stats-content-wrapper {
+    transition: opacity 0.5s ease-in-out;
+}
 
-.stats-indicators-wrapper.loading {
+.stats-content-wrapper.loading {
     opacity:0.2;
 }
 .stats-current {
@@ -48,6 +51,7 @@
     font-size: 14px;
     font-style: italic;
     opacity: 0.6;
+    text-align: center;
 }
 
 google-chart {

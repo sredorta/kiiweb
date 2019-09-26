@@ -5,10 +5,34 @@ import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 
 
-/**Enumerator with type of analyze*/
-export enum DiskType {
-  IMAGES = "images",
-  //APP_START = "app_start",
+export class DiskResult {
+    /**Disk total size */
+    totalSize : number = 0;
+
+    /**System files size */
+    systemSize : number = 0;
+
+    /**removable total file size */
+    removableSize : number = 0;
+
+    /**Disk chart */
+    disk : any[] = [];
+
+
+    /**Images chart */
+    images : any[] = [];
+    /**Removable images Size */
+    removableImagesSize : number = 0;
+
+  constructor(obj: any | null) {
+    console.log("Recieved from server",obj);
+    if (obj) {
+        Object.keys(this).forEach(key => {
+            if (obj[key] != undefined) 
+                this[key] = obj[key];
+        });
+    } 
+  }
 }
 
 @Injectable({
@@ -20,7 +44,11 @@ export class KiiApiDiskService {
   constructor(private http: HttpClient) { }
 
     /**Gets stats */
-    public scan(type:DiskType) :Observable<any> {
-      return this.http.post(environment.apiURL + '/disk/scan', {type: type});//.pipe(map(res => new StatResult(res)));
+    public scan() :Observable<any> {
+      return this.http.post(environment.apiURL + '/disk/scan', {}).pipe(map(res => new DiskResult(res)));
+    }
+    /**Gets stats */
+    public optimize() :Observable<any> {
+          return this.http.post(environment.apiURL + '/disk/optimize', {}).pipe(map(res => new DiskResult(res)));
     }
 }

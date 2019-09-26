@@ -1,3 +1,37 @@
-<p>
-  kii-admin-disk works!
-</p>
+<div class="admin-theme disk-wrapper">  
+    <h1>{{'kiilib.disk.title' | translate}}</h1>
+    <kii-spinner-overlay [show]="isDataLoading">
+    <div class="disk-content-wrapper" [ngClass]="{'loading': isDataLoading}">
+      <div class="disk-two-columns">
+          <div class="chart-wrapper">
+              <p class="chart-title">{{'kiilib.disk.total.title' | translate}}</p>
+              <p class="chart-subtitle">{{'kiilib.disk.total.subtitle' | translate}}</p>
+              <google-chart class="pie-total"  [dynamicResize]="true"  type="PieChart" [data]="result.disk"  [options]="pieOptions"></google-chart>
+          </div>
+          <div class="chart-text-wrapper">
+            <div>
+              <p class="disk-indicator double">{{result.totalSize | kiiFileSize}}</p>
+              <p class="disk-indicator-title">{{'kiilib.disk.current' | translate}}</p>
+            </div>
+          </div>
+      </div>  
+
+      <div class="disk-two-columns">
+        <div class="chart-wrapper">
+            <p class="chart-title">{{'kiilib.disk.images.title' | translate}}</p>
+            <p class="chart-subtitle">{{'kiilib.disk.images.subtitle' | translate}}</p>
+            <google-chart  [dynamicResize]="true"  type="BarChart" [data]="result.images"  [options]="stackedOptions"></google-chart>
+        </div>
+        <div class="chart-text-wrapper">
+          <div>
+            <p class="disk-indicator">{{result.removableImagesSize | kiiFileSize}}</p>
+            <p class="disk-indicator-title">{{'kiilib.disk.removable' | translate}}</p>
+          </div>
+        </div>
+      </div>    
+      <button *ngIf="result.removableSize>0" mat-raised-button color="primary" class="disk-clean-button" (click)="onDelete()"><i class="fas fa-trash"></i>{{'kiilib.disk.optimize' | translate}} {{result.removableSize | kiiFileSize}}</button>
+    </div>    
+  </kii-spinner-overlay>
+  
+  
+  </div>

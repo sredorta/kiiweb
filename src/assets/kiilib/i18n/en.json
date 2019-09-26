@@ -214,12 +214,13 @@
     "kiilib.users.admin.rolescheckbox"  : "Modify the roles for this user",
     "kiilib.users.admin.isvalidated"    : "Validated email account",
     
-    "kiilib.admin.menu.settings"                  : "Configuration",
-    "kiilib.admin.menu.users"                     : "Users",
-    "kiilib.admin.menu.content"                   : "Content",
-    "kiilib.admin.menu.emails"                    : "Emails",
-    "kiilib.admin.menu.stats"                     : "Audience",
-    "kiilib.admin.menu.chats"                     : "Chats",
+    "kiilib.admin.menu.settings"        : "Configuration",
+    "kiilib.admin.menu.users"           : "Users",
+    "kiilib.admin.menu.content"         : "Content",
+    "kiilib.admin.menu.emails"          : "Emails",
+    "kiilib.admin.menu.stats"           : "Audience",
+    "kiilib.admin.menu.chats"           : "Chats",
+    "kiilib.admin.menu.disk"            : "Disk space",
 
 
     "kiilib.article.ispublic"           : "Public article",  
@@ -276,6 +277,14 @@
     "kiilib.stats.confirm.text"         : "Are you sure that you want to delete all statistics data ? This operation is irreversible!",
     "kiilib.stats.reset"                : "Reset all statistics",
 
+    "kiilib.disk.title"                 : "Disk storage",
+    "kiilib.disk.total.title"           : "Used disk storage",
+    "kiilib.disk.total.subtitle"        : "Distribution of disk storage",
+    "kiilib.disk.current"               : "Total disk storage in use",
+    "kiilib.disk.images.title"          : "Images storage",
+    "kiilib.disk.images.subtitle"       : "Disk space for storing images",
+    "kiilib.disk.removable"             : "Can be removed",    
+    "kiilib.disk.optimize"              : "Optimize disk and earn",
 
     "kiilib.cookies.title"              : "Cookies usage",
     "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",

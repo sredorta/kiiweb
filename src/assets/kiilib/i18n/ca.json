@@ -212,12 +212,13 @@
     "kiilib.users.admin.rolescheckbox"  : "Modificar els drets d'aquest usuari",
     "kiilib.users.admin.isvalidated"    : "Compte de correu validat",
 
-    "kiilib.admin.menu.settings"                  : "Configuració",
-    "kiilib.admin.menu.users"                     : "Usuaris",
-    "kiilib.admin.menu.content"                   : "Contingut",
-    "kiilib.admin.menu.emails"                    : "Correus electronics",
-    "kiilib.admin.menu.stats"                     : "Audiencia",
-    "kiilib.admin.menu.chats"                     : "Chats",
+    "kiilib.admin.menu.settings"        : "Configuració",
+    "kiilib.admin.menu.users"           : "Usuaris",
+    "kiilib.admin.menu.content"         : "Contingut",
+    "kiilib.admin.menu.emails"          : "Correus electronics",
+    "kiilib.admin.menu.stats"           : "Audiencia",
+    "kiilib.admin.menu.chats"           : "Chats",
+    "kiilib.admin.menu.disk"            : "Espai disk",
 
     "kiilib.article.ispublic"           : "Article publicat", 
     "kiilib.article.isnotpublic"        : "Article privat",              
@@ -273,6 +274,16 @@
     "kiilib.stats.confirm.title"        : "Borrar las estadistiques ?",
     "kiilib.stats.confirm.text"         : "Esta segur que vol borrar totes les estadistiques ? Aquesta operació és irreversible !",
     "kiilib.stats.reset"                : "Borrar totes les estadistiques",
+
+    "kiilib.disk.title"                 : "Gestió de l'espai de disc",
+    "kiilib.disk.total.title"           : "Espai disk utilitzat",
+    "kiilib.disk.total.subtitle"        : "Distribució de l'espai disk",
+    "kiilib.disk.current"               : "Total espai disk utilitzat",
+    "kiilib.disk.images.title"          : "Espai disk imatges",
+    "kiilib.disk.images.subtitle"       : "Espai utilitzat per l'emmagatzemage d'images",
+    "kiilib.disk.removable"             : "Es poden borrar",
+    "kiilib.disk.optimize"              : "Optimitzar disk i guanyar",
+
 
 
     "kiilib.cookies.title"              : "Utilització de Cookies",

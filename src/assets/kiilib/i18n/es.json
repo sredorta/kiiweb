@@ -212,12 +212,13 @@
     "kiilib.users.admin.rolescheckbox"  : "Modificar los roles para este usuario",
     "kiilib.users.admin.isvalidated"    : "Cuenta de correo electronico validada",
 
-    "kiilib.admin.menu.settings"                  : "Configuracion",
-    "kiilib.admin.menu.users"                     : "Usuarios",
-    "kiilib.admin.menu.content"                   : "Contenido",
-    "kiilib.admin.menu.emails"                    : "Correos electronicos",
-    "kiilib.admin.menu.stats"                     : "Audiencia",
-    "kiilib.admin.menu.chats"                     : "Chats",
+    "kiilib.admin.menu.settings"        : "Configuracion",
+    "kiilib.admin.menu.users"           : "Usuarios",
+    "kiilib.admin.menu.content"         : "Contenido",
+    "kiilib.admin.menu.emails"          : "Correos electronicos",
+    "kiilib.admin.menu.stats"           : "Audiencia",
+    "kiilib.admin.menu.chats"           : "Chats",
+    "kiilib.admin.menu.disk"            : "Espacio disco",
 
     "kiilib.article.ispublic"           : "Articulo publicado", 
     "kiilib.article.isnotpublic"        : "Articulo privado",              
@@ -274,6 +275,15 @@
     "kiilib.stats.confirm.text"         : "Esta seguro que quiere borrar todas las estadisticas ? Esta operacion es irreversible!",
     "kiilib.stats.reset"                : "Borrar todas las estadisticas",
 
+    "kiilib.disk.title"                 : "Gestión de l'espacio de disco",
+    "kiilib.disk.total.title"           : "Espacio disco utilizado",
+    "kiilib.disk.total.subtitle"        : "Distribución del espacio disco",
+    "kiilib.disk.current"               : "Total espacio disco utilizado",
+    "kiilib.disk.images.title"          : "Espacio disco imagenes",
+    "kiilib.disk.images.subtitle"       : "Espacio disco utilizados para guardar imagenes",
+    "kiilib.disk.removable"             : "Se pueden borrar",   
+    "kiilib.disk.optimize"              : "Optimitzar el disco y ganar",
+ 
 
     "kiilib.cookies.title"              : "Utilización de Cookies",
     "kiilib.cookies.subtitle"           : "Esta pagina web o algunos de sus componentes utilizan cookies, que son necessarias para algunas funcionalidades como la generación de stadisticas o el compartir en redes sociales. Acceptas el uso de cookies ?",

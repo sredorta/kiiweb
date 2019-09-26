@@ -135,6 +135,7 @@ import { KiiAdminStatsComponent } from './_kiilib/_components/_pages/kii-admin-s
 import { KiiStatsIndicatorComponent } from './_kiilib/_components/kii-stats-indicator/kii-stats-indicator.component';
 import { KiiThousandsSuffixPipe } from './_kiilib/_pipes/kii-thousands-suffix.pipe';
 import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-disk/kii-admin-disk.component';
+import { KiiFileSizePipe } from './_kiilib/_pipes/kii-file-size.pipe';
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -205,6 +206,7 @@ import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-di
     KiiStatsIndicatorComponent,
     KiiThousandsSuffixPipe,
     KiiAdminDiskComponent,
+    KiiFileSizePipe,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
