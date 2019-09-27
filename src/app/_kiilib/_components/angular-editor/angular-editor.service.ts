@@ -188,13 +188,27 @@ export class AngularEditorService {
   }
 
   insertVideo(videoUrl: string) {
+    console.log("Inserting video as you want !!!");
     if (videoUrl.match('www.youtube.com')) {
       this.insertYouTubeVideoTag(videoUrl);
-    }
-    if (videoUrl.match('vimeo.com')) {
+    }  else if (videoUrl.match('vimeo.com')) {
       this.insertVimeoVideoTag(videoUrl);
+    } else {
+      this.insertLocalVideo(videoUrl);
     }
+
   }
+
+  private insertLocalVideo(videoUrl:string) {
+    console.log("Inserting local video !");
+    const thumbnail = `
+    <video controls="" width="100%">
+      <source src="${videoUrl}" type="video/mp4">
+    </video>`;
+    this.insertHtml(thumbnail);
+
+  }
+
 
   private insertYouTubeVideoTag(videoUrl: string): void {
     const id = videoUrl.split('v=')[1];
