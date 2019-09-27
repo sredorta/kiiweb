@@ -21,8 +21,15 @@ export class DiskResult {
 
     /**Images chart */
     images : any[] = [];
+
+    /**Videos chart */
+    videos : any[] = [];
+
     /**Removable images Size */
     removableImagesSize : number = 0;
+
+    /**Removable videos Size */
+    removableVideosSize : number = 0;
 
   constructor(obj: any | null) {
     console.log("Recieved from server",obj);

@@ -73,6 +73,7 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
           this.progress = res.message;
         } 
         if (res.status == "completed") {
+          this.getServerVideos();
           this.isDataLoading = false;
           setTimeout(() => this.progress = 0,200);
         }

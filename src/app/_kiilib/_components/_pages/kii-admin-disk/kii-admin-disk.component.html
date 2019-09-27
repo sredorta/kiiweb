@@ -29,6 +29,19 @@
           </div>
         </div>
       </div>    
+      <div class="disk-two-columns">
+          <div class="chart-wrapper">
+              <p class="chart-title">{{'kiilib.disk.videos.title' | translate}}</p>
+              <p class="chart-subtitle">{{'kiilib.disk.videos.subtitle' | translate}}</p>
+              <google-chart  [dynamicResize]="true"  type="BarChart" [data]="result.videos"  [options]="stackedOptions"></google-chart>
+          </div>
+          <div class="chart-text-wrapper">
+            <div>
+              <p class="disk-indicator">{{result.removableVideosSize | kiiFileSize}}</p>
+              <p class="disk-indicator-title">{{'kiilib.disk.removable' | translate}}</p>
+            </div>
+          </div>
+        </div>         
       <button *ngIf="result.removableSize>0" mat-raised-button color="primary" class="disk-clean-button" (click)="onDelete()"><i class="fas fa-trash"></i>{{'kiilib.disk.optimize' | translate}} {{result.removableSize | kiiFileSize}}</button>
     </div>    
   </kii-spinner-overlay>

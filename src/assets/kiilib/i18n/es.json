@@ -284,6 +284,8 @@
     "kiilib.disk.current"               : "Total espacio disco utilizado",
     "kiilib.disk.images.title"          : "Espacio disco imagenes",
     "kiilib.disk.images.subtitle"       : "Espacio disco utilizados para guardar imagenes",
+    "kiilib.disk.videos.title"          : "Espacio disco videos",
+    "kiilib.disk.videos.subtitle"       : "Espacio disco utilizados para videos",
     "kiilib.disk.removable"             : "Se pueden borrar",   
     "kiilib.disk.optimize"              : "Optimitzar el disco y ganar",
  

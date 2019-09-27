@@ -286,6 +286,8 @@
     "kiilib.disk.current"               : "Total disk storage in use",
     "kiilib.disk.images.title"          : "Images storage",
     "kiilib.disk.images.subtitle"       : "Disk space for storing images",
+    "kiilib.disk.videos.title"          : "Videos storage",
+    "kiilib.disk.videos.subtitle"       : "Disk space for storing videos",
     "kiilib.disk.removable"             : "Can be removed",    
     "kiilib.disk.optimize"              : "Optimize disk and earn",
 
