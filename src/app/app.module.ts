@@ -47,7 +47,7 @@ import {MatAutocompleteModule,
   MatBottomSheetRef} from '@angular/material';
 
 //EDITOR
-import { AngularEditorModule } from '@kolkov/angular-editor';
+//import { AngularEditorModule } from '@kolkov/angular-editor';
 
 //GMAPS
 import {AgmCoreModule} from '@agm/core';
@@ -85,7 +85,7 @@ import { KiiSignupFormComponent } from './_kiilib/_components/_forms/kii-signup-
 import { KiiSpinnerComponent } from './_kiilib/_components/kii-spinner/kii-spinner.component';
 import { KiiSpinnerOverlayComponent } from './_kiilib/_components/kii-spinner-overlay/kii-spinner-overlay.component';
 import { KiiTermsDialogComponent } from './_kiilib/_components/kii-terms-dialog/kii-terms-dialog.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, NgSelectOption, FormsModule } from '@angular/forms';
 import { KiiInputDefaultValueDirective } from './_kiilib/_directives/kii-input-default-value.directive';
 import { KiiInputDigitOnlyDirective } from './_kiilib/_directives/kii-input-digit-only.directive';
 import { KiiInputErrorDirective } from './_kiilib/_directives/kii-input-error.directive';
@@ -136,6 +136,10 @@ import { KiiStatsIndicatorComponent } from './_kiilib/_components/kii-stats-indi
 import { KiiThousandsSuffixPipe } from './_kiilib/_pipes/kii-thousands-suffix.pipe';
 import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-disk/kii-admin-disk.component';
 import { KiiFileSizePipe } from './_kiilib/_pipes/kii-file-size.pipe';
+import { AngularEditorComponent } from './_kiilib/_components/angular-editor/angular-editor.component';
+import { AngularEditorToolbarComponent } from './_kiilib/_components/angular-editor/angular-editor-toolbar.component';
+import { AeSelectComponent } from './_kiilib/_components/angular-editor/ae-select/ae-select.component';
+
 
 
 //import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -207,6 +211,9 @@ import { KiiFileSizePipe } from './_kiilib/_pipes/kii-file-size.pipe';
     KiiThousandsSuffixPipe,
     KiiAdminDiskComponent,
     KiiFileSizePipe,
+    AngularEditorComponent,
+    AngularEditorToolbarComponent,
+    AeSelectComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -215,11 +222,12 @@ import { KiiFileSizePipe } from './_kiilib/_pipes/kii-file-size.pipe';
     TransferHttpCacheModule,
     HttpClientModule,
     NgtUniversalModule,
+    FormsModule,
     ReactiveFormsModule,  //Reactive forms
     TranslateModule.forChild(), //Translations
     LocalizeRouterModule.forChild(routes),
     RouterModule.forChild(routes),
-    AngularEditorModule,
+    //AngularEditorModule,
     GoogleChartsModule.forRoot(), //Google charts
     AgmCoreModule.forRoot( { //GMAPS
       apiKey: environment.gmapsKey

@@ -4,7 +4,9 @@ import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { Article } from '../../_models/article';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
-import { AngularEditorConfig, AngularEditorComponent } from '@kolkov/angular-editor';
+import { AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
+//import { AngularEditorConfig, AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
+
 
 @Component({
   selector: 'kii-article',
