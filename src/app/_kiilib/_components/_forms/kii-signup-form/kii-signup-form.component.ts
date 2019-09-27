@@ -68,8 +68,12 @@ export class KiiSignupFormComponent extends KiiFormAbstract implements OnInit {
   /**Opens temrs and conditions dialog */  
   openTermsAndConditionsDialog(): void {
     let dialogRef = this.dialog.open(KiiTermsDialogComponent, {
-      panelClass: 'kii-terms-dialog',
-      data:  null 
+      panelClass: '',
+      data:  null,
+      maxHeight:'90vh',
+      minHeight:'300px',
+      minWidth:'320px',
+
     });
     dialogRef.afterClosed().subscribe(result => {
       this.myForm.patchValue({"terms" : result});

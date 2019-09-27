@@ -3,7 +3,7 @@ import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Email } from '../../../_models/email';
 import { KiiApiEmailService } from '../../../_services/kii-api-email.service';
-import { AngularEditorComponent } from '@kolkov/angular-editor';
+import { AngularEditorComponent } from '../../angular-editor/angular-editor.component';
 
 @Component({
   selector: 'kii-email-edit-form',

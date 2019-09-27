@@ -49,6 +49,11 @@ export class KiiApiDiskService {
     }
     /**Gets stats */
     public optimize() :Observable<any> {
-          return this.http.post(environment.apiURL + '/disk/optimize', {}).pipe(map(res => new DiskResult(res)));
+        return this.http.post(environment.apiURL + '/disk/optimize', {}).pipe(map(res => new DiskResult(res)));
+    }
+
+    /**Gets all videos */
+    public getVideos() :Observable<string[]> {
+        return this.http.get(environment.apiURL + '/disk/videos/all').pipe(map((res:string[]) => res));
     }
 }

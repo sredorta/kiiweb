@@ -153,6 +153,9 @@
     "kiilib.input.appicon512.hint"                   : "Icono utilizada por la app en el escritorio (512x512)",
     "kiilib.input.appicon192.label"                  : "Icono de la app",
     "kiilib.input.appicon192.hint"                   : "Icono utilizada por la app en el escritorio (192x192)",
+    "kiilib.input.video.youtube.label"            : "Video Youtube",
+    "kiilib.input.video.youtube.placeholder"      : "https://youtu.be/...",
+    "kiilib.input.video.youtube.hint"             : "Copia aqui un link de un video youtube", 
 
     "kiilib.tooltip.password"           : "El password debe tener una minuscula, una mayuscula e un numero ",
     "kiilib.error.default"              : "Campo incorrecto",
@@ -284,6 +287,9 @@
     "kiilib.disk.removable"             : "Se pueden borrar",   
     "kiilib.disk.optimize"              : "Optimitzar el disco y ganar",
  
+    "kiilib.video.gallery.title"        : "Galeria de videos",
+    "kiilib.video.gallery.select"       : "Selecciona",
+    "kiilib.video.gallery.upload"       : "Carga un nuevo video",    
 
     "kiilib.cookies.title"              : "Utilización de Cookies",
     "kiilib.cookies.subtitle"           : "Esta pagina web o algunos de sus componentes utilizan cookies, que son necessarias para algunas funcionalidades como la generación de stadisticas o el compartir en redes sociales. Acceptas el uso de cookies ?",

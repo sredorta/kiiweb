@@ -153,6 +153,10 @@
     "kiilib.input.appicon512.hint"                   : "Icone utilitzada per accedir a la app (512x512)",
     "kiilib.input.appicon192.label"                  : "Icona de la app",
     "kiilib.input.appicon192.hint"                   : "Icone utilitzada per accedir a la app (192x192)",
+    "kiilib.input.video.youtube.label"            : "Video Youtube",
+    "kiilib.input.video.youtube.placeholder"      : "https://youtu.be/...",
+    "kiilib.input.video.youtube.hint"             : "Copia aqui un link d'un video youtube",    
+
 
     "kiilib.tooltip.password"           : "El password ha de tenir una minuscula, una majuscula i un numero ",
     "kiilib.error.default"              : "Camp incorrecte",
@@ -284,6 +288,9 @@
     "kiilib.disk.removable"             : "Es poden borrar",
     "kiilib.disk.optimize"              : "Optimitzar disk i guanyar",
 
+    "kiilib.video.gallery.title"        : "Galeria de videos",
+    "kiilib.video.gallery.select"       : "Selecciona",
+    "kiilib.video.gallery.upload"       : "Carrega un nou video",
 
 
     "kiilib.cookies.title"              : "Utilització de Cookies",

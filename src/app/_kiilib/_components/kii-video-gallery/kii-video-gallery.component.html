@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <kii-spinner-overlay [show]="isDataLoading">
+    <h1>{{'kiilib.video.gallery.title' | translate}}</h1>
+    <div class="kii-video-gallery-videos" [ngClass]="{'loading':isDataLoading}">
+      <div *ngFor="let video of videos" class="kii-video-gallery-video-wrapper">
+        <video controls="" width="250px">
+            <source [src]="video" type="video/mp4">
+        </video>
+        <button mat-button color="primary" (click)="onSelect(video)">{{'kiilib.video.gallery.select' | translate}}</button>
+      </div>
+    </div>
+    <mat-progress-bar mode="determinate" [value]="progress" [ngClass]="{'visible' : isDataLoading}"></mat-progress-bar>
+    <input class="shadow" type="file" #fileInput (change)="loadVideo($event)" accept="video/mp4">  
+    <button mat-flat-button color="primary" [disabled]="isDataLoading" class="kii-video-gallery-upload-button" (click)="fileInput.click()"><i class="fas fa-upload"></i>{{'kiilib.video.gallery.upload' | translate}}</button>
+
+  </kii-spinner-overlay>
+
+</div>

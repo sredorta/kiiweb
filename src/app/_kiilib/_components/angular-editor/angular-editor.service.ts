@@ -32,6 +32,7 @@ export class AngularEditorService {
       this.doc.execCommand('formatBlock', false, command);
       return;
     }
+    console.log("Executing command",command);
     this.doc.execCommand(command, false, null);
   }
 
@@ -188,8 +189,8 @@ export class AngularEditorService {
   }
 
   insertVideo(videoUrl: string) {
-    console.log("Inserting video as you want !!!");
-    if (videoUrl.match('www.youtube.com')) {
+    console.log("Inserting video as you want !!!", videoUrl);
+    if (videoUrl.match('youtu.be')) {
       this.insertYouTubeVideoTag(videoUrl);
     }  else if (videoUrl.match('vimeo.com')) {
       this.insertVimeoVideoTag(videoUrl);
@@ -199,6 +200,7 @@ export class AngularEditorService {
 
   }
 
+  //Local video from local server
   private insertLocalVideo(videoUrl:string) {
     console.log("Inserting local video !");
     const thumbnail = `
@@ -211,16 +213,13 @@ export class AngularEditorService {
 
 
   private insertYouTubeVideoTag(videoUrl: string): void {
-    const id = videoUrl.split('v=')[1];
-    const imageUrl = `https://img.youtube.com/vi/${id}/0.jpg`;
+    console.log("Inserting youtube video !!!!");
+    const tmp = videoUrl.split('/');
+    const index = tmp.length-1;
+    const id = tmp[index]
     const thumbnail = `
-      <div style='position: relative'>
-        <img style='position: absolute; left:200px; top:140px'
-             src="https://img.icons8.com/color/96/000000/youtube-play.png"
-        <a href='${videoUrl}' target='_blank'>
-          <img src="${imageUrl}" alt="click to watch"/>
-        </a>
-      </div>`;
+        <iframe width="100%" height="480" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `;  
     this.insertHtml(thumbnail);
   }
 

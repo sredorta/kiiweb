@@ -4,6 +4,8 @@ import {HttpResponse} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
 import {CustomClass} from './config';
 import {SelectOption} from './ae-select/ae-select.component';
+import { MatDialog } from '@angular/material';
+import { KiiVideoGalleryDialogComponent } from '../kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 
 @Component({
   selector: 'angular-editor-toolbar',
@@ -122,13 +124,14 @@ export class AngularEditorToolbarComponent {
 
   @Output() execute: EventEmitter<string> = new EventEmitter<string>();
 
-  @ViewChild('fileInput', {static: true}) myInputFile: ElementRef;
+  @ViewChild('fileInput', {static: false}) myInputFile: ElementRef;
 
   public get isLinkButtonDisabled(): boolean {
     return this.htmlMode || !Boolean(this.editorService.selectedText);
   }
 
   constructor(
+    private dialog: MatDialog,
     private r: Renderer2,
     private editorService: AngularEditorService,
     @Inject(DOCUMENT) private doc: any
@@ -240,10 +243,19 @@ export class AngularEditorToolbarComponent {
    */
   insertVideo() {
     this.execute.emit('');
-    const url = prompt('Insert Video link', `https://`);
-    if (url && url !== '' && url !== `https://`) {
-      this.editorService.insertVideo(url);
-    }
+    //Open dialog that shows the video gallery
+    let dialogRef = this.dialog.open(KiiVideoGalleryDialogComponent, {
+      panelClass: 'admin-theme',
+      data:  null,
+      minWidth:'320px'
+    });
+    dialogRef.afterClosed().subscribe(url => {
+      if (url && url !== '' && url !== `https://`) {
+        this.editorService.insertVideo(url);
+      }
+    });
+
+
   }
 
   /** insert color */
@@ -312,6 +324,7 @@ export class AngularEditorToolbarComponent {
    * Reset Input
    */
   fileReset() {
+    console.log("myInputFile",this.myInputFile);
     this.myInputFile.nativeElement.value = '';
   }
 

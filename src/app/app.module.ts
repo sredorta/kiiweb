@@ -139,6 +139,8 @@ import { KiiFileSizePipe } from './_kiilib/_pipes/kii-file-size.pipe';
 import { AngularEditorComponent } from './_kiilib/_components/angular-editor/angular-editor.component';
 import { AngularEditorToolbarComponent } from './_kiilib/_components/angular-editor/angular-editor-toolbar.component';
 import { AeSelectComponent } from './_kiilib/_components/angular-editor/ae-select/ae-select.component';
+import { KiiVideoGalleryComponent } from './_kiilib/_components/kii-video-gallery/kii-video-gallery.component';
+import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 
 
 
@@ -213,7 +215,9 @@ import { AeSelectComponent } from './_kiilib/_components/angular-editor/ae-selec
     KiiFileSizePipe,
     AngularEditorComponent,
     AngularEditorToolbarComponent,
-    AeSelectComponent
+    AeSelectComponent,
+    KiiVideoGalleryComponent,
+    KiiVideoGalleryDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -272,7 +276,7 @@ import { AeSelectComponent } from './_kiilib/_components/angular-editor/ae-selec
     ],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent, KiiVideoGalleryDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

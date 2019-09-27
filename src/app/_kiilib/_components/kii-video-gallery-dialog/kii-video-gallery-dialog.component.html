@@ -1,0 +1,7 @@
+<div class="wrapper">
+  <kii-video-gallery (video)="onVideoFromGallery($event)"></kii-video-gallery>
+  <kii-item-form hint="kiilib.input.video.youtube.hint" label="kiilib.input.video.youtube.label" placeholder="kiilib.input.video.youtube.placeholder" icon="fab fa-youtube" [validators]="validator" (kiiOnSubmit)="onYouTube($event)"></kii-item-form>
+  <div class="close-wrapper">
+    <button mat-button (click)="onClose()" color="primary">{{'kiilib.cancel' | translate}}</button>
+  </div>
+</div>

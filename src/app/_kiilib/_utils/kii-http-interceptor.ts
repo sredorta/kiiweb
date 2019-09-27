@@ -81,7 +81,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
             } 
         }
         //When angular editor opens image we fall here
-        if (request.url.includes("upload/editor")) {
+        if (request.url.includes("upload/editor") || request.url.includes("upload/videos") ) {
             headers = headers.append('enctype','multipart/form-data');
 
             const newUrl = {url : environment.apiURL + request.url};

@@ -155,6 +155,9 @@
     "kiilib.input.appicon512.hint"                   : "Icon used for the app in the desktop (512x512)",
     "kiilib.input.appicon192.label"                  : "App icon",
     "kiilib.input.appicon192.hint"                   : "Icon used for the app in the desktop (192x192)",
+    "kiilib.input.video.youtube.label"            : "Youtube video",
+    "kiilib.input.video.youtube.placeholder"      : "https://youtu.be/...",
+    "kiilib.input.video.youtube.hint"             : "Copy here a Youtube video link", 
 
     "kiilib.tooltip.password"           : "Password must have one lower case, one upper case and one number",
     "kiilib.error.default"              : "Incorrect field",
@@ -285,6 +288,11 @@
     "kiilib.disk.images.subtitle"       : "Disk space for storing images",
     "kiilib.disk.removable"             : "Can be removed",    
     "kiilib.disk.optimize"              : "Optimize disk and earn",
+
+    "kiilib.video.gallery.title"        : "Video Gallery",
+    "kiilib.video.gallery.select"       : "Select",
+    "kiilib.video.gallery.upload"       : "Upload a new video",
+
 
     "kiilib.cookies.title"              : "Cookies usage",
     "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",
