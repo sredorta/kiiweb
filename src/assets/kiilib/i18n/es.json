@@ -300,6 +300,9 @@
     "kiilib.video.gallery.select"       : "Selecciona",
     "kiilib.video.gallery.upload"       : "Carga un nuevo video",    
 
+    "kiilib.image.gallery.title"        : "Galeria de imagenes",
+    "kiilib.image.gallery.select"       : "Selecciona",
+
     "kiilib.cookies.title"              : "Utilización de Cookies",
     "kiilib.cookies.subtitle"           : "Esta pagina web o algunos de sus componentes utilizan cookies, que son necessarias para algunas funcionalidades como la generación de stadisticas o el compartir en redes sociales. Acceptas el uso de cookies ?",
 

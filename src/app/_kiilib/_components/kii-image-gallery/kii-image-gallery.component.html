@@ -1,0 +1,15 @@
+<div class="wrapper">
+    <kii-spinner-overlay [show]="isDataLoading">
+      <h1>{{'kiilib.image.gallery.title' | translate}}</h1>
+      <div class="kii-image-gallery-images" [ngClass]="{'loading':isDataLoading}">
+        <div *ngFor="let image of images" class="kii-image-gallery-image-wrapper">
+          <div class="image-container"><img  [src]="image"></div>
+          <button mat-button color="primary" (click)="onSelect(image)">{{'kiilib.image.gallery.select' | translate}}</button>
+        </div>
+      </div>
+      <kii-image-upload [crop]="false" [maxSize]="900" (onUpload)="onUploadImage($event)"></kii-image-upload>
+  
+    </kii-spinner-overlay>
+  
+</div>
+  

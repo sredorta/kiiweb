@@ -4,6 +4,11 @@ import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
 
+export enum DiskType {
+  CONTENT = "content",
+  EMAIL = "email",
+  DEFAULT = "defaults",
+}
 
 export class DiskResult {
     /**Disk total size */
@@ -63,4 +68,8 @@ export class KiiApiDiskService {
     public getVideos() :Observable<string[]> {
         return this.http.get(environment.apiURL + '/disk/videos/all').pipe(map((res:string[]) => res));
     }
+    /**Gets all images */
+    public getImages() :Observable<string[]> {
+      return this.http.get(environment.apiURL + '/disk/images/all').pipe(map((res:string[]) => res));
+  }    
 }

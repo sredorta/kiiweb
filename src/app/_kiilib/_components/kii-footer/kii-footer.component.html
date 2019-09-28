@@ -1,10 +1,9 @@
 <footer class="footer-theme kii-footer-wrapper">
-    <kii-share></kii-share>
-    <div class="newsletter-wrapper"><button mat-button (click)="onOpenNewsLetter()"><i class="fas fa-rss-square"></i>{{'kiilib.footer.newsletter' | translate}}</button></div>
+    <div class="newsletter-share-wrapper">
+        <button class="newsletter-button" mat-button (click)="onOpenNewsLetter()"><i class="fas fa-rss-square newsletter"></i>{{'kiilib.footer.newsletter' | translate}}</button>
+        <kii-share></kii-share>
+    </div>
     <div class="kii-footer-content-wrapper">
-      <div *ngIf="loggedInUser.hasRoles()" class="kii-footer-admin">
-          <button mat-stroked-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
-      </div>
       <ng-content></ng-content>
     </div>
     <div class="kii-footer-end"> 
@@ -18,4 +17,7 @@
             </ng-container>
         </div>
     </div> 
+    <div *ngIf="loggedInUser.hasRoles()" class="kii-footer-admin">
+            <button mat-stroked-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
+    </div>
 </footer>

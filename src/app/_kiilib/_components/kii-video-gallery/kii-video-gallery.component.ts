@@ -15,7 +15,7 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
   isDataLoading : boolean = false;
   /**Upload progress */
   progress:number = 0;
-
+  
   fileName:string = "";
 
   /**Output with the selected video */

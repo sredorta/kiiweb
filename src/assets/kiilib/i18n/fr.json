@@ -302,6 +302,9 @@
     "kiilib.video.gallery.select"       : "Seleccione",
     "kiilib.video.gallery.upload"       : "Charger un nouveau video",
 
+    "kiilib.image.gallery.title"        : "Galerie de images",
+    "kiilib.image.gallery.select"       : "Seleccione",
+
     "kiilib.cookies.title"              : "Utilization de Cookies",
     "kiilib.cookies.subtitle"           : "Ce site utilize cookies, qui sont necessaires pour des fonctionnalités comme la generation de statistics ou le partage dans les reseaux sociaux. Accpeter vous l'utlization de cookies ?",
 
