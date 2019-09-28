@@ -191,6 +191,7 @@
     "kiilib.footer.social.title"        : "Follow us",
     "kiilib.footer.kubiiks"             : "Created by ",
     "kiilib.footer.admin"               : "Admin area",
+    "kiilib.footer.newsletter"           : "Newsletters",
 
     "kiilib.auth.or"                    : "OR",
     "kiilib.login.title"                : "Login",
@@ -242,7 +243,7 @@
     "kiilib.email.title.models"         : "Email models",
     "kiilib.email.title.send"           : "Send an email",
     "kiilib.email.preview"              : "Preview email",
-    "kiilib.email.send.all"             : "Send to all registered users",
+    "kiilib.email.send.all"             : "Send to all registered users registered to the newsletter",
 
     "kiilib.stats.title"                : "Site statistics",
     "kiilib.stats.days"                 : "Select the amount of days to analyze",
@@ -291,6 +292,11 @@
     "kiilib.disk.videos.subtitle"       : "Disk space for storing videos",
     "kiilib.disk.removable"             : "Can be removed",    
     "kiilib.disk.optimize"              : "Optimize disk and earn",
+
+    "kiilib.newsletter.title"           : "Newsletter subscription",
+    "kiilib.newsletter.subtitle"        : "Do not miss any news and updates of this website by subscribing to our newsletter and recieve by email all the updates",
+    "kiilib.newsletter.unsubscribe"     : "Unsubscribe",
+    "kiilib.newsletter.subscribe"       : "Subscribe",    
 
     "kiilib.video.gallery.title"        : "Video Gallery",
     "kiilib.video.gallery.select"       : "Select",

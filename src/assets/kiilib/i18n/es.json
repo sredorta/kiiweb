@@ -189,6 +189,7 @@
     "kiilib.footer.social.title"        : "Sigue nos",
     "kiilib.footer.kubiiks"             : "Creado por ",
     "kiilib.footer.admin"               : "Area administrador",
+    "kiilib.footer.newsletter"           : "Bolletínes informativos",
 
     "kiilib.auth.or"                    : "O",
     "kiilib.login.title"                : "Connectarse",
@@ -240,7 +241,7 @@
     "kiilib.email.title.models"         : "Modelos de correos electronicos",
     "kiilib.email.title.send"           : "Enviar un correo electronico",
     "kiilib.email.preview"              : "Vista preliminar",
-    "kiilib.email.send.all"             : "Enviar a todos los usuarios registrados",
+    "kiilib.email.send.all"             : "Enviar a todos los usuarios registrados a la 'newsletter'",
 
     "kiilib.stats.title"                : "Estadisticas del sitio web",
     "kiilib.stats.days"                 : "Selecciona la cantidad de dias a analizar",
@@ -290,6 +291,11 @@
     "kiilib.disk.removable"             : "Se pueden borrar",   
     "kiilib.disk.optimize"              : "Optimitzar el disco y ganar",
  
+    "kiilib.newsletter.title"           : "Bolletines informativos",
+    "kiilib.newsletter.subtitle"        : "La subscripción a los bolletines informativos le permite receber correos electronicos de forma regular con todas las novedades de esta pagina web",
+    "kiilib.newsletter.unsubscribe"     : "Darse de baja",
+    "kiilib.newsletter.subscribe"       : "Suscribir",
+
     "kiilib.video.gallery.title"        : "Galeria de videos",
     "kiilib.video.gallery.select"       : "Selecciona",
     "kiilib.video.gallery.upload"       : "Carga un nuevo video",    
