@@ -10,11 +10,11 @@ export class KiiApiNewsletterService {
   constructor(private http:HttpClient) { }
 
    /**Update article in database*/
-   public subscribe(email:string) {
+   public subscribeNews(email:string) {
     return this.http.post<any>(environment.apiURL + '/newsletter/subscribe', {email: email});
   } 
    /**Update article in database*/
-   public unsubscribe(email:string) {
+   public unsubscribeNews(email:string) {
     return this.http.post<any>(environment.apiURL + '/newsletter/unsubscribe', {email: email});
   } 
 

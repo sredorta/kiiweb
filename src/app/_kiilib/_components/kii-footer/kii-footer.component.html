@@ -1,5 +1,6 @@
 <footer class="footer-theme kii-footer-wrapper">
     <kii-share></kii-share>
+    <div class="newsletter-wrapper"><button mat-button (click)="onOpenNewsLetter()"><i class="fas fa-rss-square"></i>Newsletter</button></div>
     <div class="kii-footer-content-wrapper">
       <div *ngIf="loggedInUser.hasRoles()" class="kii-footer-admin">
           <button mat-stroked-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>

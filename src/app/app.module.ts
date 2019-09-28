@@ -141,6 +141,7 @@ import { AngularEditorToolbarComponent } from './_kiilib/_components/angular-edi
 import { AeSelectComponent } from './_kiilib/_components/angular-editor/ae-select/ae-select.component';
 import { KiiVideoGalleryComponent } from './_kiilib/_components/kii-video-gallery/kii-video-gallery.component';
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
+import { KiiNewsletterDialogComponent } from './_kiilib/_components/kii-newsletter-dialog/kii-newsletter-dialog.component';
 
 
 
@@ -217,7 +218,8 @@ import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-
     AngularEditorToolbarComponent,
     AeSelectComponent,
     KiiVideoGalleryComponent,
-    KiiVideoGalleryDialogComponent
+    KiiVideoGalleryDialogComponent,
+    KiiNewsletterDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -276,7 +278,7 @@ import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-
     ],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent, KiiVideoGalleryDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiNewsletterDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent, KiiVideoGalleryDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

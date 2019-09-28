@@ -6,6 +6,10 @@ import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
 import { StatAction } from '../../_models/stat';
+import { KiiApiNewsletterService } from '../../_services/kii-api-newsletter.service';
+import { TestBed } from '@angular/core/testing';
+import { MatDialog } from '@angular/material';
+import { KiiNewsletterDialogComponent } from '../kii-newsletter-dialog/kii-newsletter-dialog.component';
 
 export interface SocialLink {
   name : string;
@@ -28,6 +32,8 @@ export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
   constructor(private kiiApiSetting : KiiApiSettingService, 
               private kiiApiAuth: KiiApiAuthService,
               private kiiApiStats : KiiApiStatsService,
+              private kiiApiNews : KiiApiNewsletterService,
+              private dialog: MatDialog,
               @Inject(PLATFORM_ID) private platformId: any) {super(kiiApiAuth,platformId) }
 
   ngOnInit() {
@@ -86,6 +92,15 @@ export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
   onClick(social:string) {
     console.log("Clicked : " + social);
     this.kiiApiStats.send(StatAction.SOCIAL_CLICK, social);
+  }
+
+  onOpenNewsLetter() {
+    this.dialog.open(KiiNewsletterDialogComponent, {
+      panelClass: '',
+      data:  null,
+      minWidth:'320px',
+      maxWidth:'600px',
+    });
   }
 
 }

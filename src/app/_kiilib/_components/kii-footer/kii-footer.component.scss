@@ -46,3 +46,16 @@
     display:flex;
     justify-content: flex-end;
 }
+
+.newsletter-wrapper {
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    button {
+        i {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <kii-spinner-overlay [show]="isDataLoading">
+    <h1>{{'kiilib.newsletter.title' | translate}}</h1>
+    <p>{{'kiilib.newsletter.subtitle' | translate}}</p>
+    <kii-item-form [hasCancelSave]="false" hint="kiilib.input.email.hint" label="kiilib.input.email.label" placeholder="kiilib.input.email.placeholder" icon="fa fa-envelope" [validators]="validator" (kiiOnSubmit)="onYouTube($event)"></kii-item-form>
+    <mat-dialog-actions class="button-wrapper">         
+        <button  mat-button  color="primary" [disabled]="!valid" (click)="unsubscribeNewsletter()">{{'kiilib.newsletter.unsubscribe' | translate}}</button>
+        <button  mat-flat-button color="primary" [disabled]="!valid" (click)="subscribeNewsletter()">{{'kiilib.newsletter.subscribe' | translate}}</button>
+    </mat-dialog-actions> 
+  </kii-spinner-overlay>
+
+</div>
