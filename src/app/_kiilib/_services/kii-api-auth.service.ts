@@ -26,6 +26,7 @@ export interface ISignupCredentials {
   email:string;
   password:string;
   terms:boolean;
+  newsletter:boolean;
 }
 
 export interface IUserWithToken {
@@ -75,8 +76,10 @@ export class KiiApiAuthService {
   }
 
   /** Validate if oauth2 login has all required fields of signup */
-  public oauth2Update(user:IUser) :Observable<IUser> {
-    return this.http.post<IUser>(environment.apiURL + '/auth/oauth2/update', user).pipe(map(res => <IUser>res));;
+  public oauth2Update(user:IUser,newsletter:boolean) :Observable<IUser> {
+    let data :any = user;
+    data.newsletter = newsletter;
+    return this.http.post<IUser>(environment.apiURL + '/auth/oauth2/update', data).pipe(map(res => <IUser>res));;
   }
 
   /**Validate email account by providing id and key */

@@ -201,6 +201,7 @@
     "kiilib.signup.terms1"              : "J'accepte toutes les ",
     "kiilib.signup.terms2"              : "conditions d'utilization des données personnelles",
     "kiilib.signup.terms.error"         : "Vous devez accepter les conditions",
+    "kiilib.signup.newsletter"          : "S'inscrire a la 'newsletter'",
     "kiilib.oauth.complete"             : "Informations complementaires", 
 
     "kiilib.profile.logout"             : "Déconnexion",

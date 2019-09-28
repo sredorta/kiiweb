@@ -203,6 +203,7 @@
     "kiilib.signup.terms1"              : "I accept all the",
     "kiilib.signup.terms2"              : "terms and conditions",
     "kiilib.signup.terms.error"         : "Terms and conditions must be accepted",
+    "kiilib.signup.newsletter"          : "Subscribe to the newsletter",
     "kiilib.oauth.complete"             : "Data completion",
 
     "kiilib.profile.logout"             : "Logout",

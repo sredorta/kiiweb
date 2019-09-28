@@ -57,6 +57,9 @@ export class KiiSignupFormComponent extends KiiFormAbstract implements OnInit {
       passwordConfirm: new FormControl('', Validators.compose([    //It needs to be called passwordConfirm so that validator works
         KiiCustomValidators.checkPasswordsMatch
       ])),
+      newsletter: new FormControl(true, Validators.compose([
+        Validators.required
+      ])), 
       terms: new FormControl('', Validators.compose([
         KiiCustomValidators.isBooleanTrue
       ])),  

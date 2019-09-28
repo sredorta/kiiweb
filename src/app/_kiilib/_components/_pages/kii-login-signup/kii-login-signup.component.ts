@@ -36,6 +36,7 @@ export class KiiLoginSignupComponent extends KiiBaseAbstract implements OnInit {
   }
 
   onSubmitSignup(value:any) {
+    console.log(value);
     if (isPlatformBrowser(this.platformId)) {
         this.spinner.show();
         this.addSubscriber(

@@ -38,7 +38,9 @@
             <mat-hint>{{'kiilib.input.passwordConfirm.hint' | translate}}</mat-hint>
             <mat-error kiiInputError="passwordConfirm"></mat-error>             
         </mat-form-field>
+        <div class="newsletter"><mat-checkbox #newsletterCheckbox formControlName="newsletter"></mat-checkbox><span class="terms1">{{'kiilib.signup.newsletter' | translate}}</span></div>
         <mat-checkbox #termsCheckbox formControlName="terms"></mat-checkbox><span class="terms1">{{'kiilib.signup.terms1' | translate}}</span> <span class="terms2" (click)="openTermsAndConditionsDialog()">{{'kiilib.signup.terms2' | translate}}</span>
+
         <mat-error *ngIf="!termsCheckbox.checked && (myForm.get('terms').dirty || myForm.get('terms').touched)" class="mat-form-field-subscript-wrapper terms-error">{{'kiilib.signup.terms.error' | translate}}</mat-error>
         <div class="control-wrapper">
             <button mat-button type="reset" color="primary" >{{'kiilib.reset' | translate}}</button>

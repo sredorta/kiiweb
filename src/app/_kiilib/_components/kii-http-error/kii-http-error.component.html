@@ -1,11 +1,11 @@
 <div class="kii-http-error-wrapper">
     <div class="kii-http-error-icon-wrapper" [ngSwitch]="data.code" [ngClass]="{'success' : data.code==200}">
         <i *ngSwitchCase='401' class="fas fa-key"></i>
-        <mat-icon *ngSwitchCase='403'>pan_tool</mat-icon>
-        <mat-icon *ngSwitchCase='404'>cloud_off</mat-icon>
-        <mat-icon *ngSwitchCase='200'>check_circle</mat-icon>
-        <mat-icon *ngSwitchCase='201'>check_circle</mat-icon>
-        <mat-icon *ngSwitchCase='204'>check_circle</mat-icon>
+        <mat-icon *ngSwitchCase='403'><i class="fas fa-hand-paper"></i></mat-icon>
+        <mat-icon *ngSwitchCase='404'><i class="fas fa-wifi"></i></mat-icon>
+        <mat-icon *ngSwitchCase='200'><i class="fal fa-check-circle"></i></mat-icon>
+        <mat-icon *ngSwitchCase='201'><i class="fal fa-check-circle"></i></mat-icon>
+        <mat-icon *ngSwitchCase='204'><i class="fal fa-check-circle"></i></mat-icon>
         <i *ngSwitchDefault class="fas fa-exclamation"></i>
     </div>  
     <div class="kii-http-error-message-wrapper">

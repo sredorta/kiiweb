@@ -2,6 +2,7 @@
 <div class="wrapper">
   <div *ngIf="showTerms" class="wrapper-center">
       <kii-article class="test" key="legal-user-data"></kii-article>
+      <div class="newsletter"><mat-checkbox #newsletterCheckbox [checked]="true" (change)="onNewsletterChange($event)"></mat-checkbox><span class="terms1">{{'kiilib.signup.newsletter' | translate}}</span></div>
       <div class="button-wrapper">
             <button mat-button color="primary" (click)="onRejectTerms()">{{'kiilib.cancel' | translate}}</button>
             <button mat-raised-button color="primary" (click)="onAcceptTerms()">{{'kiilib.accept' | translate}}</button>

@@ -7,6 +7,7 @@ import { User } from '../../../_models/user';
 import { KiiSpinnerService } from '../../../../_kiilib/_services/kii-spinner.service';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
+import { MatCheckbox, MatCheckboxChange } from '@angular/material';
 
 @Component({
   selector: 'kii-login-oauth',
@@ -24,6 +25,9 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
 
   /**Show terms and conditions or not */
   showTerms:boolean = false;
+
+  /**Newsletter subscription */
+  newsletter: boolean = true;
 
   constructor(private route: ActivatedRoute, 
     private router: Router,
@@ -67,12 +71,16 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
     this.loading = true;
     //Now we neet to update the user with the given extra data and move to home
     this.user.update({terms:true, language: this.kiiApiLanguage.get(), isEmailValidated:true});
-    this.addSubscriber(this.kiiApiAuth.oauth2Update(this.user.to("IUser")).subscribe(res => {
+    this.addSubscriber(this.kiiApiAuth.oauth2Update(this.user.to("IUser"),this.newsletter).subscribe(res => {
       this.kiiApiAuth.setLoggedInUser(new User(res));
       this.router.navigate([""]);
       this.loading = false;
     },() => this.loading = false));
   }
 
+  /**When checkbox changes value */
+  onNewsletterChange(event: MatCheckboxChange) {
+    this.newsletter = event.checked;
+  }
 
 }
