@@ -149,12 +149,7 @@
             title="Unlink" [disabled]="htmlMode || !linkSelected" tabindex="-1">
       <i class="fa fa-unlink"></i>
     </button>
-    <input
-      style="display: none"
-      accept="image/*"
-      type="file" (change)="onFileChanged($event)"
-      #fileInput>
-    <button [id]="'insertImage-'+id" type="button" class="angular-editor-button" (click)="fileInput.click()" title="Insert Image"
+    <button [id]="'insertImage-'+id" type="button" class="angular-editor-button" (click)="insertImage()" title="Insert Image"
             [disabled]="htmlMode" tabindex="-1"><i class="fa fa-image"></i></button>
     <button [id]="'insertVideo-'+id" type="button" class="angular-editor-button"
             (click)="insertVideo()" title="Insert Video" [disabled]="htmlMode" tabindex="-1"><i class="fa fa-video"></i></button>

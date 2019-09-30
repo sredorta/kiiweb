@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, 
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiMiscService } from '../../_services/kii-misc.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
+import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'kii-image-upload',
@@ -30,7 +31,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
 
   /**Storage to be used for images : content (default), blog */
-  @Input() storage : "content" | "blog" | "email" | "defaults" = "content";
+  @Input() storage : DiskType = DiskType.CONTENT;
 
   /**Emit link to the uploaded file */
   @Output() onUpload = new EventEmitter<string>();
@@ -72,7 +73,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   /**Shadow canvas for image manipulation */
   @ViewChild('shadowCanvas', {static:false}) shadowCanvasElem : ElementRef; //Shadow canvas for manipulation
 
-  constructor(private kiiApiMisc: KiiMiscService) { super() }
+  constructor(private kiiApiMisc: KiiMiscService, private kiiApiDisk: KiiApiDiskService) { super() }
 
   ngOnInit() {
     console.log("Using storage : ", this.storage);
@@ -277,10 +278,9 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     //Now upload
     this.isLoading = true;
     this.addSubscriber(
-      this.kiiApiMisc.uploadImage('/upload/editor/' + this.storage,formData).subscribe(res => {
+      this.kiiApiDisk.uploadImage(this.storage,formData).subscribe((res:any) => {
         if (res.status == "progress") {
           this.progress = res.message;
-          console.log(res);
         } 
         if (res.status == "completed") {
           console.log(res);

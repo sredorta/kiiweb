@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -7,7 +7,9 @@ import {map} from 'rxjs/operators';
 export enum DiskType {
   CONTENT = "content",
   EMAIL = "email",
+  BLOG = "blog",
   DEFAULT = "defaults",
+  ALL = ""
 }
 
 export class DiskResult {
@@ -69,7 +71,50 @@ export class KiiApiDiskService {
         return this.http.get(environment.apiURL + '/disk/videos/all').pipe(map((res:string[]) => res));
     }
     /**Gets all images */
-    public getImages() :Observable<string[]> {
-      return this.http.get(environment.apiURL + '/disk/images/all').pipe(map((res:string[]) => res));
-  }    
+    public getImages(disk:DiskType) :Observable<string[]> {
+      console.log("Getting images with disk",disk);
+      return this.http.post(environment.apiURL + '/disk/images/all', {disk:disk}).pipe(map((res:string[]) => res));
+    }  
+    
+    /**Uploads image to the specific disk */
+    public uploadImage(disk:DiskType,data:FormData) {
+      console.log("Uploading image to disk :",disk);
+      return this.http.post(environment.apiURL + '/disk/images/upload/'+disk, data, {
+        reportProgress: true,
+        observe: 'events'
+      }).pipe(map((event) => {
+  
+        switch (event.type) {
+  
+          case HttpEventType.UploadProgress:
+            const progress = Math.round(100 * event.loaded / event.total);
+            return { status: 'progress', message: progress };
+          case HttpEventType.Response:
+            return { status: 'completed', message:event.body};
+          default:
+            return {status: 'unhandled',message:event.type};
+          
+        }
+      })
+      );
+    }    
+
+    /**Uploads video */
+    public uploadVideo(disk:DiskType,data:FormData) {
+      return this.http.post<any>(environment.apiURL + '/disk/videos/upload/'+disk, data, {
+        reportProgress: true,
+        observe: 'events'
+      }).pipe(map((event) => {
+        switch (event.type) {
+          case HttpEventType.UploadProgress:
+            const progress = Math.round(100 * event.loaded / event.total);
+            return { status: 'progress', message: progress };
+          case HttpEventType.Response:
+            return { status: 'completed', message:event.body};
+          default:
+            return {status: 'unhandled',message:event.type};
+        }
+      })
+      );
+    }
 }

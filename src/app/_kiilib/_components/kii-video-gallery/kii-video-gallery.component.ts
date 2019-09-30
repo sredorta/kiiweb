@@ -1,7 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
-import { KiiApiDiskService } from '../../_services/kii-api-disk.service';
-import { KiiMiscService } from '../../_services/kii-misc.service';
+import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'kii-video-gallery',
@@ -18,10 +17,13 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
   
   fileName:string = "";
 
+  /**Disk to process videos */
+  @Input() disk : DiskType = DiskType.BLOG;
+
   /**Output with the selected video */
   @Output() video = new EventEmitter<string>();
 
-  constructor(private kiiApiDisk : KiiApiDiskService,private kiiApiMisc: KiiMiscService) {super() }
+  constructor(private kiiApiDisk : KiiApiDiskService) {super() }
 
   ngOnInit() {
     this.getServerVideos();
@@ -58,17 +60,17 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
       let obj = this;
       reader.onloadend = () => {
         let blob = new Blob([reader.result]);
-        obj.uploadVideo(blob);
+        obj.uploadVideo(this.disk,blob);
       };
     }
   }
 
-  uploadVideo(blob:Blob) {
+  uploadVideo(disk:DiskType,blob:Blob) {
     const formData = new FormData();
     formData.append('file',blob,this.fileName);
 
     this.addSubscriber(
-      this.kiiApiMisc.uploadVideo('/upload/videos/content',formData).subscribe(res => {
+      this.kiiApiDisk.uploadVideo(disk,formData).subscribe(res => {
         if (res.status == "progress") {
           this.progress = res.message;
         } 

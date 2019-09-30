@@ -50,44 +50,4 @@ export class KiiMiscService {
     return this.http.post<any>(environment.apiURL + '/contact/email', value);
   }
 
-
-  /**Uploads article image to server */
-  public uploadImage(url:string,data:FormData) {
-    return this.http.post<any>(url, data, {
-      reportProgress: true,
-      observe: 'events'
-    }).pipe(map((event) => {
-
-      switch (event.type) {
-
-        case HttpEventType.UploadProgress:
-          const progress = Math.round(100 * event.loaded / event.total);
-          return { status: 'progress', message: progress };
-        case HttpEventType.Response:
-          return { status: 'completed', message:event.body};
-        default:
-          return {status: 'unhandled',message:event.type};
-        
-      }
-    })
-    );
-  }
-  /**Uploads video to server */
-  public uploadVideo(url:string,data:FormData) {
-    return this.http.post<any>(url, data, {
-      reportProgress: true,
-      observe: 'events'
-    }).pipe(map((event) => {
-      switch (event.type) {
-        case HttpEventType.UploadProgress:
-          const progress = Math.round(100 * event.loaded / event.total);
-          return { status: 'progress', message: progress };
-        case HttpEventType.Response:
-          return { status: 'completed', message:event.body};
-        default:
-          return {status: 'unhandled',message:event.type};
-      }
-    })
-    );
-  }    
 }

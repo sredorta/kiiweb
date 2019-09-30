@@ -6,6 +6,7 @@ import {CustomClass} from './config';
 import {SelectOption} from './ae-select/ae-select.component';
 import { MatDialog } from '@angular/material';
 import { KiiVideoGalleryDialogComponent } from '../kii-video-gallery-dialog/kii-video-gallery-dialog.component';
+import { KiiImageGalleryDialogComponent } from '../kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 
 @Component({
   selector: 'angular-editor-toolbar',
@@ -250,13 +251,29 @@ export class AngularEditorToolbarComponent {
       minWidth:'320px'
     });
     dialogRef.afterClosed().subscribe(url => {
+      console.log("Inserting video :", url);
       if (url && url !== '' && url !== `https://`) {
         this.editorService.insertVideo(url);
       }
     });
-
-
   }
+
+  /**Inserts image using gallery */
+  insertImage() {
+    let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
+      panelClass: 'admin-theme',
+      data:  null,
+      minWidth:'320px'
+    });
+    dialogRef.afterClosed().subscribe(url => {
+      console.log("Result of dialog:", url);
+      if (url && url !== '' && url !== `https://`) {
+        this.editorService.insertImage(url);
+      }
+    });
+  }
+
+
 
   /** insert color */
   insertColor(color: string, where: string) {
@@ -299,7 +316,7 @@ export class AngularEditorToolbarComponent {
   /**
    * Upload image when file is selected
    */
-  onFileChanged(event) {
+  /*onFileChanged(event) {
     const file = event.target.files[0];
     if (file.type.includes('image/')) {
         if (this.uploadUrl) {
@@ -323,10 +340,10 @@ export class AngularEditorToolbarComponent {
   /**
    * Reset Input
    */
-  fileReset() {
+  /*fileReset() {
     console.log("myInputFile",this.myInputFile);
     this.myInputFile.nativeElement.value = '';
-  }
+  }*/
 
   /**
    * Set custom class
