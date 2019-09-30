@@ -119,14 +119,20 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   ngOnChanges(changes:SimpleChanges) {
-    console.log(changes);
     if (changes.htmlInitial) {
       this.htmlInitial = changes.htmlInitial.currentValue;
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
     }
     if (changes.background){
-       this.background = changes.background.currentValue;
-       this.onBackgroundChange(this.background);
+      if (changes.background.currentValue) {
+        if (changes.background.currentValue != "none") {
+          this.background = changes.background.currentValue;
+          this.onBackgroundChange(this.background,false);
+        }
+      } else {
+        this.background = changes.background.currentValue;
+        this.onBackgroundChange(this.background,false);
+      }  
     }
     if (changes.isEditMode) { 
       this.isEditMode = changes.isEditMode.currentValue;
@@ -435,12 +441,13 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   //Change the background image
-  onBackgroundChange(background:string) {
+  onBackgroundChange(background:string, emit:boolean = true) {
     this.r.removeStyle(this.textArea.nativeElement, 'backgroundImage');
     if (background!=null) {
         this.r.setStyle(this.textArea.nativeElement, 'backgroundImage', 'url(' + background + ')',1);
     }
-    this.backgroundChange.emit(background);
+    if (emit)
+      this.backgroundChange.emit(background);
   }
 
 

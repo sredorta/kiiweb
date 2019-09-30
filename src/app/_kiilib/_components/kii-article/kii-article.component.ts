@@ -33,6 +33,10 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**Current article */
   article : Article = new Article(null);
 
+  /**Saved article not mutted */
+  savedArticle : Article = new Article(null);
+
+
   /**When user has edit capabilities */
   canEdit : boolean = false;
 
@@ -40,11 +44,13 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   storage : "content" | "blog" | "email" = "content";
 
   /**Contains current background image */
-  backgroundImage : string = "none";  
+  backgroundImage : string = null;  
 
   /**When we are saving */
   isLoading : boolean = false;
 
+  /**Initial html code */
+  htmlInitial : string = "";
 
   /**Initial editor Config */
   editorConfig = {
@@ -56,8 +62,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
     salitize: true,
     uploadUrl: '/upload/editor/content'};
 
-  /**Div where the editable content is placed */
-  @ViewChild('container',{static:false}) div:ElementRef;
 
   /**Contains the editor component */
   @ViewChild(AngularEditorComponent,{static:false}) editor : AngularEditorComponent;
@@ -74,7 +78,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
         this.setCanEdit();
       })
     )
-    
   }
 
   ngAfterViewInit() {
@@ -82,6 +85,9 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
       this.addSubscriber(
         this.kiiApiArticle.onChange().subscribe(res => {
             this.article = this.kiiApiArticle.getByIdOrKey(this.key);
+            this.backgroundImage = this.article.backgroundImage;
+            this.htmlInitial = this.article.content;
+            this.savedArticle = JSON.parse(JSON.stringify(this.article));
         })
       )
     });
@@ -107,24 +113,18 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**When we enter in edit mode */
   edit() {
     this.isEditing = !this.isEditing;
-    /*if (this.isEditing == true) {
-      setTimeout( () => {
-          this.editor.textArea.nativeElement.innerHTML = this.article.content;
-          this.editor.registerOnChange( () => {
-            this.div.nativeElement.innerHTML = this.editor.textArea.nativeElement.innerHTML;
-            if (this.editor.textArea.nativeElement.innerHTML!== this.article.content) this.isInitial = false;
-            else this.isInitial = true;
-          });  
-      })
-    }*/
   }
 
   /**When we cancel */
   onCancel() {
-    this.div.nativeElement.innerHTML = this.article.content;
-    this.editor.textArea.nativeElement.innerHTML = this.article.content;
-    this.isInitial = true;
-    this.article.backgroundImage = this.backgroundImage;
+    console.log("Setting initial html : ", this.savedArticle);
+    this.htmlInitial = "";
+    this.backgroundImage = "none";
+    setTimeout(() => {
+      console.log("Setting backgroundImage to", this.savedArticle.backgroundImage);
+      this.htmlInitial = this.savedArticle.content;
+      this.backgroundImage = this.savedArticle.backgroundImage;
+    },200);
   }
 
 
@@ -145,6 +145,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
   onBackgroundChange(image:string) {
+    console.log("Setting current image background to :",image);
     this.article.backgroundImage = image;
   }
 

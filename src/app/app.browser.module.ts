@@ -25,6 +25,8 @@ import { KiiSpinnerService } from './_kiilib/_services/kii-spinner.service';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
 import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
+import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 
 
 
