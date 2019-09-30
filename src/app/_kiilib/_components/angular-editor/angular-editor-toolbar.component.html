@@ -150,7 +150,11 @@
       <i class="fa fa-unlink"></i>
     </button>
     <button [id]="'insertImage-'+id" type="button" class="angular-editor-button" (click)="insertImage()" title="Insert Image"
-            [disabled]="htmlMode" tabindex="-1"><i class="fa fa-image"></i></button>
+            [disabled]="htmlMode" tabindex="-1"><i class="far fa-image"></i></button>
+    <button [id]="'insertBackgroundImage-'+id" type="button" class="angular-editor-button" (click)="insertImageBackground()" title="Insert Background Image"
+            [disabled]="htmlMode" tabindex="-1"><i class="fas fa-image"></i></button>  
+    <button [id]="'removeBackgroundImage-'+id" type="button" class="angular-editor-button" (click)="removeImageBackground()" title="Remove Background Image"
+            [disabled]="htmlMode" tabindex="-1"><i class="fas fa-image"></i><i class="fas fa-trash trash-background-icon"></i></button>                        
     <button [id]="'insertVideo-'+id" type="button" class="angular-editor-button"
             (click)="insertVideo()" title="Insert Video" [disabled]="htmlMode" tabindex="-1"><i class="fa fa-video"></i></button>
     <button [id]="'insertHorizontalRule-'+id" type="button" title="Horizontal Line" class="angular-editor-button"

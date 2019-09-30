@@ -50,10 +50,10 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   editorConfig = {
     editable: true,
     spellcheck: true,
-    height: '250px',
-    minHeight: '200px',
+    minHeight: '50px',
     placeholder: 'Text ...',
     translate: 'no',
+    salitize: true,
     uploadUrl: '/upload/editor/content'};
 
   /**Div where the editable content is placed */
@@ -82,10 +82,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
       this.addSubscriber(
         this.kiiApiArticle.onChange().subscribe(res => {
             this.article = this.kiiApiArticle.getByIdOrKey(this.key);
-            if (this.article) {
-              this.div.nativeElement.innerHTML= this.article.content;
-              this.backgroundImage = this.article.backgroundImage;
-            }
         })
       )
     });
@@ -111,7 +107,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**When we enter in edit mode */
   edit() {
     this.isEditing = !this.isEditing;
-    if (this.isEditing == true) {
+    /*if (this.isEditing == true) {
       setTimeout( () => {
           this.editor.textArea.nativeElement.innerHTML = this.article.content;
           this.editor.registerOnChange( () => {
@@ -119,9 +115,8 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
             if (this.editor.textArea.nativeElement.innerHTML!== this.article.content) this.isInitial = false;
             else this.isInitial = true;
           });  
-          this.setBackground();
       })
-    }
+    }*/
   }
 
   /**When we cancel */
@@ -130,40 +125,11 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
     this.editor.textArea.nativeElement.innerHTML = this.article.content;
     this.isInitial = true;
     this.article.backgroundImage = this.backgroundImage;
-    this.setBackground();
-  }
-
-  /**When user clicks on remove current background image */
-  onUploadBackgroundImage(image:string) {
-    console.log(image);
-    this.article.backgroundImage = image;
-    this.setBackground();
-  }
-  /**Sets editor background image to the editor */
-  setBackground() {
-    this.renderer.removeStyle(this.editor.textArea.nativeElement, 'backgroundImage');
-      if (this.article.backgroundImage.match("http")) {
-          this.renderer.setStyle(this.editor.textArea.nativeElement, 'backgroundImage', 'url(' + this.article.backgroundImage + ')',1);
-      }
   }
 
 
-  /**When background is clicked to upload an image */
-  onFileChanged(event : any) {
-    let file = event.target.files[0];
-    this.onUpload(file);
-  }
 
-  /**Upload image for background image of editor*/
-  onUpload(file:File) {
-      // this.http is the injected HttpClient
-      const uploadData = new FormData();
-      uploadData.append('file', file, file.name);
-      let subscription =  this.kiiApiArticle.uploadImage(this.editor.config.uploadUrl,uploadData).subscribe( res => {
-          this.article.backgroundImage = res.imageUrl;
-          this.setBackground();
-        }, () => subscription.unsubscribe());
-  }
+
 
   /**When we save the changes */
   onSave() {
@@ -173,9 +139,13 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
       this.kiiApiArticle.update(this.article).subscribe(res => {
         //this.kiiApiArticle.refresh(this.article);
         this.isLoading = false;
+        this.isEditing = false;
       }, ()=> this.isLoading = false)
     )
+  }
 
+  onBackgroundChange(image:string) {
+    this.article.backgroundImage = image;
   }
 
 }

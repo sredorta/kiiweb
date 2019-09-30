@@ -13,7 +13,7 @@
     align-items: center;
     transition: opacity 0.5s ease-in-out;
     max-height: 40vh;
-    min-height: 130px;
+    min-height: 120px;
     overflow-Y:auto;
     background:rgba(white,0.1);
     box-shadow: 0px 0px 5px 2px;
@@ -38,13 +38,13 @@
     i {margin-right:10px;}
 }
 .image-container {
-    width:130px;
-    height:130px;
+    width:120px;
+    height:120px;
     display:flex;
     justify-content: flex-end;
     img {
         width:100%;
-        max-height: 130px;
+        max-height: 120px;
         object-fit: contain;
     }
 }

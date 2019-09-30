@@ -125,6 +125,8 @@ export class AngularEditorToolbarComponent {
 
   @Output() execute: EventEmitter<string> = new EventEmitter<string>();
 
+  @Output() backgroundChange : EventEmitter<string> = new EventEmitter<string>();
+
   @ViewChild('fileInput', {static: false}) myInputFile: ElementRef;
 
   public get isLinkButtonDisabled(): boolean {
@@ -273,6 +275,25 @@ export class AngularEditorToolbarComponent {
     });
   }
 
+  /**Inserts background image using gallery */
+  insertImageBackground() {
+    console.log("Inserting background image");
+    let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
+      panelClass: 'admin-theme',
+      data:  null,
+      minWidth:'320px'
+    });
+    dialogRef.afterClosed().subscribe(url => {
+      if (url) {
+        this.backgroundChange.emit(url);
+      }
+    });
+  }
+
+  /**Removes background image */
+  removeImageBackground() {
+    this.backgroundChange.emit(null);
+  }
 
 
   /** insert color */

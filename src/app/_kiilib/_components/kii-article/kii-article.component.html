@@ -1,14 +1,11 @@
-<div class="kii-content-wrapper" [ngClass]="{'is-flex' : isFlex, 'is-v-start' : vAlign=='start', 'is-v-center' : vAlign=='center', 'is-v-end' : vAlign=='end'}" [ngStyle]="{'background-image': article.getBackgroundImageUrl()}">
-  <div #container class="kii-content"></div>
-</div>
-<div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
-    <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
-</div>
-<div *ngIf="isEditing" class="kii-editor-wrapper">
+
+<div class="kii-editor-wrapper">
   <kii-spinner-overlay [show]="isLoading">
-    <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}" [config]="editorConfig"></angular-editor>
-    <div class="button-wrapper admin-theme"> 
-        <kii-image-upload [crop]="false" [maxSize]="900" [image]="article.backgroundImage" (onUpload)="onUploadBackgroundImage($event)"></kii-image-upload>
+    <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}" [isEditMode]="isEditing" [config]="editorConfig" [htmlInitial]= "article.content" [background]="article.backgroundImage" (backgroundChange)="onBackgroundChange($event)" ></angular-editor>
+    <div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
+        <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
+    </div>
+    <div *ngIf="isEditing" class="button-wrapper admin-theme"> 
         <div class="button-action">   
             <button  mat-button type="button" color="primary" (click)="onCancel()"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
             <button  mat-flat-button type="button" color="primary" (click)="onSave()"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>

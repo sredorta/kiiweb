@@ -60,4 +60,10 @@
       pointer-events: none;
     }
   }
+  angular-editor-toolbar:not(.is-edit-mode) {
+    display:none;
+  }
+  .angular-editor-wrapper .angular-editor-textarea:not(.is-edit-mode) {
+    border:none;
+  }
 }

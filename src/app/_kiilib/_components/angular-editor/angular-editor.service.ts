@@ -155,7 +155,7 @@ export class AngularEditorService {
    * Upload file to uploadUrl
    * @param file The file
    */
-  uploadImage(file: File): Observable<HttpEvent<UploadResponse>> {
+  /*uploadImage(file: File): Observable<HttpEvent<UploadResponse>> {
 
     const uploadData: FormData = new FormData();
 
@@ -165,7 +165,7 @@ export class AngularEditorService {
       reportProgress: true,
       observe: 'events',
     });
-  }
+  }*/
 
   /**
    * Insert image with Url

@@ -14,7 +14,8 @@ import {
   Output,
   Renderer2,
   SecurityContext,
-  ViewChild
+  ViewChild,
+  SimpleChanges
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {AngularEditorConfig, angularEditorConfig} from './config';
@@ -53,14 +54,20 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   @Input() config: AngularEditorConfig = angularEditorConfig;
   @Input() placeholder = '';
   @Input() tabIndex: number | null;
+  @Input() htmlInitial : string = "";
 
   @Output() html;
+
+  @Input() isEditMode : boolean = false;
 
   @ViewChild('editor', {static: true}) textArea: ElementRef;
   @ViewChild('editorWrapper', {static: true}) editorWrapper: ElementRef;
   @ViewChild('editorToolbar', {static: false}) editorToolbar: AngularEditorToolbarComponent;
 
   @Output() viewMode = new EventEmitter<boolean>();
+
+  @Output() backgroundChange: EventEmitter<string> = new EventEmitter<string>();
+  @Input() background : string = null;
 
   /** emits `blur` event when focused out from the textarea */
     // tslint:disable-next-line:no-output-native no-output-rename
@@ -103,7 +110,30 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     }
     this.configure();
     this.cdRef.detectChanges();
+    //Set background if input is defined
+    if (this.background!= null) {
+      this.r.setStyle(this.textArea.nativeElement, 'backgroundImage', 'url(' + this.background + ')',1);
+    }
+    //Fill with input html
+    this.textArea.nativeElement.innerHTML = this.htmlInitial;
   }
+
+  ngOnChanges(changes:SimpleChanges) {
+    console.log(changes);
+    if (changes.htmlInitial) {
+      this.htmlInitial = changes.htmlInitial.currentValue;
+      this.textArea.nativeElement.innerHTML = this.htmlInitial;
+    }
+    if (changes.background){
+       this.background = changes.background.currentValue;
+       this.onBackgroundChange(this.background);
+    }
+    if (changes.isEditMode) { 
+      this.isEditMode = changes.isEditMode.currentValue;
+      this.config.editable = changes.isEditMode.currentValue;
+    }
+  }
+
 
   /**
    * Executed command from editor header buttons
@@ -403,4 +433,15 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
       this.focusInstance();
     }
   }
+
+  //Change the background image
+  onBackgroundChange(background:string) {
+    this.r.removeStyle(this.textArea.nativeElement, 'backgroundImage');
+    if (background!=null) {
+        this.r.setStyle(this.textArea.nativeElement, 'backgroundImage', 'url(' + background + ')',1);
+    }
+    this.backgroundChange.emit(background);
+  }
+
+
 }
