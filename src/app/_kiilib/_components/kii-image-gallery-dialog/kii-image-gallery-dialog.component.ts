@@ -16,6 +16,8 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
   @Input() disk : DiskType = DiskType.BLOG;
   @Output() image = new EventEmitter<string>();
 
+  maxSize : number = 1024;
+
   constructor(private kiiApiDisk: KiiApiDiskService,
               private dialogRef:MatDialogRef<KiiImageGalleryDialogComponent>,
               @Inject(MAT_DIALOG_DATA) data:any) { 
@@ -26,6 +28,15 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
   ngOnInit() {
     this.getServerImages();
     console.log("DATA ON DIALOG:", this.disk)
+    switch(this.disk) {
+      case(DiskType.EMAIL): {
+        this.maxSize = 600;
+        break;
+      }
+      default: {
+        this.maxSize = 1024;
+      }
+    }
   }
 
   //Get all images from the server

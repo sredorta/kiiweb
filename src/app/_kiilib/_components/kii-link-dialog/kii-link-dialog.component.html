@@ -1,0 +1,7 @@
+<div class="wrapper">
+      <h1>{{'kiilib.link.dialog.title' | translate}}</h1>
+      <kii-item-form hint="kiilib.input.link.hint" label="kiilib.input.link.label" placeholder="kiilib.input.link.placeholder" icon="fas fa-link" [validators]="validator" (kiiOnSubmit)="onLink($event)"></kii-item-form>
+      <div class="close-wrapper">
+        <button mat-button (click)="onClose()" color="primary">{{'kiilib.cancel' | translate}}</button>
+      </div>
+  </div>

@@ -8,6 +8,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 import { KiiVideoGalleryDialogComponent } from '../kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 import { KiiImageGalleryDialogComponent } from '../kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { DiskType } from '../../_services/kii-api-disk.service';
+import { KiiLinkDialogComponent } from '../kii-link-dialog/kii-link-dialog.component';
 
 @Component({
   selector: 'angular-editor-toolbar',
@@ -130,7 +131,7 @@ export class AngularEditorToolbarComponent {
 
   @Input() disk : DiskType = DiskType.CONTENT;
 
-  @ViewChild('fileInput', {static: false}) myInputFile: ElementRef;
+  //@ViewChild('fileInput', {static: false}) myInputFile: ElementRef;
 
   public get isLinkButtonDisabled(): boolean {
     return this.htmlMode || !Boolean(this.editorService.selectedText);
@@ -230,6 +231,28 @@ export class AngularEditorToolbarComponent {
    * insert URL link
    */
   insertUrl() {
+    /*let url = 'https:\/\/';
+    const selection = this.editorService.savedSelection;
+    if (selection && selection.commonAncestorContainer.parentElement.nodeName === 'A') {
+      const parent = selection.commonAncestorContainer.parentElement as HTMLAnchorElement;
+      if (parent.href !== '') {
+        url = parent.href;
+      }
+    }
+    //Open dialog that shows the video gallery
+    let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
+      panelClass: 'admin-theme',
+      data:  null,
+      minWidth:'320px'
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      const url2 = res.result;
+      console.log("Inserting link :", url2);
+      if (url2 && url2 !== '' && url2 !== `https://`) {
+        this.editorService.createLink(url2);
+      }
+    });*/
+    
     let url = 'https:\/\/';
     const selection = this.editorService.savedSelection;
     if (selection && selection.commonAncestorContainer.parentElement.nodeName === 'A') {
@@ -238,10 +261,25 @@ export class AngularEditorToolbarComponent {
         url = parent.href;
       }
     }
-    url = prompt('Insert URL link', url);
-    if (url && url !== '' && url !== 'https://') {
+    //url = prompt('Insert URL link', url);
+let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
+  panelClass: 'admin-theme',
+  data:  null,
+  minWidth:'320px'
+});
+let myObj = this;
+dialogRef.afterClosed().subscribe(res => {
+  let url = res.result;
+  if (url && url !== '' && url !== 'https://') {
+    console.log("Inserting url", url);
+    myObj.editorService.createLink(url);
+  }
+  
+});
+    /*if (url && url !== '' && url !== 'https://') {
+      console.log("Inserting url", url);
       this.editorService.createLink(url);
-    }
+    }*/
   }
 
   /**
@@ -265,9 +303,6 @@ export class AngularEditorToolbarComponent {
 
   /**Inserts image using gallery */
   insertImage() {
-    const dialogConfig = new MatDialogConfig();
-
-
     let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
       panelClass: 'admin-theme',
       data: {disk:this.disk},
@@ -340,37 +375,7 @@ export class AngularEditorToolbarComponent {
     this.htmlMode = m;
   }
 
-  /**
-   * Upload image when file is selected
-   */
-  /*onFileChanged(event) {
-    const file = event.target.files[0];
-    if (file.type.includes('image/')) {
-        if (this.uploadUrl) {
-            this.editorService.uploadImage(file).subscribe(e => {
-              if (e instanceof HttpResponse) {
-                this.editorService.insertImage(e.body.imageUrl);
-                this.fileReset();
-              }
-            });
-        } else {
-          const reader = new FileReader();
-          reader.onload = (e: ProgressEvent) => {
-            const fr = e.currentTarget as FileReader;
-            this.editorService.insertImage(fr.result.toString());
-          };
-          reader.readAsDataURL(file);
-        }
-      }
-  }
 
-  /**
-   * Reset Input
-   */
-  /*fileReset() {
-    console.log("myInputFile",this.myInputFile);
-    this.myInputFile.nativeElement.value = '';
-  }*/
 
   /**
    * Set custom class
