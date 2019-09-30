@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Output,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter, Inject} from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'kii-image-gallery-dialog',
@@ -16,10 +16,16 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
   @Input() disk : DiskType = DiskType.BLOG;
   @Output() image = new EventEmitter<string>();
 
-  constructor(private kiiApiDisk: KiiApiDiskService,private dialogRef:MatDialogRef<KiiImageGalleryDialogComponent>) { super(); }
+  constructor(private kiiApiDisk: KiiApiDiskService,
+              private dialogRef:MatDialogRef<KiiImageGalleryDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) data:any) { 
+                super(); 
+                this.disk = data.disk;
+              }
 
   ngOnInit() {
     this.getServerImages();
+    console.log("DATA ON DIALOG:", this.disk)
   }
 
   //Get all images from the server

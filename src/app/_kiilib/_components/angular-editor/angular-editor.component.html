@@ -18,6 +18,6 @@
     </div>
     <span class="angular-editor-placeholder">{{ placeholder || config['placeholder'] }}</span>
   </div>
-  <angular-editor-toolbar #editorToolbar
+  <angular-editor-toolbar #editorToolbar [disk]="disk"
                           (execute)="executeCommand($event)" (backgroundChange)="onBackgroundChange($event)" [ngClass]="{'is-edit-mode' : isEditMode}"></angular-editor-toolbar>
 </div>

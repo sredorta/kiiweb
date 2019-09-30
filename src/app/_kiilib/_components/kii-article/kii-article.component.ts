@@ -5,6 +5,7 @@ import { Article } from '../../_models/article';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
+import { DiskType } from '../../_services/kii-api-disk.service';
 //import { AngularEditorConfig, AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
 
 
@@ -24,6 +25,9 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**Center content vertically */
   @Input() vAlign : "start" | "center" | "end" = "start";
 
+  /**Storage folder */
+  disk : DiskType = DiskType.CONTENT;
+
   /**Editing mode */
   isEditing : boolean = false;
 
@@ -36,12 +40,13 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**Saved article not mutted */
   savedArticle : Article = new Article(null);
 
+  /**Toggling cancel for change detection on angular editor */
+  cancel : boolean = true;
 
   /**When user has edit capabilities */
   canEdit : boolean = false;
 
-  /**Storage folder */
-  storage : "content" | "blog" | "email" = "content";
+
 
   /**Contains current background image */
   backgroundImage : string = null;  
@@ -68,14 +73,14 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   constructor(private kiiApiArticle : KiiApiArticleService,
             private kiiApiAuth : KiiApiAuthService,
-            @Inject(PLATFORM_ID) private platformId: any,
-            private renderer: Renderer2 ) { super(kiiApiAuth,platformId) }
+            @Inject(PLATFORM_ID) private platformId: any
+            ) { super(kiiApiAuth,platformId) }
 
   ngOnInit() {
+    console.log("WE ARE UNSING", this.disk);
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
         this.loggedInUser = res;
-        this.setCanEdit();
       })
     )
   }
@@ -88,6 +93,8 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
             this.backgroundImage = this.article.backgroundImage;
             this.htmlInitial = this.article.content;
             this.savedArticle = JSON.parse(JSON.stringify(this.article));
+            this.setCanEdit();
+
         })
       )
     });
@@ -97,17 +104,23 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**Determines if user can edit or not */
   setCanEdit() {
-    if (this.article.cathegory == "content") {
-      this.storage = "content";
-      this.canEdit = this.loggedInUser.hasRole("kubiiks");
-    } else if ( this.article.cathegory!= "blog") {
-      this.storage = "content";
-      this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("content");
-    } else {
-      this.storage = "blog";
-      this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("blog");
-    }  
-    this.editorConfig.uploadUrl = '/upload/editor/' + this.storage;
+    if (this.article.exists()) {
+      switch (this.article.cathegory) {
+        case(DiskType.BLOG): {
+          this.disk = DiskType.BLOG;
+          this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("blog");
+          break;
+        }
+        case(DiskType.EMAIL): {
+          this.disk = DiskType.EMAIL;
+          this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("email");
+          break;
+        }
+        default:
+          this.disk = DiskType.CONTENT;
+          this.canEdit = this.loggedInUser.hasRole("kubiiks");
+      }
+    }
   }
 
   /**When we enter in edit mode */
@@ -117,19 +130,13 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**When we cancel */
   onCancel() {
-    console.log("Setting initial html : ", this.savedArticle);
-    this.htmlInitial = "";
-    this.backgroundImage = "none";
-    setTimeout(() => {
-      console.log("Setting backgroundImage to", this.savedArticle.backgroundImage);
       this.htmlInitial = this.savedArticle.content;
       this.backgroundImage = this.savedArticle.backgroundImage;
-    },200);
+      this.article.content = this.savedArticle.content;
+      this.article.backgroundImage = this.savedArticle.backgroundImage;
+      this.isEditing = false;
+      this.cancel = !this.cancel;
   }
-
-
-
-
 
   /**When we save the changes */
   onSave() {
@@ -145,7 +152,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
   onBackgroundChange(image:string) {
-    console.log("Setting current image background to :",image);
     this.article.backgroundImage = image;
   }
 

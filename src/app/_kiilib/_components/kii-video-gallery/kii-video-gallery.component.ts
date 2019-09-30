@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'kii-video-gallery',
@@ -23,10 +24,14 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
   /**Output with the selected video */
   @Output() video = new EventEmitter<string>();
 
-  constructor(private kiiApiDisk : KiiApiDiskService) {super() }
+  constructor(private kiiApiDisk : KiiApiDiskService,@Inject(MAT_DIALOG_DATA) data:any) {
+    super();
+    this.disk = data.disk;
+   }
 
   ngOnInit() {
     this.getServerVideos();
+    console.log("Working on disk",this.disk);
   }
 
 

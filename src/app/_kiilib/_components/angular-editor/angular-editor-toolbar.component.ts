@@ -1,12 +1,13 @@
-import {Component, ElementRef, EventEmitter, Inject, Output, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, Output, Renderer2, ViewChild, Input} from '@angular/core';
 import {AngularEditorService} from './angular-editor.service';
 import {HttpResponse} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
 import {CustomClass} from './config';
 import {SelectOption} from './ae-select/ae-select.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { KiiVideoGalleryDialogComponent } from '../kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 import { KiiImageGalleryDialogComponent } from '../kii-image-gallery-dialog/kii-image-gallery-dialog.component';
+import { DiskType } from '../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'angular-editor-toolbar',
@@ -126,6 +127,8 @@ export class AngularEditorToolbarComponent {
   @Output() execute: EventEmitter<string> = new EventEmitter<string>();
 
   @Output() backgroundChange : EventEmitter<string> = new EventEmitter<string>();
+
+  @Input() disk : DiskType = DiskType.CONTENT;
 
   @ViewChild('fileInput', {static: false}) myInputFile: ElementRef;
 
@@ -249,7 +252,7 @@ export class AngularEditorToolbarComponent {
     //Open dialog that shows the video gallery
     let dialogRef = this.dialog.open(KiiVideoGalleryDialogComponent, {
       panelClass: 'admin-theme',
-      data:  null,
+      data:  {disk:this.disk},
       minWidth:'320px'
     });
     dialogRef.afterClosed().subscribe(url => {
@@ -262,10 +265,13 @@ export class AngularEditorToolbarComponent {
 
   /**Inserts image using gallery */
   insertImage() {
+    const dialogConfig = new MatDialogConfig();
+
+
     let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
       panelClass: 'admin-theme',
-      data:  null,
-      minWidth:'320px'
+      data: {disk:this.disk},
+      minWidth:'320px',
     });
     dialogRef.afterClosed().subscribe(url => {
       console.log("Result of dialog:", url);
@@ -280,7 +286,7 @@ export class AngularEditorToolbarComponent {
     console.log("Inserting background image");
     let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
       panelClass: 'admin-theme',
-      data:  null,
+      data:  {disk:this.disk},
       minWidth:'320px'
     });
     dialogRef.afterClosed().subscribe(url => {

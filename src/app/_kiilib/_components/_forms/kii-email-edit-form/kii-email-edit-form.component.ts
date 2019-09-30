@@ -99,8 +99,6 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
 
   ngAfterViewInit() {
     this.setColor(this.email.textColor);
-    this.setHeaderBackground(this.email.backgroundHeader);
-    this.setContentBackground(this.email.backgroundContent);
   }
 
   /**Sets color for textareas so that they match with email */
@@ -119,14 +117,11 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
   /**When we change the backgroundHeader */
   onBackgroundHeader(image:string) {
     this.myForm.controls["backgroundHeader"].patchValue(image);
-    this.setHeaderBackground(this.email.backgroundHeader);
   }
 
   /**When we change the backgroundHeader */
   onBackgroundContent(image:string) {
     this.myForm.controls["backgroundContent"].patchValue(image);
-    this.setContentBackground(this.email.backgroundContent);
-
   }
 
   /**Refreshes the preview*/
@@ -147,19 +142,4 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
     )
   }
 
-  /**Sets editor background image to the editor of the header */
-  setHeaderBackground(background:string) {
-    console.log("Setting background to ", background);
-      this.renderer.removeStyle(this.editorHeader.textArea.nativeElement, 'backgroundImage');
-        if (background.match("http")) {
-            this.renderer.setStyle(this.editorHeader.textArea.nativeElement, 'backgroundImage', 'url(' + background + ')',1);
-        }
-  }
-  /**Sets editor background image to the editor of the header */
-  setContentBackground(background:string) {
-    this.renderer.removeStyle(this.editorContent.textArea.nativeElement, 'backgroundImage');
-      if (background.match("http")) {
-          this.renderer.setStyle(this.editorContent.textArea.nativeElement, 'backgroundImage', 'url(' + background + ')',1);
-      }
-  }
 }

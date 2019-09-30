@@ -1,6 +1,6 @@
 <div class="kii-editor-wrapper">
   <kii-spinner-overlay [show]="isLoading">
-    <angular-editor id="editorId" [ngClass]="{'is-initial' : isInitial}" [isEditMode]="isEditing" [config]="editorConfig" [htmlInitial]= "htmlInitial" [background]="backgroundImage" (backgroundChange)="onBackgroundChange($event)" ></angular-editor>
+    <angular-editor [disk]="disk" id="editorId" [ngClass]="{'is-initial' : isInitial}" [isEditMode]="isEditing" [config]="editorConfig" [cancel]="cancel" [htmlInitial]= "htmlInitial" [background]="backgroundImage" (backgroundChange)="onBackgroundChange($event)" ></angular-editor>
     <div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
         <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
     </div>

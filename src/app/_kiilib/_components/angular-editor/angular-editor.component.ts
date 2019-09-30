@@ -24,6 +24,7 @@ import {AngularEditorService} from './angular-editor.service';
 import {DOCUMENT} from '@angular/common';
 import {DomSanitizer} from '@angular/platform-browser';
 import {isDefined} from './utils';
+import { DiskType } from '../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'angular-editor',
@@ -68,6 +69,12 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
 
   @Output() backgroundChange: EventEmitter<string> = new EventEmitter<string>();
   @Input() background : string = null;
+
+  /**Used in order to know if we need to cancel modifications */
+  @Input() cancel :boolean = false;
+
+  /**Disk where to save the uploads */
+  @Input() disk : DiskType = DiskType.CONTENT;
 
   /** emits `blur` event when focused out from the textarea */
     // tslint:disable-next-line:no-output-native no-output-rename
@@ -123,16 +130,9 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
       this.htmlInitial = changes.htmlInitial.currentValue;
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
     }
-    if (changes.background){
-      if (changes.background.currentValue) {
-        if (changes.background.currentValue != "none") {
-          this.background = changes.background.currentValue;
-          this.onBackgroundChange(this.background,false);
-        }
-      } else {
-        this.background = changes.background.currentValue;
-        this.onBackgroundChange(this.background,false);
-      }  
+    if (changes.cancel){
+      this.textArea.nativeElement.innerHTML = this.htmlInitial;
+      this.onBackgroundChange(this.background,false);
     }
     if (changes.isEditMode) { 
       this.isEditMode = changes.isEditMode.currentValue;

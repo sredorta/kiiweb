@@ -49,11 +49,15 @@
           <mat-error kiiInputError="subtitle"></mat-error>            
       </mat-form-field>
       <h2>{{'kiilib.email.config.header' | translate}}</h2>
-      <angular-editor #editorHeader id="editorHeader" formControlName="header" [kiiInputDefaultValue]="email.header"></angular-editor>
-      <kii-image-upload [crop]="false" [maxSize]="600" storage="email" [image]="email.backgroundHeader" (onUpload)="onBackgroundHeader($event)"></kii-image-upload>
+      <!--<angular-editor #editorHeader id="editorHeader" formControlName="header" [kiiInputDefaultValue]="email.header"></angular-editor>-->
+      <angular-editor #editorHeader id="editorHeader" formControlName="header" [kiiInputDefaultValue]="email.header" disk="email"  [isEditMode]="true" [config]="editorConfig" [cancel]="cancel" [htmlInitial]= "email.header" [background]="email.backgroundHeader" (backgroundChange)="onBackgroundHeader($event)" ></angular-editor>
+
+      <!--<kii-image-upload [crop]="false" [maxSize]="600" storage="email" [image]="email.backgroundHeader" (onUpload)="onBackgroundHeader($event)"></kii-image-upload>-->
       <h2>{{'kiilib.email.config.content' | translate}}</h2>
-      <angular-editor #editorContent id="editorContent" formControlName="content"  [config]="editorConfig" [ngStyle]="{'color': previewEmail.textColor}" [kiiInputDefaultValue]="email.content"></angular-editor>
-      <kii-image-upload [crop]="false" [maxSize]="600" storage="email" [image]="email.backgroundContent" (onUpload)="onBackgroundContent($event)"></kii-image-upload>
+      <!--<angular-editor #editorContent id="editorContent" formControlName="content"  [config]="editorConfig" [ngStyle]="{'color': previewEmail.textColor}" [kiiInputDefaultValue]="email.content"></angular-editor>-->
+      <angular-editor #editorContent id="editorContent" formControlName="content" [kiiInputDefaultValue]="email.content" disk="email"  [isEditMode]="true" [config]="editorConfig" [cancel]="cancel" [htmlInitial]= "email.content" [background]="email.backgroundContent" (backgroundChange)="onBackgroundContent($event)" ></angular-editor>
+
+      <!--<kii-image-upload [crop]="false" [maxSize]="600" storage="email" [image]="email.backgroundContent" (onUpload)="onBackgroundContent($event)"></kii-image-upload>-->
 
       <div class="control-wrapper">
           <button mat-flat-button type="submit" color="primary"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
