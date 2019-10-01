@@ -1,3 +1,7 @@
 <div class="kii-article-detail-wrapper">
+
     <kii-article class="blog-article" [key]="this.id"></kii-article>
+    <div *ngIf="article.exists()" class="article-created">
+            <span>{{'kiilib.created' | translate}} {{{date:article.createdAt,lang:currentLang} | kiiNiceDateFormat}}</span>
+    </div> 
 </div>

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 import { ActivatedRoute } from '@angular/router';
+import { KiiApiArticleService } from '../../../_services/kii-api-article.service';
+import { Article } from '../../../_models/article';
+import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 
 @Component({
   selector: 'kii-article-detail',
@@ -12,7 +15,12 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
   /**Id of the article that we want to display */
   id:number;
 
-  constructor(private route: ActivatedRoute) { super()}
+  article : Article = new Article(null);
+  currentLang : string = null;
+
+  constructor(private route: ActivatedRoute, 
+              private kiiApiArticle: KiiApiArticleService,
+              private kiiApiLang: KiiApiLanguageService) { super()}
 
   ngOnInit() {
     this.addSubscriber(
@@ -22,6 +30,15 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
           console.log("showing details for article id : " + this.id);
       })
     )
+    this.addSubscriber(
+      this.kiiApiArticle.onChange().subscribe(res => {
+          this.article = this.kiiApiArticle.getByIdOrKey(this.id);
+      })
+    )
+    //Subscribe to lang changes so that we can update the created date text
+    this.addSubscriber(this.kiiApiLang.onChange().subscribe(res => {
+          this.currentLang = res;
+    }))
   }
 
 }
