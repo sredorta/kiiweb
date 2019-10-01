@@ -25,11 +25,6 @@
       overflow-y: auto;
       // z-index: 2;
       position: relative;
-      // pointer-events: none;
-      &:focus,
-      &.focus {
-       // outline: 0;
-      }
 
       ::ng-deep blockquote {
         margin-left: 1rem;

@@ -242,13 +242,16 @@ export class AngularEditorToolbarComponent {
     let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
       panelClass: 'admin-theme',
       data:  null,
-      minWidth:'320px'
+      minWidth:'310px',
+
     });
     dialogRef.afterClosed().subscribe(res => {
-      url = res.result;
-      this.editorService.restoreSelection();
-      if (url && url !== '' && url !== 'https://') {
-        this.editorService.createLink(url);
+      if (res) {
+        url = res.result;
+        this.editorService.restoreSelection();
+        if (url && url !== '' && url !== 'https://') {
+          this.editorService.createLink(url);
+        }
       }
     });
   }

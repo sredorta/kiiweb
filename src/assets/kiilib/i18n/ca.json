@@ -32,11 +32,35 @@
     "kiilib.language" : "Idioma",
     "kiilib.network": "Xarxa",
 
-    "kiilib.editor.placeholder" : "Escriu el teu texte aqui...",
-    "kiilib.editor.undo"        : "Desfer",
-    "kiilib.editor.redo"        : "Refer",
-    "kiilib.editor.bold"        : "Negreta",
-    "kiilib.editor.italic"      : "Cursiva",
+    "kiilib.editor.placeholder"     : "Escriu el teu texte aqui...",
+    "kiilib.editor.undo"            : "Desfer",
+    "kiilib.editor.redo"            : "Refer",
+    "kiilib.editor.bold"            : "Negreta",
+    "kiilib.editor.italic"          : "Cursiva",
+    "kiilib.editor.underline"       : "Subratllar",
+    "kiilib.editor.strike"          : "Ratllat",
+    "kiilib.editor.subscript"       : "Subíndex",
+    "kiilib.editor.superscript"     : "Superíndex",
+    "kiilib.editor.alignleft"       : "Alineació esquerra",
+    "kiilib.editor.aligncenter"     : "Alineació central",
+    "kiilib.editor.alignright"      : "Alineació dreta",
+    "kiilib.editor.alignfull"       : "Alineació completa",
+    "kiilib.editor.indent"          : "Augmenta el sagnat",
+    "kiilib.editor.outdent"         : "Redueix el sagnat",
+    "kiilib.editor.unorderedlist"   : "Llista",
+    "kiilib.editor.orderedlist"     : "Llista numerada",
+    "kiilib.editor.textcolor"       : "Color del texte",
+    "kiilib.editor.textbackground"  : "Color del fons del texte",
+    "kiilib.editor.link"            : "Afageix un enllaç",
+    "kiilib.editor.unlink"          : "Treu un enllaç",
+    "kiilib.editor.image"           : "Afageix una imatge",
+    "kiilib.editor.background"      : "Imatge de fons",
+    "kiilib.editor.backgroundclear" : "Borra l'imatge de fons",
+    "kiilib.editor.video"           : "Afageix un video",
+    "kiilib.editor.line"            : "Afageix una linea",
+    "kiilib.editor.clearformatting" : "Borra els formats",
+    "kiilib.editor.code"            : "Codi font",
+
 
 
 
@@ -162,6 +186,11 @@
     "kiilib.input.video.youtube.label"            : "Video Youtube",
     "kiilib.input.video.youtube.placeholder"      : "https://youtu.be/...",
     "kiilib.input.video.youtube.hint"             : "Copia aqui un link d'un video youtube",    
+    "kiilib.input.link.label"                     : "Enllaç",
+    "kiilib.input.link.placeholder"               : "https://www....",
+    "kiilib.input.link.hint"                      : "Adreça del enllaç",
+
+    "kiilib.link.dialog.title"                    : "Afagir un enllaç",
 
 
     "kiilib.tooltip.password"           : "El password ha de tenir una minuscula, una majuscula i un numero ",
