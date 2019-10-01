@@ -20,7 +20,6 @@
     "kiilib.edit"   : "Modificar",
     "kiilib.test"   : "Provar",
     "kiilib.you"    : "Tu",
-    "kiilib.editor.placeholder" : "Escriu el teu texte aqui...",
     "kiilib.day"    : "Dia",
     "kiilib.all"    : "Tots",
     "kiilib.monday" : "Dilluns",
@@ -32,6 +31,13 @@
     "kiilib.sunday" : "Diumenge",
     "kiilib.language" : "Idioma",
     "kiilib.network": "Xarxa",
+
+    "kiilib.editor.placeholder" : "Escriu el teu texte aqui...",
+    "kiilib.editor.undo"        : "Desfer",
+    "kiilib.editor.redo"        : "Refer",
+    "kiilib.editor.bold"        : "Negreta",
+    "kiilib.editor.italic"      : "Cursiva",
+
 
 
     "kiilib.pwa.update.text"   : "Nova versió disponible",

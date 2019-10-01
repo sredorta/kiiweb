@@ -20,7 +20,6 @@
     "kiilib.edit"   : "Modificar",
     "kiilib.test"   : "Provar",
     "kiilib.you"    : "Tu",
-    "kiilib.editor.placeholder" : "Escribe tu texto aqui...",
     "kiilib.day"    : "Dia",
     "kiilib.all"    : "Todos",
     "kiilib.monday" : "Lunes",
@@ -33,6 +32,11 @@
     "kiilib.language" : "Idioma",
     "kiilib.network": "Red",
 
+    "kiilib.editor.placeholder" : "Escribe tu texto aqui...",
+    "kiilib.editor.undo"        : "Deshacer",
+    "kiilib.editor.redo"        : "Rehacer",
+    "kiilib.editor.bold"        : "Negrita",
+    "kiilib.editor.italic"      : "Cursiva",    
 
     "kiilib.pwa.update.text"   : "Una nueva version esta disponible",
     "kiilib.pwa.update.button" : "Descargar",

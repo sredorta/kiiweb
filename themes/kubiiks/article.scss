@@ -22,8 +22,7 @@
     }
 
 
-    kii-article {
-        .formatting {   
+    kii-article angular-editor  .angular-editor-textarea {  
             a {
                 font-weight: bold;
                 text-decoration: none;
@@ -40,7 +39,11 @@
             a:visited {
                 color: mat-color($primary,darker);
             }
-            font-size:18px;
+            img {
+                max-width: 100% !important;
+                object-fit: cover;
+            }
+/*            font-size:18px;
             img {
                 margin:auto auto;
                 display:block;
@@ -57,16 +60,7 @@
             }
             @media only screen and (max-width: 500px) {
                 font-size: 85%;
-            }
-        }
-        .kii-content-wrapper {
-            @extend .formatting;
-        }
-        angular-editor  .angular-editor-textarea {
-            @extend .formatting; 
-        }
-
-
+            }*/
     } 
 
 }

@@ -1,3 +1,9 @@
+.kii-editor-wrapper {
+    width:100%;
+}
+
+
+//Editing part
 .kii-edit-wrapper {
     width:100%;
     display:flex;
@@ -12,42 +18,7 @@
         margin:10px;
     }
 }
-.kii-content-wrapper {
-    box-sizing: border-box;
-    padding:10px;
-    -webkit-nbsp-mode: space;  //Important to avoid line breaks on the kii-content side
-    width:100%;
-    background-repeat: no-repeat; //In case background image
-    background-position: 100% 100%;
-    background-size: cover;
-}
-.kii-content-wrapper.is-flex {
-    box-sizing: border-box;
-    display:flex;
-    flex-direction: column;
-    flex:1 1 auto;
-    height:100%;
-    width:100%;
-    //border:1px solid cyan;
-}
 
-.kii-content-wrapper.is-v-start {
-    justify-content: flex-start;
-}
-
-.kii-content-wrapper.is-v-center {
-    justify-content: center;
-}
-
-.kii-content-wrapper.is-v-end {
-    justify-content: flex-end;
-}
-
-.kii-content {
-    display:block;
-}
-
-//Editing part
 .button-wrapper {
     padding:10px;
     width:100%;

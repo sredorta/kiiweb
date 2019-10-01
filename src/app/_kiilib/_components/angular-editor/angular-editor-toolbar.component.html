@@ -1,14 +1,14 @@
 <div class="angular-editor-toolbar" *ngIf="showToolbar">
   <div class="angular-editor-toolbar-set">
-    <button type="button" title="Undo" class="angular-editor-button" (click)="triggerCommand('undo')" tabindex="-1"><i
+    <button type="button" title="{{'kiilib.editor.undo' | translate}}" class="angular-editor-button" (click)="triggerCommand('undo')" tabindex="-1"><i
       class='fa fa-undo'></i></button>
-    <button type="button" title="Redo" class="angular-editor-button" (click)="triggerCommand('redo')" tabindex="-1"><i
+    <button type="button" title="{{'kiilib.editor.redo' | translate}}" class="angular-editor-button" (click)="triggerCommand('redo')" tabindex="-1"><i
       class='fa fa-redo'></i></button>
   </div>
   <div class="angular-editor-toolbar-set">
-    <button [id]="'bold-'+id" type="button" title="Bold" class="angular-editor-button" (click)="triggerCommand('bold')"
+    <button [id]="'bold-'+id" type="button" title="{{'kiilib.editor.bold' | translate}}" class="angular-editor-button" (click)="triggerCommand('bold')"
             [disabled]="htmlMode" tabindex="-1"><i class='fa fa-bold'></i></button>
-    <button [id]="'italic-'+id" type="button" title="Italic" class="angular-editor-button"
+    <button [id]="'italic-'+id" type="button" title="{{'kiilib.editor.italic' | translate}}" class="angular-editor-button"
             (click)="triggerCommand('italic')"
             [disabled]="htmlMode" tabindex="-1"><i class='fa fa-italic'></i></button>
     <button [id]="'underline-'+id" type="button" title="Underline" class="angular-editor-button"

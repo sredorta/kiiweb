@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Inject, Output, Renderer2, ViewChild, Input} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, Output, Renderer2, ViewChild, Input, NgZone} from '@angular/core';
 import {AngularEditorService} from './angular-editor.service';
 import {HttpResponse} from '@angular/common/http';
 import {DOCUMENT} from '@angular/common';
@@ -230,29 +230,7 @@ export class AngularEditorToolbarComponent {
   /**
    * insert URL link
    */
-  insertUrl() {
-    /*let url = 'https:\/\/';
-    const selection = this.editorService.savedSelection;
-    if (selection && selection.commonAncestorContainer.parentElement.nodeName === 'A') {
-      const parent = selection.commonAncestorContainer.parentElement as HTMLAnchorElement;
-      if (parent.href !== '') {
-        url = parent.href;
-      }
-    }
-    //Open dialog that shows the video gallery
-    let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
-      panelClass: 'admin-theme',
-      data:  null,
-      minWidth:'320px'
-    });
-    dialogRef.afterClosed().subscribe(res => {
-      const url2 = res.result;
-      console.log("Inserting link :", url2);
-      if (url2 && url2 !== '' && url2 !== `https://`) {
-        this.editorService.createLink(url2);
-      }
-    });*/
-    
+  insertUrl() {    
     let url = 'https:\/\/';
     const selection = this.editorService.savedSelection;
     if (selection && selection.commonAncestorContainer.parentElement.nodeName === 'A') {
@@ -261,25 +239,18 @@ export class AngularEditorToolbarComponent {
         url = parent.href;
       }
     }
-    //url = prompt('Insert URL link', url);
-let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
-  panelClass: 'admin-theme',
-  data:  null,
-  minWidth:'320px'
-});
-let myObj = this;
-dialogRef.afterClosed().subscribe(res => {
-  let url = res.result;
-  if (url && url !== '' && url !== 'https://') {
-    console.log("Inserting url", url);
-    myObj.editorService.createLink(url);
-  }
-  
-});
-    /*if (url && url !== '' && url !== 'https://') {
-      console.log("Inserting url", url);
-      this.editorService.createLink(url);
-    }*/
+    let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
+      panelClass: 'admin-theme',
+      data:  null,
+      minWidth:'320px'
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      url = res.result;
+      this.editorService.restoreSelection();
+      if (url && url !== '' && url !== 'https://') {
+        this.editorService.createLink(url);
+      }
+    });
   }
 
   /**

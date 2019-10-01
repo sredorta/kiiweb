@@ -129,6 +129,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     if (changes.htmlInitial) {
       this.htmlInitial = changes.htmlInitial.currentValue;
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
+
     }
     if (changes.cancel){
       this.textArea.nativeElement.innerHTML = this.htmlInitial;

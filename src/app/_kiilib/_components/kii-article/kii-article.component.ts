@@ -19,12 +19,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**Key or id of the concerned article */
   @Input() key : string = "";
 
-  /**Display article in flex mode */
-  @Input() isFlex : boolean = false;
-
-  /**Center content vertically */
-  @Input() vAlign : "start" | "center" | "end" = "start";
-
   /**Storage folder */
   disk : DiskType = DiskType.CONTENT;
 

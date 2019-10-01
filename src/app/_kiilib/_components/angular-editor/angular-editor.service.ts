@@ -41,12 +41,8 @@ export class AngularEditorService {
    * @param url string from UI prompt
    */
   createLink(url: string) {
-    if (!url.includes('http')) {
-      this.doc.execCommand('createlink', false, url);
-    } else {
-      const newUrl = '<a href="' + url + '" target="_blank">' + this.selectedText + '</a>';
+      const newUrl = '<a href="' + url + '" >' + this.selectedText + '</a>';
       this.insertHtml(newUrl);
-    }
   }
 
   /**
@@ -87,9 +83,7 @@ export class AngularEditorService {
    * @param html HTML string
    */
   insertHtml(html: string): void {
-
     const isHTMLInserted = this.doc.execCommand('insertHTML', false, html);
-
     if (!isHTMLInserted) {
       throw new Error('Unable to perform the operation');
     }
@@ -152,27 +146,13 @@ export class AngularEditorService {
   }
 
   /**
-   * Upload file to uploadUrl
-   * @param file The file
-   */
-  /*uploadImage(file: File): Observable<HttpEvent<UploadResponse>> {
-
-    const uploadData: FormData = new FormData();
-
-    uploadData.append('file', file, file.name);
-
-    return this.http.post<UploadResponse>(this.uploadUrl, uploadData, {
-      reportProgress: true,
-      observe: 'events',
-    });
-  }*/
-
-  /**
    * Insert image with Url
    * @param imageUrl The imageUrl.
    */
   insertImage(imageUrl: string) {
-    this.doc.execCommand('insertImage', false, imageUrl);
+    //TODO: Add corresponding alt text from gallery !!!!!!!!!!!!!!!!!!!!!
+    const html = '<img src="'+imageUrl+ '" alt="test">';
+    this.doc.execCommand('insertHTML', false, html);
   }
 
   setDefaultParagraphSeparator(separator: string) {

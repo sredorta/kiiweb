@@ -20,7 +20,6 @@
     "kiilib.edit"   : "Modify",
     "kiilib.test"   : "Test",
     "kiilib.you"    : "You",
-    "kiilib.editor.placeholder" : "Enter text here...",
     "kiilib.day"    : "Day",
     "kiilib.all"    : "All",
     "kiilib.monday" : "Monday",
@@ -33,6 +32,11 @@
     "kiilib.language" : "Language",
     "kiilib.network": "Network",
 
+    "kiilib.editor.placeholder" : "Enter your text here...",
+    "kiilib.editor.undo"        : "Undo",
+    "kiilib.editor.redo"        : "Redo",
+    "kiilib.editor.bold"        : "Bold",
+    "kiilib.editor.italic"      : "Italic",
 
 
     "kiilib.pwa.update.text"   : "There is a new version available",
