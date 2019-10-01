@@ -117,6 +117,7 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
           this.isDataLoading = false;
         }, error => {
           event.source.toggle(); //Undo in case of error
+          this.isDataLoading = false;
         }, () => this.isDataLoading = false)
       )
     else
@@ -125,6 +126,7 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
           this.isDataLoading = false;
         }, error => {
           event.source.toggle();  //Undo in case of error
+          this.isDataLoading = false;
         }, () => this.isDataLoading = false)
       )      
   }
@@ -145,6 +147,7 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
             this.kiiApiUser.delete(new User(user)).subscribe(res => {
               this.deleteRow(user.id);
               this.isDataLoading = false;
+
             }, () => this.isDataLoading = false))
       })
     )
@@ -156,6 +159,9 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiUser.update(user).subscribe(res => {
+        this.isDataLoading = false;
+      }, error => {
+        change.source.toggle();  //Undo in case of error
         this.isDataLoading = false;
       }, () => this.isDataLoading = false)
     )

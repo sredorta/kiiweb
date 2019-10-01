@@ -97,6 +97,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**Determines if user can edit or not */
   setCanEdit() {
+    console.log("Article cathegory ",this.article.cathegory)
     if (this.article.exists()) {
       switch (this.article.cathegory) {
         case(DiskType.BLOG): {
@@ -109,9 +110,10 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
           this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("email");
           break;
         }
-        default:
+        default: {
           this.disk = DiskType.CONTENT;
-          this.canEdit = this.loggedInUser.hasRole("kubiiks");
+          this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("content");
+        }
       }
     }
   }
