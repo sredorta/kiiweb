@@ -1,6 +1,7 @@
 <div class="wrapper">
     <kii-spinner-overlay [show]="isDataLoading">
       <h1>{{'kiilib.image.gallery.title' | translate}}</h1>
+      <kii-item-form *ngIf="hasAltText" [hasCancelSave]="false" hint="kiilib.input.image.alt.hint" label="kiilib.input.image.alt.label" placeholder="kiilib.input.image.alt.placeholder" icon="fas fa-paragraph" [validators]="validator" (kiiOnSubmit)="onYouTube($event)"></kii-item-form>
       <div class="kii-image-gallery-images" [ngClass]="{'loading':isDataLoading}">
         <div *ngFor="let image of images" class="kii-image-gallery-image-wrapper">
           <div class="image-container"><img  [src]="image"></div>

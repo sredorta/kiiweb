@@ -1,5 +1,16 @@
 <div class="wrapper">
       <h1>{{'kiilib.link.dialog.title' | translate}}</h1>
+      <mat-form-field>
+          <mat-label>{{'kiilib.input.link.type.label' | translate}}</mat-label>
+          <mat-select value="default" (selectionChange)="onTypeChange($event)">
+          <mat-option  value="default">{{'kiilib.link.dialog.default' | translate}}</mat-option>
+          <mat-option  value="normal-button">{{'kiilib.link.dialog.button' | translate}}</mat-option>
+          <mat-option  value="flat-button">{{'kiilib.link.dialog.flat' | translate}}</mat-option>
+          <mat-option  value="raised-button">{{'kiilib.link.dialog.raised' | translate}}</mat-option>
+          <mat-option  value="stroked-button">{{'kiilib.link.dialog.stroked' | translate}}</mat-option>
+          </mat-select>
+          <mat-hint>{{'kiilib.input.link.type.hint' | translate}}</mat-hint>
+      </mat-form-field>
       <kii-item-form hint="kiilib.input.link.hint" label="kiilib.input.link.label" placeholder="kiilib.input.link.placeholder" icon="fas fa-link" [validators]="validator" (kiiOnSubmit)="onLink($event)"></kii-item-form>
       <div class="close-wrapper">
         <button mat-button (click)="onClose()" color="primary">{{'kiilib.cancel' | translate}}</button>

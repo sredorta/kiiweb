@@ -40,8 +40,14 @@ export class AngularEditorService {
    * Create URL link
    * @param url string from UI prompt
    */
-  createLink(url: string) {
-      const newUrl = '<a href="' + url + '" >' + this.selectedText + '</a>';
+  createLink(url: string, className:string) {
+      console.log("Adding link with class :", className);
+      let newUrl : string = "";
+      if (className!="default")
+        newUrl = '<a href="' + url + '" class="'+className+'">' + this.selectedText + '</a>';
+      else
+        newUrl = '<a href="' + url + '" >' + this.selectedText + '</a>';
+
       this.insertHtml(newUrl);
   }
 
@@ -149,10 +155,11 @@ export class AngularEditorService {
    * Insert image with Url
    * @param imageUrl The imageUrl.
    */
-  insertImage(imageUrl: string) {
-    //TODO: Add corresponding alt text from gallery !!!!!!!!!!!!!!!!!!!!!
-    const html = '<img src="'+imageUrl+ '" alt="test">';
+  insertImage(imageUrl: string, altText:string) {
+    const html = '<img src="'+imageUrl+'" alt="' +altText+'">';
+    this.restoreSelection();
     this.doc.execCommand('insertHTML', false, html);
+ 
   }
 
   setDefaultParagraphSeparator(separator: string) {
@@ -169,7 +176,7 @@ export class AngularEditorService {
   }
 
   insertVideo(videoUrl: string) {
-    console.log("Inserting video as you want !!!", videoUrl);
+    this.restoreSelection();
     if (videoUrl.match('youtu.be')) {
       this.insertYouTubeVideoTag(videoUrl);
     }  else if (videoUrl.match('vimeo.com')) {
@@ -182,10 +189,10 @@ export class AngularEditorService {
 
   //Local video from local server
   private insertLocalVideo(videoUrl:string) {
-    console.log("Inserting local video !");
+    this.restoreSelection();
     const thumbnail = `
     <video controls="" width="100%">
-      <source src="${videoUrl}" type="video/mp4">
+      <source src="${videoUrl}">
     </video>`;
     this.insertHtml(thumbnail);
 
@@ -194,6 +201,7 @@ export class AngularEditorService {
 
   private insertYouTubeVideoTag(videoUrl: string): void {
     console.log("Inserting youtube video !!!!");
+    this.restoreSelection();
     const tmp = videoUrl.split('/');
     const index = tmp.length-1;
     const id = tmp[index]

@@ -187,7 +187,17 @@
     "kiilib.input.link.label"                     : "Lien",
     "kiilib.input.link.placeholder"               : "https://www....",
     "kiilib.input.link.hint"                      : "Adresse du lien",
+    "kiilib.input.image.alt.label"                : "Texte alternatif",
+    "kiilib.input.image.alt.placeholder"          : "Descriptión...",
+    "kiilib.input.image.alt.hint"                 : "Texte alternatif de l'image",
+    "kiilib.input.link.type.label"                : "Type de lien",
+    "kiilib.input.link.type.hint"                 : "Seleccionez un type de lien",
 
+    "kiilib.link.dialog.default"                  : "Lien",
+    "kiilib.link.dialog.button"                   : "Bouton",
+    "kiilib.link.dialog.flat"                     : "Bouton plat",
+    "kiilib.link.dialog.raised"                   : "Bouton surelevé",
+    "kiilib.link.dialog.stroked"                  : "Boutoun avec contour",
     "kiilib.link.dialog.title"                    : "Ajouter un lien",
 
     "kiilib.tooltip.password"           : "Le mot de passe doit avoir une minuscule, une majuscule et un numéro",

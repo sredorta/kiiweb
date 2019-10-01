@@ -189,7 +189,17 @@
     "kiilib.input.link.label"                     : "Enllaç",
     "kiilib.input.link.placeholder"               : "https://www....",
     "kiilib.input.link.hint"                      : "Adreça del enllaç",
+    "kiilib.input.image.alt.label"                : "Texte alternatiu",
+    "kiilib.input.image.alt.placeholder"          : "Descripció...",
+    "kiilib.input.image.alt.hint"                 : "Texte alternatiu de l'imatge",
+    "kiilib.input.link.type.label"                : "Tipus d'enllaç",
+    "kiilib.input.link.type.hint"                 : "Selecciona un tipus d'enllaç",
 
+    "kiilib.link.dialog.default"                  : "Enllaç",
+    "kiilib.link.dialog.button"                   : "Buttó",
+    "kiilib.link.dialog.flat"                     : "Buttó plà",
+    "kiilib.link.dialog.raised"                   : "Buttó aixecat",
+    "kiilib.link.dialog.stroked"                  : "Buttó contorn",
     "kiilib.link.dialog.title"                    : "Afagir un enllaç",
 
 

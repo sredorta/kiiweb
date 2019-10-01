@@ -187,7 +187,17 @@
     "kiilib.input.link.label"                     : "Link",
     "kiilib.input.link.placeholder"               : "https://www....",
     "kiilib.input.link.hint"                      : "Link address",
+    "kiilib.input.image.alt.label"                : "Alt text",
+    "kiilib.input.image.alt.placeholder"          : "Description...",
+    "kiilib.input.image.alt.hint"                 : "Alt text for the image",
+    "kiilib.input.link.type.label"                : "Link type",
+    "kiilib.input.link.type.hint"                 : "Select a link type",
 
+    "kiilib.link.dialog.default"                  : "Link",
+    "kiilib.link.dialog.button"                   : "Button",
+    "kiilib.link.dialog.flat"                     : "Flat button",
+    "kiilib.link.dialog.raised"                   : "Raised button",
+    "kiilib.link.dialog.stroked"                  : "Stroked button",
     "kiilib.link.dialog.title"                    : "Add a link",
 
     "kiilib.tooltip.password"           : "Password must have one lower case, one upper case and one number",

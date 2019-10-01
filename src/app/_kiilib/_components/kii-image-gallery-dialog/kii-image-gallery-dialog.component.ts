@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output,EventEmitter, Inject} from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter, Inject, ViewChild} from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Validators } from '@angular/forms';
+import { KiiItemFormComponent } from '../_forms/kii-item-form/kii-item-form.component';
 
 @Component({
   selector: 'kii-image-gallery-dialog',
@@ -12,9 +14,12 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
 
   isDataLoading : boolean = false;
   images:string[] = [];
+  validator : Validators;
 
+  hasAltText : boolean = true;
   @Input() disk : DiskType = DiskType.BLOG;
   @Output() image = new EventEmitter<string>();
+  @ViewChild(KiiItemFormComponent, {static:false}) altForm : KiiItemFormComponent;
 
   maxSize : number = 1024;
 
@@ -23,9 +28,14 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
               @Inject(MAT_DIALOG_DATA) data:any) { 
                 super(); 
                 this.disk = data.disk;
+                this.hasAltText = data.hasAltText;
               }
 
   ngOnInit() {
+    this.validator = Validators.compose([
+      Validators.required,
+      Validators.minLength(5)
+    ]);
     this.getServerImages();
     console.log("DATA ON DIALOG:", this.disk)
     switch(this.disk) {
@@ -38,6 +48,8 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
       }
     }
   }
+
+
 
   //Get all images from the server
   getServerImages() {
@@ -53,11 +65,13 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
 
   //When a image from the gallery is selected
   onSelect(image:string) {
-    console.log("Emitting :",image);
-    this.image.emit(image);
-    //Close the dialog sending the selected image
-    this.dialogRef.close(image);
-
+    if (this.hasAltText) {
+      if (this.altForm.myForm.valid) {
+         this.dialogRef.close({url:image, alt:this.altForm.myForm.value.result});
+      }
+    } else {
+      this.dialogRef.close({url:image, alt:null});
+    }
   }
 
   onUploadImage(image:string) {

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSelectChange } from '@angular/material';
 
 @Component({
   selector: 'app-kii-link-dialog',
@@ -10,6 +10,7 @@ import { MatDialogRef } from '@angular/material';
 export class KiiLinkDialogComponent implements OnInit {
   validator : Validators;
 
+  type:string = "default";
 
   constructor(private dialogRef:MatDialogRef<KiiLinkDialogComponent>) { }
 
@@ -20,13 +21,16 @@ export class KiiLinkDialogComponent implements OnInit {
   }
 
   onLink(url:string) {
-    console.log("Sending url", url);
-    this.dialogRef.close(url);
+    this.dialogRef.close({url:url,class:this.type});
   }
 
 
   onClose() {
     this.dialogRef.close(null);
+  }
+
+  onTypeChange(event:MatSelectChange) {
+    this.type = event.value;
   }
 
 }

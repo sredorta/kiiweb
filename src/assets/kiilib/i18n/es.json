@@ -186,7 +186,17 @@
     "kiilib.input.link.label"                     : "Enlaze",
     "kiilib.input.link.placeholder"               : "https://www....",
     "kiilib.input.link.hint"                      : "Dirección del enlaze",
+    "kiilib.input.image.alt.label"                : "Texto alternativo",
+    "kiilib.input.image.alt.placeholder"          : "Descripción...",
+    "kiilib.input.image.alt.hint"                 : "Texto alternativo de la imagen",
+    "kiilib.input.link.type.label"                : "Tipo de enlace",
+    "kiilib.input.link.type.hint"                 : "Selecciona un tipo de enlace",
 
+    "kiilib.link.dialog.default"                  : "Enlace",
+    "kiilib.link.dialog.button"                   : "Botón",
+    "kiilib.link.dialog.flat"                     : "Botón plano",
+    "kiilib.link.dialog.raised"                   : "Botón con relieve",
+    "kiilib.link.dialog.stroked"                  : "Botón con contorno",
     "kiilib.link.dialog.title"                    : "Añadir un enlaze",
 
     "kiilib.tooltip.password"           : "El password debe tener una minuscula, una mayuscula e un numero ",

@@ -246,12 +246,10 @@ export class AngularEditorToolbarComponent {
 
     });
     dialogRef.afterClosed().subscribe(res => {
+      console.log("RESULT:",res.url);
       if (res) {
-        url = res.result;
         this.editorService.restoreSelection();
-        if (url && url !== '' && url !== 'https://') {
-          this.editorService.createLink(url);
-        }
+        this.editorService.createLink(res.url.result, res.class);
       }
     });
   }
@@ -268,7 +266,6 @@ export class AngularEditorToolbarComponent {
       minWidth:'320px'
     });
     dialogRef.afterClosed().subscribe(url => {
-      console.log("Inserting video :", url);
       if (url && url !== '' && url !== `https://`) {
         this.editorService.insertVideo(url);
       }
@@ -279,28 +276,25 @@ export class AngularEditorToolbarComponent {
   insertImage() {
     let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
       panelClass: 'admin-theme',
-      data: {disk:this.disk},
+      data: {disk:this.disk, hasAltText:true},
       minWidth:'320px',
     });
-    dialogRef.afterClosed().subscribe(url => {
-      console.log("Result of dialog:", url);
-      if (url && url !== '' && url !== `https://`) {
-        this.editorService.insertImage(url);
-      }
+    dialogRef.afterClosed().subscribe(result => {
+      if (result)
+        this.editorService.insertImage(result.url, result.alt);
     });
   }
 
   /**Inserts background image using gallery */
   insertImageBackground() {
-    console.log("Inserting background image");
     let dialogRef = this.dialog.open(KiiImageGalleryDialogComponent, {
       panelClass: 'admin-theme',
-      data:  {disk:this.disk},
+      data:  {disk:this.disk, hasAltText:false},
       minWidth:'320px'
     });
-    dialogRef.afterClosed().subscribe(url => {
-      if (url) {
-        this.backgroundChange.emit(url);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.backgroundChange.emit(result.url);
       }
     });
   }
