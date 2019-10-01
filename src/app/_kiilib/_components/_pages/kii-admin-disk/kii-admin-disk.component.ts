@@ -16,7 +16,7 @@ export class KiiAdminDiskComponent extends KiiBaseAbstract implements OnInit {
 
   isDataLoading : boolean = true;
   result : DiskResult = new DiskResult(null);
-  stackedOptions : any = {};
+  pieOptionsMain : any = {};
   pieOptions : any = {};
 
 
@@ -58,19 +58,18 @@ export class KiiAdminDiskComponent extends KiiBaseAbstract implements OnInit {
   constructor(private kiiApiDisk: KiiApiDiskService) {super() }
 
   ngOnInit() {
-    this.stackedOptions = deepmerge.all([this.defaultChartOptions,
+
+    this.pieOptions = deepmerge.all([this.defaultChartOptions,
       {
-        colors:['#9ccc65','#b0bec5','#ffa726','#8d6e63','#78909C'], 
-        isStacked:'percent',
-        vAxis: { textPosition: 'none' },
+        colors:['#558B2F','#7CB342','#9CCC65','#C5E1A5','#F1F8E9'], 
         pieSliceTextStyle: {
           color: 'white',
         },
       }
     ]); 
-    this.pieOptions = deepmerge.all([this.defaultChartOptions,
+    this.pieOptionsMain = deepmerge.all([this.defaultChartOptions,
       {
-        colors:['#757575','#9ccc65','#ffa726','#8d6e63','#78909C'], 
+        colors:['#558B2F','#757575','#757575'], 
         pieHole:0.4,
         pieSliceTextStyle: {
           color: 'white',
