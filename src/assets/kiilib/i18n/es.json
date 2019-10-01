@@ -57,6 +57,7 @@
     "kiilib.editor.background"      : "Imagen de fondo",
     "kiilib.editor.backgroundclear" : "Borrar imagen de fondo",
     "kiilib.editor.video"           : "Añadir video",
+    "kiilib.editor.icon"            : "Añadir un icono",
     "kiilib.editor.line"            : "Añadir linea",
     "kiilib.editor.clearformatting" : "Borrar los formatos",
     "kiilib.editor.code"            : "Codigo fuente",
@@ -191,6 +192,12 @@
     "kiilib.input.image.alt.hint"                 : "Texto alternativo de la imagen",
     "kiilib.input.link.type.label"                : "Tipo de enlace",
     "kiilib.input.link.type.hint"                 : "Selecciona un tipo de enlace",
+    "kiilib.input.icon.label"                     : "Icono",
+    "kiilib.input.icon.placeholder"               : "fas fa-times",
+    "kiilib.input.icon.hint"                      : "Introduce el icono 'font awesome'",
+
+    "kiilib.icon.dialog.title"                    : "Añadir un icono",
+
 
     "kiilib.link.dialog.default"                  : "Enlace",
     "kiilib.link.dialog.button"                   : "Botón",

@@ -110,6 +110,9 @@
             [disabled]="htmlMode" tabindex="-1"><i class="fas fa-image"></i><i class="fas fa-trash trash-background-icon"></i></button>                        
     <button [id]="'insertVideo-'+id" type="button" class="angular-editor-button"
             (click)="insertVideo()" title="{{'kiilib.editor.video' | translate}}" [disabled]="htmlMode" tabindex="-1"><i class="fa fa-video"></i></button>
+    <button [id]="'insertIcon-'+id" type="button" class="angular-editor-button"
+            (click)="insertIcon()" title="{{'kiilib.editor.icon' | translate}}" [disabled]="htmlMode" tabindex="-1"><i class="fas fa-icons"></i></button>
+    
     <button [id]="'insertHorizontalRule-'+id" type="button" title="{{'kiilib.editor.line' | translate}}" class="angular-editor-button"
             (click)="triggerCommand('insertHorizontalRule')" [disabled]="htmlMode" tabindex="-1"><i class="fa fa-minus"></i></button>
   </div>

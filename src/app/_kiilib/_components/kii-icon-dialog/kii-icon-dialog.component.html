@@ -1,0 +1,6 @@
+<div class="wrapper">
+   <h1>{{'kiilib.icon.dialog.title' | translate}}</h1>
+   <div class="preview-wrapper"><i class="preview-icon" [ngClass]="iconClass"></i></div>
+   <kii-item-form  hint="kiilib.input.icon.hint" label="kiilib.input.icon.label" placeholder="kiilib.input.icon.placeholder" icon="fab fa-font-awesome" [validators]="validator" (kiiOnSubmit)="onInsertIcon($event)"></kii-item-form>
+
+</div>

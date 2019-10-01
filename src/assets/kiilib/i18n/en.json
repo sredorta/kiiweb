@@ -57,6 +57,7 @@
     "kiilib.editor.background"      : "Add a background image",
     "kiilib.editor.backgroundclear" : "Clear background image",
     "kiilib.editor.video"           : "Add a video",
+    "kiilib.editor.icon"            : "Add an icon",
     "kiilib.editor.line"            : "Add a line",
     "kiilib.editor.clearformatting" : "Clear formatting",
     "kiilib.editor.code"            : "Source code",
@@ -192,6 +193,12 @@
     "kiilib.input.image.alt.hint"                 : "Alt text for the image",
     "kiilib.input.link.type.label"                : "Link type",
     "kiilib.input.link.type.hint"                 : "Select a link type",
+    "kiilib.input.icon.label"                     : "Icon",
+    "kiilib.input.icon.placeholder"               : "fas fa-times",
+    "kiilib.input.icon.hint"                      : "Write the 'font awesome' icon",
+
+    "kiilib.icon.dialog.title"                    : "Add an icon",
+
 
     "kiilib.link.dialog.default"                  : "Link",
     "kiilib.link.dialog.button"                   : "Button",

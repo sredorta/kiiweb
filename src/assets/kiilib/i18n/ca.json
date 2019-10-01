@@ -57,6 +57,7 @@
     "kiilib.editor.background"      : "Imatge de fons",
     "kiilib.editor.backgroundclear" : "Borra l'imatge de fons",
     "kiilib.editor.video"           : "Afageix un video",
+    "kiilib.editor.icon"            : "Afageix une icone",
     "kiilib.editor.line"            : "Afageix una linea",
     "kiilib.editor.clearformatting" : "Borra els formats",
     "kiilib.editor.code"            : "Codi font",
@@ -194,6 +195,12 @@
     "kiilib.input.image.alt.hint"                 : "Texte alternatiu de l'imatge",
     "kiilib.input.link.type.label"                : "Tipus d'enllaç",
     "kiilib.input.link.type.hint"                 : "Selecciona un tipus d'enllaç",
+    "kiilib.input.icon.label"                     : "Icone",
+    "kiilib.input.icon.placeholder"               : "fas fa-times",
+    "kiilib.input.icon.hint"                      : "Introdueix la icone 'font awesome'",
+
+    "kiilib.icon.dialog.title"                    : "Afegir una icone",
+
 
     "kiilib.link.dialog.default"                  : "Enllaç",
     "kiilib.link.dialog.button"                   : "Buttó",

@@ -1,0 +1,16 @@
+.wrapper {
+    padding:10px;
+}
+.preview-wrapper {
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-icon {
+    font-size: 50px;
+    border:1px solid;
+    min-width: 30px;
+    min-height: 30px;
+}

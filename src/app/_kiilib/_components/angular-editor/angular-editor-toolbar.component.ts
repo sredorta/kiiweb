@@ -9,6 +9,7 @@ import { KiiVideoGalleryDialogComponent } from '../kii-video-gallery-dialog/kii-
 import { KiiImageGalleryDialogComponent } from '../kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { DiskType } from '../../_services/kii-api-disk.service';
 import { KiiLinkDialogComponent } from '../kii-link-dialog/kii-link-dialog.component';
+import { KiiIconDialogComponent } from '../kii-icon-dialog/kii-icon-dialog.component';
 
 @Component({
   selector: 'angular-editor-toolbar',
@@ -226,6 +227,23 @@ export class AngularEditorToolbarComponent {
     this.fontName = this.doc.queryCommandValue('FontName').replace(/"/g, '');
     this.backColor = this.doc.queryCommandValue('backColor');
   }
+
+  /**Insert icon */
+  insertIcon() {
+    let dialogRef = this.dialog.open(KiiIconDialogComponent, {
+      panelClass: 'admin-theme',
+      data:  null,
+      minWidth:'310px',
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        console.log("Inserting icon with:",res);
+        this.editorService.restoreSelection();
+        this.editorService.insertIcon(res);
+      }
+    });
+  }
+
 
   /**
    * insert URL link
