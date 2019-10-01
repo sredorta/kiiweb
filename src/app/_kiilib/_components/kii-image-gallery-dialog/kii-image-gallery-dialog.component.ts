@@ -29,6 +29,7 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
                 super(); 
                 this.disk = data.disk;
                 this.hasAltText = data.hasAltText;
+                console.log("Using disk in dialog:", this.disk);
               }
 
   ngOnInit() {

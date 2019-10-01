@@ -76,6 +76,7 @@ export class KiiApiDiskService {
     
     /**Uploads image to the specific disk */
     public uploadImage(disk:DiskType,data:FormData) {
+      console.log("Uploading image through:", environment.apiURL + '/disk/images/upload/'+disk);
       return this.http.post(environment.apiURL + '/disk/images/upload/'+disk, data, {
         reportProgress: true,
         observe: 'events'

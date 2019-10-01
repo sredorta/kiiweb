@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Email } from '../../../_models/email';
 import { KiiApiEmailService } from '../../../_services/kii-api-email.service';
 import { AngularEditorComponent } from '../../angular-editor/angular-editor.component';
+import { DiskType } from '../../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'kii-email-edit-form',
@@ -17,6 +18,8 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
   previewEmail : Email = new Email(null);
 
   cancel:boolean = false;
+
+  disk : DiskType = DiskType.EMAIL;
 
   /**Initial editor Config */
   editorConfig = {

@@ -6,6 +6,7 @@ import { User } from '../../../_models/user';
 import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
 import { Email } from '../../../_models/email';
 import { MatCheckboxChange } from '@angular/material';
+import { DiskType } from '../../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'kii-email-compose-form',
@@ -25,6 +26,7 @@ export class KiiEmailComposeFormComponent  extends KiiFormAbstract implements On
   /**Contains the preview of the current email */
   @ViewChild('previewEmail',{static:false}) previewEmail : ElementRef;
 
+  disk : DiskType = DiskType.EMAIL;
 
   /**Contains all email models */
   @Input() emails : Email[] = [];

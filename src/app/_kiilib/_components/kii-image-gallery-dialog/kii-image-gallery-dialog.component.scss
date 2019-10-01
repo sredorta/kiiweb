@@ -2,6 +2,8 @@
     padding:10px;
     display:flex;
     flex-direction: column;
+    max-height: 95vh;
+    overflow-y: auto;
 }
 .kii-image-gallery-images {
     flex:1;
