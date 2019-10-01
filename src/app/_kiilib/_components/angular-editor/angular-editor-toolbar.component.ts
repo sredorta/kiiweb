@@ -237,7 +237,6 @@ export class AngularEditorToolbarComponent {
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
-        console.log("Inserting icon with:",res);
         this.editorService.restoreSelection();
         this.editorService.insertIcon(res);
       }
@@ -264,7 +263,6 @@ export class AngularEditorToolbarComponent {
 
     });
     dialogRef.afterClosed().subscribe(res => {
-      console.log("RESULT:",res.url);
       if (res) {
         this.editorService.restoreSelection();
         this.editorService.createLink(res.url.result, res.class);

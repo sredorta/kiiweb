@@ -89,7 +89,6 @@ export class KiiAdminDiskComponent extends KiiBaseAbstract implements OnInit {
   onDelete() {
     this.isDataLoading = true;
     this.kiiApiDisk.optimize().subscribe(res => {
-      console.log("Recieved result",res);
       this.result = res;
       this.isDataLoading = false;
     },()=> this.isDataLoading = false)

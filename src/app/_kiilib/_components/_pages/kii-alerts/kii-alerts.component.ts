@@ -109,7 +109,6 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
 
   /**Moves user to the corresponding route depending on the notification type */
   rowClick(alert:Alert) {
-    console.log("We got type", alert.type);
     switch (alert.type) {
         case "chat": 
           let translatedPath: any = this.localize.translateRoute('/admin-chats');

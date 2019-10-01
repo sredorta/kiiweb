@@ -24,7 +24,6 @@ export class KiiVideoGalleryDialogComponent  implements OnInit {
 
   //When a video from the gallery has been selected
   onVideoFromGallery(video:string) {
-    console.log("We got event from gallery", video);
     this.dialogRef.close(video);
   }
   //When youtube has been selected

@@ -90,7 +90,6 @@ export class KiiFooterComponent extends KiiBaseAuthAbstract implements OnInit {
   }
 
   onClick(social:string) {
-    console.log("Clicked : " + social);
     this.kiiApiStats.send(StatAction.SOCIAL_CLICK, social);
   }
 

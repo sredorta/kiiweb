@@ -105,7 +105,6 @@ export class KiiApiAuthService {
 
   /**Sets unread notifications */
   public setUnreadNotifications(count:number) {
-    console.log("SETTING COUNT", count);
      this._alerts.next(count);
   }
   /**Gets observable with notifications unread */

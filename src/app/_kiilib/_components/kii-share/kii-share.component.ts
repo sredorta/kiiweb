@@ -26,7 +26,6 @@ export class KiiShareComponent extends KiiBaseAbstract implements OnInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.url = window.location.href;
-      console.log("URL IS:",this.url)
       this.addSubscriber(
         this.kiiMisc.onCookiesChange().subscribe(res => {
           this.cookies = res;
@@ -36,7 +35,6 @@ export class KiiShareComponent extends KiiBaseAbstract implements OnInit {
   }
 
   sendStats(social:string) {
-      console.log("SENDING STATS !!");
       this.kiiStats.send(StatAction.SOCIAL_CLICK, social);
   }
 

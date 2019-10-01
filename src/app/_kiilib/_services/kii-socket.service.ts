@@ -161,7 +161,7 @@ export class KiiSocketService {
   /**Loads chat data */
   private loadOnChatData() {
     this.socket.on(SocketEvents.CHAT_DATA, (data:IChatData) => {
-      console.log("Recieved CHAT_DATA",data);
+      //console.log("Recieved CHAT_DATA",data);
       this.ngZone.run((status: string) => {
            this._data$.next(data);
       })   

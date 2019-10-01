@@ -62,11 +62,8 @@ export class KiiProfileComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**When the form is valid and submitted */
   onSubmit(value:any) {
-    console.log("SUBMITTING !!!");
-    console.log(value);
     this.profileForm.isFormLoading = true;
       this.addSubscriber(this.kiiApiAuth.updateAuthUser(value).subscribe(res => {
-        console.log("Recived result: ",res);
         this.kiiApiAuth.setLoggedInUser(new User(res));
         this.profileForm.disableControls();
         this.profileForm.resetPasswords();

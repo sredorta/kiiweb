@@ -76,7 +76,6 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   constructor(private kiiApiMisc: KiiMiscService, private kiiApiDisk: KiiApiDiskService) { super() }
 
   ngOnInit() {
-    console.log("Using storage : ", this.storage);
     this.setInitialImage();
   }
 
@@ -110,7 +109,6 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
   /**Loads the image file */
   loadImage(event:any) {
-    console.log(event.target.files[0]);
     if (event.target.files[0].name.includes(".svg")) {
       this.isSVG = true;
     }
@@ -283,8 +281,6 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
           this.progress = res.message;
         } 
         if (res.status == "completed") {
-          console.log(res);
-          console.log("EMITTING : " + res.message.imageUrl);
           this.onUpload.emit(res.message.imageUrl);
           this.isUploaded = true;
           this.isLoading = false;

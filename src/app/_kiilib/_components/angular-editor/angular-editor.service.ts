@@ -32,7 +32,6 @@ export class AngularEditorService {
       this.doc.execCommand('formatBlock', false, command);
       return;
     }
-    console.log("Executing command",command);
     this.doc.execCommand(command, false, null);
   }
 
@@ -41,7 +40,6 @@ export class AngularEditorService {
    * @param url string from UI prompt
    */
   createLink(url: string, className:string) {
-      console.log("Adding link with class :", className);
       let newUrl : string = "";
       if (className!="default")
         newUrl = '<a href="' + url + '" class="'+className+'">' + this.selectedText + '</a>';
@@ -207,7 +205,6 @@ export class AngularEditorService {
 
 
   private insertYouTubeVideoTag(videoUrl: string): void {
-    console.log("Inserting youtube video !!!!");
     this.restoreSelection();
     const tmp = videoUrl.split('/');
     const index = tmp.length-1;

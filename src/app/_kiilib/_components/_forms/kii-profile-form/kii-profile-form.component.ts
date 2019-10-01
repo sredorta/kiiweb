@@ -34,8 +34,6 @@ export class KiiProfileFormComponent extends KiiFormAbstract implements OnInit {
             private trans: TranslateService) {super() }
 
   ngOnInit() {
-    console.log("ngOnInit !!!");
-    console.log(this.languages);
     this.createForm();
     this.addSubscriber(this.kiiApiLang.onChange().subscribe((res : any) => {
       this.getPasswordInfo();

@@ -42,7 +42,6 @@ export class KiiPwaService {
 
 
     if (isPlatformBrowser(this._platformId)) {
-      console.log("PWA constructor !!!!");
       //Handle version updates if required we show bottom sheet and upload new version
       swUpdate.available.subscribe(event => {
         let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {

@@ -39,7 +39,6 @@ export class DiskResult {
     removableVideosSize : number = 0;
 
   constructor(obj: any | null) {
-    console.log("Recieved from server",obj);
     if (obj) {
         Object.keys(this).forEach(key => {
             if (obj[key] != undefined) 
@@ -72,13 +71,11 @@ export class KiiApiDiskService {
     }
     /**Gets all images */
     public getImages(disk:DiskType) :Observable<string[]> {
-      console.log("Getting images with disk",disk);
       return this.http.post(environment.apiURL + '/disk/images/all', {disk:disk}).pipe(map((res:string[]) => res));
     }  
     
     /**Uploads image to the specific disk */
     public uploadImage(disk:DiskType,data:FormData) {
-      console.log("Uploading image to disk :",disk);
       return this.http.post(environment.apiURL + '/disk/images/upload/'+disk, data, {
         reportProgress: true,
         observe: 'events'

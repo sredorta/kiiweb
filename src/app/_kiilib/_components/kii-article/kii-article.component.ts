@@ -71,7 +71,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
             ) { super(kiiApiAuth,platformId) }
 
   ngOnInit() {
-    console.log("WE ARE UNSING", this.disk);
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
         this.loggedInUser = res;

@@ -37,7 +37,6 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
       Validators.minLength(5)
     ]);
     this.getServerImages();
-    console.log("DATA ON DIALOG:", this.disk)
     switch(this.disk) {
       case(DiskType.EMAIL): {
         this.maxSize = 600;
@@ -56,7 +55,6 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
       this.isDataLoading = true;
       this.addSubscriber(
         this.kiiApiDisk.getImages(this.disk).subscribe(res => {
-          console.log("List of images",res);
           this.images = res;
           this.isDataLoading = false;
         },() => this.isDataLoading = false)

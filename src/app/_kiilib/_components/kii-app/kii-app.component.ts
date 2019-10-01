@@ -95,7 +95,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.addSubscriber(
         this.swPush.notificationClicks.subscribe( event => {
-          console.log('Received notification: ', event);
           const url = event.notification.data.url;
           window.open(url, '_blank');
         })
@@ -118,7 +117,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           data:  null 
         });
         dialogRef.afterClosed().subscribe(result => {
-          console.log("Now we need to close room", result);
            //Leave all rooms
            this.kiiSocket.chatLeave(result);
 
@@ -146,8 +144,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     //Get all initial data
     this.addSubscriber(
       this.kiiMisc.loadInitialData().subscribe(res => {
-        console.log("INTIAL DATA");
-        //console.log(res);
         this.kiiApiAuth.setLoggedInUser(new User(res.user));
             //Set language based on user language 
         let mySettings = [];
@@ -197,7 +193,6 @@ seo() {
   //Detect when user closes the app so that we can save end-time of the session
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
-    console.log("Destroying here !!!!!!!!!!!!!!!!!!!");
     this.kiiApiStats.send(StatAction.APP_END,this.router.url);
     this.kiiApiStats.clearSession();
   }

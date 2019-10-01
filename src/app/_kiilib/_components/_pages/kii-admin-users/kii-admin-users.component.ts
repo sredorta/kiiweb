@@ -95,7 +95,6 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
         this.kiiApiEmail.load().subscribe(emails => {
           this.emails = emails;    
           this.kiiApiEmail.set(this.emails);    
-          console.log(this.emails);
           this.isDataLoading = false;
         })
       )
@@ -157,7 +156,6 @@ export class KiiAdminUsersComponent extends KiiTableAbstract implements OnInit {
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiUser.update(user).subscribe(res => {
-        console.log(res);
         this.isDataLoading = false;
       }, () => this.isDataLoading = false)
     )

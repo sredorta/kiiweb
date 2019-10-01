@@ -8,7 +8,6 @@ export class KiiClickStopPropagationDirective
     @HostListener("click", ["$event"])
     public onClick(event: any): void
     {
-      console.log("STOPED EVENT !");
         event.stopPropagation();
         event.preventDefault();
     }

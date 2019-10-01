@@ -119,7 +119,6 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
 
   /**Saves the image of a key */
   saveImage(image:string, key:string) {
-    console.log("Saving image", image)
     let mySetting = this.kiiApiSetting.getByKey(key);
     mySetting.value = image;
     this.loading = true;

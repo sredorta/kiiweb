@@ -32,7 +32,6 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
   constructor(private kiiApiEmail: KiiApiEmailService, private renderer: Renderer2) { super() }
 
   ngOnInit() {
-    console.log("Initial email",this.email);
     this.previewEmail = JSON.parse(JSON.stringify(this.email));
     this.createForm();
 
@@ -137,7 +136,6 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
   onSendEmailTest() {
     this.addSubscriber(
       this.kiiApiEmail.sendToMe(this.previewEmail).subscribe(res => {
-        console.log(res);
       })
     )
   }

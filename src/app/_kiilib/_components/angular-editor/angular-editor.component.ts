@@ -139,6 +139,9 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
       this.isEditMode = changes.isEditMode.currentValue;
       this.config.editable = changes.isEditMode.currentValue;
     }
+    if (changes.background) {
+      this.onBackgroundChange(this.background,false);
+    }
   }
 
 

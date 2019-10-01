@@ -31,7 +31,6 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
 
   ngOnInit() {
     this.getServerVideos();
-    console.log("Working on disk",this.disk);
   }
 
 
@@ -40,7 +39,6 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiDisk.getVideos().subscribe(res => {
-        console.log("List of videos",res);
         this.videos = res;
         this.isDataLoading = false;
       },() => this.isDataLoading = false)

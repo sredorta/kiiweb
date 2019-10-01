@@ -34,12 +34,10 @@ export class KiiContactFormComponent extends KiiFormAbstract implements OnInit {
   }
   //Do send the message
   onSubmit(value:any) {
-    if (!this.myForm.valid) console.log("Invalid form");
     if (this.myForm.valid) {
       this.isFormLoading = true;
       this.addSubscriber(
         this.kiiApi.contact(value).subscribe(res => {
-          console.log(res);
           this.isFormLoading = false;
         }, () => this.isFormLoading = false)
       )

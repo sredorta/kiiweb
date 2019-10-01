@@ -25,9 +25,7 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
   ngOnInit() {
     this.addSubscriber(
       this.route.params.subscribe(params => {
-          console.log(params);
           this.id = +params['id']; // (+) converts string 'id' to a number
-          console.log("showing details for article id : " + this.id);
       })
     )
     this.addSubscriber(

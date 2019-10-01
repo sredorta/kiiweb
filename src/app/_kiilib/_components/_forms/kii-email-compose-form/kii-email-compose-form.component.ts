@@ -93,12 +93,9 @@ export class KiiEmailComposeFormComponent  extends KiiFormAbstract implements On
       this.myForm.controls["email"].enable();
       this.myForm.controls["additionalHtml"].enable();
     }
-    console.log(change);
   }
   onSubmit(value) {
-    console.log(value);
     if (this.myForm.valid) {
-      console.log("VALID FORM !");
       let email = this.emails.find(obj=> obj.name == value.emailModel);
       if (email) {
         //Send email to all users or to specified email address

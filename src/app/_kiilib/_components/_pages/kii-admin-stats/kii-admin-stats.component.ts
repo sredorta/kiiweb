@@ -233,7 +233,6 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
 
   /**When we delete all elements */
   onDelete() {
-    console.log("Delete all");
     let dialogRef = this.dialog.open(KiiConfirmDialogComponent, {
       panelClass: "admin-theme",
       data: {title: "kiilib.stats.confirm.title", text: "kiilib.stats.confirm.text"}
@@ -244,7 +243,6 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
 
         this.addSubscriber(
           this.kiiApiStats.reset().subscribe(res => {
-            console.log(res);
             this.result = new StatResult(null);
             this.isDataLoading = false;
           }, () => this.isDataLoading = false)

@@ -64,7 +64,6 @@ export class Stat {
 
 
     constructor(obj: IStat | null) {
-        console.log("Creating Stats with result" ,obj);
         if (obj) {
             Object.keys(this).forEach(key => {
                 if (obj[key] != undefined) 
