@@ -16,6 +16,8 @@ export class KiiEmailEditFormComponent extends KiiFormAbstract implements OnInit
 
   previewEmail : Email = new Email(null);
 
+  cancel:boolean = false;
+
   /**Initial editor Config */
   editorConfig = {
     editable: true,
