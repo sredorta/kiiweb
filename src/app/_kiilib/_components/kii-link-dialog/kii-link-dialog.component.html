@@ -1,6 +1,6 @@
 <div class="wrapper">
       <h1>{{'kiilib.link.dialog.title' | translate}}</h1>
-      <mat-form-field>
+      <mat-form-field *ngIf="disk != 'email'">
           <mat-label>{{'kiilib.input.link.type.label' | translate}}</mat-label>
           <mat-select value="default" (selectionChange)="onTypeChange($event)">
           <mat-option  value="default">{{'kiilib.link.dialog.default' | translate}}</mat-option>

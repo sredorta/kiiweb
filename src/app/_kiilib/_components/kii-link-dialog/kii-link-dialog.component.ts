@@ -1,6 +1,7 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, Inject } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { MatDialogRef, MatSelectChange } from '@angular/material';
+import { MatDialogRef, MatSelectChange, MAT_DIALOG_DATA } from '@angular/material';
+import { DiskType } from '../../_services/kii-api-disk.service';
 
 @Component({
   selector: 'app-kii-link-dialog',
@@ -10,9 +11,13 @@ import { MatDialogRef, MatSelectChange } from '@angular/material';
 export class KiiLinkDialogComponent implements OnInit {
   validator : Validators;
 
+  disk: DiskType = DiskType.ALL;
   type:string = "default";
 
-  constructor(private dialogRef:MatDialogRef<KiiLinkDialogComponent>) { }
+  constructor(private dialogRef:MatDialogRef<KiiLinkDialogComponent>,@Inject(MAT_DIALOG_DATA) data:any) { 
+    this.disk = data.disk;
+    console.log("Disk is:", this.disk);
+  }
 
   ngOnInit() {
     this.validator = Validators.compose([

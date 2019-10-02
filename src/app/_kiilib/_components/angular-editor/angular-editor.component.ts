@@ -51,6 +51,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   focusInstance: any;
   blurInstance: any;
 
+
   @Input() id = '';
   @Input() config: AngularEditorConfig = angularEditorConfig;
   @Input() placeholder = '';

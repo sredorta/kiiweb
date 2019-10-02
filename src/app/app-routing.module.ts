@@ -114,6 +114,9 @@ export const routes: Routes = [
   {
     path: 'admin-menu',
     component: KiiAdminMenuComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","users","content","blog","email","stats","chat"]}
   },  
   {
     path: 'admin-settings',

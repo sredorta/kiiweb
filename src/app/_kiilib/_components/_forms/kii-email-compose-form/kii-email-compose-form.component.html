@@ -8,7 +8,7 @@
           <mat-hint>{{'kiilib.input.email.hint' | translate}}</mat-hint>
           <mat-error kiiInputError="email"></mat-error>    
       </mat-form-field>
-      <angular-editor id="editorAdditionalHtml" formControlName="additionalHtml" [disk]="disk" [ngClass]="{'hidden' : hideToEmail}"></angular-editor>
+      <angular-editor id="editorAdditionalHtml" formControlName="additionalHtml" disk="email" [ngClass]="{'hidden' : hideToEmail}" [isEditMode]="true"></angular-editor>
       <mat-form-field>
           <mat-label>{{'kiilib.input.email.select.model' | translate}}</mat-label>
           <mat-select formControlName="emailModel">

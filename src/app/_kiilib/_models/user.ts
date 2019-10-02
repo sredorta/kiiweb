@@ -123,4 +123,13 @@ export class User {
         return true;
     }
 
+    /**Returns avatar */
+    getAvatar() {
+        if (this.avatar == null || this.avatar == "none")
+            return "./assets/kiilib/images/user-default.jpg";
+        else
+            return this.avatar;    
+
+    }
+
 }

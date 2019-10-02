@@ -40,11 +40,11 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
     this.addSubscriber(
       this.router.events.subscribe((event)=> {
         if (event instanceof NavigationStart) {
-          if (!this.user.terms ) {
+          if (!this.user.terms && this.user.exists()) {
             this.kiiApiAuth.setLoggedInUser(new User(null));
             User.removeToken();
           }
-          if (this.user.terms == true) {
+          if (this.user.terms == true && this.user.exists()) {
             this.kiiApiAuth.setLoggedInUser(this.user);
           }
         }
@@ -66,7 +66,8 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
               this.user = new User(res.user);
               this.showTerms = true;
             } else {
-              //this.kiiApiAuth.setLoggedInUser(new User(res.user));
+              this.user = new User(res.user);
+              this.user.terms = true;
               this.router.navigate([""]);
             }
           }, () => {this.loading = false}

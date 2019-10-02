@@ -161,7 +161,7 @@ export class AngularEditorService {
    * @param imageUrl The imageUrl.
    */
   insertImage(imageUrl: string, altText:string) {
-    const html = '<img src="'+imageUrl+'" alt="' +altText+'">';
+    const html = '<img src="'+imageUrl+'" alt="' +altText+'" style="max-width:100%;object-fit:cover">';
     this.restoreSelection();
     this.doc.execCommand('insertHTML', false, html);
  

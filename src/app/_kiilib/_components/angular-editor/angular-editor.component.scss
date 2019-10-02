@@ -14,6 +14,7 @@
     position: relative;
 
     .angular-editor-textarea {
+
       min-height: 5rem;
       padding: 0.5rem 0.8rem 1rem 0.8rem;
       border: 1px solid #ddd;
@@ -31,6 +32,10 @@
         border-left: 0.2em solid #dfe2e5;
         padding-left: 0.5rem;
       }
+    }
+    .angular-editor-textarea.is-email-context {
+      background:white;
+      color:black;
     }
 
     ::ng-deep p {
@@ -65,3 +70,4 @@
     border:none;
   }
 }
+

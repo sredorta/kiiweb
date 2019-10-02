@@ -13,7 +13,7 @@
          (click)="exec()"
          (keyup)="exec()"
          (mouseout)="onTextAreaMouseOut($event)"
-         [ngClass]="{'is-edit-mode' : isEditMode}"
+         [ngClass]="{'is-edit-mode' : isEditMode, 'is-email-context' : disk=='email'}"
     >
     </div>
     <span class="angular-editor-placeholder">{{ placeholder || config['placeholder'] }}</span>

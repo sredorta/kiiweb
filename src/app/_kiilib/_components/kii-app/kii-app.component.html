@@ -13,8 +13,7 @@
                   <i class="fas fa-sign-in-alt"></i>
               </a>
               <a mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/profile' | localize">
-                  <i *ngIf="loggedInUser.avatar== null" class="fas fa-user"></i>
-                  <div *ngIf="loggedInUser.avatar!= null" class="kii-app-toolbar-avatar"><img [src]= "loggedInUser.avatar"></div>
+                  <div class="kii-app-toolbar-avatar"><img [src]= "loggedInUser.getAvatar()"></div>
                   <small class="kii-app-toolbar-avatar-name">{{loggedInUser.firstName}}</small>
               </a>
               <a  mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/alerts' | localize">

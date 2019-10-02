@@ -258,7 +258,7 @@ export class AngularEditorToolbarComponent {
     }
     let dialogRef = this.dialog.open(KiiLinkDialogComponent, {
       panelClass: 'admin-theme',
-      data:  null,
+      data:  {disk:this.disk},
       minWidth:'310px',
 
     });
