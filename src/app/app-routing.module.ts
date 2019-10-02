@@ -23,6 +23,9 @@ import { KiiAdminChatsComponent } from './_kiilib/_components/_pages/kii-admin-c
 import { KiiAdminStatsComponent } from './_kiilib/_components/_pages/kii-admin-stats/kii-admin-stats.component';
 import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-disk/kii-admin-disk.component';
 
+import {RegisteredGuard} from './_kiilib/_guards/registered.guard';
+import {UnregisteredGuard} from './_kiilib/_guards/unregistered.guard';
+import {RoleGuard} from './_kiilib/_guards/role.guard';
 export const routes: Routes = [
   {
     path: '',
@@ -42,31 +45,43 @@ export const routes: Routes = [
   {
     path: 'login',
     component: KiiLoginSignupComponent,
-    pathMatch: "full"
+    pathMatch: "full",
+    runGuardsAndResolvers: 'always',
+    canActivate: [UnregisteredGuard]
   },  
   {
     path: 'login/validate/:token',
     component: KiiLoginOauthComponent,
-    data: { skipRouteLocalization: true }
+    data: { skipRouteLocalization: true },
+    runGuardsAndResolvers: 'always',
+    canActivate: [UnregisteredGuard]
   },
   {
     path: 'login/validate-email',
     component: KiiEmailValidateComponent,
-    data: { skipRouteLocalization: true }
+    data: { skipRouteLocalization: true },
+    runGuardsAndResolvers: 'always',
+    canActivate: [UnregisteredGuard]
   },
   {
     path: 'reset-password',
     component: KiiResetPasswordComponent,
-    pathMatch: "full"
+    pathMatch: "full",
+    runGuardsAndResolvers: 'always',
+    canActivate: [UnregisteredGuard]
   },
   {
     path: 'profile',
-    component: KiiProfileComponent
+    component: KiiProfileComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RegisteredGuard]
   },  
   {
     path: 'alerts',
     component: KiiAlertsComponent,
-    pathMatch: "full"
+    pathMatch: "full",
+    runGuardsAndResolvers: 'always',
+    canActivate: [RegisteredGuard]
   },  
 
   {
@@ -103,18 +118,30 @@ export const routes: Routes = [
   {
     path: 'admin-settings',
     component: KiiAdminSettingsComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks"]}
   },  
   {
     path: 'admin-users',
     component: KiiAdminUsersComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","users"]}
   },  
   {
     path: 'admin-content',
     component: KiiAdminArticlesComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","content","blog"]}
   }, 
   {
     path: 'admin-emails',
     component: KiiAdminEmailsComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","email"]}    
   }, 
   {
     path: 'admin-chats',
@@ -123,10 +150,16 @@ export const routes: Routes = [
   {
     path: 'admin-disk',
     component: KiiAdminDiskComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin"]}
   },
   {
     path: 'admin-stats',
     component: KiiAdminStatsComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","stats"]}
   }, 
   /*{path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
   {path: '**', redirectTo: '/404', pathMatch: "full"}*/

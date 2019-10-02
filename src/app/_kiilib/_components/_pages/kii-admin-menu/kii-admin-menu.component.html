@@ -4,16 +4,16 @@
         <button mat-button color="primary" [routerLink]="'/admin-settings' | localize"><i class="fas fa-cogs"></i></button>
         <p>{{'kiilib.admin.menu.settings' | translate}}</p>
       </div>  
-      <div class="button-wrapper">
+      <div *ngIf="hasRole('users')" class="button-wrapper">
           <button mat-button color="primary" [routerLink]="'/admin-users' | localize"><i class="fas fa-users-cog"></i></button>
           <p>{{'kiilib.admin.menu.users' | translate}}</p>
       </div>       
-      <div class="button-wrapper">
+      <div *ngIf="hasRole('blog') || hasRole('content')" class="button-wrapper">
             <button mat-button color="primary" [routerLink]="'/admin-content' | localize"><i class="fas fa-pen-nib"></i></button>
             <p>{{'kiilib.admin.menu.content' | translate}}</p>
       </div>    
        
-      <div class="button-wrapper">
+      <div *ngIf="hasRole('email')" class="button-wrapper">
             <button mat-button color="primary" [routerLink]="'/admin-emails' | localize"><i class="fas fa-at"></i></button>
             <p>{{'kiilib.admin.menu.emails' | translate}}</p>
       </div> 
@@ -21,11 +21,11 @@
           <button mat-button color="primary" [routerLink]="'/admin-chats' | localize"><i class="fas fa-comments"></i></button>
           <p>{{'kiilib.admin.menu.chats' | translate}}</p>
     </div> 
-    <div class="button-wrapper">
+    <div *ngIf="hasRole('admin')" class="button-wrapper">
         <button mat-button color="primary" [routerLink]="'/admin-disk' | localize"><i class="fas fa-save"></i></button>
         <p>{{'kiilib.admin.menu.disk' | translate}}</p>
     </div> 
-      <div class="button-wrapper">
+      <div *ngIf="hasRole('stats')" class="button-wrapper">
           <button mat-button color="primary" [routerLink]="'/admin-stats' | localize"><i class="fas fa-chart-line"></i></button>
           <p>{{'kiilib.admin.menu.stats' | translate}}</p>
       </div>  

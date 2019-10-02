@@ -15,4 +15,9 @@ export class KiiAdminMenuComponent extends KiiBaseAuthAbstract implements OnInit
     this.getLoggedInUserSubscription();
   }
 
+  hasRole(role:string) {
+    if (this.loggedInUser.hasRole("kubiiks") || this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole(role)) return true;
+    return false;
+  }
+
 }

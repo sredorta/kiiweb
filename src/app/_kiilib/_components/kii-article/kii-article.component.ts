@@ -100,14 +100,14 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
     console.log("Article cathegory ",this.article.cathegory)
     if (this.article.exists()) {
       switch (this.article.cathegory) {
-        case(DiskType.BLOG): {
+        case("blog"): {
           this.disk = DiskType.BLOG;
           this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("blog");
           break;
         }
-        case(DiskType.EMAIL): {
-          this.disk = DiskType.EMAIL;
-          this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("email");
+        case("content"): {
+          this.disk = DiskType.CONTENT;
+          this.canEdit = this.loggedInUser.hasRole("kubiiks");
           break;
         }
         default: {

@@ -102,6 +102,11 @@ export class KiiApiAuthService {
     return this._user;
   }
 
+  /**Gets current value of loggedInUser as an User object */
+  public getLoggedInUserValue() {
+    return this._user.value;
+  }
+
 
   /**Sets unread notifications */
   public setUnreadNotifications(count:number) {

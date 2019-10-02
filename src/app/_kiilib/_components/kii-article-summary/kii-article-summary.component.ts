@@ -61,7 +61,6 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
       this.storage = "blog";
       this.canEdit = this.loggedInUser.hasRole("admin") || this.loggedInUser.hasRole("blog");
     }  
-    //this.editorConfig.uploadUrl = '/upload/editor/' + this.storage;
   }
 
   edit() {
@@ -76,7 +75,6 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     //TODO: Add image here !
     this.addSubscriber(
       this.kiiApiArticle.update(this.article).subscribe(res => {
-        //this.kiiApiArticle.refresh(this.article);
         this.form.isFormLoading = false;
       }, ()=> this.form.isFormLoading = false)
     )
