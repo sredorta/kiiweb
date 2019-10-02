@@ -115,9 +115,12 @@ export class KiiSocketService {
     }
   }
 
+
+
   ////////////////////////////////////////////////////////////////////////
   //Functions for handling socket events
   ////////////////////////////////////////////////////////////////////////
+
   /**Handles authentification of user */
   private loadOnAuthentication() {
     this.socket.on(SocketEvents.AUTHENTICATE, () => {

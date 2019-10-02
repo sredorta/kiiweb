@@ -11,6 +11,7 @@ import { KiiApiAuthService } from './kii-api-auth.service';
 import { User } from '../_models/user';
 import { KiiApiStatsService } from './kii-api-stats.service';
 import { StatAction } from '../_models/stat';
+import { BehaviorSubject } from 'rxjs';
 
 
 //NOTE: This service is only running on the browser
@@ -31,6 +32,7 @@ export interface Notification {
 export class KiiPwaService {
 
   promptEvent : any = null;
+  private hasApp = new BehaviorSubject<boolean>(false);
 
   constructor(private kiiStats : KiiApiStatsService,
               private swUpdate: SwUpdate, 
@@ -58,6 +60,7 @@ export class KiiPwaService {
       window.addEventListener('beforeinstallprompt', event => {
         console.log("Recieved beforeinstallprompt!")
         this.promptEvent = event;
+        this.hasApp.next(true);
         if (!localStorage.getItem("app.visits")) localStorage.setItem("app.visits", '1');
         else localStorage.setItem("app.visits", (parseInt(localStorage.getItem("app.visits")) + 1).toString());
         if (parseInt(localStorage.getItem("app.visits"))>5) {
@@ -97,6 +100,15 @@ export class KiiPwaService {
         console.log("Notification is:",notification)
       })
     }
+  }
+
+  installApp() {
+    if (this.promptEvent)
+     this.promptEvent.prompt();
+  }
+
+  canInstallApp() {
+    return this.hasApp;
   }
 
 

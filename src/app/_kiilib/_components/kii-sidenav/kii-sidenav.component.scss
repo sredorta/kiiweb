@@ -11,7 +11,7 @@ $anim-duration : 0.4s;
 
 .kii-sidenav-content-wrapper {
     padding:20px;
-    overflow: hidden;
+    overflow-y: auto;
     box-sizing: border-box;
     display: block;
     opacity:1;
@@ -30,4 +30,35 @@ $anim-duration : 0.4s;
     justify-content: flex-end;
     align-items: flex-end;
     margin-bottom:10px;
+}
+.app-install-container {
+    width:100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.app-install-wrapper {
+    margin:0 auto;
+    max-width: 200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    i {
+        font-size: 50px;
+    }
+    .app-install-text {
+        font-size: 14px;
+    }
+
+    .app-install-icon-wrapper {
+        width:80px;
+        height:80px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.app-install-wrapper:hover {
+    cursor:pointer;
 }

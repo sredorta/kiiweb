@@ -66,6 +66,7 @@
     "kiilib.pwa.update.button" : "Download",
     "kiilib.pwa.install.text"   : "Do you want to install the app ?",
     "kiilib.pwa.install.button" : "Install",
+    "kiilib.pwa.install.title"  : "Install the app",
 
 
     "kiilib.user.data": "Contact data",

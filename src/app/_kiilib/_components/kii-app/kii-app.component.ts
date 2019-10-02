@@ -81,6 +81,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         this.loadInitialData();
       })
     )
+
+
     //Initialize cookies
     if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem("cookies") == "true") {

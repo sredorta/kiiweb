@@ -67,6 +67,8 @@
     "kiilib.pwa.update.button" : "Charger",
     "kiilib.pwa.install.text"   : "Voulez-vous installer la app ?",
     "kiilib.pwa.install.button" : "Instaler",
+    "kiilib.pwa.install.title"  : "Instaler l'application",
+
 
     "kiilib.user.data": "Donées de contact",
     "kiilib.user.roles": "Autorizations", 
