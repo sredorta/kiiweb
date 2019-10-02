@@ -2,21 +2,26 @@
 .chat-card {
     box-sizing: border-box;
     width:100%;
-}
-mat-card {
     display:flex;
     flex-direction: column;
 }
-mat-card-content {
+
+.chat-header {
+    box-sizing: border-box;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.chat-message-container {
     border-radius: 2px;
     padding:15px;
     margin:0px;
     padding-right:0px;
-    min-height: 150px;
-    max-height: 400px;
-    flex:1 1 auto;
-    overflow-y: auto;
+    height:200px;
+    overflow-y: scroll;
 }
+
 .admin-wrapper {
     display:flex;
     width:100%;
@@ -34,6 +39,7 @@ mat-card-content {
     margin-left:15px;
     opacity:0.8;
     .avatar {
+        border-radius: 50%;
         width:30px;
         height:30px;
         margin:5px;
@@ -145,4 +151,41 @@ form {
 
 .writting-part {
     height:20px;
+    margin-bottom:5px;
 }
+.writting-visible {
+    font-size: 12px;
+    opacity:0.8;
+    font-weight: bold;
+    font-style: italic;
+    i {
+        margin-right:5px;
+    }
+}
+
+@keyframes flickerAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  @-o-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  @-moz-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  @-webkit-keyframes flickerAnimation{
+    0%   { opacity:1; }
+    50%  { opacity:0; }
+    100% { opacity:1; }
+  }
+  .writting-visible {
+     -webkit-animation: flickerAnimation 1s infinite;
+     -moz-animation: flickerAnimation 1s infinite;
+     -o-animation: flickerAnimation 1s infinite;
+      animation: flickerAnimation 1s infinite;
+  }

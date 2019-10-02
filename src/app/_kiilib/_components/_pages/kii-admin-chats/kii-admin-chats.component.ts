@@ -61,7 +61,7 @@ export class KiiAdminChatsComponent extends KiiBaseAbstract implements OnInit {
       let dialogRef = this.dialog.open(KiiChatDialogComponent, {
         panelClass: 'kii-chat-dialog',
         minWidth:'300px',
-        maxWidth:'700px',
+        maxWidth:'500px',
         width:'80vw',
         data:  {messages:this.currentRoom.messages,room:this.currentRoom, isAdmin:true} 
       });

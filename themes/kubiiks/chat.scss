@@ -29,24 +29,15 @@
     $textColor: white;
   }
 
-  .kii-chat-dialog {
-      overflow-y: auto;
-      mat-dialog-container {
-          padding:0px;
-      }
-      mat-card {
-          padding-top:0px;
-      }
-  }
 
   kii-chat {
-    mat-card {
-        box-shadow: none !important;
-    }  
-    mat-card-content {
+    .chat-message-container {
         background:$backgroundContainer;
         border:1px solid rgba(mat-color($primary),0.6);
         border-radius: 3px;
+    }
+    .writting-visible {
+        color: mat-color($accent);
     }
 
     .message-owner {

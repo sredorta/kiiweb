@@ -286,6 +286,7 @@
     "kiilib.chat.rooms.title"           : "Chats overts en aquest moment",
     "kiilib.chat.title"                 : "Chat",
     "kiilib.chat.subtitle"              : "Pregunta'ns el què vulguis",
+    "kiilib.chat.writting"              : "Escrivint resposta...",
 
     "kiilib.email.config.logo"          : "Logotip",
     "kiilib.email.config.logo.text"     : "Carrega el logotip de la empresa (100px x 100px)",

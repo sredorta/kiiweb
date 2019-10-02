@@ -1,8 +1,20 @@
+.wrapper {
+    padding:5px;
+    padding-left:15px;
+    padding-right: 15px;
+    overflow-y: auto;
+}
 .kii-chat-dialog-button-wrapper {
     display:flex;
     justify-content: flex-end;
     top:-50px;
     i {
         font-size: 16px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .wrapper {
+        padding-left:5px;
+        padding-right: 5px;
     }
 }
