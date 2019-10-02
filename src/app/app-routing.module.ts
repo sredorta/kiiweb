@@ -146,6 +146,9 @@ export const routes: Routes = [
   {
     path: 'admin-chats',
     component: KiiAdminChatsComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","chat"]}  
   }, 
   {
     path: 'admin-disk',

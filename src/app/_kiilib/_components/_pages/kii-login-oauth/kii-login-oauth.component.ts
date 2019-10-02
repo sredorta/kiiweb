@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject,PLATFORM_ID,ViewChild,ContentChild, ViewContainerRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { Router } from '@angular/router';
 import { KiiBaseAbstract } from '../../../../_kiilib/_abstracts/kii-base.abstract';
 import { User } from '../../../_models/user';
@@ -36,7 +36,22 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
     private kiiApiLanguage : KiiApiLanguageService) {super() }
 
   ngOnInit() {
+    //If we navigate away and terms are not accepted we reset user
+    this.addSubscriber(
+      this.router.events.subscribe((event)=> {
+        if (event instanceof NavigationStart) {
+          if (!this.user.terms ) {
+            this.kiiApiAuth.setLoggedInUser(new User(null));
+            User.removeToken();
+          }
+          if (this.user.terms == true) {
+            this.kiiApiAuth.setLoggedInUser(this.user);
+          }
+        }
+      })
+    )
   }
+
   ngAfterViewInit() {
 
       this.addSubscriber(this.route.params.subscribe(params => {
@@ -51,7 +66,7 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
               this.user = new User(res.user);
               this.showTerms = true;
             } else {
-              this.kiiApiAuth.setLoggedInUser(new User(res.user));
+              //this.kiiApiAuth.setLoggedInUser(new User(res.user));
               this.router.navigate([""]);
             }
           }, () => {this.loading = false}
@@ -71,7 +86,6 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
     //Now we neet to update the user with the given extra data and move to home
     this.user.update({terms:true, language: this.kiiApiLanguage.get(), isEmailValidated:true});
     this.addSubscriber(this.kiiApiAuth.oauth2Update(this.user.to("IUser"),this.newsletter).subscribe(res => {
-      this.kiiApiAuth.setLoggedInUser(new User(res));
       this.router.navigate([""]);
       this.loading = false;
     },() => this.loading = false));
@@ -81,5 +95,8 @@ export class KiiLoginOauthComponent extends KiiBaseAbstract implements OnInit {
   onNewsletterChange(event: MatCheckboxChange) {
     this.newsletter = event.checked;
   }
+
+
+
 
 }

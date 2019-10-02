@@ -13,7 +13,9 @@
                   <i class="fas fa-sign-in-alt"></i>
               </a>
               <a mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/profile' | localize">
-                  <i class="fas fa-user"></i><small>{{loggedInUser.firstName}}</small>
+                  <i *ngIf="loggedInUser.avatar== null" class="fas fa-user"></i>
+                  <div *ngIf="loggedInUser.avatar!= null" class="kii-app-toolbar-avatar"><img [src]= "loggedInUser.avatar"></div>
+                  <small class="kii-app-toolbar-avatar-name">{{loggedInUser.firstName}}</small>
               </a>
               <a  mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/alerts' | localize">
                 <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>

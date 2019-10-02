@@ -72,6 +72,18 @@ $toolbar-height : 65px;
     resize:none
 }
 
+.kii-app-toolbar-avatar {
+    width:25px;
+    height:25px;
+    img {
+        width:100%;
+        object-fit: cover;
+    }
+}
+.kii-app-toolbar-avatar-name {
+    font-size: 10px;
+}
+
 @media only screen and (max-width: 700px) { 
     .kii-app-toolbar-content {
         display:none;

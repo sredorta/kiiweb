@@ -9,6 +9,7 @@ export enum DiskType {
   EMAIL = "email",
   BLOG = "blog",
   DEFAULT = "defaults",
+  AVATAR = "avatar",
   ALL = ""
 }
 

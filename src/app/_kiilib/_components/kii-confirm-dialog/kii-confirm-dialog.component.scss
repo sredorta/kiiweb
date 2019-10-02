@@ -1,5 +1,8 @@
 .kii-confirm-dialog-wrapper {
+    box-sizing: border-box;
     padding:15px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .kii-confirm-dialog-container {
@@ -16,7 +19,8 @@
     margin:10px;
     font-size: 60px;
 }
-mat-dialog-actions {
+.action-buttons {
+    width:100%;
     display: flex;
     justify-content: space-between;
 }
