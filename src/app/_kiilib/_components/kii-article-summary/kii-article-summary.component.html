@@ -1,5 +1,5 @@
 <!--View part-->
-  <div *ngIf="hasRouterLink" class="kii-article-summary-container" [routerLink]="'/articles/' + article.id |localize" mat-ripple>
+  <div *ngIf="hasRouterLink" class="kii-article-summary-container" [routerLink]="['/articles',article.id] | localize" mat-ripple>
     <img class="kii-article-summary-image" [src]="article.getImage()" alt="test">
     <div class="kii-article-summary-text">
       <h1>{{article.title}}</h1>

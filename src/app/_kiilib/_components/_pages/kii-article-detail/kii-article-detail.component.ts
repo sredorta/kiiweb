@@ -4,9 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { KiiApiArticleService } from '../../../_services/kii-api-article.service';
 import { Article } from '../../../_models/article';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
-import { isPlatformBrowser } from '@angular/common';
-import { Title, Meta } from '@angular/platform-browser';
-import { KiiApiSettingService } from '../../../_services/kii-api-setting.service';
+import { KiiMiscService } from '../../../_services/kii-misc.service';
 
 @Component({
   selector: 'kii-article-detail',
@@ -24,10 +22,7 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
   constructor(private route: ActivatedRoute, 
               private kiiApiArticle: KiiApiArticleService,
               private kiiApiLang: KiiApiLanguageService,
-              private kiiApiSetting: KiiApiSettingService,
-              @Inject(PLATFORM_ID) private platformId: any,              
-              private title : Title,
-              private meta: Meta,
+              private kiiMisc:KiiMiscService,
               private router : Router) { super()}
 
   ngOnInit() {
@@ -40,7 +35,12 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
       this.kiiApiArticle.onChange().subscribe(res => {
           this.article = this.kiiApiArticle.getByIdOrKey(this.id);
           //Add seo stuff
-          this.seo();
+          this.kiiMisc.seo(
+            this.article.title,
+            this.article.description,
+            this.article.image,
+            this.router.url
+          );
       })
     )
     //Subscribe to lang changes so that we can update the created date text
@@ -48,25 +48,5 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
           this.currentLang = res;
     }))
 
-  }
-
-  /**Apply all seo related stuff */
-  seo() {
-    if (isPlatformBrowser(this.platformId)) {
-      document.documentElement.lang = this.kiiApiLang.get()
-    }
-    this.title.setTitle( this.kiiApiSetting.getByKey('sitename').value + " : "+ this.article.title);
-    this.meta.updateTag({ name: 'description', content: this.article.description });
-    this.meta.updateTag({name:"robots", content:"index, follow"});
-    this.meta.updateTag({ property: 'og:title', content: this.kiiApiSetting.getByKey('sitename').value + " : " + this.article.title });
-    this.meta.updateTag({ property: 'og:description', content: this.article.description });
-    this.meta.updateTag({ property: 'og:url', content: this.router.url });
-    this.meta.updateTag({ property: 'og:image', content: this.article.image });
-    this.meta.updateTag({ property: 'og:site_name', content: this.kiiApiSetting.getByKey('sitename').value });
-    console.log("TITLE", this.article.title);
-    console.log("DESCRIPTION", this.article.description);
-    console.log("URL", this.kiiApiSetting.getByKey('url').value + this.router.url);
-    console.log("IMAGE", this.article.image);
-    console.log("SITE", this.kiiApiSetting.getByKey('sitename').value);
   }
 }

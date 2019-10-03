@@ -123,6 +123,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   ngAfterViewInit() {
+    console.log("WE ARE IN ANGULAR EDITOR !--------------------");
     if (this.isBrowser()) {
       if (isDefined(this.autoFocus)) {
         this.focus();
@@ -136,9 +137,16 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     }
     //Fill with input html
     this.textArea.nativeElement.innerHTML = this.htmlInitial;
+    ////////////////this.toggleEditorMode(true);
   }
 
   ngOnChanges(changes:SimpleChanges) {
+    /*console.log(changes);
+    if (changes.isEditMode) {
+      console.log("CHANGING EDIT MODE");
+      this.isEditMode = changes.isEditMode.currentValue;
+      //this.toggleEditorMode(this.isEditMode);
+    }*/
     if (changes.htmlInitial && !changes.htmlInitial.firstChange) {
       this.htmlInitial = changes.htmlInitial.currentValue;
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
@@ -310,6 +318,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
    * @param value A HTML string from the editor
    */
   togglePlaceholder(value: boolean): void {
+    console.log("Toggle placeholder",value);
     if (!value) {
       this.r.addClass(this.editorWrapper.nativeElement, 'show-placeholder');
       this.showPlaceholder = true;
@@ -338,6 +347,8 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
    * @param bToSource A boolean value from the editor
    */
   toggleEditorMode(bToSource: boolean) {
+    console.log("Toggle editor mode",bToSource);
+
     let oContent: any;
     const editableElement = this.textArea.nativeElement;
 

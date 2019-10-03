@@ -3,7 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import {environment} from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
 import { LocalizeRouterService } from 'localize-router';
 import {map} from 'rxjs/operators';
 import { KiiApiAuthService } from './kii-api-auth.service';
@@ -35,6 +35,7 @@ export class KiiApiLanguageService {
               @Optional() @Inject(REQUEST) private _request: Request,
               private _translate:TranslateService, private _router : Router,
               private _localize : LocalizeRouterService,
+              private _route: ActivatedRoute
               ) { 
               }
 
@@ -47,6 +48,8 @@ export class KiiApiLanguageService {
 
   /**Sets current language in the observer and stores it in the localStorage */
   public set(lang:string) {
+    console.log("CHANGING LANG TO",lang);
+    //Detect if the node contains parameters
     this._localize.changeLanguage(lang);
   }
 

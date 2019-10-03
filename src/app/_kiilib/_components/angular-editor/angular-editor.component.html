@@ -1,31 +1,29 @@
 <ng-container *ngIf="isBrowser()">
-    <h1>BROWSER</h1>
-<div class="angular-editor" #angularEditor [style.width]="config.width"
-     [style.minWidth]="config.minWidth">
+    <div class="angular-editor" #angularEditor [style.width]="config.width"
+        [style.minWidth]="config.minWidth">
 
-  <div class="angular-editor-wrapper" #editorWrapper>
-    <div #editor class="angular-editor-textarea" [attr.contenteditable]="config.editable"
-         [attr.tabintex]="disabled ? -1 : tabIndex"
-         [attr.translate]="config.translate"
-         [attr.spellcheck]="config.spellcheck" [style.height]="config.height" [style.minHeight]="config.minHeight"
-         [style.maxHeight]="config.maxHeight"
-         (input)="onContentChange($event.target.innerHTML)"
-         (focus)="onTextAreaFocus($event)"
-         (blur)="onTextAreaBlur($event)"
-         (click)="exec()"
-         (keyup)="exec()"
-         (mouseout)="onTextAreaMouseOut($event)"
-         [ngClass]="{'is-edit-mode' : isEditMode, 'is-email-context' : disk=='email'}"
-    >
+      <div class="angular-editor-wrapper" #editorWrapper>
+        <div #editor class="angular-editor-textarea" [attr.contenteditable]="config.editable"
+            [attr.tabintex]="disabled ? -1 : tabIndex"
+            [attr.translate]="config.translate"
+            [attr.spellcheck]="config.spellcheck" [style.height]="config.height" [style.minHeight]="config.minHeight"
+            [style.maxHeight]="config.maxHeight"
+            (input)="onContentChange($event.target.innerHTML)"
+            (focus)="onTextAreaFocus($event)"
+            (blur)="onTextAreaBlur($event)"
+            (click)="exec()"
+            (keyup)="exec()"
+            (mouseout)="onTextAreaMouseOut($event)"
+            [ngClass]="{'is-edit-mode' : isEditMode, 'is-email-context' : disk=='email'}"
+        >
+        </div>
+        <span class="angular-editor-placeholder">{{ placeholder || config['placeholder'] }}</span>
+      </div>
+      <angular-editor-toolbar #editorToolbar [disk]="disk"
+                              (execute)="executeCommand($event)" (backgroundChange)="onBackgroundChange($event)" [ngClass]="{'is-edit-mode' : isEditMode}"></angular-editor-toolbar>
     </div>
-    <span class="angular-editor-placeholder">{{ placeholder || config['placeholder'] }}</span>
-  </div>
-  <angular-editor-toolbar #editorToolbar [disk]="disk"
-                          (execute)="executeCommand($event)" (backgroundChange)="onBackgroundChange($event)" [ngClass]="{'is-edit-mode' : isEditMode}"></angular-editor-toolbar>
-</div>
 </ng-container>
 <ng-container *ngIf="!isBrowser()">
-  <h1>SERVER</h1>
     <div class="angular-editor" #angularEditorServer [style.width]="config.width"
          [style.minWidth]="config.minWidth">
     

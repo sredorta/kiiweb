@@ -64,9 +64,20 @@ app.get('*', (req, res) => {
   //Patch lang before rendering the view
   res.render('index', { req }, function(err,html:string) {
     html = html.replace(/< *html +lang="[a-z][a-z]" *>/g, "<html lang=\"" + lang + "\">");
+    //THIS CODE NEEDS TO BE ONLY HERE FOR DEBUG !!!!
     console.log("HTML =>>");
-    console.log(html.substr(0,100));
-    console.log("-----------");
+    console.log(html.substr(0,200));
+    console.log("-----------METAS--------------------");
+    for (let line of html.split('\n')) {
+      if (line.includes('meta ')) {
+        for (let line2 of line.split('<meta')) {
+          if (!line2.includes('*/'))
+          console.log('<meta ' + line2);
+        }
+      }
+
+    }
+    console.log("-------------------------------");
     res.send(html)
   });
 //  res.render('index', { req });

@@ -107,7 +107,8 @@ export const routes: Routes = [
   {
     path: 'articles/:id',
     component: KiiArticleDetailComponent,
-    //data: { skipRouteLocalization: true }
+    //pathMatch:"full",
+   //data: { skipRouteLocalization: true }
 
   },   
   /*Admin part*/
