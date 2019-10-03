@@ -60,11 +60,9 @@ export class KiiPwaService {
       //Online/Offline detection
       window.addEventListener('online', event => {
         this.offline.next(false);
-        console.log("ONLINE !");
       })
       window.addEventListener('offline', event => {
         this.offline.next(true);
-        console.log('OFFLINE !');
       })
 
       //Handle install button and tell that we show the install bottom sheet

@@ -95,3 +95,25 @@ $toolbar-height : 65px;
         display:flex;
     }
 }
+
+.kii-app-toolbar-offline {
+    position: fixed;
+    width:100vw;
+    height:16px;
+    background:rgba(red,0.4);
+    color:white;
+    top:$toolbar-height;
+    left:0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: right;
+    padding-right:10px;
+    i {
+        margin-right:5px;
+        font-size: 12px;
+    }
+    display:none;
+}
+.kii-app-toolbar-offline.offline {
+    display:block;
+}

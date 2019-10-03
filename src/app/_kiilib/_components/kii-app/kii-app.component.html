@@ -1,6 +1,7 @@
 <mat-sidenav-container>
   <div class="kii-app-wrapper">
       <div class="kii-app-toolbar toolbar-theme">
+          <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"><span><i class="fas fa-plane"></i><small>{{'kiilib.pwa.offline' | translate}}</small></span></div>
           <a mat-ripple class="kii-app-toolbar-button menu-button" [routerLink]="'/sidenav' | localize">
               <i class="kii-app-menu-button fas fa-bars"></i>
           </a>
@@ -30,7 +31,7 @@
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>
-  <button *ngIf="!loggedInUser.hasRole('chat')" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
+  <button *ngIf="!loggedInUser.hasRole('chat') && isBrowser && !offline" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
 
   </mat-sidenav-container>
 

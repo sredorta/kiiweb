@@ -67,6 +67,8 @@
     "kiilib.pwa.install.text"   : "Quieres instalar la applicacion ?",
     "kiilib.pwa.install.button" : "Instalar",
     "kiilib.pwa.install.title"  : "Instalar la applicación",
+    "kiilib.pwa.offline"        : "Sin connexión",
+
 
     "kiilib.user.data": "Datos de contacto",
     "kiilib.user.roles": "Autorizaciones", 

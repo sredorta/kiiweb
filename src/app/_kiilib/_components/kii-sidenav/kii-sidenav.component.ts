@@ -18,7 +18,6 @@ export class KiiSidenavComponent extends KiiBaseAbstract implements OnInit {
   ngOnInit() {
     this.addSubscriber(
       this.kiiPwa.canInstallApp().subscribe(res => {
-         console.log("Recieved canInstallApp", res);
          if (res ==true) {
             this.showApp = true;
          }
@@ -31,7 +30,6 @@ export class KiiSidenavComponent extends KiiBaseAbstract implements OnInit {
 
   /**Install the app */
   installApp() {
-    console.log("Installing the app !");
     this.kiiPwa.installApp();
   }
 

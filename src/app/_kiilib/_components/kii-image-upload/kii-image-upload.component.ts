@@ -77,7 +77,6 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
   ngOnInit() {
     this.setInitialImage();
-    console.log("STORAGE:", this.storage);
   }
 
   /**Sets the initial image */

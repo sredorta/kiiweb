@@ -16,7 +16,6 @@ export class KiiLinkDialogComponent implements OnInit {
 
   constructor(private dialogRef:MatDialogRef<KiiLinkDialogComponent>,@Inject(MAT_DIALOG_DATA) data:any) { 
     this.disk = data.disk;
-    console.log("Disk is:", this.disk);
   }
 
   ngOnInit() {

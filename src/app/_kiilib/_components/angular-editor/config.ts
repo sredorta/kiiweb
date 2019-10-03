@@ -45,7 +45,7 @@ export const angularEditorConfig: AngularEditorConfig = {
   placeholder: 'Enter text here...',
   defaultParagraphSeparator: '',
   defaultFontName: '',
-  defaultFontSize: '',
+  defaultFontSize: '3',
   fonts: [
     {class: 'arial', name: 'Arial'},
     {class: 'times-new-roman', name: 'Times New Roman'},

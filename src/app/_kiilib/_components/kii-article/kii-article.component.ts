@@ -105,7 +105,6 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**Determines if user can edit or not */
   setCanEdit() {
-    console.log("Article cathegory ",this.article.cathegory)
     if (this.article.exists()) {
       switch (this.article.cathegory) {
         case("blog"): {

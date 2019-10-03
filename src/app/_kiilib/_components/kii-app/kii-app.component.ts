@@ -31,7 +31,9 @@ import { start } from 'repl';
 })
 export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
 
+  public isBrowser = isPlatformBrowser(this.platformId);
   public alertCount : number = 0;
+  public offline = false;
 
   constructor(
               @Inject(PLATFORM_ID) private platformId: any,
@@ -99,6 +101,12 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         })
       )
     }
+    //Subscribe to online/offline
+    this.addSubscriber(
+      this.kiiPwa.offline.subscribe(res => {
+        this.offline = res;
+      })
+    )
 
   }
 

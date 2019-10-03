@@ -20,9 +20,19 @@
       border-radius: 50vh;
       background-color: rgba(mat-color(map-get($theme, foreground),text),0.6);
   }
-  div {
+  body * {
     scrollbar-color: rgba(mat-color(map-get($theme, foreground),text),0.6) rgba(mat-color(map-get($theme, background),background),0.6);
     scrollbar-width: thin;
-    //TODO ADD IE support
+    -ms-scrollbar-width:thin;
   }
+  /*body * {
+    //TODO ADD IE support
+    scrollbar-base-color: red;
+    scrollbar-3dlight-color: #000;
+    scrollbar-highlight-color: blue;
+    scrollbar-track-color: green;
+    scrollbar-arrow-color: black;
+    scrollbar-shadow-color: yellow;
+    scrollbar-dark-shadow-color: brown;
+  }*/
 }

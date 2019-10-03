@@ -67,6 +67,7 @@
     "kiilib.pwa.install.text"   : "Do you want to install the app ?",
     "kiilib.pwa.install.button" : "Install",
     "kiilib.pwa.install.title"  : "Install the app",
+    "kiilib.pwa.offline"        : "Offline",
 
 
     "kiilib.user.data": "Contact data",
