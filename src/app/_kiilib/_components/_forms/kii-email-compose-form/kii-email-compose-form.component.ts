@@ -39,6 +39,16 @@ export class KiiEmailComposeFormComponent  extends KiiFormAbstract implements On
   /**Contains current loggedin user */
   loggedInUser : User = new User(null);  
 
+  /**Initial editor Config */
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '100px',
+    minHeight: '200px',
+    placeholder: 'Text ...',
+    translate: 'no',
+    uploadUrl: '/upload/editor/emails'};
+
   public ngOnChanges(changes: SimpleChanges) {
     if (changes.emails) {
       this.emails = changes.emails.currentValue;

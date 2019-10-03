@@ -56,12 +56,12 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**Initial editor Config */
   editorConfig = {
-    editable: true,
+    editable: false,
     spellcheck: true,
     minHeight: '50px',
     placeholder: 'Text ...',
     translate: 'no',
-    salitize: true,
+    sanitize: true,
     uploadUrl: '/upload/editor/content'};
 
 

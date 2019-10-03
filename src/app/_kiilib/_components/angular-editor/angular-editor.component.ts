@@ -72,7 +72,15 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     if (!this.isBrowser()) this.textArea=content;
   }
 
-  @ViewChild('editorWrapper', {static: true}) editorWrapper: ElementRef;
+  public editorWrapper: ElementRef;
+  @ViewChild('editorWrapper', {static: false}) set contentEditorWrapper(content:ElementRef) {
+    if (this.isBrowser()) this.editorWrapper=content;
+  }
+  @ViewChild('editorWrapperServer', {static: false}) set contentEditorWrapperServer(content:ElementRef) {
+    if (!this.isBrowser()) this.editorWrapper=content;
+  }
+
+  //@ViewChild('editorWrapper', {static: true}) editorWrapper: ElementRef;
   @ViewChild('editorToolbar', {static: false}) editorToolbar: AngularEditorToolbarComponent;
 
   @Output() viewMode = new EventEmitter<boolean>();
@@ -137,16 +145,16 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     }
     //Fill with input html
     this.textArea.nativeElement.innerHTML = this.htmlInitial;
-    ////////////////this.toggleEditorMode(true);
+
   }
 
   ngOnChanges(changes:SimpleChanges) {
-    /*console.log(changes);
+    /*console.log(changes);*/
     if (changes.isEditMode) {
-      console.log("CHANGING EDIT MODE");
+      console.log("CHANGING EDIT MODE:", changes.isEditMode.currentValue);
       this.isEditMode = changes.isEditMode.currentValue;
       //this.toggleEditorMode(this.isEditMode);
-    }*/
+    }
     if (changes.htmlInitial && !changes.htmlInitial.firstChange) {
       this.htmlInitial = changes.htmlInitial.currentValue;
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
@@ -257,6 +265,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
       this.onChange(this.config.sanitize || this.config.sanitize === undefined ?
         this.sanitizer.sanitize(SecurityContext.HTML, html) : html);
       if ((!html) !== this.showPlaceholder) {
+        console.log("onContentChange !!!!!!");
         this.togglePlaceholder(this.showPlaceholder);
       }
     }
@@ -290,13 +299,15 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   writeValue(value: any): void {
 
     if ((!value || value === '<br>' || value === '') !== this.showPlaceholder) {
+      console.log("WRITEVALUE",value)
+      if (this.editorWrapper)
       this.togglePlaceholder(this.showPlaceholder);
     }
 
     if (value === undefined || value === '' || value === '<br>') {
       value = null;
     }
-
+    if(this.editorWrapper)
     this.refreshView(value);
   }
 
