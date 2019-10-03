@@ -15,13 +15,15 @@ import {
   Renderer2,
   SecurityContext,
   ViewChild,
-  SimpleChanges
+  SimpleChanges,
+  PLATFORM_ID,
+  SimpleChange
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {AngularEditorConfig, angularEditorConfig} from './config';
 import {AngularEditorToolbarComponent} from './angular-editor-toolbar.component';
 import {AngularEditorService} from './angular-editor.service';
-import {DOCUMENT} from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {DomSanitizer} from '@angular/platform-browser';
 import {isDefined} from './utils';
 import { DiskType } from '../../_services/kii-api-disk.service';
@@ -62,7 +64,14 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
 
   @Input() isEditMode : boolean = false;
 
-  @ViewChild('editor', {static: true}) textArea: ElementRef;
+  public textArea: ElementRef;
+  @ViewChild('editor', {static: false}) set content(content:ElementRef) {
+    if (this.isBrowser()) this.textArea=content;
+  }
+  @ViewChild('editorServer', {static: false}) set contentServer(content:ElementRef) {
+    if (!this.isBrowser()) this.textArea=content;
+  }
+
   @ViewChild('editorWrapper', {static: true}) editorWrapper: ElementRef;
   @ViewChild('editorToolbar', {static: false}) editorToolbar: AngularEditorToolbarComponent;
 
@@ -96,6 +105,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     private r: Renderer2,
     private editorService: AngularEditorService,
     @Inject(DOCUMENT) private doc: any,
+    @Inject(PLATFORM_ID) private platformId: any,
     private sanitizer: DomSanitizer,
     private cdRef: ChangeDetectorRef,
     @Attribute('tabindex') defaultTabIndex: string,
@@ -113,10 +123,12 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   ngAfterViewInit() {
-    if (isDefined(this.autoFocus)) {
-      this.focus();
+    if (this.isBrowser()) {
+      if (isDefined(this.autoFocus)) {
+        this.focus();
+      }
+      this.configure();
     }
-    this.configure();
     this.cdRef.detectChanges();
     //Set background if input is defined
     if (this.background!= null) {
@@ -127,24 +139,27 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
   }
 
   ngOnChanges(changes:SimpleChanges) {
-    if (changes.htmlInitial) {
+    if (changes.htmlInitial && !changes.htmlInitial.firstChange) {
       this.htmlInitial = changes.htmlInitial.currentValue;
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
 
     }
-    if (changes.cancel){
+    if (changes.cancel && !changes.cancel.firstChange){
       this.textArea.nativeElement.innerHTML = this.htmlInitial;
       this.onBackgroundChange(this.background,false);
     }
-    if (changes.isEditMode) { 
+    if (changes.isEditMode && !changes.isEditMode.firstChange) { 
       this.isEditMode = changes.isEditMode.currentValue;
       this.config.editable = changes.isEditMode.currentValue;
     }
-    if (changes.background) {
+    if (changes.background && !changes.background.firstChange) {
       this.onBackgroundChange(this.background,false);
     }
   }
 
+  isBrowser() {
+    return isPlatformBrowser(this.platformId);
+  }
 
   /**
    * Executed command from editor header buttons
