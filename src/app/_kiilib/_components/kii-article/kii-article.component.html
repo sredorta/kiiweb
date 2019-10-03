@@ -11,5 +11,8 @@
         </div>
     </div> 
   </kii-spinner-overlay>  
+  <div *ngIf="article.exists() && showCreated" class="article-created">
+      <span><i class="fas fa-feather-alt"></i><small> {{'kiilib.created' | translate}} {{{date:article.createdAt,lang:currentLang} | kiiNiceDateFormat | lowercase}}</small></span>
+  </div> 
 </div>
 

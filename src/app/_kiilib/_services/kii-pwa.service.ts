@@ -32,6 +32,7 @@ export interface Notification {
 export class KiiPwaService {
 
   promptEvent : any = null;
+  public offline = new BehaviorSubject<boolean>(false);
   private hasApp = new BehaviorSubject<boolean>(false);
 
   constructor(private kiiStats : KiiApiStatsService,
@@ -55,6 +56,16 @@ export class KiiPwaService {
           }
         })
       });
+
+      //Online/Offline detection
+      window.addEventListener('online', event => {
+        this.offline.next(false);
+        console.log("ONLINE !");
+      })
+      window.addEventListener('offline', event => {
+        this.offline.next(true);
+        console.log('OFFLINE !');
+      })
 
       //Handle install button and tell that we show the install bottom sheet
       window.addEventListener('beforeinstallprompt', event => {

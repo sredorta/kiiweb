@@ -3,7 +3,7 @@
     <p class="kii-admin-chats-title"><i class="fas fa-comments" style="margin-right:10px"></i>{{'kiilib.chat.rooms.title' | translate}}</p>
     <div class="kii-admin-chats-rooms-wrapper">
         <div *ngFor="let room of rooms">
-            <button class="kii-room-button" mat-stroked-button color="primary" [matBadge]="countMessages(room.messages)" matBadgePosition="before" matBadgeColor="accent" (click)="openRoom(room)">
+            <button class="kii-room-button" mat-stroked-button color="primary" [matBadge]="countMessages(room.messages)" matBadgePosition="before" matBadgeColor="accent" matBadgeSize="large" (click)="openRoom(room)">
                 <div class="kii-admin-room">
                   <div class="date-wrapper">
                     <small><i class="far fa-clock"></i>{{room.date | date:'HH:mm'}}</small>

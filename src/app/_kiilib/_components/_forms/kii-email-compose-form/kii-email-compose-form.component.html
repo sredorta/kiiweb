@@ -23,4 +23,4 @@
    </form>
 </kii-spinner-overlay>
 <h2 class="preview-title" [ngClass]="{'hidden' : !showPreview}">{{'kiilib.email.preview' | translate}}</h2>
-<div #previewEmail></div>
+<div #previewEmail kiiClickStopPropagation></div>

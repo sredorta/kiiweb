@@ -1,12 +1,11 @@
 import { Component, OnInit, Input, Inject, PLATFORM_ID, ViewChild, ElementRef, SimpleChanges, Renderer2 } from '@angular/core';
-import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { Article } from '../../_models/article';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
 import { DiskType } from '../../_services/kii-api-disk.service';
-//import { AngularEditorConfig, AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
+import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 
 
 @Component({
@@ -40,7 +39,11 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
   /**When user has edit capabilities */
   canEdit : boolean = false;
 
+  /**Current language in use for created at */
+  currentLang : string;
 
+  /**shows created bottom line info */
+  @Input() showCreated :boolean = false;
 
   /**Contains current background image */
   backgroundImage : string = null;  
@@ -67,6 +70,7 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
 
   constructor(private kiiApiArticle : KiiApiArticleService,
             private kiiApiAuth : KiiApiAuthService,
+            private kiiApiLang: KiiApiLanguageService,
             @Inject(PLATFORM_ID) private platformId: any
             ) { super(kiiApiAuth,platformId) }
 
@@ -76,6 +80,10 @@ export class KiiArticleComponent extends KiiBaseAuthAbstract implements OnInit {
         this.loggedInUser = res;
       })
     )
+    //Subscribe to lang changes so that we can update the created date text
+    this.addSubscriber(this.kiiApiLang.onChange().subscribe(res => {
+          this.currentLang = res;
+    }))
   }
 
   ngAfterViewInit() {

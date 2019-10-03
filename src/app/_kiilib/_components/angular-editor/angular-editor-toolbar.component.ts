@@ -162,13 +162,13 @@ export class AngularEditorToolbarComponent {
       return;
     }
     this.buttons.forEach(e => {
-      const result = this.doc.queryCommandState(e);
-      const elementById = this.doc.getElementById(e + '-' + this.id);
-      if (result) {
-        this.r.addClass(elementById, 'active');
-      } else {
-        this.r.removeClass(elementById, 'active');
-      }
+        const result = this.doc.queryCommandState(e);
+        const elementById = this.doc.getElementById(e + '-' + this.id);
+        if (result) {
+          this.r.addClass(elementById, 'active');
+        } else {
+          this.r.removeClass(elementById, 'active');
+        }
     });
   }
 
