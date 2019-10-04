@@ -1,10 +1,11 @@
-import { Component, OnInit, SimpleChanges, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, SimpleChanges, Inject, PLATFORM_ID, Input } from '@angular/core';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KiiApiArticleService } from '../../../_services/kii-api-article.service';
 import { Article } from '../../../_models/article';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiMiscService } from '../../../_services/kii-misc.service';
+import { LocalizeRouterService } from 'localize-router';
 
 @Component({
   selector: 'kii-article-detail',
@@ -23,6 +24,7 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
               private kiiApiArticle: KiiApiArticleService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiMisc:KiiMiscService,
+              private localize: LocalizeRouterService,
               private router : Router) { super()}
 
   ngOnInit() {
@@ -33,14 +35,21 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
     )
     this.addSubscriber(
       this.kiiApiArticle.onChange().subscribe(res => {
-          this.article = this.kiiApiArticle.getByIdOrKey(this.id);
-          //Add seo stuff
-          this.kiiMisc.seo(
-            this.article.title,
-            this.article.description,
-            this.article.image,
-            this.router.url
-          );
+          let article = this.kiiApiArticle.getByIdOrKey(this.id);
+          if (!article) {
+              this.navigateNotFound();
+          } else if (article.cathegory == "content") { //Do not allow to show content articles
+              this.navigateNotFound();
+          } else {
+            this.article = article;
+            //Add seo stuff
+            this.kiiMisc.seo(
+              this.article.title,
+              this.article.description,
+              this.article.image,
+              this.router.url
+            );
+          }
       })
     )
     //Subscribe to lang changes so that we can update the created date text
@@ -48,5 +57,10 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
           this.currentLang = res;
     }))
 
+  }
+
+  navigateNotFound() {
+    let translatedPath: any = this.localize.translateRoute('/404');
+    this.router.navigate([translatedPath]);
   }
 }

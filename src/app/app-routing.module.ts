@@ -109,7 +109,6 @@ export const routes: Routes = [
     component: KiiArticleDetailComponent,
     //pathMatch:"full",
    //data: { skipRouteLocalization: true }
-
   },   
   /*Admin part*/
   {
@@ -168,8 +167,8 @@ export const routes: Routes = [
     canActivate: [RoleGuard],
     data: {roles:["kubiiks","admin","stats"]}
   }, 
-  /*{path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  {path: '**', redirectTo: '/404', pathMatch: "full"}*/
+  {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
+  {path: '**', redirectTo: '/404', pathMatch: "full"}
 ];
 
 @NgModule({

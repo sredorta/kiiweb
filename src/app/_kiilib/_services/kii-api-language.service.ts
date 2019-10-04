@@ -48,7 +48,7 @@ export class KiiApiLanguageService {
 
   /**Sets current language in the observer and stores it in the localStorage */
   public set(lang:string) {
-    console.log("CHANGING LANG TO",lang);
+    console.log("CHANGING LANG TO",lang, this._router.url);
     //Detect if the node contains parameters
     this._localize.changeLanguage(lang);
   }

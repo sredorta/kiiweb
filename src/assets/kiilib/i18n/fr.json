@@ -266,6 +266,7 @@
 
     "kiilib.notfound.title"             : "Page introuvable",
     "kiilib.notfound.subtitle"          : "Cette page n'existe pas",
+    "kiilib.notfound.button"            : "Retourner à la page d'accueil",
 
     "kiilib.users.admin.rolescheckbox"  : "Modifier les roles pour cet utilizateur",
     "kiilib.users.admin.isvalidated"    : "Compte de courriel validé",

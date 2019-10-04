@@ -265,6 +265,8 @@
 
     "kiilib.notfound.title"             : "Page not found",
     "kiilib.notfound.subtitle"          : "The requested page doesn't exist",
+    "kiilib.notfound.button"            : "Go to home page",
+
 
     "kiilib.users.admin.rolescheckbox"  : "Modify the roles for this user",
     "kiilib.users.admin.isvalidated"    : "Validated email account",

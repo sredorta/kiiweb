@@ -265,6 +265,7 @@
 
     "kiilib.notfound.title"             : "Esta pagina no existe",
     "kiilib.notfound.subtitle"          : "La pagina que buscas no existe",
+    "kiilib.notfound.button"            : "Ir a la pàgina de inicio",
 
     "kiilib.users.admin.rolescheckbox"  : "Modificar los roles para este usuario",
     "kiilib.users.admin.isvalidated"    : "Cuenta de correo electronico validada",

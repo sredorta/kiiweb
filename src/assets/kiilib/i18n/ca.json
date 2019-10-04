@@ -270,6 +270,7 @@
 
     "kiilib.notfound.title"             : "Aquesta pàgina no existeix",
     "kiilib.notfound.subtitle"          : "La pàgina que busques no existeix",
+    "kiilib.notfound.button"            : "Anar a la pàgina d'inici",
 
     "kiilib.users.admin.rolescheckbox"  : "Modificar els drets d'aquest usuari",
     "kiilib.users.admin.isvalidated"    : "Compte de correu validat",
