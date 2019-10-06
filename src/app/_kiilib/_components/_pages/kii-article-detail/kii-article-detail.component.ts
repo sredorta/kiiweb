@@ -19,6 +19,7 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
 
   article : Article = new Article(null);
   currentLang : string = null;
+  showCreated : boolean = false;
 
   constructor(private route: ActivatedRoute, 
               private kiiApiArticle: KiiApiArticleService,
@@ -42,6 +43,7 @@ export class KiiArticleDetailComponent extends KiiBaseAbstract implements OnInit
               this.navigateNotFound();
           } else {
             this.article = article;
+            this.showCreated = article.cathegory == "blog"; //Only show created on blog articles
             //Add seo stuff
             this.kiiMisc.seo(
               this.article.title,
