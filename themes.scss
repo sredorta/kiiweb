@@ -1,6 +1,11 @@
 //MATERIAL THEME
 @import '~@angular/material/theming';
 
+//Workaround for allowing mat-checkbox labels text to wrap
+.mat-checkbox-layout {
+  white-space: normal !important;
+}
+
 @include mat-core();
 
 

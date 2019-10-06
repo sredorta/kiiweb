@@ -45,6 +45,7 @@ tr.element-row:not(.expanded-row):hover {
 }
 .element-detail-wrapper {
     width:100%;
+    max-width: 100vw;
     padding-top:10px;
     padding-bottom:10px;
 }
@@ -70,6 +71,13 @@ tr.element-row:not(.expanded-row):hover {
 @media only screen and (max-width: 500px) {
     .mat-column-isProtected {
         display: none;
+    }
+    .table-wrapper {
+        padding:0px;
+    }
+    .wrapper {
+        padding-left:0px;
+        padding-right:0px;
     }
 }
 
@@ -97,4 +105,14 @@ tr.element-row:not(.expanded-row):hover {
     i {
         margin-right:10px;
     }
+}
+
+kii-email-previeww {
+    width:100%;
+    max-width: 100%;
+}
+
+.mat-cell.mat-column-expandedDetail {
+    padding-right:0px;
+    padding-left:0px;
 }
