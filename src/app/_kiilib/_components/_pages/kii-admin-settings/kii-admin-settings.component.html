@@ -1,7 +1,7 @@
 <div class="admin-theme">
     <kii-spinner-overlay [show]="loading">  
         <div class="wrapper">
-          <div class="container">
+          <div *ngIf="!loading" class="container">
             <h2>General</h2>
             <kii-item-form hint="kiilib.input.company.phone.hint" label="kiilib.input.company.phone.label" placeholder="kiilib.input.company.phone.placeholder" [value]="getSettingValue('companyPhone')" icon="fas fa-phone" [validators]="validators['companyPhone']" (kiiOnSubmit)="save($event, 'companyPhone')"></kii-item-form>
             <kii-item-form hint="kiilib.input.company.address.hint" label="kiilib.input.company.address.label" placeholder="kiilib.input.company.address.placeholder" [value]="getSettingValue('companyAddress')" icon="fas fa-envelope" [validators]="validators['companyAddress']" (kiiOnSubmit)="save($event, 'companyAddress')"></kii-item-form>
@@ -25,7 +25,6 @@
             <kii-item-form hint="kiilib.input.company.linkedin.hint"  label="kiilib.input.company.linkedin.label"  placeholder="kiilib.input.company.linkedin.placeholder" [value]="getSettingValue('linkLinkedin')" icon="fab fa-linkedin" [validators]="validators['linkLinkedin']" (kiiOnSubmit)="save($event, 'linkLinkedin')"></kii-item-form>
             <kii-item-form hint="kiilib.input.company.twitter.hint"   label="kiilib.input.company.twitter.label"   placeholder="kiilib.input.company.twitter.placeholder" [value]="getSettingValue('linkTwitter')" icon="fab fa-twitter" [validators]="validators['linkTwitter']" (kiiOnSubmit)="save($event, 'linkTwitter')"></kii-item-form>
             <kii-item-form hint="kiilib.input.company.youtube.hint"   label="kiilib.input.company.youtube.label"   placeholder="kiilib.input.company.youtube.placeholder" [value]="getSettingValue('linkYoutube')" icon="fab fa-youtube" [validators]="validators['linkYoutube']" (kiiOnSubmit)="save($event, 'linkYoutube')"></kii-item-form>
-            <!--<kii-admin-settings-form></kii-admin-settings-form>-->
           </div>
         </div>
     </kii-spinner-overlay>

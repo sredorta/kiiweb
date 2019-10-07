@@ -24,7 +24,8 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
 
   ngOnInit() {
     this.setValidators();
-    this.settings = this.kiiApiSetting.get();
+    //Reload settings in case that user has other language
+    this.load();
 
     this.addSubscriber(
       this.kiiApiSetting.onChange().subscribe(res => {
@@ -32,6 +33,19 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
       })
     )
   }
+
+  /**Load all settings with the right language */
+  load() {
+    this.loading = true;
+    this.addSubscriber(
+      this.kiiApiSetting.load().subscribe(res => {
+        this.settings = res;
+        this.kiiApiSetting.set(res);
+        this.loading = false;
+      }, () => this.loading = false)
+    )
+  }
+
 
   /**Returns value of a setting */
   getSettingValue(key:string) {
