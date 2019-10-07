@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { tap, map, filter } from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
 import { IUser, User } from '../_models/user';
-import { LocalizeRouterService, DefaultLanguageFunction } from 'localize-router';
+import { LocalizeRouterService } from '../_libraries/localize-router/localize-router.service';
 import { TranslateService } from '@ngx-translate/core';
 
 export interface IOauth2 {

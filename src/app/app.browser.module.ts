@@ -13,7 +13,10 @@ import { KiiTranslateHttpLoader} from './_kiilib/_utils/kii-translate-http-loade
 import { RouterModule } from '@angular/router';
 import {routes} from './app-routing.module';
 import {Location} from '@angular/common';
-import {LocalizeRouterModule, LocalizeParser, ManualParserLoader,LocalizeRouterSettings} from 'localize-router';
+import {LocalizeRouterModule, LocalizeParser, ManualParserLoader,LocalizeRouterSettings} from './_kiilib/_libraries/localize-router';
+
+
+
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
 import { KiiPwaService } from './_kiilib/_services/kii-pwa.service';
@@ -27,6 +30,7 @@ import { KiiBottomSheetCookiesComponent } from './_kiilib/_components/kii-bottom
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
+import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localize-router.pipe';
 
 
 

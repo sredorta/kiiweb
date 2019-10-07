@@ -5,11 +5,11 @@ import {DOCUMENT} from '@angular/common';
 import {CustomClass} from './config';
 import {SelectOption} from './ae-select/ae-select.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';
-import { KiiVideoGalleryDialogComponent } from '../kii-video-gallery-dialog/kii-video-gallery-dialog.component';
-import { KiiImageGalleryDialogComponent } from '../kii-image-gallery-dialog/kii-image-gallery-dialog.component';
+import { KiiVideoGalleryDialogComponent } from '../../_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
+import { KiiImageGalleryDialogComponent } from '../../_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { DiskType } from '../../_services/kii-api-disk.service';
-import { KiiLinkDialogComponent } from '../kii-link-dialog/kii-link-dialog.component';
-import { KiiIconDialogComponent } from '../kii-icon-dialog/kii-icon-dialog.component';
+import { KiiLinkDialogComponent } from '../../_components/kii-link-dialog/kii-link-dialog.component';
+import { KiiIconDialogComponent } from '../../_components/kii-icon-dialog/kii-icon-dialog.component';
 
 @Component({
   selector: 'angular-editor-toolbar',

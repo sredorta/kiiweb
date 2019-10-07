@@ -3,7 +3,7 @@ import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { Article } from '../../_models/article';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
-import { AngularEditorComponent } from '../../_components/angular-editor/angular-editor.component';
+import { AngularEditorComponent } from '../../_libraries/angular-editor/angular-editor.component';
 import { DiskType } from '../../_services/kii-api-disk.service';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 

@@ -14,7 +14,7 @@ import { KiiApiLanguageService } from '../../_services/kii-api-language.service'
 import { Article } from '../../_models/article';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
-import { LocalizeRouterService } from 'localize-router';
+import { LocalizeRouterService } from '../../_libraries/localize-router/localize-router.service';
 import { KiiSocketService, SocketEvents, ChatDataType } from '../../_services/kii-socket.service';
 import { KiiChatDialogComponent } from '../kii-chat-dialog/kii-chat-dialog.component';
 import { KiiApiStatsService } from '../../_services/kii-api-stats.service';

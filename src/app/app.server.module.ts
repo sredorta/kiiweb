@@ -7,7 +7,7 @@ import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
-import { LocalizeRouterModule, LocalizeParser, LocalizeRouterSettings, ManualParserLoader } from 'localize-router';
+import { LocalizeRouterModule, LocalizeParser, LocalizeRouterSettings, ManualParserLoader } from './_kiilib/_libraries/localize-router';
 import {routes} from './app-routing.module';
 import { Location } from '@angular/common';
 

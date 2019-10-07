@@ -7,7 +7,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
 import { User } from '../../../_models/user';
 import { Router } from '@angular/router';
-import { LocalizeRouterService } from 'localize-router';
+import { LocalizeRouterService } from '../../../_libraries/localize-router/localize-router.service';
 
 @Component({
   selector: 'kii-alerts',

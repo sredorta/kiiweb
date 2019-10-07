@@ -13,7 +13,7 @@ import { KiiApiLanguageService } from '../_services/kii-api-language.service';
 import { KiiApiAuthService } from '../_services/kii-api-auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../environments/environment';
-import { LocalizeRouterService } from 'localize-router';
+import { LocalizeRouterService } from '../_libraries/localize-router/localize-router.service';
 
 //We intercept all http requests and do some things here
 

@@ -71,7 +71,7 @@ import { KiiSidenavComponent } from './_kiilib/_components/kii-sidenav/kii-siden
 import { FooterComponent } from './components/footer/footer.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HomeComponent } from './pages/home/home.component';
-import { LocalizeRouterModule } from 'localize-router';
+import { LocalizeRouterModule } from './_kiilib/_libraries/localize-router';
 import { RouterModule } from '@angular/router';
 import {routes} from './app-routing.module';
 import { PrixComponent } from './pages/prix/prix.component';
@@ -136,9 +136,9 @@ import { KiiStatsIndicatorComponent } from './_kiilib/_components/kii-stats-indi
 import { KiiThousandsSuffixPipe } from './_kiilib/_pipes/kii-thousands-suffix.pipe';
 import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-disk/kii-admin-disk.component';
 import { KiiFileSizePipe } from './_kiilib/_pipes/kii-file-size.pipe';
-import { AngularEditorComponent } from './_kiilib/_components/angular-editor/angular-editor.component';
-import { AngularEditorToolbarComponent } from './_kiilib/_components/angular-editor/angular-editor-toolbar.component';
-import { AeSelectComponent } from './_kiilib/_components/angular-editor/ae-select/ae-select.component';
+import { AngularEditorComponent } from './_kiilib/_libraries/angular-editor/angular-editor.component';
+import { AngularEditorToolbarComponent } from './_kiilib/_libraries/angular-editor/angular-editor-toolbar.component';
+import { AeSelectComponent } from './_kiilib/_libraries/angular-editor/ae-select/ae-select.component';
 import { KiiVideoGalleryComponent } from './_kiilib/_components/kii-video-gallery/kii-video-gallery.component';
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 import { KiiNewsletterDialogComponent } from './_kiilib/_components/kii-newsletter-dialog/kii-newsletter-dialog.component';

@@ -4,7 +4,7 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 import {environment} from '../../../environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationExtras, ActivatedRoute } from '@angular/router';
-import { LocalizeRouterService } from 'localize-router';
+import { LocalizeRouterService } from '../_libraries/localize-router/localize-router.service';
 import {map} from 'rxjs/operators';
 import { KiiApiAuthService } from './kii-api-auth.service';
 

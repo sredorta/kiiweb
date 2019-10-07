@@ -5,7 +5,7 @@ import { KiiApiArticleService } from '../../../_services/kii-api-article.service
 import { Article } from '../../../_models/article';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiMiscService } from '../../../_services/kii-misc.service';
-import { LocalizeRouterService } from 'localize-router';
+import { LocalizeRouterService } from '../../../_libraries/localize-router/localize-router.service';
 
 @Component({
   selector: 'kii-article-detail',
