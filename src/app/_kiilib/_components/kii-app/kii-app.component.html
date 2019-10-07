@@ -1,6 +1,6 @@
 <mat-sidenav-container>
-  <div class="kii-app-wrapper">
-      <div class="kii-app-toolbar toolbar-theme">
+  <div id="kii-app-main-container" class="kii-app-wrapper">
+      <div class="kii-app-toolbar toolbar-theme" kiiScroll>
           <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"><span><i class="fas fa-plane"></i><small>{{'kiilib.pwa.offline' | translate}}</small></span></div>
           <a mat-ripple class="kii-app-toolbar-button menu-button" [routerLink]="'/sidenav' | localize">
               <i class="kii-app-menu-button fas fa-bars"></i>

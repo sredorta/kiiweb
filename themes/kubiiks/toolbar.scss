@@ -12,6 +12,10 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
+  kii-app .kii-app-toolbar.kii-scrolled {
+    background:rgba(#303030,0.6);  
+  }
+  
   kii-app .kii-app-toolbar {
     background: #303030;
     .menu-button {

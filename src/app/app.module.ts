@@ -145,6 +145,7 @@ import { KiiNewsletterDialogComponent } from './_kiilib/_components/kii-newslett
 import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { KiiLinkDialogComponent } from './_kiilib/_components/kii-link-dialog/kii-link-dialog.component';
 import { KiiIconDialogComponent } from './_kiilib/_components/kii-icon-dialog/kii-icon-dialog.component';
+import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
 
 
 
@@ -225,7 +226,8 @@ import { KiiIconDialogComponent } from './_kiilib/_components/kii-icon-dialog/ki
     KiiNewsletterDialogComponent,
     KiiImageGalleryDialogComponent,
     KiiLinkDialogComponent,
-    KiiIconDialogComponent
+    KiiIconDialogComponent,
+    KiiScrollDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
