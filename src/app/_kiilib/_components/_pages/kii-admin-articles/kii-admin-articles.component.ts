@@ -58,9 +58,23 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
     //Load all articles
     this.addSubscriber(
       this.kiiApiArticle.onChange().subscribe(res => {
+        //Filter depending on roles
         if (!this.loggedInUser.hasRole('kubiiks')) {
           res = res.filter(obj => obj.cathegory != 'content');
+          if (!this.loggedInUser.hasRole('blog') || !this.loggedInUser.hasRole('content')) {
+            if (this.loggedInUser.hasRole('blog')) {
+                res = res.filter(obj => obj.cathegory == 'blog');
+              }
+            if (this.loggedInUser.hasRole('content')) {
+                res = res.filter(obj => obj.cathegory != 'blog');
+            }
+          }
         }
+        //Order result by cathegories first
+        res = res.sort((a,b) => {
+          return (a.cathegory>b.cathegory?1:0)
+        });
+
         if (res.length>0) {
           this.articles = res;
           this.filterCathegories();
