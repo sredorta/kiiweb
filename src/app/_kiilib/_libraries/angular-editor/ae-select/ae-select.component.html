@@ -10,6 +10,7 @@
     <button tabindex="-1" type="button" role="button" class="ae-picker-item"
           *ngFor="let item of options; let i = index"
           [ngClass]="{'selected': item.value === value, 'focused': i === optionId}"
+          [ngStyle]="{'font-family': item.class?item.value:'default'}"
           (click)="optionSelect(item, $event)">
           {{item.label}}
     </button>

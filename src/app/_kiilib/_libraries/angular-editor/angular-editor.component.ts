@@ -432,7 +432,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
     }
     const fonts = this.config.fonts ? this.config.fonts : angularEditorConfig.fonts;
     this.editorToolbar.fonts = fonts.map(x => {
-      return {label: x.name, value: x.name};
+      return {label: x.name, value: x.name, class:x.name};
     });
     if (this.config.customClasses) {
       this.editorToolbar.customClasses = this.config.customClasses;
