@@ -274,6 +274,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     const formData = new FormData();
     formData.append('file',blob,this.keepName==null?this.fileName:this.keepName);
     //Now upload
+    console.log("Uploading image:", this.storage, this.keepName==null?this.fileName:this.keepName);
     this.isLoading = true;
     this.addSubscriber(
       this.kiiApiDisk.uploadImage(this.storage,formData).subscribe((res:any) => {

@@ -13,7 +13,7 @@ export class KiiScrollDirective {
   elementHeight: number;
   constructor(private _renderer: Renderer2,
               private _element: ElementRef,@Inject(PLATFORM_ID) private platformId   
-              ) { console.log("Constructed KIISCROLL !!!!!!!!!!!!!!!!") }
+              ) { }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -33,7 +33,6 @@ export class KiiScrollDirective {
 
   scroll = (element:any): void => {
     if (element && element.srcElement && element.srcElement.scrollTop) {
-      console.log(element.srcElement.scrollTop)
       this.scrollTop = element.srcElement.scrollTop;
       if (element.srcElement.scrollTop>20) {
         this._renderer.addClass(this._element.nativeElement, 'kii-scrolled');
@@ -52,7 +51,6 @@ export class KiiScrollDirective {
 
   resize = ():void => {
     this.windowHeight = window.innerHeight;
-    console.log("Resize !", window.innerHeight);
   }
   saveDimensions() {
     this.elementPosY = this.getOffsetTop(this._element.nativeElement);

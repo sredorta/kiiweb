@@ -15,7 +15,7 @@
         <div class="kii-image-upload-icons">
           <button mat-icon-button type="button" (click)="fileInput.click()"><i class="fas fa-camera"></i></button>
           <button mat-icon-button type="button" (click)="removeImage()"><i class="fas fa-trash"></i></button>
-          <button mat-icon-button type="button" (click)="rotateImage()" [disabled]="!isUploadable || isSVG"><mat-icon>rotate_right</mat-icon></button>
+          <button mat-icon-button type="button" (click)="rotateImage()" [disabled]="!isUploadable || isSVG"><i class="fas fa-redo-alt"></i></button>
         </div>
   </div>
   <button mat-flat-button type="button" color="primary" [disabled]="!isUploadable || isLoading" style="width:140px" (click)="upload()"><i class="fas fa-upload"></i></button>

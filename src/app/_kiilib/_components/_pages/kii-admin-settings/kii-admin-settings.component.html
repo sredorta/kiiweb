@@ -1,7 +1,7 @@
 <div class="admin-theme">
     <kii-spinner-overlay [show]="loading">  
         <div class="wrapper">
-          <div *ngIf="!loading" class="container">
+          <div class="container">
             <h2>General</h2>
             <kii-item-form hint="kiilib.input.company.phone.hint" label="kiilib.input.company.phone.label" placeholder="kiilib.input.company.phone.placeholder" [value]="getSettingValue('companyPhone')" icon="fas fa-phone" [validators]="validators['companyPhone']" (kiiOnSubmit)="save($event, 'companyPhone')"></kii-item-form>
             <kii-item-form hint="kiilib.input.company.address.hint" label="kiilib.input.company.address.label" placeholder="kiilib.input.company.address.placeholder" [value]="getSettingValue('companyAddress')" icon="fas fa-envelope" [validators]="validators['companyAddress']" (kiiOnSubmit)="save($event, 'companyAddress')"></kii-item-form>
