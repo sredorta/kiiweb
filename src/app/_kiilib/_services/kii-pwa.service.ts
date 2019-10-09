@@ -72,7 +72,7 @@ export class KiiPwaService {
         this.hasApp.next(true);
         if (!localStorage.getItem("app.visits")) localStorage.setItem("app.visits", '1');
         else localStorage.setItem("app.visits", (parseInt(localStorage.getItem("app.visits")) + 1).toString());
-        if (parseInt(localStorage.getItem("app.visits"))>50) {
+        if (parseInt(localStorage.getItem("app.visits"))>549760) {
           localStorage.setItem("app.visits", '1');
           let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareInstallComponent, {
             panelClass :"default-theme",

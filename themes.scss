@@ -196,8 +196,10 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
 .angular-editor-textarea {
-  background-color: #fafafa !important;
   color: map_get($mat-light-theme-foreground,text);
+}
+.admin-theme .angular-editor-textarea {
+  background-color: #fafafa !important;
 }
 
 

@@ -23,5 +23,10 @@ export class HomeComponent extends KiiBaseAbstract implements OnInit {
 
   }
 
+  publish() {
+    this.kiiMisc.publish().subscribe(res => {
+      console.log(res);
+    })
+  }
 
 }

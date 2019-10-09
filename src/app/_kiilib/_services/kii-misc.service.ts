@@ -82,4 +82,10 @@ export class KiiMiscService {
     console.log("SITE", this.kiiApiSetting.getByKey('sitename').value);*/
   }
 
+
+  publish() {
+    return this.http.get(environment.apiURL + '/facebook/post');
+  }
 }
+
+

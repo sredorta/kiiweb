@@ -66,7 +66,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
             else
                 headers = new HttpHeaders({
                     'Accept-Language': this.kiiApiLanguage.get()
-                });
+                });                
         } else {
             //We are in the browser and then we do the request directly from browser to server
             if (User.getToken()) {
@@ -79,7 +79,12 @@ export class KiiHttpInterceptor implements HttpInterceptor {
                     'Accept-Language': this.kiiApiLanguage.get(),
                 });
             } 
+            //When it's the browser we need to map the URL to the real domain
+            console.log("REQUEST URL INITIAL:", request.url);
+            request= request.clone({url: request.url.replace(environment.kiiserverURL,environment.kiiserverExtURL)});
+            console.log("REQUEST URL FINAL:", request.url);
         }
+
         //When angular editor opens image we fall here
         if (request.url.includes("upload/editor") || request.url.includes("upload/videos") ) {
             headers = headers.append('enctype','multipart/form-data');
