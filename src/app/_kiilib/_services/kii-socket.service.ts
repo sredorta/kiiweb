@@ -106,7 +106,8 @@ export class KiiSocketService {
     if (isPlatformBrowser(platformId)) {
       //Start socket outside from Angular zone to fix issue #9098
       this.ngZone.runOutsideAngular(() => {
-        this.socket = io(environment.socketURL,{secure:true});
+        console.log("Starting socket at:", environment.mainExtURL);
+        this.socket = io(environment.mainExtURL,{secure:true});
       });
       this.loadOnAuthentication();  //Answers authentication requests
       this.loadOnUpdateUser();      //Updates user if required to show new alerts...

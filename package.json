@@ -21,7 +21,7 @@
     "ssr:universal:build:server": "node ./node_modules/npm-delay 12000 && ng run kiiweb:server --watch",
     "ssr:universal:build:webpack": "node ./node_modules/npm-delay 20000 && webpack --config webpack.server.config.js --watch",
     "ssr:universal:build:nodemon": "node ./node_modules/npm-delay 25000 && nodemon --inspect server.js",
-    "vps": "node ./vps.js"
+    "build:vps" : "ng build --prod --configuration=vps && ng run kiiweb:server:production && webpack --config webpack.server.config.js --progress --colors && node ./vps.js"
 
   },
   "private": true,

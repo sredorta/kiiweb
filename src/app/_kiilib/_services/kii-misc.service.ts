@@ -6,7 +6,7 @@ import { KiiBottomSheetSoftwareUpdateComponent } from '../_components/kii-bottom
 import { isPlatformBrowser } from '@angular/common';
 import { SwUpdate } from '@angular/service-worker';
 import { HttpClient, HttpEventType } from '@angular/common/http';
-import { environment } from '../../../environments/environment.prod';
+import { environment } from '../../../environments/environment';
 import { Setting } from '../_models/setting';
 import { IUser } from '../_models/user';
 import {map} from 'rxjs/operators';

@@ -5,6 +5,12 @@
 
 const URL = "https://kubiiks.com";
 
+console.log("////////////////////////////////////////");
+console.log("// GENERATING ./dist/vps_boundle")
+console.log("// URL: " + URL);
+console.log("////////////////////////////////////////");
+console.log("Use FileZilla to upload this to /var/www/kiiweb on the VPS");
+
 const fs = require('fs-extra');
 
 
@@ -24,14 +30,12 @@ fs.copyFileSync('./package.json','./dist/vps_boundle/package.json');
 //Find the name of the real server and replace on index.html and manifest
 var index = fs.readFileSync('./dist/browser/index.html','utf8');
 index = index.replace(/https\:\/\/localhost\:4300/g, URL);
-console.log(index);
 fs.removeSync('./dist/vps_boundle/dist/browser/index.html');
 fs.writeFileSync('./dist/vps_boundle/dist/browser/index.html',index);
 
 
 var manifest = fs.readFileSync('./dist/browser/manifest.webmanifest','utf8');
 manifest = manifest.replace(/https\:\/\/localhost\:4300/g, URL);
-console.log(manifest);
 fs.removeSync('./dist/vps_boundle/dist/browser/manifest.webmanifest');
 fs.writeFileSync('./dist/vps_boundle/dist/browser/manifest.webmanifest',manifest);
 
