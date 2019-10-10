@@ -60,6 +60,7 @@
               "serviceWorker": true,
               "ngswConfigPath": "src/ngsw-config.json"
             }
+            
           }
         },
         "serve": {
