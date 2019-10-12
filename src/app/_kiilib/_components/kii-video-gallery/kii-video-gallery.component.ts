@@ -70,37 +70,24 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
     }
   }
 
-  trackProgress(id:string) {
-    console.log("track progress for:",environment.mainExtURL + '/progress'+ "?X-Progress-ID="+id)
-    this.addSubscriber(
-      this.http.get(environment.mainExtURL + '/progress'+ "?X-Progress-ID="+id).subscribe(res => {
-          console.log(res);
-      })
-  )
-  }
+
 
   uploadVideo(disk:DiskType,blob:Blob) {
     const formData = new FormData();
     formData.append('file',blob,this.fileName);
     const nginxId = Math.random().toString(36).replace(/[^a-z]+/g, '');
-    setInterval(() => {
-      this.trackProgress(nginxId);
-    },1000);
+    this.isDataLoading=true;
     this.addSubscriber(
       this.kiiApiDisk.uploadVideo(disk,formData).subscribe(res => {
         if (res.status == "completed") {
           this.getServerVideos();
           this.isDataLoading = false;
-          setTimeout(() => this.progress = 0,200);
         }
       }, () => this.isDataLoading = false)
     )
     this.addSubscriber(this.kiiApiDisk.getUploadProgress().subscribe(res => {
-      console.log("Got upload progress :", res);
       this.progress = res;
     }))
-
-
   }
 
 }

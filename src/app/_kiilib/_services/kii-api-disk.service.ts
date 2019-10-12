@@ -89,7 +89,6 @@ export class KiiApiDiskService {
         reportProgress: true,
         observe: 'events',
       }).pipe(map((event) => {
-        console.log("Event",event);
         let progress=0;
         switch (event.type) {
           case HttpEventType.Sent: {
@@ -101,8 +100,8 @@ export class KiiApiDiskService {
             this._progress.next(progress);
             return { status: 'progress', message: progress };           
           case HttpEventType.Response:
-             this._progress.next(0);
-             this.stopNginxTracking(nginxTrackId, nginxInterval);
+            setTimeout(() => this._progress.next(0),200);
+            this.stopNginxTracking(nginxTrackId, nginxInterval);
             return { status: 'completed', message:event.body};
           default:
             return {status: 'unhandled',message:event.type};
@@ -119,7 +118,6 @@ export class KiiApiDiskService {
         reportProgress: true,
         observe: 'events'
       }).pipe(map((event) => {
-        console.log(event);
         let progress=0;
         switch (event.type) {
           case HttpEventType.Sent: {
@@ -131,7 +129,7 @@ export class KiiApiDiskService {
             this._progress.next(progress);
             return { status: 'progress', message: progress };           
           case HttpEventType.Response:
-             this._progress.next(0);
+             setTimeout(() => this._progress.next(0),200);
              this.stopNginxTracking(nginxTrackId, nginxInterval);
             return { status: 'completed', message:event.body};
           default:
@@ -148,23 +146,32 @@ export class KiiApiDiskService {
 
     /**Starts progress tracking for nginx */
     private startNginxTracking(nginxId:string) {
-      console.log("Starting to track progress:", nginxId);
       let interval : NodeJS.Timer = null;
       if (environment.type=="vps") {
         interval =  setInterval(() => {
           let subscription =  this.http.get(environment.mainExtURL + '/progress'+ "?X-Progress-ID="+nginxId,{responseType: 'text'}).subscribe(res => {
-                console.log("Got progress:",res);
                 res = res.replace("(","");
                 res = res.replace(")","");
                 res = res.replace(";","");
-
-                let result = JSON.parse(res);
-                console.log("result is:", result);
-                if (result.state == "uploading") {
-                  this._progress.next(Math.round(100 * result.received / result.size));
-                }
+                try {
+                  let result = JSON.parse(res);
+                  switch (result.state) {
+                    case  "uploading": 
+                      this._progress.next(Math.round(100 * result.received / result.size));
+                      break;
+                    case "error": 
+                        console.log("Error un nginx upload progress:",result.status);
+                        clearInterval(interval);
+                        break;               
+                    case "done": 
+                      setTimeout(() => this._progress.next(0),200);
+                      break;
+                    
+                  }
+                } catch(error) {
+                  if (interval) clearInterval(interval);
+                };
                 //'state' : 'uploading', 'received' : <size_received>, 'size' : <total_size>
-                //this._progress.next(progress);
                 subscription.unsubscribe();
             })
         },1000);
@@ -174,13 +181,13 @@ export class KiiApiDiskService {
 
     /**Stops progress tracking for nginx */
     private stopNginxTracking(nginxId:string,interval:NodeJS.Timer) {
-      console.log("Finish to track progress:", nginxId);
       if (environment.type=="vps") {
         if (interval != null)
           this._progress.next(null);
           clearInterval(interval);
       }
     }
+    /**Returns observable of progress */
     getUploadProgress() {
       return this._progress;
     }
