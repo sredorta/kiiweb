@@ -3,6 +3,8 @@ import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiMiscService } from '../../_services/kii-misc.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
+import { environment } from '../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'kii-image-upload',
@@ -73,7 +75,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   /**Shadow canvas for image manipulation */
   @ViewChild('shadowCanvas', {static:false}) shadowCanvasElem : ElementRef; //Shadow canvas for manipulation
 
-  constructor(private kiiApiMisc: KiiMiscService, private kiiApiDisk: KiiApiDiskService) { super() }
+  constructor(private kiiApiMisc: KiiMiscService, private kiiApiDisk: KiiApiDiskService,private http: HttpClient) { super() }
 
   ngOnInit() {
     this.setInitialImage();
@@ -267,6 +269,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
       this.uploadFile(this.svgBlob);  
   }
 
+
   uploadFile(blob:Blob) {
     //Add random string on fileName so that we get unique name
     let tmp = this.fileName.split('.');
@@ -278,16 +281,16 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     this.isLoading = true;
     this.addSubscriber(
       this.kiiApiDisk.uploadImage(this.storage,formData).subscribe((res:any) => {
-        if (res.status == "progress") {
-          this.progress = res.message;
-        } 
         if (res.status == "completed") {
           this.onUpload.emit(res.message.imageUrl);
           this.isUploaded = true;
           this.isLoading = false;
-          setTimeout(() => this.progress = 0,200);
         }
       }, () => this.isLoading = false)
     )
+    this.addSubscriber(this.kiiApiDisk.getUploadProgress().subscribe(res => {
+      console.log("Got upload progress :", res);
+      this.progress = res;
+    }))
   }
 }

@@ -1,5 +1,6 @@
 export const environment = {
     production: true,
+    type: "vps",
     kiiserverURL:  "http://localhost:3000",
     kiiserverExtURL: "https://kubiiks.com/server",
     apiURL: "http://localhost:3000/api",

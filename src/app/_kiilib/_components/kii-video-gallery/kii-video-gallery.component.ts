@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { environment } from '../../../../environments/environment.prod';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'kii-video-gallery',
@@ -24,7 +26,7 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
   /**Output with the selected video */
   @Output() video = new EventEmitter<string>();
 
-  constructor(private kiiApiDisk : KiiApiDiskService,@Inject(MAT_DIALOG_DATA) data:any) {
+  constructor(private kiiApiDisk : KiiApiDiskService,@Inject(MAT_DIALOG_DATA) data:any, private http:HttpClient) {
     super();
     this.disk = data.disk;
    }
@@ -68,15 +70,24 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
     }
   }
 
+  trackProgress(id:string) {
+    console.log("track progress for:",environment.mainExtURL + '/progress'+ "?X-Progress-ID="+id)
+    this.addSubscriber(
+      this.http.get(environment.mainExtURL + '/progress'+ "?X-Progress-ID="+id).subscribe(res => {
+          console.log(res);
+      })
+  )
+  }
+
   uploadVideo(disk:DiskType,blob:Blob) {
     const formData = new FormData();
     formData.append('file',blob,this.fileName);
-
+    const nginxId = Math.random().toString(36).replace(/[^a-z]+/g, '');
+    setInterval(() => {
+      this.trackProgress(nginxId);
+    },1000);
     this.addSubscriber(
       this.kiiApiDisk.uploadVideo(disk,formData).subscribe(res => {
-        if (res.status == "progress") {
-          this.progress = res.message;
-        } 
         if (res.status == "completed") {
           this.getServerVideos();
           this.isDataLoading = false;
@@ -84,6 +95,12 @@ export class KiiVideoGalleryComponent extends KiiBaseAbstract implements OnInit 
         }
       }, () => this.isDataLoading = false)
     )
+    this.addSubscriber(this.kiiApiDisk.getUploadProgress().subscribe(res => {
+      console.log("Got upload progress :", res);
+      this.progress = res;
+    }))
+
+
   }
 
 }
