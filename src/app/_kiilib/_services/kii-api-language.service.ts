@@ -78,8 +78,13 @@ export class KiiApiLanguageService {
         return found[0].replace(/\//gi, '');
     }
     //Returns from headers
-    let headerLang = this._request.headers['accept-language'].substring(0, 2);
+    let headerLang = environment.languages[0];
+    try {
+       headerLang = this._request.headers['accept-language'].substring(0, 2);
     if (environment.languages.indexOf(headerLang)<0) headerLang = environment.languages[0];
+    } catch(error) {
+       headerLang = environment.languages[0];
+    }
     return headerLang;
   }
 

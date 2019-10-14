@@ -74,6 +74,19 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     )
 
     this.loadInitialData();
+    /**Loads user if we are browser */
+    if (isPlatformBrowser(this.platformId)) {
+      if (User.hasToken())
+        this.addSubscriber(
+          this.kiiApiAuth.getAuthUser().subscribe(res => {
+              this.kiiApiAuth.setLoggedInUser(new User(res));
+          }, error => {
+            User.removeToken();
+            console.log("Got error",error);
+          })
+        )
+    }
+
     //Get initial data when we change language
     this.addSubscriber(
       this.kiiApiLang.onChange().subscribe(res => {
@@ -149,7 +162,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     //Get all initial data
     this.addSubscriber(
       this.kiiMisc.loadInitialData().subscribe(res => {
-        this.kiiApiAuth.setLoggedInUser(new User(res.user));
+        if (isPlatformBrowser(this.platformId))
+          this.kiiApiAuth.setLoggedInUser(new User(res.user));
             //Set language based on user language 
         let mySettings = [];
         for (let setting of res.settings) {
@@ -164,6 +178,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
       })
     )
   }
+
+
 
 
   //Each time a route is activated we come here and we send stats if cookies accepted

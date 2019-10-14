@@ -63,23 +63,37 @@ export class KiiMiscService {
     if (isPlatformBrowser(this.platformId)) {
       document.documentElement.lang = this.kiiApiLang.get()
     }
+
     this.title.setTitle( this.kiiApiSetting.getByKey('sitename').value + " - "+ title);
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({name:"robots", content:"index, follow"});
     this.meta.updateTag({ property: 'og:title', content: this.kiiApiSetting.getByKey('sitename').value + " : " + title });
     this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:url', content: this.kiiApiSetting.getByKey('url').value + url });
-    this.meta.updateTag({ property: 'og:image', content: image });
+    if (!image) 
+      this.meta.updateTag({ property: 'og:image', content: this.kiiApiSetting.getByKey('url_image').value });
+    else
+      this.meta.updateTag({ property: 'og:image', content: image });
+    this.meta.updateTag({ property: 'og:image:width', content: "300" });
+    this.meta.updateTag({ property: 'og:image:height', content: "300" });  
     this.meta.updateTag({ property: 'og:site_name', content: this.kiiApiSetting.getByKey('sitename').value });
+    this.meta.updateTag({ property: 'og:type', content: "website" });
+    this.meta.updateTag({ property: 'article:author', content: this.kiiApiSetting.getByKey('url').value });
 
+
+    this.meta.updateTag({ property: 'fb:app_id', content: this.kiiApiSetting.getByKey('fb_app_id').value });
     this.meta.updateTag({ property: 'twitter:card', content: "summary" });
     this.meta.updateTag({ property: 'twitter:site', content: this.kiiApiSetting.getByKey('sitename').value });
-/*
+
+
     console.log("TITLE", this.kiiApiSetting.getByKey('sitename').value + " - "+ title);
     console.log("DESCRIPTION", description);
     console.log("URL", this.kiiApiSetting.getByKey('url').value + url);
-    console.log("IMAGE", image);
-    console.log("SITE", this.kiiApiSetting.getByKey('sitename').value);*/
+    if (!image) 
+      console.log("IMAGE", this.kiiApiSetting.getByKey('url_image').value);
+    else
+      console.log("IMAGE", image);
+    console.log("SITE", this.kiiApiSetting.getByKey('sitename').value);
   }
 
 

@@ -198,6 +198,9 @@
     "kiilib.input.icon.label"                     : "Icono",
     "kiilib.input.icon.placeholder"               : "fas fa-times",
     "kiilib.input.icon.hint"                      : "Introduce el icono 'font awesome'",
+    "kiilib.input.fbid.label"                     : "Facebook app id",
+    "kiilib.input.fbid.placeholder"               : "2088315884799255",
+    "kiilib.input.fbid.hint"                      : "Escribe el numero de Facebook App ID",
 
     "kiilib.icon.dialog.title"                    : "Añadir un icono",
 

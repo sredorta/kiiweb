@@ -87,6 +87,9 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
     this.validators['sitename']= Validators.compose([
       Validators.required, Validators.minLength(2)   
     ]);
+    this.validators['fbid']= Validators.compose([
+      Validators.required, Validators.pattern(/^[0-9]+$/) , Validators.minLength(16)
+    ]);
 
     //Social part
     this.validators['linkFacebook'] = Validators.compose([
