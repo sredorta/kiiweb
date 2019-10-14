@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
+import { KiiPwaService } from '../../_services/kii-pwa.service';
 
 
 @Component({
@@ -11,8 +12,9 @@ import { KiiApiLanguageService } from '../../_services/kii-api-language.service'
 export class KiiLanguageSelectorComponent extends KiiBaseAbstract implements OnInit {
 
   currentLanguage : string;
+  offline:boolean = false;
 
-  constructor( private _kiiApiLanguage : KiiApiLanguageService) {super() }
+  constructor( private _kiiApiLanguage : KiiApiLanguageService, private _kiiPwa : KiiPwaService) {super() }
 
   ngOnInit() {
     this.currentLanguage = this.getCode(this._kiiApiLanguage.get());
@@ -22,6 +24,12 @@ export class KiiLanguageSelectorComponent extends KiiBaseAbstract implements OnI
         this.currentLanguage = this.getCode(lang);
       })
     );
+    //Subscribe to online/offline
+    this.addSubscriber(
+      this._kiiPwa.offline.subscribe(res => {
+        this.offline = res;
+      })
+    )
   }
 
   /**Gets the language code from an iso */

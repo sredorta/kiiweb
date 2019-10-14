@@ -31,7 +31,7 @@
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>
-  <button *ngIf="!loggedInUser.hasRole('chat') && isBrowser && !offline" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
+  <button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"><i class="fas fa-comments"></i></button>
 
   </mat-sidenav-container>
 

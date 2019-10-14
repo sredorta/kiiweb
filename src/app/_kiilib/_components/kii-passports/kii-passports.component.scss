@@ -17,6 +17,12 @@
     }
     transition:all 0.2s ease-in-out;
 }
+
+.social-passport.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
 .social-passport:active {
     color:black;
 }

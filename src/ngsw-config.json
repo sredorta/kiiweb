@@ -9,7 +9,9 @@
           "/favicon.ico",
           "/index.html",
           "/*.css",
-          "/*.js"
+          "/*.js",
+          "/assets/fontawesome/fontawesome.all.min.css",
+          "/assets/webfonts/*.*"
         ]
       }
     }, {
@@ -20,8 +22,34 @@
         "files": [
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+
         ]
       }
     }
-  ]
+  ],
+  "dataGroups": [{
+    "name": "api-performance",
+    "urls": [
+      "/assets/i18n/**",
+      "/api/**"
+    ],
+    "cacheConfig": {
+      "strategy": "performance",
+      "maxSize": 100,
+      "maxAge": "3d"
+    }
+  },
+  {
+    "name": "api-freshness",
+    "urls": [
+      "/server/api/initial"
+    ],
+    "cacheConfig": {
+      "strategy": "freshness",
+      "maxSize": 100,
+      "maxAge": "3d",
+      "timeout": "10s"
+    }
+  }
+]
 }

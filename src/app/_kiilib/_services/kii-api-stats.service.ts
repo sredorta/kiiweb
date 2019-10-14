@@ -3,8 +3,9 @@ import { isPlatformBrowser } from '@angular/common';
 import { Stat, StatAction, StatResult } from '../_models/stat';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import {map} from 'rxjs/operators';
+import { KiiPwaService } from './kii-pwa.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,13 +13,30 @@ import {map} from 'rxjs/operators';
 
 //Handles all stats
 export class KiiApiStatsService {
+  private offline$ = new BehaviorSubject<boolean>(false);
+  private offline : boolean = false;
+  constructor(@Inject(PLATFORM_ID) private platformId: any,private http: HttpClient) {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: any,private http: HttpClient) { }
+    if (isPlatformBrowser(this.platformId)) {
+          //Online/Offline detection
+          window.addEventListener('online', event => {
+            this.offline$.next(false);
+          })
+          window.addEventListener('offline', event => {
+            this.offline$.next(true);
+          })
+    }
+    this.offline$.subscribe(res => {
+        this.offline = res;
+    })
+   }
 
   /**Determines if stats are enabled or not */
   private enabled() {
     if (isPlatformBrowser(this.platformId)) {
-       if (localStorage.getItem("cookies") == "true") return true;
+       if (localStorage.getItem("cookies") == "true") {
+          if (this.offline == false) return true;
+       } 
     }
     return false;
   }

@@ -1,5 +1,5 @@
 <div *ngIf="getSupportedLanguages().length>1" class="wrapper">
-    <button mat-button [matMenuTriggerFor]="menu" class="kii-language-selector-button">        
+    <button mat-button [matMenuTriggerFor]="menu" class="kii-language-selector-button" [disabled]="offline">        
         <div class="language-flag current-lang" [ngStyle]="{'background-position': getFlagPosition(currentLanguage) }"></div>
     </button>
     <mat-menu #menu="matMenu">
