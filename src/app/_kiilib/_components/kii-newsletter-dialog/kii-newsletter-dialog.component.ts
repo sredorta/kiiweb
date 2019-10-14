@@ -3,7 +3,8 @@ import { Validators } from '@angular/forms';
 import { KiiItemFormComponent } from '../_forms/kii-item-form/kii-item-form.component';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiNewsletterService } from '../../_services/kii-api-newsletter.service';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatCheckbox, MatCheckboxChange } from '@angular/material';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-kii-newsletter-dialog',
@@ -13,9 +14,11 @@ import { MatDialogRef } from '@angular/material';
 export class KiiNewsletterDialogComponent extends KiiBaseAbstract implements OnInit {
   validator : Validators;
   isDataLoading : boolean = false;
+  showTerms : boolean = false;
+  acceptedTerms : boolean = false;
 
   @ViewChild(KiiItemFormComponent, {static:false}) form : KiiItemFormComponent;
-
+  @ViewChild(MatCheckbox, {static:false}) terms : MatCheckbox;
   valid : boolean = false;
 
   constructor(private dialogRef: MatDialogRef<KiiNewsletterDialogComponent>,
@@ -33,6 +36,11 @@ export class KiiNewsletterDialogComponent extends KiiBaseAbstract implements OnI
     this.addSubscriber(
       this.form.myForm.valueChanges.subscribe(res => {
         this.valid = this.form.myForm.valid;
+      })
+    )
+    this.addSubscriber(
+      this.terms.change.subscribe((res:MatCheckboxChange) => {
+        this.acceptedTerms = res.checked;
       })
     )
   }

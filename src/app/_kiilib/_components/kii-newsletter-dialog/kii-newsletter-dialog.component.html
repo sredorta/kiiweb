@@ -3,9 +3,13 @@
     <h1><i class="fas fa-rss-square"></i> {{'kiilib.newsletter.title' | translate}}</h1>
     <p>{{'kiilib.newsletter.subtitle' | translate}}</p>
     <kii-item-form [hasCancelSave]="false" hint="kiilib.input.email.hint" label="kiilib.input.email.label" placeholder="kiilib.input.email.placeholder" icon="fa fa-envelope" [validators]="validator"></kii-item-form>
+    <mat-checkbox #termsCheckbox></mat-checkbox><span class="terms1">{{'kiilib.signup.terms1' | translate}}</span> <span class="terms2" (click)="showTerms = !showTerms">{{'kiilib.signup.terms2' | translate}}</span>
+    <div class="terms-details" [ngClass]="{'show' : showTerms}">
+      <kii-article *ngIf="showTerms" class="test" key="legal-user-data"></kii-article>
+    </div>
     <mat-dialog-actions class="button-wrapper">         
         <button  mat-button  color="primary" [disabled]="!valid" (click)="unsubscribeNewsletter()">{{'kiilib.newsletter.unsubscribe' | translate}}</button>
-        <button  mat-flat-button color="primary" [disabled]="!valid" (click)="subscribeNewsletter()">{{'kiilib.newsletter.subscribe' | translate}}</button>
+        <button  mat-flat-button color="primary" [disabled]="!valid || !acceptedTerms" (click)="subscribeNewsletter()">{{'kiilib.newsletter.subscribe' | translate}}</button>
     </mat-dialog-actions> 
   </kii-spinner-overlay>
 
