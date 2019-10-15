@@ -1,5 +1,22 @@
 {
   "index": "/index.html",
+  "navigationUrls": [
+    "/",
+    "/fr/accueil",
+    "/en/home",
+    "/ca/inicio",
+    "/es/inici",
+    "https://www.kubiiks.com",
+    "https://www.kubiiks.com/fr/accueil",
+    "https://www.kubiiks.com/en/home",
+    "https://www.kubiiks.com/ca/inici",
+    "https://www.kubiiks.com/es/inicio",
+    "https://kubiiks.com",
+    "https://kubiiks.com/fr/accueil",
+    "https://kubiiks.com/en/home",
+    "https://kubiiks.com/ca/inici",
+    "https://kubiiks.com/es/inicio"
+  ],
   "assetGroups": [
     {
       "name": "app",
@@ -11,7 +28,10 @@
           "/*.css",
           "/*.js",
           "/assets/fontawesome/fontawesome.all.min.css",
-          "/assets/webfonts/*.*"
+          "/assets/webfonts/*.*",
+          "/assets/kiilib/images/*.*",
+          "/assets/i18n/*",
+          "/assets/kiilib/i18n/*"
         ]
       }
     }, {
@@ -30,8 +50,6 @@
   "dataGroups": [{
     "name": "api-performance",
     "urls": [
-      "/assets/i18n/**",
-      "/api/**"
     ],
     "cacheConfig": {
       "strategy": "performance",
@@ -42,7 +60,8 @@
   {
     "name": "api-freshness",
     "urls": [
-      "/server/api/initial"
+      "/server/api/initial",
+      "/server/api/stats"
     ],
     "cacheConfig": {
       "strategy": "freshness",
@@ -52,4 +71,5 @@
     }
   }
 ]
+
 }

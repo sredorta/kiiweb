@@ -12,7 +12,7 @@ import { KiiPwaService } from '../../_services/kii-pwa.service';
 export class KiiLanguageSelectorComponent extends KiiBaseAbstract implements OnInit {
 
   currentLanguage : string;
-  offline:boolean = false;
+  offline:boolean;
 
   constructor( private _kiiApiLanguage : KiiApiLanguageService, private _kiiPwa : KiiPwaService) {super() }
 

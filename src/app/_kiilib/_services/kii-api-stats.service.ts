@@ -13,10 +13,10 @@ import { KiiPwaService } from './kii-pwa.service';
 
 //Handles all stats
 export class KiiApiStatsService {
-  private offline$ = new BehaviorSubject<boolean>(false);
-  private offline : boolean = false;
+  //private offline$ = new BehaviorSubject<boolean>(false);
+  //private offline : boolean = false;
   constructor(@Inject(PLATFORM_ID) private platformId: any,private http: HttpClient) {
-
+/*
     if (isPlatformBrowser(this.platformId)) {
           //Online/Offline detection
           window.addEventListener('online', event => {
@@ -28,14 +28,15 @@ export class KiiApiStatsService {
     }
     this.offline$.subscribe(res => {
         this.offline = res;
-    })
+    })*/
    }
 
   /**Determines if stats are enabled or not */
   private enabled() {
     if (isPlatformBrowser(this.platformId)) {
        if (localStorage.getItem("cookies") == "true") {
-          if (this.offline == false) return true;
+          return true;
+          //if (this.offline == false) return true;
        } 
     }
     return false;

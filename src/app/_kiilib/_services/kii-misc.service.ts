@@ -58,6 +58,9 @@ export class KiiMiscService {
     return this.http.post<any>(environment.apiURL + '/contact/email', value);
   }
 
+
+
+
   /**Updates meta tags for seo */
   seo(title:string,description:string,image:string,url:string) {
     if (isPlatformBrowser(this.platformId)) {

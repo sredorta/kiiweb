@@ -11,7 +11,7 @@ import { KiiApiAuthService } from './kii-api-auth.service';
 import { User } from '../_models/user';
 import { KiiApiStatsService } from './kii-api-stats.service';
 import { StatAction } from '../_models/stat';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 
 //NOTE: This service is only running on the browser
@@ -59,11 +59,25 @@ export class KiiPwaService {
 
       //Online/Offline detection
       window.addEventListener('online', event => {
-        this.offline.next(false);
+        console.log("RECIEVED ONLINE EVENT !!!");
+        this.init();
       })
       window.addEventListener('offline', event => {
-        this.offline.next(true);
+        console.log("RECIEVED OFFLINE EVENT !!!");
+        this.init();
+
       })
+
+      //This part is under testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      /*var refreshing;
+      navigator.serviceWorker.addEventListener('controllerchange',
+        function() {
+          if (refreshing) return;
+          refreshing = true;
+          console.log("REFRESHING !!!!!");
+          window.location.reload();
+        }
+      );*/
 
       //Handle install button and tell that we show the install bottom sheet
       window.addEventListener('beforeinstallprompt', event => {
@@ -87,6 +101,24 @@ export class KiiPwaService {
       });
     }
   }
+
+  init() {
+    if (isPlatformBrowser(this._platformId)) {
+      console.log("GETING FROM GOOGLE !!!!!!!!")
+      let subscr : Subscription = new Subscription();
+      subscr = this.http.get(environment.mainExtURL + '/server/api/connected').subscribe(res => {
+          console.log("RESULT FROM GOOGLE",res);
+          this.offline.next(false);
+          subscr.unsubscribe();
+      }, error => {
+          console.log("GOT ERROR",error);
+          this.offline.next(true);
+          subscr.unsubscribe();
+      })
+    }
+  }
+
+
   /**Returns if browser has service worker */
   hasServiceWorker() : boolean {
     return this.swUpdate.isEnabled;
@@ -120,6 +152,13 @@ export class KiiPwaService {
     return this.hasApp;
   }
 
+  setOffline(value:boolean) {
+    this.offline.next(value);
+  }
+
+  isOffline() {
+    return this.offline.value;
+  }
 
 
 

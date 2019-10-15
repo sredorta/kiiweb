@@ -11,8 +11,8 @@ import { KiiPwaService } from '../../_services/kii-pwa.service';
 })
 export class KiiPassportsComponent extends KiiBaseAbstract implements OnInit {
 
-  offline:boolean = false;
-  
+  offline:boolean;
+
   constructor(public spinner: KiiSpinnerService, private kiiPwa: KiiPwaService) { super()}
 
   ngOnInit() {

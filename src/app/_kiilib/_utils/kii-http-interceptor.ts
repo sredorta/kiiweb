@@ -14,19 +14,20 @@ import { KiiApiAuthService } from '../_services/kii-api-auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../environments/environment';
 import { LocalizeRouterService } from '../_libraries/localize-router/localize-router.service';
+import { KiiPwaService } from '../_services/kii-pwa.service';
 
 //We intercept all http requests and do some things here
 
 @Injectable()
 export class KiiHttpInterceptor implements HttpInterceptor {
     subscription: Subscription = new Subscription();
-
     constructor(private localize : LocalizeRouterService, 
         private bottomSheet: MatBottomSheet, 
         private kiiApiAuth: KiiApiAuthService,
         private kiiApiLanguage: KiiApiLanguageService, 
         private router: Router, 
         private translate: TranslateService,
+        public pwa: KiiPwaService,
         @Inject(PLATFORM_ID) private _platformId: Object, 
         @Optional() @Inject(REQUEST) private _request: Request,
         private dialog: MatDialog       
@@ -93,61 +94,67 @@ export class KiiHttpInterceptor implements HttpInterceptor {
             request = Object.assign(request, newUrl);
         }*/
         let newRequest = request.clone({headers});
-        return next.handle(newRequest).pipe(
-            map((event: HttpEvent<any>) => {
-                if (event instanceof HttpResponse) {
-                    //console.log('event--->>>', event);
-                    if (event.status == 200) {
-                        if (event.body)
-                            if (event.body.message)
-                                if (event.body.message.show)
-                                    if (event.body.message.show == true) {
-                                        this.openBottomSheet(200,event.body.message.text);
-                                    }
-
-                    }
-
-                }
-                if (event) {
-
-                }
-                return event;
-            }),
-            catchError((error: HttpErrorResponse) => {
-                console.log(error);
-                let data = {};
-                data = {
-                    reason: error && error.error.reason ? error.error.reason : '',
-                    status: error.status
-                };
-                switch(error.status) {
-                    case 0:  //No internet on the server side, or server down
-                        this.openBottomSheet(404,"");
-                        break;
-                    case 401:    //Invalid token
-                        if (isPlatformBrowser(this._platformId)) {
-                        User.removeToken();
-                        this.kiiApiAuth.setLoggedInUser(new User(null));
-                        //TODO: Add a translated message to error.error.message if is empty (it comes from token passport)
-                        this.subscription = this.translate.get("kiilib.httperror.token").subscribe(message => {
-                            if (error.error.message) 
-                                this.openBottomSheet(error.status,error.error.message);
-                            else 
-                                this.openBottomSheet(error.status,message);
-                            let translatedPath: any = this.localize.translateRoute('/login');
-                            this.router.navigate([translatedPath]);
-                        });
+        console.log("WE ARE IN CATCH ERROR !!!!");
+        console.log("offline", this.pwa.isOffline());
+        console.log("URL", request.url);
+            return next.handle(newRequest).pipe(
+                map((event: HttpEvent<any>) => {
+                    if (event instanceof HttpResponse) {
+                        //console.log('event--->>>', event);
+                        if (event.status == 200) {
+                            if (event.body)
+                                if (event.body.message)
+                                    if (event.body.message.show)
+                                        if (event.body.message.show == true) {
+                                            this.openBottomSheet(200,event.body.message.text);
+                                        }
 
                         }
-                        break;
-                    default:
-                        this.openBottomSheet(error.status,error.error.message);
-                }
-                return throwError(error);
 
-            })
-        );
+                    }
+                    if (event) {
 
+                    }
+                    return event;
+                }),
+                catchError((error: HttpErrorResponse) => {
+                    let data = {};
+                    data = {
+                        reason: error && error.error.reason ? error.error.reason : '',
+                        status: error.status
+                    };
+                    //Handle error and show bottomSheet 
+                    console.log("URL !!!!", request.url);
+                    console.log("ERROR !!!!", error.status)
+                    if (request.url.includes('/api/connected') || request.url.includes('/api/intial') || request.url.includes('/api/stats/save')) { //Do not show bottomsheets for connected test
+                        console.log("SKIPPING BOTTOM SHEET FOR", request.url);
+                    } else 
+                        switch(error.status) {
+                            case 0:  //No internet on the server side, or server down... show message if we are not testing connection
+                                    this.openBottomSheet(404,"");
+                                break;
+                            case 401:    //Invalid token
+                                if (isPlatformBrowser(this._platformId)) {
+                                    User.removeToken();
+                                    this.kiiApiAuth.setLoggedInUser(new User(null));
+                                    //TODO: Add a translated message to error.error.message if is empty (it comes from token passport)
+                                    this.subscription = this.translate.get("kiilib.httperror.token").subscribe(message => {
+                                        if (error.error.message) 
+                                            this.openBottomSheet(error.status,error.error.message);
+                                        else 
+                                            this.openBottomSheet(error.status,message);
+                                        let translatedPath: any = this.localize.translateRoute('/login');
+                                        this.router.navigate([translatedPath]);
+                                    });
+                                }
+                                break;                                  
+                            default:
+                                this.openBottomSheet(error.status,error.error.message);
+                        }
+                    console.log("RETURNING ERROR",error);
+                    return throwError(error);
+                })
+            );
     }
     ngOnDestroy() {
         this.subscription.unsubscribe();
