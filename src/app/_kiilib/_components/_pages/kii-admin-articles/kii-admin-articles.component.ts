@@ -58,6 +58,7 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
     //Load all articles
     this.addSubscriber(
       this.kiiApiArticle.onChange().subscribe(res => {
+        res = res.filter(obj => obj.cathegory != 'dialog'); //Do not show dialog cathegory
         //Filter depending on roles
         if (!this.loggedInUser.hasRole('kubiiks')) {
           res = res.filter(obj => obj.cathegory != 'content');

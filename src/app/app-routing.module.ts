@@ -26,6 +26,7 @@ import { KiiAdminDiskComponent } from './_kiilib/_components/_pages/kii-admin-di
 import {RegisteredGuard} from './_kiilib/_guards/registered.guard';
 import {UnregisteredGuard} from './_kiilib/_guards/unregistered.guard';
 import {RoleGuard} from './_kiilib/_guards/role.guard';
+import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-popup/kii-admin-popup.component';
 export const routes: Routes = [
   {
     path: '',
@@ -145,6 +146,13 @@ export const routes: Routes = [
     runGuardsAndResolvers: 'always',
     canActivate: [RoleGuard],
     data: {roles:["kubiiks","admin","email"]}    
+  }, 
+  {
+    path: 'admin-popup',
+    component: KiiAdminPopupComponent,
+    runGuardsAndResolvers: 'always',
+    canActivate: [RoleGuard],
+    data: {roles:["kubiiks","admin","content"]}    
   }, 
   {
     path: 'admin-chats',

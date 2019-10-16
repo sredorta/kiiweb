@@ -280,6 +280,10 @@
     "kiilib.admin.menu.stats"           : "Audiencia",
     "kiilib.admin.menu.chats"           : "Chats",
     "kiilib.admin.menu.disk"            : "Espacio disco",
+    "kiilib.admin.menu.popup"           : "Mensaje inicial",
+
+    "kiilib.popup.title"                : "Mensaje inicial",
+    "kiilib.popup.enable"               : "Activar o desactivar el mensaje",
 
     "kiilib.article.ispublic"           : "Articulo publicado", 
     "kiilib.article.isnotpublic"        : "Articulo privado",              

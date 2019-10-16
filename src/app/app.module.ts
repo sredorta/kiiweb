@@ -146,6 +146,8 @@ import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-
 import { KiiLinkDialogComponent } from './_kiilib/_components/kii-link-dialog/kii-link-dialog.component';
 import { KiiIconDialogComponent } from './_kiilib/_components/kii-icon-dialog/kii-icon-dialog.component';
 import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
+import { KiiPopupDialogComponent } from './_kiilib/_components/kii-popup-dialog/kii-popup-dialog.component';
+import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-popup/kii-admin-popup.component';
 
 
 
@@ -227,7 +229,9 @@ import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
     KiiImageGalleryDialogComponent,
     KiiLinkDialogComponent,
     KiiIconDialogComponent,
-    KiiScrollDirective
+    KiiScrollDirective,
+    KiiPopupDialogComponent,
+    KiiAdminPopupComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -286,7 +290,7 @@ import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
     ],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiNewsletterDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent, KiiIconDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiNewsletterDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent, KiiIconDialogComponent, KiiPopupDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

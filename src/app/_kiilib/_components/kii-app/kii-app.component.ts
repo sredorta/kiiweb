@@ -21,6 +21,7 @@ import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
 import { Router, RouterEvent,NavigationStart, NavigationEnd } from '@angular/router';
 import { StatAction } from '../../_models/stat';
 import { start } from 'repl';
+import { KiiPopupDialogComponent } from '../kii-popup-dialog/kii-popup-dialog.component';
 
 
 
@@ -176,8 +177,26 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           myArticles.push(new Article(article));
         }
         this.kiiApiArticle.set(myArticles);
+        this.openPopupDialog(); //Opens popup if required
       })
     )
+  }
+
+  /**Opens temrs and conditions dialog */  
+  openPopupDialog(): void {
+    console.log("POPUP DIALOG !!!",this.kiiApiSetting.getByKey("popup-show").value);
+    if (isPlatformBrowser(this.platformId)) {
+      if (this.kiiApiSetting.getByKey("popup-show").value == "1" || this.kiiApiSetting.getByKey("popup-show").value == "true") {
+        setTimeout(() => {
+            this.dialog.open(KiiPopupDialogComponent, {
+              panelClass: '',
+              data:  null,
+              maxHeight:'90vh',
+              minWidth:'320px'
+            });
+        },500);
+      }
+    }
   }
 
 

@@ -1,0 +1,9 @@
+<div class="admin-theme popup-wrapper">  
+  <kii-spinner-overlay [show]="isLoading">  
+    <h1>{{'kiilib.popup.title' | translate}}</h1>
+    <mat-slide-toggle color="primary" (change)="onStatusChange($event)" [checked]="enabled">{{'kiilib.popup.enable' | translate}}</mat-slide-toggle>   
+    <div class="article-wrapper">
+      <kii-article class="intial-dialog" key="dialog-initial"></kii-article>
+    </div>
+  </kii-spinner-overlay>  
+</div>

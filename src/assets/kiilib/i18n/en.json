@@ -282,7 +282,10 @@
     "kiilib.admin.menu.stats"           : "Audience",
     "kiilib.admin.menu.chats"           : "Chats",
     "kiilib.admin.menu.disk"            : "Disk space",
+    "kiilib.admin.menu.popup"           : "Initial message",
 
+    "kiilib.popup.title"                : "Initial popup message",
+    "kiilib.popup.enable"               : "Activate or disable the popup message",
 
     "kiilib.article.ispublic"           : "Public article",  
     "kiilib.article.isnotpublic"        : "Private article",   

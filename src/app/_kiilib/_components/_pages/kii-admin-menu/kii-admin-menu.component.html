@@ -20,7 +20,11 @@
       <div *ngIf="hasRole('chat')" class="button-wrapper">
           <button mat-button color="primary" [routerLink]="'/admin-chats' | localize"><i class="fas fa-comments"></i></button>
           <p>{{'kiilib.admin.menu.chats' | translate}}</p>
-    </div> 
+      </div> 
+      <div *ngIf="hasRole('content')" class="button-wrapper">
+          <button mat-button color="primary" [routerLink]="'/admin-popup' | localize"><i class="far fa-window-restore"></i></button>
+          <p>{{'kiilib.admin.menu.popup' | translate}}</p>
+      </div> 
     <div *ngIf="hasRole('admin')" class="button-wrapper">
         <button mat-button color="primary" [routerLink]="'/admin-disk' | localize"><i class="fas fa-save"></i></button>
         <p>{{'kiilib.admin.menu.disk' | translate}}</p>
