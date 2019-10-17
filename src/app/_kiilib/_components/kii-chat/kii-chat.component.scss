@@ -1,6 +1,6 @@
 
 mat-card-content {
-    border:1px solid;
+    border-bottom:1px solid;
     margin-bottom:0px;
     height: 150px;
 }
@@ -14,7 +14,10 @@ form {
         padding-top:0px !important;
     }
 }
-
+.dialog-actions {
+    padding-left:10px;
+    padding-right:10px;
+}
 
 .admin-wrapper {
     display:none;
@@ -72,7 +75,6 @@ form {
     margin-left:15%;
     margin-right:15%;
     font-size: 12px;
-    font-weight: bold;
 }
 
 .message.i-am-reciever:before {
@@ -133,7 +135,7 @@ form {
 }  
 
 .message-owner {
-    font-weight:900;
+    font-weight:bold;
     font-size: 12px;
 }
 
@@ -147,6 +149,7 @@ form {
 }
 
 .writting-part {
+    padding-left:10px;
     height:20px;
     margin-bottom:5px;
 }

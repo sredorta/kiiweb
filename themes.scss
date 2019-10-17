@@ -137,10 +137,15 @@ $main-foreground: (
 
 //Main app theme
 $main-primary: mat-palette($mat-lime, 500);
-$main-accent:  mat-palette($mat-green, 500, A100, A400);
+$main-accent:  mat-palette($mat-yellow, 600, A100, A400);
 $main-warn:    mat-palette($mat-deep-orange,300);
 $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-foreground, $mat-light-theme-background);
 
+//Dialog header theme
+$dialog-header-primary: mat-palette($mat-grey, 200);
+$dialog-header-accent:  mat-palette($mat-green, 500, A100, A400);
+$dialog-header-warn:    mat-palette($mat-deep-orange,300);
+$dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-accent, $dialog-header-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 
 
 
@@ -202,6 +207,15 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 }
 .admin-theme .angular-editor-textarea {
   background-color: #fafafa !important;
+}
+mat-dialog-container mat-card-header {
+  @include angular-material-theme($dialog-header-theme);
+  color:white;
+  background-image:
+    linear-gradient(
+      45deg, 
+      mat-color(mat-palette($mat-lime, 900)), mat-color(mat-palette($mat-lime, 400))
+    );
 }
 
 
