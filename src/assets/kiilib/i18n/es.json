@@ -203,6 +203,7 @@
     "kiilib.input.fbid.hint"                      : "Escribe el numero de Facebook App ID",
 
     "kiilib.icon.dialog.title"                    : "Añadir un icono",
+    "kiilib.icon.dialog.subtitle"                 : "Entra el codigo de font-awesome correspondiente",
 
 
     "kiilib.link.dialog.default"                  : "Enlace",
@@ -211,6 +212,7 @@
     "kiilib.link.dialog.raised"                   : "Botón con relieve",
     "kiilib.link.dialog.stroked"                  : "Botón con contorno",
     "kiilib.link.dialog.title"                    : "Añadir un enlaze",
+    "kiilib.link.dialog.subtitle"                 : "Escoje el tipo y la direccion del enlaze",
 
     "kiilib.tooltip.password"           : "El password debe tener una minuscula, una mayuscula e un numero ",
     "kiilib.error.default"              : "Campo incorrecto",
@@ -358,10 +360,12 @@
     "kiilib.newsletter.subscribe"       : "Suscribir",
 
     "kiilib.video.gallery.title"        : "Galeria de videos",
+    "kiilib.video.gallery.subtitle"     : "Carga un video o entra el enlace youtube",
     "kiilib.video.gallery.select"       : "Selecciona",
     "kiilib.video.gallery.upload"       : "Carga un nuevo video",    
 
     "kiilib.image.gallery.title"        : "Galeria de imagenes",
+    "kiilib.image.gallery.subtitle"     : "Entra el texto alternativo y selecciona o carga una imagen",
     "kiilib.image.gallery.select"       : "Selecciona",
 
     "kiilib.cookies.title"              : "Utilización de Cookies",

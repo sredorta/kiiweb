@@ -76,6 +76,8 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     this.addSubscriber(
       this.kiiApiArticle.update(this.article).subscribe(res => {
         this.form.isFormLoading = false;
+        //Close expansion
+        this.isEditing = false;
       }, ()=> this.form.isFormLoading = false)
     )
   }

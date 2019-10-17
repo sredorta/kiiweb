@@ -151,6 +151,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @import './themes/kubiiks/spinner.scss';
 @import './themes/kubiiks/forms.scss';
 @import './themes/kubiiks/scrollbar.scss';
+@import './themes/kubiiks/dialog.scss';
 @import './themes/kubiiks/editor.scss';
 @import './themes/kubiiks/article.scss';
 @import './themes/kubiiks/alert.scss';
@@ -178,6 +179,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
     @include spinner-theme($theme);
     @include forms-theme($theme);
     @include scrollbar-theme($theme);
+    @include dialog-theme($theme);
     @include article-theme($theme);
     @include blog-theme($theme);
     @include contact-theme($theme);
@@ -235,7 +237,4 @@ mat-form-field {
     }
 }
 
-//No margins on mat-dialog
-.mat-dialog-container {
-    padding: 0 !important;
-}
+

@@ -1,11 +1,6 @@
-.wrapper {
-    padding:10px;
-    display:flex;
-    flex-direction: column;
-    max-height: 95vh;
-    overflow-y: auto;
-}
+
 .kii-image-gallery-images {
+    margin-top:5px;
     flex:1;
     display:flex;
     flex-direction: row;

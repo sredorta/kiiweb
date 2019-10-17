@@ -76,5 +76,9 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
     this.images.push(image);
   }
 
+  onClose() {
+    this.dialogRef.close(null);
+  }
+
 }
 

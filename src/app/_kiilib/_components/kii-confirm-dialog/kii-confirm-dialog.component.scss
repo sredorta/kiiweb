@@ -1,33 +1,4 @@
-.kii-confirm-dialog-wrapper {
-    box-sizing: border-box;
-    padding:15px;
-    max-height: 90vh;
-    overflow-y: auto;
-}
-
-.kii-confirm-dialog-container {
+mat-card-actions {
     display:flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-        border-bottom:1px solid;
-        margin-bottom:0px;
-    }
-}
-
-.kii-confirm-dialog-container i {
-    margin:10px;
-    font-size: 60px;
-}
-.action-buttons {
-    width:100%;
-    display: flex;
     justify-content: space-between;
-}
-
-@media only screen and (max-width: 500px) {
-    .kii-confirm-dialog-text-container {
-        font-size: 80%;
-    }
-
 }

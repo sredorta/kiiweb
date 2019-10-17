@@ -1,7 +1,12 @@
-<div class="wrapper">
-  <kii-video-gallery (video)="onVideoFromGallery($event)"></kii-video-gallery>
-  <kii-item-form hint="kiilib.input.video.youtube.hint" label="kiilib.input.video.youtube.label" placeholder="kiilib.input.video.youtube.placeholder" icon="fab fa-youtube" [validators]="validator" (kiiOnSubmit)="onYouTube($event)"></kii-item-form>
-  <div class="close-wrapper">
-    <button mat-button (click)="onClose()" color="primary">{{'kiilib.cancel' | translate}}</button>
-  </div>
-</div>
+<mat-card class="video-gallery-dialog">
+    <mat-card-header>
+      <div mat-card-avatar><i class="far fa-image"></i></div>
+      <mat-card-title>{{'kiilib.video.gallery.title' | translate}}</mat-card-title>
+      <mat-card-subtitle>{{'kiilib.video.gallery.subtitle' | translate}}</mat-card-subtitle>
+      <button mat-icon-button color="primary" (click)="onClose()"><i class="fas fa-times"></i></button>
+    </mat-card-header>
+    <mat-card-content mat-dialog-content>
+        <kii-video-gallery (video)="onVideoFromGallery($event)"></kii-video-gallery>
+        <kii-item-form hint="kiilib.input.video.youtube.hint" label="kiilib.input.video.youtube.label" placeholder="kiilib.input.video.youtube.placeholder" icon="fab fa-youtube" [validators]="validator" (kiiOnSubmit)="onYouTube($event)"></kii-item-form>      
+    </mat-card-content>
+</mat-card>

@@ -1,18 +1,23 @@
-<div class="wrapper">
-      <h1>{{'kiilib.link.dialog.title' | translate}}</h1>
-      <mat-form-field *ngIf="disk != 'email'">
-          <mat-label>{{'kiilib.input.link.type.label' | translate}}</mat-label>
-          <mat-select value="default" (selectionChange)="onTypeChange($event)">
-          <mat-option  value="default">{{'kiilib.link.dialog.default' | translate}}</mat-option>
-          <mat-option  value="normal-button">{{'kiilib.link.dialog.button' | translate}}</mat-option>
-          <mat-option  value="flat-button">{{'kiilib.link.dialog.flat' | translate}}</mat-option>
-          <mat-option  value="raised-button">{{'kiilib.link.dialog.raised' | translate}}</mat-option>
-          <mat-option  value="stroked-button">{{'kiilib.link.dialog.stroked' | translate}}</mat-option>
-          </mat-select>
-          <mat-hint>{{'kiilib.input.link.type.hint' | translate}}</mat-hint>
-      </mat-form-field>
-      <kii-item-form hint="kiilib.input.link.hint" label="kiilib.input.link.label" placeholder="kiilib.input.link.placeholder" icon="fas fa-link" [validators]="validator" (kiiOnSubmit)="onLink($event)"></kii-item-form>
-      <div class="close-wrapper">
-        <button mat-button (click)="onClose()" color="primary">{{'kiilib.cancel' | translate}}</button>
-      </div>
-  </div>
+  <mat-card class="link-dialog">
+      <mat-card-header>
+        <div mat-card-avatar><i class="fas fa-link"></i></div>
+        <mat-card-title>{{'kiilib.link.dialog.title' | translate}}</mat-card-title>
+        <mat-card-subtitle>{{'kiilib.link.dialog.subtitle' | translate}}</mat-card-subtitle>
+        <button mat-icon-button color="primary" (click)="onClose()"><i class="fas fa-times"></i></button>
+      </mat-card-header>
+      <mat-card-content mat-dialog-content>
+          <mat-form-field *ngIf="disk != 'email'">
+              <mat-label>{{'kiilib.input.link.type.label' | translate}}</mat-label>
+              <mat-select value="default" (selectionChange)="onTypeChange($event)">
+              <mat-option  value="default">{{'kiilib.link.dialog.default' | translate}}</mat-option>
+              <mat-option  value="normal-button">{{'kiilib.link.dialog.button' | translate}}</mat-option>
+              <mat-option  value="flat-button">{{'kiilib.link.dialog.flat' | translate}}</mat-option>
+              <mat-option  value="raised-button">{{'kiilib.link.dialog.raised' | translate}}</mat-option>
+              <mat-option  value="stroked-button">{{'kiilib.link.dialog.stroked' | translate}}</mat-option>
+              </mat-select>
+              <mat-hint>{{'kiilib.input.link.type.hint' | translate}}</mat-hint>
+          </mat-form-field>
+          <kii-item-form hint="kiilib.input.link.hint" label="kiilib.input.link.label" placeholder="kiilib.input.link.placeholder" icon="fas fa-link" [validators]="validator" (kiiOnSubmit)="onLink($event)"></kii-item-form>    
+      </mat-card-content>
+
+  </mat-card>

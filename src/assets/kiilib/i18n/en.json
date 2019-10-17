@@ -204,6 +204,7 @@
 
 
     "kiilib.icon.dialog.title"                    : "Add an icon",
+    "kiilib.icon.dialog.subtitle"                 : "Enter the fontawesome corresponding code",
 
 
     "kiilib.link.dialog.default"                  : "Link",
@@ -212,6 +213,7 @@
     "kiilib.link.dialog.raised"                   : "Raised button",
     "kiilib.link.dialog.stroked"                  : "Stroked button",
     "kiilib.link.dialog.title"                    : "Add a link",
+    "kiilib.link.dialog.subtitle"                 : "Select the type and adress of the link",
 
     "kiilib.tooltip.password"           : "Password must have one lower case, one upper case and one number",
     "kiilib.error.default"              : "Incorrect field",
@@ -359,10 +361,12 @@
     "kiilib.newsletter.subscribe"       : "Subscribe",    
 
     "kiilib.video.gallery.title"        : "Video Gallery",
+    "kiilib.video.gallery.subtitle"     : "Upload a video or add the youtube link",
     "kiilib.video.gallery.select"       : "Select",
     "kiilib.video.gallery.upload"       : "Upload a new video",
 
     "kiilib.image.gallery.title"        : "Image Gallery",
+    "kiilib.image.gallery.subtitle"     : "Write the alt text and upload or select an image",
     "kiilib.image.gallery.select"       : "Select",
 
     "kiilib.cookies.title"              : "Cookies usage",

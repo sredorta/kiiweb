@@ -1,6 +1,5 @@
 <div class="wrapper">
   <kii-spinner-overlay [show]="isDataLoading">
-    <h1>{{'kiilib.video.gallery.title' | translate}}</h1>
     <div class="kii-video-gallery-videos" [ngClass]="{'loading':isDataLoading}">
       <div *ngFor="let video of videos" class="kii-video-gallery-video-wrapper">
         <video controls="" width="250px">

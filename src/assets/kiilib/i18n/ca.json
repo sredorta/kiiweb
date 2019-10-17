@@ -206,6 +206,7 @@
     "kiilib.input.fbid.hint"                      : "Introdueix el numero de Facebook App ID",
 
     "kiilib.icon.dialog.title"                    : "Afegir una icone",
+    "kiilib.icon.dialog.subtitle"                 : "Entra el codi de font-awesome corresponent",
 
 
     "kiilib.link.dialog.default"                  : "Enllaç",
@@ -214,7 +215,7 @@
     "kiilib.link.dialog.raised"                   : "Buttó aixecat",
     "kiilib.link.dialog.stroked"                  : "Buttó contorn",
     "kiilib.link.dialog.title"                    : "Afagir un enllaç",
-
+    "kiilib.link.dialog.subtitle"                 : "Tria el tipus i adreça del enllaç",
 
     "kiilib.tooltip.password"           : "El password ha de tenir una minuscula, una majuscula i un numero ",
     "kiilib.error.default"              : "Camp incorrecte",
@@ -364,10 +365,12 @@
 
 
     "kiilib.video.gallery.title"        : "Galeria de videos",
+    "kiilib.video.gallery.subtitle"     : "Puja un video o introdueix el enllaç youtube",
     "kiilib.video.gallery.select"       : "Selecciona",
     "kiilib.video.gallery.upload"       : "Carrega un nou video",
 
     "kiilib.image.gallery.title"        : "Galeria de imagenes",
+    "kiilib.image.gallery.subtitle"     : "Entra el texte alternatiu i selecciona o puja una imatge",
     "kiilib.image.gallery.select"       : "Selecciona",
 
     "kiilib.cookies.title"              : "Utilització de Cookies",

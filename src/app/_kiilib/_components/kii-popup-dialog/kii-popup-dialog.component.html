@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!--<div class="wrapper">
     <div class="header-wrapper">
        <div class="header-icon">
           <i class="fab fa-facebook"></i>
@@ -17,6 +17,18 @@
     <div class="button-wrapper">         
         <button  mat-flat-button color="primary"  [mat-dialog-close]="true">{{'kiilib.newsletter.subscribe' | translate}}</button>
     </div> 
-
-
-</div>
+</div>-->
+<mat-card class="popup-dialog">
+    <mat-card-header>
+      <!--<img mat-card-avatar src="/assets/kiilib/images/cookies.jpg">
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+      <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
+    </mat-card-header>
+    <mat-card-content mat-dialog-content>
+        <kii-article class="intial-dialog" key="dialog-initial"></kii-article>
+    </mat-card-content>
+    <!--<mat-card-actions>
+        <button  mat-flat-button color="primary"  [mat-dialog-close]="true">{{'kiilib.newsletter.subscribe' | translate}}</button>
+    </mat-card-actions>-->
+  </mat-card>

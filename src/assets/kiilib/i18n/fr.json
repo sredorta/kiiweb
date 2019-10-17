@@ -204,6 +204,7 @@
     "kiilib.input.fbid.hint"                      : "Écrivez le numero de Facebook App ID",
 
     "kiilib.icon.dialog.title"                    : "Ajouter une icone",
+    "kiilib.icon.dialog.subtitle"                 : "Entrez le code fontawesome correspondant",
 
     "kiilib.link.dialog.default"                  : "Lien",
     "kiilib.link.dialog.button"                   : "Bouton",
@@ -211,6 +212,7 @@
     "kiilib.link.dialog.raised"                   : "Bouton surelevé",
     "kiilib.link.dialog.stroked"                  : "Boutoun avec contour",
     "kiilib.link.dialog.title"                    : "Ajouter un lien",
+    "kiilib.link.dialog.subtitle"                 : "Selectioner le type et l'adresse du lien",
 
     "kiilib.tooltip.password"           : "Le mot de passe doit avoir une minuscule, une majuscule et un numéro",
     "kiilib.error.default"              : "Champ incorrecte",
@@ -360,10 +362,12 @@
     "kiilib.newsletter.subscribe"       : "Souscrire",
 
     "kiilib.video.gallery.title"        : "Galerie de videos",
+    "kiilib.video.gallery.subtitle"     : "Chargez une video ou inserez le lien youtube",
     "kiilib.video.gallery.select"       : "Seleccione",
     "kiilib.video.gallery.upload"       : "Charger un nouveau video",
 
     "kiilib.image.gallery.title"        : "Galerie de images",
+    "kiilib.image.gallery.subtitle"     : "Entrez le text alternatif et selectioner une image ou chargez-en une",
     "kiilib.image.gallery.select"       : "Seleccione",
 
     "kiilib.cookies.title"              : "Utilization de Cookies",

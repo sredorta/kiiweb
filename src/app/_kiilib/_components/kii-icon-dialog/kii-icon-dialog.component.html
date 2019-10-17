@@ -1,6 +1,12 @@
-<div class="wrapper">
-   <h1>{{'kiilib.icon.dialog.title' | translate}}</h1>
-   <div class="preview-wrapper"><i class="preview-icon" [ngClass]="iconClass"></i></div>
-   <kii-item-form  hint="kiilib.input.icon.hint" label="kiilib.input.icon.label" placeholder="kiilib.input.icon.placeholder" icon="fab fa-font-awesome" [validators]="validator" (kiiOnSubmit)="onInsertIcon()"></kii-item-form>
-
-</div>
+<mat-card class="icons-dialog">
+      <mat-card-header>
+        <div mat-card-avatar><i class="fas fa-icons"></i></div>
+        <mat-card-title>{{'kiilib.icon.dialog.title' | translate}}</mat-card-title>
+        <mat-card-subtitle>{{'kiilib.icon.dialog.subtitle' | translate}}</mat-card-subtitle>
+        <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
+      </mat-card-header>
+      <mat-card-content mat-dialog-content>
+            <div class="preview-wrapper"><i class="preview-icon" [ngClass]="iconClass"></i></div>
+            <kii-item-form  hint="kiilib.input.icon.hint" label="kiilib.input.icon.label" placeholder="kiilib.input.icon.placeholder" icon="fab fa-font-awesome" [validators]="validator" (kiiOnSubmit)="onInsertIcon()"></kii-item-form>         
+      </mat-card-content>
+</mat-card>
