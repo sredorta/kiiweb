@@ -1,35 +1,30 @@
 
-.chat-card {
-    box-sizing: border-box;
-    width:100%;
-    display:flex;
-    flex-direction: column;
+mat-card-content {
+    border:1px solid;
+    margin-bottom:0px;
+    height: 150px;
 }
 
-.chat-header {
-    box-sizing: border-box;
+form {
     width:100%;
-    display:flex;
-    flex-direction: column;
 }
 
-.chat-message-container {
-    border-radius: 2px;
-    padding:15px;
-    margin:0px;
-    padding-right:0px;
-    height:200px;
-    overflow-y: scroll;
+::ng-deep mat-form-field {
+    .mat-form-field-flex {
+        padding-top:0px !important;
+    }
 }
+
 
 .admin-wrapper {
-    display:flex;
+    display:none;
     width:100%;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     margin-bottom:5px;
 }
+
 .admin-user {
     display:flex;
     flex-direction: column;
@@ -58,10 +53,12 @@
 }
 
 .message {
+    font-size: 12px;
     overflow-wrap: break-word;
+    white-space: pre;
     width:70%;
-    border-radius: 20px;
-    padding: 8px 15px;
+    border-radius: 10px;
+    padding: 4px 6px;
     margin-top: 5px;
     margin-bottom: 5px;
     display:inline-block;

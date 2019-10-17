@@ -134,6 +134,9 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           maxWidth:'500px',
           width:"100vw",
           maxHeight:'90vh',
+          position: {
+            top: '10px'
+          },
           data:  null 
         });
         dialogRef.afterClosed().subscribe(result => {

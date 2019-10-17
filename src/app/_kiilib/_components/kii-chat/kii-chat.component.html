@@ -1,15 +1,17 @@
-<div class="chat-card">
-    <div class="chat-header">
-      <mat-card-title><i class="fas fa-user-friends" style="margin-right:25px;" [matBadge]="room.participants" matBadgeOverlap="true"></i>{{'kiilib.chat.title' |translate}}</mat-card-title>
+<mat-card class="card-chat">
+    <mat-card-header>
+      <mat-card-title>{{'kiilib.chat.title' |translate}}</mat-card-title>
       <mat-card-subtitle>{{'kiilib.chat.subtitle' | translate}}</mat-card-subtitle>
-    </div>
+      <div mat-card-avatar><i class="fas fa-user-friends" style="margin-right:25px;" [matBadge]="room.participants" matBadgeOverlap="true"></i></div>
+      <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
+    </mat-card-header>
     <div class="admin-wrapper">
         <div *ngFor="let admin of admins" class="admin-user" [ngClass]="{'is-connected': admin.connected}">
                 <img mat-card-avatar class="avatar" [src]="getAvatar(admin.avatar)">
                 <small>{{admin.firstName}}</small>
         </div>   
     </div>
-    <div class="chat-message-container" #content  [scrollTop]="content.scrollHeight"> 
+    <mat-card-content #content  [scrollTop]="content.scrollHeight"> 
       <div *ngFor="let message of messages" >
           <div class="message" [ngClass]="{'i-am-sender' : iAmSender(message), 'i-am-reciever': !iAmSender(message), 'is-bot': isBot(message)}">
              <div class="message-owner">{{getMessageOwner(message)}}</div>
@@ -17,9 +19,9 @@
              <div class="message-date"><span>{{message.date | date:'HH:mm'}}</span></div>
           </div>
       </div>
-    </div>
+    </mat-card-content>
     <div class="writting-part" ><span *ngIf="writting" class="writting-visible"><i class="far fa-comment-dots"></i>{{'kiilib.chat.writting' | translate}}</span></div>
-    <mat-card-actions>
+    <div class="dialog-actions">
         <form [formGroup]="myForm" novalidate> 
             <mat-form-field [appearance]="kiiInputAppearance">
                 <textarea #control matInput formControlName="newMessage" rows="2" placeholder="{{'kiilib.input.message.placeholder' | translate}}" type="text"></textarea>
@@ -29,6 +31,5 @@
                   <button  mat-mini-fab  color="primary" type="button" (click)="onSubmit()"><i class="fas fa-paper-plane"></i></button>
             </div>
         </form>
-    </mat-card-actions>
-</div>
-
+    </div>
+</mat-card>
