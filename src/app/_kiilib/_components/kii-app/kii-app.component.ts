@@ -184,9 +184,11 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
 
   /**Opens temrs and conditions dialog */  
   openPopupDialog(): void {
-    console.log("POPUP DIALOG !!!",this.kiiApiSetting.getByKey("popup-show").value);
     if (isPlatformBrowser(this.platformId)) {
-      if (this.kiiApiSetting.getByKey("popup-show").value == "1" || this.kiiApiSetting.getByKey("popup-show").value == "true") {
+      //Get the popup setting from localstorage
+      let storage = localStorage.getItem("popup");
+      let value = this.kiiApiSetting.getByKey("popup-show").value;
+      if (value != "disabled" && (!storage || !storage.includes(value))) {
         setTimeout(() => {
             this.dialog.open(KiiPopupDialogComponent, {
               panelClass: '',
@@ -194,7 +196,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               maxHeight:'90vh',
               minWidth:'320px'
             });
-        },500);
+        },5000);
+        localStorage.setItem("popup", value );
       }
     }
   }

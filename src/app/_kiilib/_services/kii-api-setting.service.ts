@@ -15,9 +15,14 @@ export class KiiApiSettingService extends KiiServiceAbstract<Setting> {
     super(http, "setting");
   }
 
-  /**Update setting in database*/
+  /**Update setting in database : kubiiks rights required*/
   public update(element:Setting) {
       return this.http.post<Setting>(environment.apiURL + '/' + this.prefix + '/update', {setting: element}).pipe(map(res => new Setting(res)));
+  }   
+
+  /**Update setting for dialog in database: content rights required*/
+  public updateDialog(element:Setting) {
+      return this.http.post<Setting>(environment.apiURL + '/' + this.prefix + '/update-dialog', {setting: element}).pipe(map(res => new Setting(res)));
   }   
 
   /**Gets value of desired setting by giving it's key */
