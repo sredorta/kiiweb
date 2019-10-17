@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { KiiApiSettingService } from '../../../../_kiilib/_services/kii-api-setting.service';
 import { MatSlideToggle, MatSlideToggleChange } from '@angular/material';
 import { Setting } from '../../../../_kiilib/_models/setting';
-import { KiiBaseAbstract } from 'src/app/_kiilib/_abstracts/kii-base.abstract';
+import { KiiBaseAbstract } from '../../../../_kiilib/_abstracts/kii-base.abstract';
 
 @Component({
   selector: 'app-kii-admin-popup',
