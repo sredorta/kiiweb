@@ -14,10 +14,11 @@ $toolbar-height : 65px;
     top:0;
     z-index: 10;
     display:flex;
-    align-items: stretch;
+    align-items: center;
     padding-left:10px;
     padding-top:3px;
     padding-bottom:3px;
+    min-width: 320px;
 }
 
 .kii-app-router-outlet-wrapper {
@@ -32,28 +33,46 @@ $toolbar-height : 65px;
 }
 
 .kii-app-toolbar-button {
-    width:$toolbar-height;
     justify-content: center;
     align-items: center;
     i {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
+.mat-icon-button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width:46px;
+    height:46px;
+    img {
+        width:22px;
+        height:22px;
+        object-fit: cover;
+        border:1px solid;
+    }
+    span {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+.mat-button {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: $toolbar-height;
+}
+
 
 .kii-app-toolbar-icons {
     display:flex;
     justify-content: center;
     align-items: center;
     min-width: 150px;
-    a {
-        margin-left:10px;
-        margin-right: 10px;
-        width:50px;
-        height:50px;
-        i {
-            font-size: 20px;
-        }
-    }
 }
 .kii-app-toolbar-button {
     display:none;
@@ -65,24 +84,13 @@ $toolbar-height : 65px;
     position: absolute;
     z-index: 100000;
     font-size: 22px;
-
 }
 
 .kii-app-wrapper textarea {
     resize:none
 }
 
-.kii-app-toolbar-avatar {
-    width:25px;
-    height:25px;
-    img {
-        width:100%;
-        object-fit: cover;
-    }
-}
-.kii-app-toolbar-avatar-name {
-    font-size: 10px;
-}
+
 
 @media only screen and (max-width: 700px) { 
     .kii-app-toolbar-content {

@@ -132,4 +132,16 @@ export class User {
 
     }
 
+    /**Returns if has avatar */
+    hasAvatar() {
+        if (this.avatar == null || this.avatar == "none")
+            return false;
+        else
+            return true;    
+    }
+    /**Returns initials */
+    getNameInitials() {
+        return (this.firstName[0] + this.lastName[0]).toUpperCase();
+    }
+
 }

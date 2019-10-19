@@ -1,0 +1,6 @@
+/**Displays content of mat-button in column and not row*/
+@mixin mat-button-column() {
+   .mat-button,.mat-flat-button,.mat-raised-button .mat-button-wrapper {
+       display:column;
+   }
+}

@@ -141,11 +141,6 @@ $main-accent:  mat-palette($mat-yellow, 600, A100, A400);
 $main-warn:    mat-palette($mat-deep-orange,300);
 $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-foreground, $mat-light-theme-background);
 
-//Dialog header theme
-$dialog-header-primary: mat-palette($mat-grey, 200);
-$dialog-header-accent:  mat-palette($mat-green, 500, A100, A400);
-$dialog-header-warn:    mat-palette($mat-deep-orange,300);
-$dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-accent, $dialog-header-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 
 
 
@@ -197,8 +192,9 @@ $dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-a
 
 
 
-
-//MAIN DEFAULT THEME
+////////////////////////////////////////////////////////////////////////////////////
+// MAIN DEFAULT THEME
+////////////////////////////////////////////////////////////////////////////////////
 @include angular-material-theme($main-theme);
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
@@ -208,12 +204,37 @@ $dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-a
 .admin-theme .angular-editor-textarea {
   background-color: #fafafa !important;
 }
+
+////////////////////////////////////////////////////////////////////////////////////
+// TOOLBAR THEME
+////////////////////////////////////////////////////////////////////////////////////
+//Dialog header theme
+$toolbar-primary: mat-palette($mat-grey, 200);
+$toolbar-accent:  mat-palette($mat-lime, 500);
+$toolbar-warn:    mat-palette($mat-red,700);
+$toolbar-theme: create-dark-theme($toolbar-primary, $toolbar-accent, $toolbar-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
+
+kii-app .toolbar-theme {
+  @include angular-material-theme($toolbar-theme);
+  color:mat-color(mat-palette($mat-grey, 400));
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////
+// DIALOG HEADER THEME
+////////////////////////////////////////////////////////////////////////////////////
+//Dialog header theme
+$dialog-header-primary: mat-palette($mat-grey, 200);
+$dialog-header-accent:  mat-palette($mat-green, 500, A100, A400);
+$dialog-header-warn:    mat-palette($mat-deep-orange,300);
+$dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-accent, $dialog-header-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
+
 mat-dialog-container mat-card-header {
   @include angular-material-theme($dialog-header-theme);
   color:white;
   background-image:
     linear-gradient(
-      45deg, 
+      135deg, 
       mat-color(mat-palette($mat-lime, 900)), mat-color(mat-palette($mat-lime, 400))
     );
 }

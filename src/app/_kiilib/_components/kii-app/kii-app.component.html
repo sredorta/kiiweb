@@ -2,22 +2,22 @@
   <div id="kii-app-main-container" class="kii-app-wrapper">
       <div class="kii-app-toolbar toolbar-theme" kiiScroll>
           <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"><span><i class="fas fa-plane"></i><small>{{'kiilib.pwa.offline' | translate}}</small></span></div>
-          <a mat-ripple class="kii-app-toolbar-button menu-button" [routerLink]="'/sidenav' | localize">
+          <a mat-icon-button class="kii-app-toolbar-button menu-button" [routerLink]="'/sidenav' | localize">
               <i class="kii-app-menu-button fas fa-bars"></i>
           </a>
           <div class="kii-app-toolbar-content">
               <ng-content select="[kiiToolbarMenu]"></ng-content>
           </div>
           <div class="kii-app-toolbar-icons">
-              <a mat-ripple class="kii-app-toolbar-icon"><i class="fas fa-shopping-cart"></i></a>  
-              <a mat-ripple class="kii-app-toolbar-icon" *ngIf="!loggedInUser.exists()" mat-ripple class="kii-app-toolbar-icon" [routerLink]="'/login' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon"><i class="fas fa-shopping-cart"></i></a>  
+              <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="!loggedInUser.exists()" class="kii-app-toolbar-icon" [routerLink]="'/login' | localize">
                   <i class="fas fa-sign-in-alt"></i>
               </a>
-              <a mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/profile' | localize">
-                  <div class="kii-app-toolbar-avatar"><img [src]= "loggedInUser.getAvatar()"></div>
-                  <small class="kii-app-toolbar-avatar-name">{{loggedInUser.firstName}}</small>
+              <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()"  [routerLink]="'/profile' | localize">
+                    <img *ngIf="loggedInUser.hasAvatar()" [src]= "loggedInUser.getAvatar()">
+                    <span *ngIf="!loggedInUser.hasAvatar()" class="kii-app-toolbar-avatar-name">{{loggedInUser.getNameInitials()}}</span>
               </a>
-              <a  mat-ripple class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()" color="primary" [routerLink]="'/alerts' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
                 <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>
               </a>
               <kii-language-selector></kii-language-selector>
