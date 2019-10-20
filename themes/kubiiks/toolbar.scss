@@ -32,17 +32,21 @@
     //Main button
     .kii-app-toolbar-button {
       background-color: mat-color(mat-palette($mat-grey, 900));
-     
+      animation: shadow-pulse 0.8s 8;
     }
-      /*animation-name: main-button;
-      animation-duration: 4s; 
-      animation-iteration-count: 10;
-      animation-direction: alternate; 
-      animation-timing-function: ease-out; 
-      animation-fill-mode: forwards; 
-      animation-delay: 2s; */
-
   }
+
+  @keyframes shadow-pulse
+  {
+    0% {
+      box-shadow: 0 0 0 0px rgba(mat-color(mat-palette($mat-lime, 500)), 1);
+    }
+    100% {
+      box-shadow: 0 0 0 15px rgba(mat-color(mat-palette($mat-lime, 500)), 0);
+    }
+  }
+
+
   kii-app .kii-app-toolbar-button.mat-button .mat-button-wrapper {
     display:flex;
     flex-direction: column;
@@ -61,21 +65,3 @@
 
   
 }
-
-@keyframes main-button {
-  0% {
-    border-width: 0px;
-  }
-  100% {
-    border-width: 10px;
-  }
-}
-
-
-
-@mixin mat-button-column() {
-    &.mat-button,.mat-flat-button,.mat-raised-button .mat-button-wrapper {
-        display:flex;
-        flex-direction: column;
-    }
- }
