@@ -116,7 +116,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
       )
     }
     //Subscribe to online/offline
-    this.kiiPwa.init();
     this.addSubscriber(
         this.kiiPwa.offline.subscribe(res => {
           this.offline = res;

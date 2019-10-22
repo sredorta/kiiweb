@@ -58,7 +58,8 @@ export class KiiPwaService {
       });*/
 
       //Online/Offline detection
-      window.addEventListener('online', event => {
+      this.checkInternet();
+      /*window.addEventListener('online', event => {
         console.log("RECIEVED ONLINE EVENT !!!");
         this.init();
       })
@@ -66,7 +67,7 @@ export class KiiPwaService {
         console.log("RECIEVED OFFLINE EVENT !!!");
         this.init();
 
-      })
+      })*/
 
       //Handle version updates if required we show bottom sheet and upload new version
       var refreshing;
@@ -112,19 +113,21 @@ export class KiiPwaService {
     }
   }
 
-  init() {
+  checkInternet() {
     if (isPlatformBrowser(this._platformId)) {
-      console.log("GETING FROM GOOGLE !!!!!!!!")
       let subscr : Subscription = new Subscription();
-      subscr = this.http.get(environment.mainExtURL + '/server/api/connected').subscribe(res => {
-          console.log("RESULT FROM GOOGLE",res);
-          this.offline.next(false);
-          subscr.unsubscribe();
-      }, error => {
-          console.log("GOT ERROR",error);
-          this.offline.next(true);
-          subscr.unsubscribe();
-      })
+      setInterval(() => {
+        console.log("CHECKING INTERNET CONNECTION");
+        subscr = this.http.get(environment.mainExtURL + '/server/api/connected').subscribe(res => {
+            console.log("OFFLINE:",false);
+            this.offline.next(false);
+            subscr.unsubscribe();
+        }, error => {
+            console.log("OFFLINE", true);
+            this.offline.next(true);
+            subscr.unsubscribe();
+        })
+      },10000);
     }
   }
 
@@ -169,8 +172,5 @@ export class KiiPwaService {
   isOffline() {
     return this.offline.value;
   }
-
-
-
 
 }
