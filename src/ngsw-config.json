@@ -1,21 +1,10 @@
 {
   "index": "/index.html",
   "navigationUrls": [
-    "/",
-    "/fr/accueil",
-    "/en/home",
-    "/ca/inicio",
-    "/es/inici",
-    "https://www.kubiiks.com",
-    "https://www.kubiiks.com/fr/accueil",
-    "https://www.kubiiks.com/en/home",
-    "https://www.kubiiks.com/ca/inici",
-    "https://www.kubiiks.com/es/inicio",
-    "https://kubiiks.com",
-    "https://kubiiks.com/fr/accueil",
-    "https://kubiiks.com/en/home",
-    "https://kubiiks.com/ca/inici",
-    "https://kubiiks.com/es/inicio"
+    "/**",   
+    "!/server/**",
+    "!/assets/**",
+    "!/**/*.*"
   ],
   "assetGroups": [
     {
@@ -27,11 +16,8 @@
           "/index.html",
           "/*.css",
           "/*.js",
-          "/assets/fontawesome/fontawesome.all.min.css",
-          "/assets/webfonts/*.*",
-          "/assets/kiilib/images/*.*",
-          "/assets/i18n/*",
-          "/assets/kiilib/i18n/*"
+          "/assets/i18n/*.json",
+          "/assets/kiilib/i18n/*.json"
         ]
       }
     }, {
@@ -40,9 +26,9 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
-
+          "/assets/**"
+        ],
+        "urls": [
         ]
       }
     }
@@ -70,6 +56,6 @@
       "timeout": "10s"
     }
   }
-]
+  ]
 
 }

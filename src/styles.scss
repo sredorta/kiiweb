@@ -30,11 +30,11 @@ span,p,h1,h2,h3,small,div,a {
     box-sizing: border-box;
 }
 
-    /*Remove Chrome autofill automatic settings on inputs*/
-    input,textarea,select {
+/*Remove Chrome autofill automatic settings on inputs*/
+input,textarea,select {
         background-color: transparent;
-    }
-    input:-webkit-autofill,
+}
+input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active,
@@ -46,4 +46,14 @@ span,p,h1,h2,h3,small,div,a {
         select:-webkit-autofill:focus {
             -webkit-transition-delay: 99999s;
             transition-delay: 999999s;
-    }
+}
+
+////////////////////////////////////////////////////////////////////////////    
+// FONTS
+////////////////////////////////////////////////////////////////////////////
+@font-face {
+	font-family: "Reenie Beanie";
+    src: url('/assets/fonts/Reenie_Beanie/ReenieBeanie-Regular.ttf');
+    font-style: normal;
+    font-weight: 400;
+}

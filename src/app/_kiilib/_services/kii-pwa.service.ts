@@ -46,7 +46,7 @@ export class KiiPwaService {
 
     if (isPlatformBrowser(this._platformId)) {
       //Handle version updates if required we show bottom sheet and upload new version
-      swUpdate.available.subscribe(event => {
+     /* swUpdate.available.subscribe(event => {
         let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
           panelClass :"default-theme",
         })
@@ -55,7 +55,7 @@ export class KiiPwaService {
             window.location.reload();
           }
         })
-      });
+      });*/
 
       //Online/Offline detection
       window.addEventListener('online', event => {
@@ -68,16 +68,26 @@ export class KiiPwaService {
 
       })
 
-      //This part is under testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      /*var refreshing;
+      //Handle version updates if required we show bottom sheet and upload new version
+      var refreshing;
+      let myObj = this;
       navigator.serviceWorker.addEventListener('controllerchange',
         function() {
+          console.log("GOT CONTROLLER CHANGE !!!!!");
           if (refreshing) return;
           refreshing = true;
-          console.log("REFRESHING !!!!!");
-          window.location.reload();
+          console.log("NEED REFRESHING !!!!!");
+          //window.location.reload();
+          let myBottomSheet = myObj.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
+            panelClass :"default-theme",
+          })
+          myBottomSheet.afterDismissed().subscribe(res => {
+            if (res==true) {
+              window.location.reload();
+            }
+          })
         }
-      );*/
+      );
 
       //Handle install button and tell that we show the install bottom sheet
       window.addEventListener('beforeinstallprompt', event => {

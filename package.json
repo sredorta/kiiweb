@@ -21,7 +21,7 @@
     "ssr:universal:build:server": "node ./node_modules/npm-delay 12000 && ng run kiiweb:server --watch",
     "ssr:universal:build:webpack": "node ./node_modules/npm-delay 20000 && webpack --config webpack.server.config.js --watch",
     "ssr:universal:build:nodemon": "node ./node_modules/npm-delay 25000 && nodemon --inspect server.js",
-    "build:vps" : "ng build --prod --configuration=vps && ng run kiiweb:server:production && webpack --config webpack.server.config.js --progress --colors && node ./vps.js"
+    "build:vps": "ng build --prod --configuration=vps && ng run kiiweb:server:production && webpack --config webpack.server.config.js --progress --colors && node ./vps.js"
   },
   "private": true,
   "dependencies": {
@@ -37,9 +37,9 @@
     "@angular/platform-browser": "^8.0.2",
     "@angular/platform-browser-dynamic": "^8.0.2",
     "@angular/platform-server": "^8.0.2",
-    "@angular/pwa": "^0.800.3",
+    "@angular/pwa": "^0.800.6",
     "@angular/router": "^8.0.2",
-    "@angular/service-worker": "^8.0.2",
+    "@angular/service-worker": "^8.2.11",
     "@ng-toolkit/universal": "^7.1.2",
     "@nguniversal/common": "0.0.0",
     "@nguniversal/express-engine": "0.0.0",
@@ -56,6 +56,7 @@
     "hammerjs": "^2.0.8",
     "jw-angular-social-buttons": "^1.0.0",
     "ngx-device-detector": "^1.3.11",
+    "replace-in-file": "^4.2.0",
     "rxjs": "^6.5.2",
     "socket.io-client": "^2.2.0",
     "tslib": "^1.9.0",

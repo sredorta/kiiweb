@@ -58,7 +58,7 @@ import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localiz
           deps: [TranslateService, Location, LocalizeRouterSettings]
       }
     }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production}),//, scope:"/"}),
   ],
   entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetSoftwareInstallComponent,KiiBottomSheetCookiesComponent, KiiHttpErrorComponent],
   providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService],
