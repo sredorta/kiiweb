@@ -198,7 +198,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               maxHeight:'90vh',
               minWidth:'320px'
             });
-        },5000);
+        },500);
         localStorage.setItem("popup", value );
       }
     }

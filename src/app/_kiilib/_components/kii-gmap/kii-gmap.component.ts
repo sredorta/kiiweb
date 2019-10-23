@@ -22,6 +22,7 @@ export class KiiGmapComponent extends KiiBaseAbstract implements OnInit {
     //If settings changes we update
     this.addSubscriber(
         this.kiiApiSetting.onChange().subscribe(res => {
+          if (res.length>0)
             this.config();
         })
     )     

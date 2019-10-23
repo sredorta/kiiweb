@@ -1,7 +1,8 @@
 <kii-spinner-overlay [show]="isLoading">
-    <!--<kii-article class="realisations-header" key="realisations-header"></kii-article>-->
-
-    <div class="gap">
-      <kii-article-summary class="prices-summary" *ngFor="let article of articles" [key]="article.id" kiiScroll></kii-article-summary>  
+    <div class="wrapper">
+      <kii-article class="realisations-header" key="realisations-header"></kii-article>
+      <div class="content-wrapper">
+        <kii-article-summary class="prices-summary" *ngFor="let article of articles" [key]="article.id" kiiScroll></kii-article-summary>  
+      </div>
     </div>
 </kii-spinner-overlay>

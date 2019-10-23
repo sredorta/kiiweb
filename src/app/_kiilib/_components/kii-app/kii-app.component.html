@@ -15,7 +15,7 @@
               </a>
               <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()"  [routerLink]="'/profile' | localize">
                     <img *ngIf="loggedInUser.hasAvatar()" [src]= "loggedInUser.getAvatar()">
-                    <span *ngIf="!loggedInUser.hasAvatar()" class="kii-app-toolbar-avatar-name">{{loggedInUser.getNameInitials()}}</span>
+                    <div *ngIf="!loggedInUser.hasAvatar()" class="kii-app-toolbar-avatar-name"></div>
               </a>
               <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
                 <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>
@@ -27,7 +27,7 @@
       <div class="kii-app-router-outlet-wrapper" >
       <router-outlet  (activate)="onActivate($event)"></router-outlet>
       </div>
-      <div class="footer-theme">
+      <div class="footer-theme kii-app-footer-wrapper">
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>

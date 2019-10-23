@@ -74,6 +74,16 @@ $toolbar-height : 65px;
     min-height: $toolbar-height;
 }
 
+.kii-app-toolbar-avatar-name {
+    width:24px;
+    height:24px;
+    border:1px solid;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/kiilib/images/user-default.jpg");
+    background-size: contain;
+}
 
 .kii-app-toolbar-icons {
     display:flex;

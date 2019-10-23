@@ -12,16 +12,8 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
-  app-realisations .gap {
-      display:flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding-top:30px;
-      padding-bottom:30px;
-      padding-left:10px;
-      padding-right:10px;
-  }
+
+
 
   app-realisations kii-article-summary .kii-article-summary-container {
       display:block;
@@ -49,17 +41,35 @@
     filter: grayscale(80%);
     transform: scale(0.8, 0.8) rotate(-5deg);
   }  
-  app-realisations kii-article-summary:hover {
-        filter: none;
-        transform: scale(1, 1) rotate(0deg) !important;
+
+  //Desktops
+  @media (pointer: fine) {
+    app-realisations kii-article-summary:hover {
+       @include spot-paper-polaroid();
+    }
+  }  
+
+  //On mobile devices we highlight when it appears
+  @media (pointer:coarse) {
+    app-realisations kii-article-summary.kii-appear {
+      @include spot-paper-polaroid();
+    }
   }
 
 }
+
+//Spot the polaroid paper
+@mixin spot-paper-polaroid() {
+    filter: none;
+    transform: scale(0.9, 0.9) rotate(0deg) !important;
+}
+
+
 @mixin style-paper-polaroid() {
     width:300px;
-    background: #fff;
+    background: #fff;    
     padding: 1rem;
-    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 
     & > img {
         width: 100%;
@@ -68,6 +78,7 @@
     h1 {
         text-align: center;
     }
+}  
 
- 
- }  
+
+

@@ -141,7 +141,8 @@ $main-accent:  mat-palette($mat-yellow, 600, A100, A400);
 $main-warn:    mat-palette($mat-deep-orange,300);
 $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-foreground, $mat-light-theme-background);
 
-
+//Mixins
+@import'./themes/mixins/all-mixins.scss';
 
 
 //Themes
@@ -198,12 +199,24 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @include angular-material-theme($main-theme);
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
+.kii-app-router-outlet-wrapper {
+  background-image: url('/assets/images/paper-texture-1.jpg');
+  //position:relative;
+  //box-shadow: 2px 2px 4px 5px rgba(black,0.4);
+}
+
 .angular-editor-textarea {
   color: map_get($mat-light-theme-foreground,text);
 }
 .admin-theme .angular-editor-textarea {
-  background-color: #fafafa !important;
+  background-image: url('/assets/images/paper-texture-1.jpg');
 }
+
+//FOOTER
+.kii-app-footer-wrapper {
+  @include shadow-lifted-inset-top-right();
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 // TOOLBAR THEME
@@ -217,6 +230,7 @@ $toolbar-theme: create-dark-theme($toolbar-primary, $toolbar-accent, $toolbar-wa
 kii-app .toolbar-theme {
   @include angular-material-theme($toolbar-theme);
   color:mat-color(mat-palette($mat-grey, 400));
+  //background-image: url('/assets/images/black-paper.jpg');
 }
 
 
@@ -232,11 +246,11 @@ $dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-a
 mat-dialog-container mat-card-header {
   @include angular-material-theme($dialog-header-theme);
   color:white;
-  background-image:
+  /*background-image:
     linear-gradient(
       135deg, 
       mat-color(mat-palette($mat-lime, 900)), mat-color(mat-palette($mat-lime, 400))
-    );
+    );*/
 }
 
 

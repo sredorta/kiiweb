@@ -376,7 +376,10 @@
     "kiilib.alerts.title"               : "Notifications",
 
     "kiilib.confirm.title"              : "Atention",
-    "kiilib.confirm.text"               : "Cette opeartion est irreversible, êtes vous sur ?"
+    "kiilib.confirm.text"               : "Cette opeartion est irreversible, êtes vous sur ?",
+
+    "kiilib.contact.title"               : "CONTACTEZ-NOUS"
+
 
 
 

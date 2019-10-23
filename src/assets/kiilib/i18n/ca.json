@@ -379,6 +379,7 @@
     "kiilib.alerts.title"               : "Notificacions",
 
     "kiilib.confirm.title"              : "Atenció",
-    "kiilib.confirm.text"               : "Aquesta operació es irreversible, estas segur ?"
+    "kiilib.confirm.text"               : "Aquesta operació es irreversible, estas segur ?",
+    "kiilib.contact.title"               : "CONTACTA'NS"
 
 }

@@ -59,15 +59,6 @@ export class KiiPwaService {
 
       //Online/Offline detection
       this.checkInternet();
-      /*window.addEventListener('online', event => {
-        console.log("RECIEVED ONLINE EVENT !!!");
-        this.init();
-      })
-      window.addEventListener('offline', event => {
-        console.log("RECIEVED OFFLINE EVENT !!!");
-        this.init();
-
-      })*/
 
       //Handle version updates if required we show bottom sheet and upload new version
       var refreshing;

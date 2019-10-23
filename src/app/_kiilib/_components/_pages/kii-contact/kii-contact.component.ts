@@ -15,8 +15,8 @@ interface Icons  {
   animations: [
     trigger('detailExpand', [
       transition(':enter', [
-        style({opacity:0}),
-        animate('400ms 200ms ease-in-out', style({ opacity:1}))
+        style({opacity:0, transform: 'translateY(-400%)'}),
+        animate('800ms 200ms ease-in-out', style({ opacity:1, transform: 'translateY(0%)'}))
       ]),
       transition(':leave', [
         style({opacity:0}),
@@ -62,6 +62,6 @@ export class KiiContactComponent implements OnInit {
 
   /**Returns if icon is active */
   isActive(id:number) {
-    return this.icons.find(obj=> obj.id == id).isActive
+    return this.icons.find(obj=> obj.id == id).isActive;
   }
 }

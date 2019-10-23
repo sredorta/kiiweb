@@ -1,1 +1,21 @@
 
+.content-wrapper {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top:30px;
+    padding-bottom:30px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.wrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .realisations-header, .content-wrapper {
+    max-width: 800px;
+  }
+}
