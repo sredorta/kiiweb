@@ -18,60 +18,50 @@ kii-contact {
 
     .header {
         position: relative;
-        min-height: 60vh !important;
+        min-height: 400px !important;
+    }
+    .icon-central {
+        position:absolute;
+        font-size: 10rem;
+        bottom:40px;
+        left:220px;
     }
     .contact-icon {
+        i {
+            display:none;
+        }
         position:absolute;
-        border-radius: 50%;
-        color:white;
-        background-image: url('/assets/images/green-paper-texture.jpg');
         display:flex;
         justify-content: center;
-        min-width: 55px;
-        min-height: 55px;
-        max-width: 150px;
-        max-height: 150px;
-        box-shadow: 1px 1px 2px 2px rgba(black,0.4);
-        align-items: center;
-        i {
-          font-size: 34px;  
-        }
+        font-size: 26px;
+        font-family: 'Reenie Beanie';
+        font-weight: bold;
+        transition: all 0.4s ease-in-out;
+        bottom:250px;
+        left:250px;
+        width:200px;
     }
     .contact-icon:hover {
         cursor: pointer;
     }
-    .contact-icon:nth-child(1) { 
-            top: 10%;
-            left: 10%;
-            width: 10vw;
-            height: 10vw;
+    .header >div:nth-child(2)  { 
+        transform: rotate(-80deg);
     }
-    .contact-icon:nth-child(2) { 
-            top: 5%;
-            left: 60%;
-            width: 10vw;
-            height: 10vw;
-    }   
-    .contact-icon:nth-child(3) { 
-        top: 20%;
-        left: 75%;
-        width: 15vw;
-        height: 15vw;
-    }  
+    .header >div:nth-child(3) {
+        transform: rotate(-60deg);
+    }
+    .header >div:nth-child(4) {
+        transform: rotate(-40deg);
+    }
+    .header >div:nth-child(5) {
+        transform: rotate(-20deg);
+    }
 
-    .contact-icon:nth-child(4) { 
-        top: 55%;
-        left: 25%;
-        width: 15vw;
-        height: 15vw;
-    }  
- 
-    .contact-icon:nth-child(5) { 
-        top: 70%;
-        left: 70%;
-        width: 15vw;
-        height: 15vw;
-    }  
+    .contact-icon.is-active {
+        color: mat-color($primary);
+        font-size: 32px;
+    }
+
     .contact-text { 
         font-family: "Lucida Console";
         position:absolute;
@@ -80,49 +70,12 @@ kii-contact {
         left: 0;
         bottom:0;
         margin-left: 5%;
-        font-size: 30px;
+        font-size: 22px;
         //color:mat-color($primary);
     }      
 
     @media only screen and (max-width: 700px) {
-        .contact-icon i {
-            font-size: 24px;
-        }
-        .contact-icon:nth-child(1) { 
-            top: 10%;
-            left: 10%;
-            width: 20vw;
-            height: 20vw;
-        }
-        .contact-icon:nth-child(2) { 
-                top: 5%;
-                left: 50%;
-                width: 20vw;
-                height: 20vw;
-        }   
-        .contact-icon:nth-child(3) { 
-            top: 20%;
-            left: 65%;
-            width: 30vw;
-            height: 30vw;
-        }  
 
-        .contact-icon:nth-child(4) { 
-            top: 65%;
-            left: 25%;
-            width: 20vw;
-            height: 20vw;
-        }  
-    
-        .contact-icon:nth-child(5) { 
-            top: 70%;
-            left: 55%;
-            width: 25vw;
-            height: 25vw;
-        }  
-        .contact-text { 
-            font-size: 22px;
-        }      
     }
 
 

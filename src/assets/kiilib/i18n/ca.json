@@ -380,6 +380,11 @@
 
     "kiilib.confirm.title"              : "Atenció",
     "kiilib.confirm.text"               : "Aquesta operació es irreversible, estas segur ?",
-    "kiilib.contact.title"               : "CONTACTA'NS"
+    "kiilib.contact.title"              : "CONTACTA'NS",
+    "kiilib.contact.phone"              : "Per telèfon",
+    "kiilib.contact.timetable"          : "Horaris",
+    "kiilib.contact.chat"               : "Pel chat",
+    "kiilib.contact.form"               : "Per correu electrònic",
+    "kiilib.contact.address"            : "Adressa"
 
 }

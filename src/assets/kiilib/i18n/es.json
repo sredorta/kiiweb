@@ -376,7 +376,12 @@
     "kiilib.confirm.title"              : "Atencion",
     "kiilib.confirm.text"               : "Esta operación es irreversible, esta seguro ?",
 
-    "kiilib.contact.title"               : "CONTACTANOS"
+    "kiilib.contact.title"               : "CONTACTANOS",
+    "kiilib.contact.phone"              : "Por telefono",
+    "kiilib.contact.timetable"          : "Horarios",
+    "kiilib.contact.chat"               : "Por el chat",
+    "kiilib.contact.form"               : "Por correo electronico",
+    "kiilib.contact.address"            : "Nos encontrar"
 
 
 }

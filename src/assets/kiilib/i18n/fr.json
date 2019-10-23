@@ -378,8 +378,12 @@
     "kiilib.confirm.title"              : "Atention",
     "kiilib.confirm.text"               : "Cette opeartion est irreversible, êtes vous sur ?",
 
-    "kiilib.contact.title"               : "CONTACTEZ-NOUS"
-
+    "kiilib.contact.title"               : "CONTACTEZ-NOUS",
+    "kiilib.contact.phone"              : "Par telephone",
+    "kiilib.contact.timetable"          : "Horaraires",
+    "kiilib.contact.chat"               : "Par chat",
+    "kiilib.contact.form"               : "Par courriel",
+    "kiilib.contact.address"            : "Nous trouvez"
 
 
 

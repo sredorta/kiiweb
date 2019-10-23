@@ -5,6 +5,7 @@ import { KiiContactFormComponent } from '../../_forms/kii-contact-form/kii-conta
 interface Icons  {
   id:number,
   class:string[],
+  text:string,
   isActive:boolean
 }
 
@@ -43,11 +44,11 @@ export class KiiContactComponent implements OnInit {
   }
   /**Initialize the icons */
   initIcons() {
-    this.icons.push({id:0,class:['fas', 'fa-mobile-alt'], isActive:true});
-    this.icons.push({id:1,class:['far', 'fa-clock'], isActive:false});
-    this.icons.push({id:2,class:['fas', 'fa-comments'], isActive:false});
-    this.icons.push({id:3,class:['fas', 'fa-file-signature'], isActive:false});
-    this.icons.push({id:4,class:['fas', 'fa-map-marked-alt'], isActive:false});
+    this.icons.push({id:0,class:['fas', 'fa-mobile-alt'], isActive:true,text:"kiilib.contact.phone"});
+    this.icons.push({id:1,class:['far', 'fa-clock'], isActive:false,text:"kiilib.contact.timetable"});
+    this.icons.push({id:2,class:['fas', 'fa-comments'], isActive:false,text:"kiilib.contact.chat"});
+    this.icons.push({id:3,class:['fas', 'fa-file-signature'], isActive:false,text:"kiilib.contact.form"});
+    this.icons.push({id:4,class:['fas', 'fa-map-marked-alt'], isActive:false,text:"kiilib.contact.address"});
   }
 
   /**Activates icon and desactivates others */

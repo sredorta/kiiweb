@@ -1,7 +1,9 @@
 <div class="wrapper">
 <div class="header">
+    <div class="icon-central"><i class="fas fa-microphone-alt"></i></div>    
     <div class="contact-icon" *ngFor="let icon of icons" [ngClass]="{'is-active' : icon.isActive}" (click)="activateIcon(icon.id)" >
             <i  [ngClass]="icon.class" ></i>
+            <span class="icon-text">{{icon.text | translate}}</span>
     </div>
     <div class="contact-text">{{'kiilib.contact.title' | translate}}</div>
 </div>    

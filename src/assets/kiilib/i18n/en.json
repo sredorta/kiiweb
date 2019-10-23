@@ -377,8 +377,12 @@
     "kiilib.confirm.title"              : "Attention",
     "kiilib.confirm.text"               : "This operation is irreversible, are you sure ?",
 
-    "kiilib.contact.title"               : "CONTACT US"
-
+    "kiilib.contact.title"               : "CONTACT US",
+    "kiilib.contact.phone"              : "By phone",
+    "kiilib.contact.timetable"          : "Timetable",
+    "kiilib.contact.chat"               : "By chat",
+    "kiilib.contact.form"               : "By email",
+    "kiilib.contact.address"            : "Our address"
 
 
 
