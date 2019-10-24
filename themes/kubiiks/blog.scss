@@ -12,6 +12,14 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
+  kii-blog kii-article {
+    font-family: "Mansalva";
+
+    max-width: 800px;
+    width:100%;
+    margin:0 auto;
+  }
+
   kii-blog .wrapper {
       min-height: 80vh;
       padding:5px;
@@ -29,31 +37,41 @@
 
   kii-blog kii-article-summary .kii-article-summary-container {
       @include style-letter();
+      transform: scale(0.9, 0.9) rotate(0deg) !important;
+      filter: grayscale(80%);
+      transition: all 0.35s 0.1s;
+  }
 
-      &:hover {
+
+  //Desktops
+  @media (pointer: fine) {
+    kii-blog kii-article-summary .kii-article-summary-container:hover {
         cursor:pointer;
-        //transform: scale(1, 1) rotate(0deg) !important;
+        filter: none;
+        transform: scale(1, 1) rotate(0deg) !important;
+        box-shadow: 4px 4px 6px 4px rgba(black,0.4);
+    }
+  }  
+
+  //On mobile devices we highlight when it appears
+  @media (pointer:coarse) {
+    kii-blog kii-article-summary.kii-appear {
+      .kii-article-summary-container {
+        cursor:pointer;
+        filter: none;
+        transform: scale(1, 1) rotate(0deg) !important;
+        box-shadow: 4px 4px 6px 4px rgba(black,0.4);
       }
-      transition: all 0.35s;
+    }
   }
 
-  kii-blog kii-article-summary:nth-child(even) .kii-article-summary-container {
-    //transform: scale(0.8, 0.8) rotate(5deg);
-    h1,h2 {
-      //transform:skewY(9deg);
-    }
-  }
-  kii-blog kii-article-summary:nth-child(odd) .kii-article-summary-container {
-    //transform: scale(0.8, 0.8) rotate(-5deg);
-    h1,h2 {
-      //transform:skewY(-7deg);
-    }
-  }
+
 
 }
 
 @mixin style-letter() {
   background-image: url('/assets/images/paper-fibres.jpg');
+  border-radius: 1px;
   font-family: "Mansalva";
   margin-top:10px;
   margin-bottom:10px;
@@ -110,6 +128,9 @@
   }
   padding:20px;
   @media only screen and (max-width: 600px) {
+    & {
+      padding:10px;
+    }
     .kii-article-summary-image-wrapper {
       width:80px;
     }
@@ -117,10 +138,12 @@
       h1 {
         font-size: 24px;
         font-weight: bold;
+        margin-bottom:3px;
       }
       h2 {
-          font-size: 18px;
-          font-weight: 200;
+        margin-top:3px;
+        font-size: 18px;
+        font-weight: 200;
       }
     }
   }

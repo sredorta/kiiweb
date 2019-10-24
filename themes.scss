@@ -159,19 +159,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @import './themes/kubiiks/chat.scss';
 @import './themes/kubiiks/blog.scss';
 @import './themes/kubiiks/contact.scss';
-@import './themes/kubiiks/realisations.scss';
 
-/*@import './themes/kubiiks/kii-scrollbar-theme.scss';
-@import './themes/kubiiks/kii-app-theme.scss';
-@import './themes/kubiiks/kii-toolbar-theme.scss';
-@import './themes/kubiiks/kii-spinner-theme.scss';
-@import './themes/kubiiks/kii-http-error-theme.scss';
-@import './themes/kubiiks/mat-button-theme.scss';
-@import './themes/kubiiks/mat-form-field-theme.scss';
-@import './themes/kubiiks/mat-tooltip-theme.scss';
-@import './themes/kubiiks/kii-mat-table-theme.scss';
-@import './themes/kubiiks/kii-contact-theme.scss';
-@import './themes/kubiiks/kii-article-summary-theme.scss';*/
 
 @mixin design-theme($theme) {
     @include toolbar-theme($theme);
@@ -186,7 +174,6 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
     @include contact-theme($theme);
     @include alert-theme($theme);
     @include chat-theme($theme);
-    @include realisations-theme($theme);
 }
 
 

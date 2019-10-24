@@ -14,7 +14,7 @@
 
 
 kii-contact {
-
+    font-family: "Mansalva";
 
     .header {
         position: relative;
@@ -23,7 +23,7 @@ kii-contact {
     .icon-central {
         position:absolute;
         font-size: 10rem;
-        bottom:40px;
+        bottom:20px;
         left:220px;
         transition: all 0.4s ease-in-out;
     }
@@ -102,19 +102,9 @@ kii-contact {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     .contact-element {
         margin:20px;
-        box-shadow: -2px 1px 2px 0px rgba(black,0.4);
+        box-shadow: 2px 2px 3px 2px rgba(black,0.4);
         background-image: url('/assets/images/paper-fibres.jpg');
         background-repeat: repeat;
         angular-editor {
@@ -123,19 +113,6 @@ kii-contact {
         }
     }
 
-
-
-
-
-
-    
-    .icon-header {
-        color:rgba(mat-color($primary),0.5);
-    }
-
-    .icon-header.is-active {
-        color:mat-color($primary);
-    }
 }
 
 }

@@ -19,3 +19,76 @@
     max-width: 800px;
   }
 }
+
+
+kii-article {
+  font-family: "Mansalva";
+  
+
+}
+
+.realisations-wrapper {
+::ng-deep kii-article-summary .kii-article-summary-container {
+    display:block;
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        display:none;
+    }
+    padding:20px;
+
+
+    width:300px;
+    background: #fff !important;    
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  
+    & > .kii-article-summary-image-wrapper {
+        width: 100%;
+        height: auto;
+        img {
+           width:100%;
+        }
+    }
+    h1 {
+        text-align: center;
+    }
+
+
+    &:hover {
+      cursor:pointer;
+    }
+}
+}
+
+kii-article-summary {
+  transition: all 0.35s;
+
+}
+kii-article-summary:nth-child(even) {
+  filter: grayscale(80%);
+  transform: scale(0.8, 0.8) rotate(5deg);
+}
+kii-article-summary:nth-child(odd) {
+  filter: grayscale(80%);
+  transform: scale(0.8, 0.8) rotate(-5deg);
+}  
+
+//Desktops
+@media (pointer: fine) {
+  kii-article-summary:hover {
+    filter: none;
+    transform: scale(0.9, 0.9) rotate(0deg) !important;
+  }
+}  
+
+//On mobile devices we highlight when it appears
+@media (pointer:coarse) {
+  kii-article-summary.kii-appear {
+    filter: none;
+    transform: scale(0.9, 0.9) rotate(0deg) !important;
+  }
+}
+
+
