@@ -12,45 +12,124 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
-  kii-blog .gap {
+  kii-blog .wrapper {
+      min-height: 80vh;
+      padding:5px;
+      padding-top:15px;
+      padding-bottom:15px;
+      max-width: 800px;
+      margin:0 auto;
       display:flex;
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
   }
 
-  kii-blog kii-article-summary .kii-article-summary-container {
-      display:block;
-      img{display:none}
-      h1 {
-          font-size: 30px;
-      }
-      h2 {
-          font-size: 20px;
-      }
 
-      padding:20px;
-      @include style-paper-postit();
+
+  kii-blog kii-article-summary .kii-article-summary-container {
+      @include style-letter();
+
       &:hover {
         cursor:pointer;
-        transform: scale(1, 1) rotate(0deg) !important;
+        //transform: scale(1, 1) rotate(0deg) !important;
       }
       transition: all 0.35s;
   }
 
   kii-blog kii-article-summary:nth-child(even) .kii-article-summary-container {
-    transform: scale(0.8, 0.8) rotate(5deg);
+    //transform: scale(0.8, 0.8) rotate(5deg);
     h1,h2 {
-      transform:skewY(9deg);
+      //transform:skewY(9deg);
     }
   }
   kii-blog kii-article-summary:nth-child(odd) .kii-article-summary-container {
-    transform: scale(0.8, 0.8) rotate(-5deg);
+    //transform: scale(0.8, 0.8) rotate(-5deg);
     h1,h2 {
-      transform:skewY(-7deg);
+      //transform:skewY(-7deg);
     }
   }
 
 }
+
+@mixin style-letter() {
+  background-image: url('/assets/images/paper-fibres.jpg');
+  font-family: "Mansalva";
+  margin-top:10px;
+  margin-bottom:10px;
+  box-shadow: 2px 2px 3px 2px rgba(black,0.4);
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .kii-article-summary-image-wrapper {
+    width:100px;
+    align-self: flex-end;
+    display: inline-block;
+    background: white;
+    padding:10px;
+    padding-bottom:5px;
+    position: relative;
+    -webkit-filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.2));
+    /*The stamp cutout will be created using crisp radial gradients*/
+    background: radial-gradient(
+        transparent 0px, 
+        transparent 4px, 
+        white 4px,
+        white
+    );
+
+    /*reducing the gradient size*/
+    background-size: 20px 20px;
+    /*Offset to move the holes to the edge*/
+    background-position: -10px -10px;
+    img {
+      width:100%;
+    }
+  }
+  .kii-article-summary-image-wrapper:after {
+    content: '';
+    position: absolute;
+    /*We can shrink the pseudo element here to hide the shadow edges*/
+    left: 5px; top: 5px; right: 5px; bottom: 5px;
+    z-index: -1;
+  }
+
+
+
+  .kii-article-summary-text {
+
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    h2 {
+        font-size: 20px;
+        font-weight: 200;
+    }
+  }
+  padding:20px;
+  @media only screen and (max-width: 600px) {
+    .kii-article-summary-image-wrapper {
+      width:80px;
+    }
+    .kii-article-summary-text {
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      h2 {
+          font-size: 18px;
+          font-weight: 200;
+      }
+    }
+  }
+
+}
+
+
+
+
 @mixin style-paper-postit() {
     line-height: 1;    
     text-align:center;     

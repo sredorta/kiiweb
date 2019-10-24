@@ -25,6 +25,7 @@ kii-contact {
         font-size: 10rem;
         bottom:40px;
         left:220px;
+        transition: all 0.4s ease-in-out;
     }
     .contact-icon {
         i {
@@ -32,14 +33,16 @@ kii-contact {
         }
         position:absolute;
         display:flex;
-        justify-content: center;
+        justify-content: flex-start;
         font-size: 26px;
         font-family: 'Reenie Beanie';
         font-weight: bold;
         transition: all 0.4s ease-in-out;
-        bottom:250px;
-        left:250px;
-        width:200px;
+        transform-origin:bottom left;
+        bottom:180px;
+        left:280px;
+        min-width:200px;
+        padding-left:70px;
     }
     .contact-icon:hover {
         cursor: pointer;
@@ -71,12 +74,35 @@ kii-contact {
         bottom:0;
         margin-left: 5%;
         font-size: 22px;
-        //color:mat-color($primary);
+        transition: all 0.4s ease-in-out;
     }      
-
-    @media only screen and (max-width: 700px) {
-
+    .form-container {
+        padding: 15px;
     }
+
+    @media only screen and (max-width: 500px) {
+        .icon-central {
+            font-size: 8rem;
+            bottom:40px;
+            left:60px;
+        }
+        .contact-icon {
+            bottom:160px;
+            left:100px;
+            min-width:200px;
+            padding-left:70px;
+            font-size: 24px;
+        }
+        .contact-text { 
+            font-size: 16px;
+            //color:mat-color($primary);
+        }     
+        .form-container {
+            padding: 5px;
+        }
+    }
+
+
 
 
 

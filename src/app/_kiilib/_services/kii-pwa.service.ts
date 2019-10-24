@@ -46,7 +46,8 @@ export class KiiPwaService {
 
     if (isPlatformBrowser(this._platformId)) {
       //Handle version updates if required we show bottom sheet and upload new version
-     /* swUpdate.available.subscribe(event => {
+      swUpdate.available.subscribe(event => {
+        console.log("Recieved SW UPDATE !!");
         let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
           panelClass :"default-theme",
         })
@@ -55,7 +56,9 @@ export class KiiPwaService {
             window.location.reload();
           }
         })
-      });*/
+      });
+
+//      swUpdate.checkForUpdate();
 
       //Online/Offline detection
       this.checkInternet();

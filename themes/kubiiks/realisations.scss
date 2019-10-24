@@ -71,9 +71,12 @@
     padding: 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 
-    & > img {
+    & > .kii-article-summary-image-wrapper {
         width: 100%;
         height: auto;
+        img {
+           width:100%;
+        }
     }
     h1 {
         text-align: center;
