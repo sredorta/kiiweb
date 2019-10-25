@@ -1,8 +1,8 @@
 <div class="prix-wrapper">
 <kii-spinner-overlay [show]="isLoading">
   <kii-article class="contact-price-header" key="price-header"></kii-article>
-  <div class="wrapper-content">
-    <div class="price-element" *ngFor="let article of articles" kiiScroll>
+  <div class="wrapper-content"  [@pricesAnimation]="articles.length">
+    <div class="price-element" *ngFor="let article of articles" kiiScroll >
         <kii-article-summary [hasRouterLink]="false" class="prices-summary"  [key]="article.id"></kii-article-summary>  
         <kii-article class="prices-article"  [key]="article.id"></kii-article>  
     </div>

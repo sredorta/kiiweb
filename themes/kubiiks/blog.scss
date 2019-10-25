@@ -12,182 +12,154 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
-  kii-blog kii-article {
+  kii-blog {
+  kii-article {
     font-family: "Mansalva";
 
-    max-width: 800px;
     width:100%;
     margin:0 auto;
   }
 
-  kii-blog .wrapper {
+  .wrapper {
       min-height: 80vh;
-      padding:5px;
-      padding-top:15px;
       padding-bottom:15px;
-      max-width: 800px;
       margin:0 auto;
       display:flex;
       flex-direction: column;
       justify-content: stretch;
       align-items: stretch;
   }
+  .wrapper-summary {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    padding:10px;
+    width:100%;
+    max-width: 100vw;
+    overflow: hidden;
+  }
 
 
+  kii-article-summary {
+    margin:10px;
+  }
 
-  kii-blog kii-article-summary .kii-article-summary-container {
-      @include style-letter();
-      transform: scale(0.9, 0.9) rotate(0deg) !important;
-      filter: grayscale(80%);
+  kii-article-summary .kii-article-summary-container {
+      @include style-post();
+      //filter: grayscale(80%);
       transition: all 0.35s 0.1s;
   }
 
 
   //Desktops
   @media (pointer: fine) {
-    kii-blog kii-article-summary .kii-article-summary-container:hover {
-        cursor:pointer;
-        filter: none;
-        transform: scale(1, 1) rotate(0deg) !important;
-        box-shadow: 4px 4px 6px 4px rgba(black,0.4);
+    kii-article-summary .kii-article-summary-container:hover {
+      .kii-article-summary-image-wrapper {
+        background: rgba(black,0);
+        img {
+          transform-origin: 50% 50%;
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          -webkit-filter: brightness(100%);
+          filter:brightness(100%);
+          overflow: hidden;
+        }
+      }
+      .kii-article-summary-text {
+        opacity:1;
+        border-bottom:2px solid mat-color($primary);
+      }
+      cursor:pointer;
+      filter: none;
     }
-  }  
+  }
 
   //On mobile devices we highlight when it appears
   @media (pointer:coarse) {
-    kii-blog kii-article-summary.kii-appear {
-      .kii-article-summary-container {
-        cursor:pointer;
-        filter: none;
-        transform: scale(1, 1) rotate(0deg) !important;
-        box-shadow: 4px 4px 6px 4px rgba(black,0.4);
+    kii-article-summary.kii-appear .kii-article-summary-container {
+      .kii-article-summary-image-wrapper {
+        background: rgba(black,0);
+        img {
+          transform-origin: 50% 50%;
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          -webkit-filter: brightness(100%);
+          filter:brightness(100%);
+          overflow: hidden;
+        }
       }
+      .kii-article-summary-text {
+        opacity:1;
+        border-bottom:2px solid mat-color($primary);
+      }
+      cursor:pointer;
+      filter: none;
     }
   }
+  @media only screen and (max-width: 655px) {
+    .wrapper-summary {
+      display:flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+    kii-article-summary {
+      width:100%;
+      max-width: 500px;
+    }
+    kii-article-summary .kii-article-summary-container {
+      max-width: 500px;
+    }
+  }
+} //end kii-blog
+} //end theme
 
-
-
-}
-
-@mixin style-letter() {
-  background-image: url('/assets/images/paper-fibres.jpg');
+@mixin style-post() {
+  width:100%;
+  height:100%;
+  max-height: 600px;
+  min-width: 300px;
+  max-width: 300px;
   border-radius: 1px;
-  font-family: "Mansalva";
-  margin-top:10px;
-  margin-bottom:10px;
-  box-shadow: 2px 2px 3px 2px rgba(black,0.4);
+  font-family: "Montserrat";
   display:flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   .kii-article-summary-image-wrapper {
-    width:100px;
-    align-self: flex-end;
+    flex:1 1 auto;
+    width:100%;
+    max-height: 500px;
+    min-height: 300px;
     display: inline-block;
-    background: white;
-    padding:10px;
-    padding-bottom:5px;
-    position: relative;
-    -webkit-filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.2));
-    /*The stamp cutout will be created using crisp radial gradients*/
-    background: radial-gradient(
-        transparent 0px, 
-        transparent 4px, 
-        white 4px,
-        white
-    );
-
-    /*reducing the gradient size*/
-    background-size: 20px 20px;
-    /*Offset to move the holes to the edge*/
-    background-position: -10px -10px;
+    overflow: hidden;
     img {
-      width:100%;
+      object-fit: contain;
+      transition: 0.3s ease-in-out;
+      height:100%;
+      transform: scale(1);
+      -webkit-filter: brightness(90%);
+      filter:brightness(90%);
     }
   }
-  .kii-article-summary-image-wrapper:after {
-    content: '';
-    position: absolute;
-    /*We can shrink the pseudo element here to hide the shadow edges*/
-    left: 5px; top: 5px; right: 5px; bottom: 5px;
-    z-index: -1;
-  }
-
-
-
   .kii-article-summary-text {
-
+    opacity:0.8;
+    transition: 0.3s ease-in-out;
+    flex:1 1 auto;
+    border:2px solid transparent;
+    width:100%;
     h1 {
-      font-size: 30px;
+      font-size: 18px;
       font-weight: bold;
     }
     h2 {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 200;
     }
   }
-  padding:20px;
-  @media only screen and (max-width: 600px) {
-    & {
-      padding:10px;
-    }
-    .kii-article-summary-image-wrapper {
-      width:80px;
-    }
-    .kii-article-summary-text {
-      h1 {
-        font-size: 24px;
-        font-weight: bold;
-        margin-bottom:3px;
-      }
-      h2 {
-        margin-top:3px;
-        font-size: 18px;
-        font-weight: 200;
-      }
-    }
-  }
-
 }
 
 
-
-
-@mixin style-paper-postit() {
-    line-height: 1;    
-    text-align:center;     
-    width: 275px;    
-    margin: 20px;    
-    min-height:250px;
-    max-height:250px;
-    padding-top:35px;
-    position:relative;   
-    border:1px solid #E8E8E8;  
-    //border-top:60px solid #fdfd86;
-    font-family:'Reenie Beanie';    
-    font-size:22px;      
-    border-bottom-right-radius: 60px 5px;
-    display:inline-block;    
-    background: #ffff88; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* IE10+ */
-  background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */}
-  .style-postit:after {     
-    content: "";
-   position:absolute;
-   z-index:-1;
-   right:-0px; bottom:20px;
-   width:200px;
-   height: 10px;
-   background: rgba(0, 0, 0, 0.2);
-   box-shadow:2px 15px 5px rgba(0, 0, 0, 0.40);
- -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-       -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-      -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-          transform: matrix(-1, -0.1, 0, 1, 0, 0);
- }  

@@ -1,7 +1,7 @@
 <kii-spinner-overlay [show]="isLoading">
     <div class="wrapper">
       <kii-article class="blog-header-editable-content" key="blog-header"></kii-article>
-      <div class="wrapper-summary">
+      <div class="wrapper-summary" [@blogAnimation]="articles.length">
         <kii-article-summary class="blog-summary" *ngFor="let article of articles" [key]="article.id" kiiScroll></kii-article-summary> 
       </div>
     </div>
