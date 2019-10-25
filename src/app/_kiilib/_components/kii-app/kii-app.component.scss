@@ -1,10 +1,12 @@
 $toolbar-height : 65px;
+
+
 .kii-app-wrapper {
     box-sizing: border-box;
     min-width:320px;
     width:100%;
     height:100vh;
-    overflow: auto;
+    overflow:scroll;
 }
 
 .kii-app-toolbar {

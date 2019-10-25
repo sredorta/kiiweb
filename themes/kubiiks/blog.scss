@@ -28,27 +28,35 @@
       flex-direction: column;
       justify-content: stretch;
       align-items: stretch;
+      overflow: hidden;
   }
   .wrapper-summary {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;
     padding:10px;
     width:100%;
     max-width: 100vw;
     overflow: hidden;
+    kii-article-summary:nth-child(odd) .kii-article-summary-image-wrapper{
+      height:300px;
+    }
+    kii-article-summary:nth-child(even) .kii-article-summary-image-wrapper{
+     height:450px;
+    }
   }
 
 
   kii-article-summary {
     margin:10px;
+    margin-bottom:30px;
+    max-width: 300px;
   }
 
   kii-article-summary .kii-article-summary-container {
       @include style-post();
-      //filter: grayscale(80%);
       transition: all 0.35s 0.1s;
   }
 
@@ -99,19 +107,27 @@
     }
   }
   @media only screen and (max-width: 655px) {
-    .wrapper-summary {
+/*    .wrapper-summary {
       display:flex;
       flex-direction: column;
       flex-wrap: nowrap;
       justify-content: center;
       align-items: center;
-    }
+    }*/
     kii-article-summary {
       width:100%;
       max-width: 500px;
     }
     kii-article-summary .kii-article-summary-container {
       max-width: 500px;
+      .kii-article-summary-image-wrapper {
+        width:100%;
+        height: auto !important;
+        img {
+          width: 100%;
+          height:auto !important;
+        }
+      }
     }
   }
 } //end kii-blog
@@ -120,20 +136,17 @@
 @mixin style-post() {
   width:100%;
   height:100%;
-  max-height: 600px;
+
   min-width: 300px;
   max-width: 300px;
   border-radius: 1px;
   font-family: "Montserrat";
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display:block;
+
   .kii-article-summary-image-wrapper {
-    flex:1 1 auto;
     width:100%;
-    max-height: 500px;
-    min-height: 300px;
+    //height:400px;
+
     display: inline-block;
     overflow: hidden;
     img {
@@ -148,7 +161,6 @@
   .kii-article-summary-text {
     opacity:0.8;
     transition: 0.3s ease-in-out;
-    flex:1 1 auto;
     border:2px solid transparent;
     width:100%;
     h1 {
