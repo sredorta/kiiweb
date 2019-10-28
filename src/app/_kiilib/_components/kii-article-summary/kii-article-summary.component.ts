@@ -4,6 +4,8 @@ import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiArticleSummaryFormComponent } from '../_forms/kii-article-summary-form/kii-article-summary-form.component';
+import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
+import { LocalizeRouterService } from '../../_libraries/localize-router';
 
 @Component({
   selector: 'kii-article-summary',
@@ -88,5 +90,7 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     this.article.description = value.description;
     this.article.image = value.image;
   }
+
+
 
 }

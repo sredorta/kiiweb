@@ -46,6 +46,9 @@ import {MatAutocompleteModule,
   MatDialogRef,
   MatBottomSheetRef} from '@angular/material';
 
+//Font awesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 //EDITOR
 //import { AngularEditorModule } from '@kolkov/angular-editor';
 
@@ -53,7 +56,9 @@ import {MatAutocompleteModule,
 import {AgmCoreModule} from '@agm/core';
 
 //SOCIAL SHARE
-import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+//import {ShareButtonsModule} from '@ngx-share/buttons';
+//import {ShareButtonModule} from '@ngx-share/button';
+import { ShareModule } from '@ngx-share/core';
 
 //Google charts
 import { GoogleChartsModule } from 'angular-google-charts';
@@ -63,7 +68,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { TransferHttpCacheModule } from '@nguniversal/common';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgtUniversalModule } from '@ng-toolkit/universal';
 import { KiiAppComponent } from './_kiilib/_components/kii-app/kii-app.component';
 import { KiiFooterComponent } from './_kiilib/_components/kii-footer/kii-footer.component';
@@ -239,6 +244,7 @@ import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-p
     CommonModule,
     TransferHttpCacheModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     NgtUniversalModule,
     FormsModule,
     ReactiveFormsModule,  //Reactive forms
@@ -250,7 +256,10 @@ import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-p
     AgmCoreModule.forRoot( { //GMAPS
       apiKey: environment.gmapsKey
     }),
-    JwSocialButtonsModule, //SOCIAL SHARE
+    FontAwesomeModule,
+    //ShareButtonModule,
+    //ShareButtonsModule, //SOCIAL SHARE
+    ShareModule,
     //SocketIoModule.forRoot({url: environment.socketURL,options:{secure:true}}),
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,

@@ -7,6 +7,7 @@ import { AppBrowserModule } from './app/app.browser.module';
 import 'hammerjs'; //For Material Design
 
 
+
 if (environment.production) {
   enableProdMode();
 }

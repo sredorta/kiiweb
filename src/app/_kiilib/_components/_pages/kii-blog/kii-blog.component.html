@@ -2,7 +2,10 @@
     <div class="wrapper">
       <kii-article class="blog-header-editable-content" key="blog-header"></kii-article>
       <div class="wrapper-summary" [@blogAnimation]="articles.length">
-        <kii-article-summary class="blog-summary" *ngFor="let article of articles" [key]="article.id" kiiScroll></kii-article-summary> 
+        <div class="blog-summary-element" *ngFor="let article of articles" kiiScroll>
+          <kii-article-summary class="blog-summary"  [key]="article.id" ></kii-article-summary> 
+          <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
+        </div>
       </div>
     </div>
 </kii-spinner-overlay>
