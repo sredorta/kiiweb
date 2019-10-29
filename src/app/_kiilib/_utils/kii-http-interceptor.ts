@@ -81,9 +81,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
                 });
             } 
             //When it's the browser we need to map the URL to the real domain
-            console.log("REQUEST URL INITIAL:", request.url);
             request= request.clone({url: request.url.replace(environment.kiiserverURL,environment.kiiserverExtURL)});
-            console.log("REQUEST URL FINAL:", request.url);
         }
 
         //When angular editor opens image we fall here
@@ -94,9 +92,6 @@ export class KiiHttpInterceptor implements HttpInterceptor {
             request = Object.assign(request, newUrl);
         }*/
         let newRequest = request.clone({headers});
-        console.log("WE ARE IN CATCH ERROR !!!!");
-        console.log("offline", this.pwa.isOffline());
-        console.log("URL", request.url);
             return next.handle(newRequest).pipe(
                 map((event: HttpEvent<any>) => {
                     if (event instanceof HttpResponse) {

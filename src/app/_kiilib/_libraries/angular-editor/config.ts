@@ -32,7 +32,7 @@ export interface AngularEditorConfig {
 }
 
 export const angularEditorConfig: AngularEditorConfig = {
-  editable: true,
+  editable: false,
   spellcheck: true,
   height: 'auto',
   minHeight: '0',

@@ -86,7 +86,41 @@ export class AngularEditorService {
    * @param fontSize string
    */
   setFontSize(fontSize: string) {
-    this.doc.execCommand('fontSize', false, fontSize);
+    document.execCommand('formatblock', false, 'span');
+    try {
+    let selectedElement : any = window.getSelection().focusNode.parentNode;
+    let value = "14px";
+    switch (fontSize) {
+      case "1":
+        value="0.6em";
+        break;
+      case "2":
+        value="0.8em";
+        break;
+      case "3":
+        value="1em";
+        break;
+      case "4":
+        value="1.2em"      
+        break;
+      case "5":
+        value="1.4em";
+        break;
+      case "6":
+        value="1.8em";
+        break;
+      case "7":
+        value="2em"      
+        break;
+    }
+    console.log("Applying size", value);
+    selectedElement.style.fontSize = value;
+    } catch(error) {
+       console.log(error);
+    }
+    //console.log("ListId is:", listId);
+    //listId..addClass("oder2");
+    //  this.doc.execCommand('fontSize', false, fontSize);
   }
 
   /**

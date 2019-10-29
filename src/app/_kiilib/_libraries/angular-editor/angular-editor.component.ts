@@ -178,6 +178,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
    * @param command string from triggerCommand
    */
   executeCommand(command: string) {
+    console.log("Execute command :" , this.isEditMode,command);
     this.focus();
     if (command === 'toggleEditorMode') {
       this.toggleEditorMode(this.modeVisual);
@@ -191,6 +192,7 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
       } else {
         this.editorService.executeCommand(command);
       }
+      console.log("isEditMode", this.isEditMode);
       this.exec();
     }
   }
@@ -408,21 +410,23 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
    * Send a node array from the contentEditable of the editor
    */
   exec() {
-    this.editorToolbar.triggerButtons();
+    if (this.isEditMode) {
+      this.editorToolbar.triggerButtons();
 
-    let userSelection;
-    if (this.doc.getSelection) {
-      userSelection = this.doc.getSelection();
-      this.editorService.executeInNextQueueIteration(this.editorService.saveSelection);
-    }
+      let userSelection;
+      if (this.doc.getSelection) {
+        userSelection = this.doc.getSelection();
+        this.editorService.executeInNextQueueIteration(this.editorService.saveSelection);
+      }
 
-    let a = userSelection.focusNode;
-    const els = [];
-    while (a && a.id !== 'editor') {
-      els.unshift(a);
-      a = a.parentNode;
+      let a = userSelection.focusNode;
+      const els = [];
+      while (a && a.id !== 'editor') {
+        els.unshift(a);
+        a = a.parentNode;
+      }
+      this.editorToolbar.triggerBlocks(els);
     }
-    this.editorToolbar.triggerBlocks(els);
   }
 
   private configure() {

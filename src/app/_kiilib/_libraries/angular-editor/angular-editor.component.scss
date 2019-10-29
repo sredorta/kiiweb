@@ -12,6 +12,7 @@
 
   .angular-editor-wrapper {
     position: relative;
+    font-size: 18px;
 
     .angular-editor-textarea {
 
@@ -69,5 +70,22 @@
   .angular-editor-wrapper .angular-editor-textarea:not(.is-edit-mode) {
     border:none;
   }
+
+  //Resize font on smaller screens
+  @media only screen and (max-width: 700px) { 
+    .angular-editor-wrapper {
+            font-size: 16px; 
+    }
+  
+  }
+  @media only screen and (max-width: 500px) { 
+    .angular-editor-wrapper {
+      font-size: 14px; 
+    }
+  
+  }
+  
+
 }
+
 

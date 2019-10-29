@@ -111,13 +111,13 @@ export class KiiPwaService {
     if (isPlatformBrowser(this._platformId)) {
       let subscr : Subscription = new Subscription();
       setInterval(() => {
-        console.log("CHECKING INTERNET CONNECTION");
+        //console.log("CHECKING INTERNET CONNECTION");
         subscr = this.http.get(environment.mainExtURL + '/server/api/connected').subscribe(res => {
-            console.log("OFFLINE:",false);
+            //console.log("OFFLINE:",false);
             this.offline.next(false);
             subscr.unsubscribe();
         }, error => {
-            console.log("OFFLINE", true);
+            //console.log("OFFLINE", true);
             this.offline.next(true);
             subscr.unsubscribe();
         })
