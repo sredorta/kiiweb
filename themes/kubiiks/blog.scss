@@ -12,28 +12,45 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
-  kii-blog {
+kii-blog {
+
   kii-article {
     font-family: "Mansalva";
-
     width:100%;
     margin:0 auto;
   }
+  //.blog-header-first {
+    /*position: fixed;
+    top:0;
+    z-index: -1;
+    top:0;
+    min-width: 380px;
+  }
+  .blog-header-second {
+    margin-top:355px;
+    .kii-editor-wrapper {
+      margin-top:355px;
+  
+    }
+  }*/
+  /*.blog-header-second .kii-editor-wrapper {
+    margin-top:55vh;
 
+  }*/
   .wrapper {
       min-height: 80vh;
       padding-bottom:15px;
       margin:0 auto;
   }
 
-  .wrapper-summary {
+  .wrapper-content {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
     width:100%;
-    .blog-summary-element:nth-child(odd) {
+    .element:nth-child(odd) {
       .kii-article-summary-image-wrapper{
           height:300px;
       }
@@ -44,7 +61,7 @@
          height : 270px;
       }
     }
-    .blog-summary-element:nth-child(even) {
+    .element:nth-child(even) {
       .kii-article-summary-image-wrapper{
          height:455px;
       } 
@@ -58,7 +75,7 @@
   }
 
   //Main post formatting
-  .blog-summary-element {
+  .element {
     padding:10px;
     border-bottom:2px solid transparent;
     margin-bottom:30px;
@@ -112,8 +129,8 @@
 
   //Desktops
   @media (pointer: fine) {
-    .blog-summary-element:hover {
-      background: mat-color($primary,50);
+    .element:hover {
+      background: #E8E8C5;
       border-bottom:2px solid mat-color($primary);
       kii-share button {
         opacity: 0.9;
@@ -133,7 +150,7 @@
       .kii-article-summary-text {
         opacity:1;
         h2:after {  
-          background: linear-gradient(to right, rgba(mat-color($primary,50),0), rgba(mat-color($primary,50),1) 50%) !important;
+          background: linear-gradient(to right, rgba(#E8E8C5,0), rgba(#E8E8C5,1) 50%) !important;
         }
       }
       cursor:pointer;
@@ -143,8 +160,8 @@
 
   //On mobile devices we highlight when it appears
   @media (pointer:coarse) {
-    .blog-summary-element.kii-appear {
-      background: mat-color($primary,200);
+    .element.kii-appear {
+      background: #E8E8C5;
       border-bottom:2px solid mat-color($primary);
       kii-share button {
         opacity: 0.9;
@@ -164,7 +181,7 @@
       .kii-article-summary-text {
         opacity:1;
         h2:after {  
-          background: linear-gradient(to right, rgba(mat-color($primary,200),0), rgba(mat-color($primary,200),1) 50%) !important;
+          background: linear-gradient(to right, rgba(#E8E8C5,0), rgba(#E8E8C5,1) 50%) !important;
         }
       }
       cursor:pointer;
@@ -172,12 +189,12 @@
     }
   }
   @media only screen and (max-width: 655px) {
-    .blog-summary-element {
+    .element {
       margin:10px;
       width:100%;
       max-width: 550px;
     }
-    .blog-summary-element:nth-child(odd) {
+    .element:nth-child(odd) {
       .kii-article-summary-image-wrapper{
         width:100%;
         height:300px;
@@ -187,7 +204,7 @@
         }
       }
     }
-    .blog-summary-element:nth-child(even) {
+    .element:nth-child(even) {
       .kii-article-summary-image-wrapper{
         min-width: 100%;
          max-height:455px;
@@ -195,7 +212,7 @@
       } 
     }
 
-    .blog-summary-element kii-article-summary .kii-article-summary-container {
+    .element kii-article-summary .kii-article-summary-container {
       max-width: 550px;
       .kii-article-summary-image-wrapper {
         img {

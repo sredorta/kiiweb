@@ -12,7 +12,7 @@
 
   ::-webkit-scrollbar {
     //opacity: 0.5;
-    background-color:rgba(mat-color(map-get($theme, background),background),0.6);
+    background-color:rgba(mat-color(map-get($theme, background),background),1);
     width:5px;
   }
 
@@ -21,7 +21,7 @@
       background-color: rgba(mat-color(map-get($theme, foreground),text),0.6);
   }
   body * {
-    scrollbar-color: rgba(mat-color(map-get($theme, foreground),text),0.6) rgba(mat-color(map-get($theme, background),background),0.6);
+    scrollbar-color: rgba(mat-color(map-get($theme, foreground),text),0.6) rgba(mat-color(map-get($theme, background),background),1);
     scrollbar-width: thin;
     -ms-scrollbar-width:thin;
   }

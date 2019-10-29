@@ -12,18 +12,7 @@ interface Icons  {
 @Component({
   selector: 'kii-contact',
   templateUrl: './kii-contact.component.html',
-  styleUrls: ['./kii-contact.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      transition(':enter', [
-        style({opacity:0, transform: 'translateY(-400%)'}),
-        animate('800ms 200ms ease-in-out', style({ opacity:1, transform: 'translateY(0%)'}))
-      ]),
-      transition(':leave', [
-        style({opacity:0}),
-      ])
-    ])
-  ]  
+  styleUrls: ['./kii-contact.component.scss'] 
 })
 
 

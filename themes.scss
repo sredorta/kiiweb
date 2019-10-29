@@ -202,6 +202,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 
 //FOOTER
 .kii-app-footer-wrapper {
+  background-color: mat-color(mat-palette($mat-grey,50));
 }
 
 
@@ -217,6 +218,7 @@ $toolbar-theme: create-dark-theme($toolbar-primary, $toolbar-accent, $toolbar-wa
 kii-app .toolbar-theme {
   @include angular-material-theme($toolbar-theme);
   color:mat-color(mat-palette($mat-grey, 400));
+
   //background-image: url('/assets/images/black-paper.jpg');
 }
 

@@ -1,33 +1,33 @@
-<div class="wrapper">
-<div class="header">
-    <div class="icon-central"><i class="fas fa-microphone-alt"></i></div>    
-    <div class="contact-icon" *ngFor="let icon of icons" [ngClass]="{'is-active' : icon.isActive}" (click)="activateIcon(icon.id)" >
-            <i  [ngClass]="icon.class" ></i>
-            <span class="icon-text">{{icon.text | translate}}</span>
-    </div>
-    <div class="contact-text">{{'kiilib.contact.title' | translate}}</div>
-</div>    
-<kii-article  class="contact-header-editable-content" key="contact-header"></kii-article>
-<div class="contact-element" *ngIf="isActive(0)" [@detailExpand]="isActive(0) ? 'expanded' : 'collapsed'" >
-        <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
-</div>
 
-<div class="contact-element" *ngIf="isActive(1)" [@detailExpand]="isActive(1) ? 'expanded' : 'collapsed'" >
-        <kii-article class="contact-phone-editable-content" key="contact-time"></kii-article>
-</div>
-<div class="contact-element" *ngIf="isActive(2)" [@detailExpand]="isActive(2) ? 'expanded' : 'collapsed'"  >
-        <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
-</div>
-<div class="contact-element" *ngIf="isActive(3)" [@detailExpand]="isActive(3) ? 'expanded' : 'collapsed'" >
-        <kii-article class="contact-phone-editable-content" key="contact-form"></kii-article>
-        <div class="form-container default-theme">
-                <kii-contact-form (kiiOnSubmit)="onSubmit($event)"></kii-contact-form>
-        </div>
-</div>
-<div class="contact-element" *ngIf="isActive(4)" [@detailExpand]="isActive(4) ? 'expanded' : 'collapsed'" >
+<kii-article  class="header-first" key="contact-header"></kii-article>
+
+<div class="wrapper">
+   <div class="wrapper-content"> 
+         <div class="wrapper-content-left">
+                <div class="element" >
+                        <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
+                </div>
+
+                <div class="element">
+                        <kii-article class="contact-phone-editable-content" key="contact-time"></kii-article>
+                </div>
+                <div class="element">
+                        <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
+                </div>
+         </div>
+         <div class="wrapper-content-right">        
+                <div class="element">
+                        <kii-article class="contact-phone-editable-content" key="contact-form"></kii-article>
+                        <div class="form-container default-theme">
+                                <kii-contact-form (kiiOnSubmit)="onSubmit($event)"></kii-contact-form>
+                        </div>
+                </div>
+         </div>       
+   </div>  
+   <div class="element">
         <kii-article class="contact-phone-editable-content" key="contact-address"></kii-article>
         <kii-gmap style="width:100%"></kii-gmap>
+   </div>   
 </div>
-
 <kii-article class="contact-footer-editable-content" key="contact-footer"></kii-article>
-</div>
+
