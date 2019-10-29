@@ -3,45 +3,6 @@
     margin:0 auto;
     padding:10px;
 }
-.header-first {
-        width: 100%;
-        font-weight: 200;
-        ::ng-deep  .angular-editor-wrapper {
-            font-size:45px !important;
-        }
-    ::ng-deep  .angular-editor-textarea {
-        height:90vh;
-        background-position: center center !important;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover !important;
-    }
-}
-
-@media only screen and (max-width: 900px) { 
-    .header-first {
-        ::ng-deep  .angular-editor-wrapper {
-            font-size: 35px !important; 
-        }
-    }
-}
-@media only screen and (max-width: 700px) { 
-    .header-first {
-        ::ng-deep  .angular-editor-wrapper {
-            font-size: 30px !important; 
-        }
-    }
-}
-@media only screen and (max-width: 500px) { 
-    .header-first {
-        ::ng-deep  .angular-editor-wrapper {
-            font-size: 24px !important;
-        }
-    }
-}
-
-
-
 
 .wrapper-content {
     display:flex;

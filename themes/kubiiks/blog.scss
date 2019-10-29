@@ -14,35 +14,6 @@
 
 kii-blog {
 
-  kii-article {
-    font-family: "Mansalva";
-    width:100%;
-    margin:0 auto;
-  }
-  //.blog-header-first {
-    /*position: fixed;
-    top:0;
-    z-index: -1;
-    top:0;
-    min-width: 380px;
-  }
-  .blog-header-second {
-    margin-top:355px;
-    .kii-editor-wrapper {
-      margin-top:355px;
-  
-    }
-  }*/
-  /*.blog-header-second .kii-editor-wrapper {
-    margin-top:55vh;
-
-  }*/
-  .wrapper {
-      min-height: 80vh;
-      padding-bottom:15px;
-      margin:0 auto;
-  }
-
   .wrapper-content {
     display:flex;
     flex-direction: row;

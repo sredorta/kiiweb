@@ -1,13 +1,17 @@
-<kii-spinner-overlay [show]="isLoading">
-    <kii-article class="blog-header-first" key="blog-header-first"></kii-article>
-    <kii-article class="blog-header-second" key="blog-header-second"></kii-article>
+<div class="page-wrapper">
+  <kii-spinner-overlay [show]="isLoading">
+      <kii-article class="page-header-first" key="blog-header-first"></kii-article>
+      <kii-article class="page-header-second" key="blog-header-second"></kii-article>
 
-    <div class="wrapper">
-      <div class="wrapper-content" [@blogAnimation]="articles.length">
-        <div class="element" *ngFor="let article of articles" kiiScroll>
-          <kii-article-summary class="article-element"  [key]="article.id" ></kii-article-summary> 
-          <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
+      <div class="wrapper">
+        <div class="wrapper-content" [@blogAnimation]="articles.length">
+          <div class="element" *ngFor="let article of articles" kiiScroll>
+            <kii-article-summary class="article-element"  [key]="article.id" ></kii-article-summary> 
+            <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
+          </div>
         </div>
       </div>
-    </div>
-</kii-spinner-overlay>
+      <kii-article class="page-footer" key="blog-footer"></kii-article>
+
+  </kii-spinner-overlay>
+</div>

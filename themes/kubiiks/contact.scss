@@ -14,17 +14,31 @@
 
 
 kii-contact {
-    font-family: "Montserrat";
-  .wrapper {
-      
-  }  
   .element {
     filter:grayscale(60%);  
     transition: all 0.3s ease-in-out;
     background-color:white;
     border-radius: 3px;
-    //box-shadow: 1px 1px 2px 2px rgba(black,0.02);
     margin:10px;
+    .angular-editor-wrapper {
+        font-size:18px !important;
+    }
+    @media only screen and (max-width: 900px) { 
+        .angular-editor-wrapper {
+            font-size:18px !important;
+        }
+    }
+    @media only screen and (max-width: 700px) { 
+        .angular-editor-wrapper {
+            font: 18px !important;
+        }
+    }
+    @media only screen and (max-width: 400px) { 
+        .angular-editor-wrapper {
+            font-size:16px !important;
+        }
+    }
+
     .angular-editor-textarea {
         background-position: center top !important;
         img {
@@ -45,6 +59,7 @@ kii-contact {
 //Desktops
   @media (pointer: fine) {
         .element:hover {
+            box-shadow: 1px 1px 2px 2px rgba(black,0.1);
             filter: none;
             .angular-editor-textarea {
                 img {
@@ -56,6 +71,7 @@ kii-contact {
   //Mobile devices
   @media (pointer: coarse) {
     .element.kii-appear {
+        box-shadow: 1px 1px 2px 2px rgba(black,0.1);
         filter: none;
         .angular-editor-textarea {
             img {
