@@ -9,7 +9,7 @@ export class KiiAinimations {
             trigger('contactAnimation', [
                 state('collapsed', style({transform: 'scale(0.6)'})),
                 state('expanded', style({transform: 'scale(1)'})),
-                transition('expanded <=> collapsed', animate('500ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+                transition('expanded <=> collapsed', animate('.5s .3s cubic-bezier(0.4, 0.0, 0.2, 1)')),
               ]),
         ]
     };
@@ -26,7 +26,7 @@ export class KiiAinimations {
 
                 // Each card will appear sequentially with the delay of 300ms
                 query(':enter', stagger('500ms', [
-                animate('.5s ease-in', keyframes([
+                animate('.5s .3s ease-in', keyframes([
                     style({ opacity: 0, transform: 'translateY(-50%)', offset: 0 }),
                     style({ opacity: .5, transform: 'translateY(-10px) scale(1.1)', offset: 0.3 }),
                     style({ opacity: 1, transform: 'translateY(0)', offset: 1 }),
@@ -34,7 +34,7 @@ export class KiiAinimations {
 
                 // Cards will disappear sequentially with the delay of 300ms
                 query(':leave', stagger('500ms', [
-                animate('500ms ease-out', keyframes([
+                animate('.5s .3s ease-out', keyframes([
                     style({ opacity: 1, transform: 'scale(1.1)', offset: 0 }),
                     style({ opacity: .5, transform: 'scale(.5)', offset: 0.3 }),
                     style({ opacity: 0, transform: 'scale(0)', offset: 1 }),
@@ -57,7 +57,7 @@ export class KiiAinimations {
 
                 // Each card will appear sequentially with the delay of 300ms
                 query(':enter', stagger('500ms', [
-                animate('.5s ease-in', keyframes([
+                animate('.5s .3s ease-in', keyframes([
                     style({ opacity: 0, transform: 'translateY(-50%)', offset: 0 }),
                     style({ opacity: .5, transform: 'translateY(-10px) scale(1.1)', offset: 0.3 }),
                     style({ opacity: 1, transform: 'translateY(0)', offset: 1 }),
@@ -65,7 +65,7 @@ export class KiiAinimations {
 
                 // Cards will disappear sequentially with the delay of 300ms
                 query(':leave', stagger('500ms', [
-                animate('500ms ease-out', keyframes([
+                animate('.5s .3s ease-out', keyframes([
                     style({ opacity: 1, transform: 'scale(1.1)', offset: 0 }),
                     style({ opacity: .5, transform: 'scale(.5)', offset: 0.3 }),
                     style({ opacity: 0, transform: 'scale(0)', offset: 1 }),
@@ -86,15 +86,15 @@ export class KiiAinimations {
 
                 // Each card will appear sequentially with the delay of 300ms
                 query(':enter', stagger('500ms', [
-                animate('.5s ease-in', keyframes([
-                    style({ opacity: 0, transform: 'translateY(-50%)', offset: 0 }),
-                    style({ opacity: .5, transform: 'translateY(-10px) scale(1.1)', offset: 0.3 }),
-                    style({ opacity: 1, transform: 'translateY(0)', offset: 1 }),
+                animate('.5s .3s ease-in', keyframes([
+                    style({ opacity: 0, transform: 'translateX(-100%)', offset: 0 }),
+                    style({ opacity: .5, transform: 'translateX(-10px)', offset: 0.3 }),
+                    style({ opacity: 1, transform: 'translateX(0)', offset: 1 }),
                 ]))]), { optional: true }),
 
                 // Cards will disappear sequentially with the delay of 300ms
                 query(':leave', stagger('500ms', [
-                animate('500ms ease-out', keyframes([
+                animate('500ms .3s ease-out', keyframes([
                     style({ opacity: 1, transform: 'scale(1.1)', offset: 0 }),
                     style({ opacity: .5, transform: 'scale(.5)', offset: 0.3 }),
                     style({ opacity: 0, transform: 'scale(0)', offset: 1 }),

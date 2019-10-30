@@ -1,79 +1,172 @@
+//Clients part
+.realisations-wrapper .content-wrapper-clients {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-left:10px;
+  padding-right:10px;
 
-.content-wrapper {
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top:30px;
-    padding-bottom:30px;
-    padding-left:10px;
-    padding-right:10px;
-}
-
-
-
-.realisations-wrapper {
-::ng-deep kii-article-summary .kii-article-summary-container {
+  ::ng-deep kii-article-summary .kii-article-summary-container {
     display:block;
     h1 {
-        font-size: 30px;
+        transition: all 0.35s;
+        margin-top:20px;
+        margin-bottom:0px;
+        font-size: 22px;
+        font-weight: bold;
+        opacity: 0.7;
     }
     h2 {
-        display:none;
+        font-size: 18px;
+        font-weight: 200;
+        opacity: 0.7;
     }
-    padding:20px;
+    margin:5px;
 
-
-    width:300px;
-    background: #fff !important;    
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  
-    & > .kii-article-summary-image-wrapper {
-        width: 100%;
-        height: auto;
-        img {
-           width:100%;
-        }
+    .kii-article-summary-image-wrapper {
+      padding:5px;
+      background: #fff !important;  
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      width: 100%;
+      height: auto;
+      img {
+         width:100%;
+      }
     }
+    max-width: 400px;
+    @media only screen and (max-width: 1260px) { 
+      h1 {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 16px;
+      }
+      max-width: 300px;
+    }
+    @media only screen and (max-width: 700px) { 
+      max-width: 100%;
+    }
+  }
+  kii-article-summary {
+    transition: all 0.35s;
+    filter: grayscale(80%);
+  }
+
+  //Desktops
+  @media (pointer: fine) {
+    kii-article-summary:hover {
+      ::ng-deep h1 {
+        opacity:1;
+      }
+      ::ng-deep h2 {
+        opacity:1;
+      }
+      cursor:pointer;
+      filter: none;
+    }
+  }  
+  @media (pointer: coarse) {
+    kii-article-summary.kii-appear {
+      ::ng-deep h1 {
+        opacity:1;
+      }
+      ::ng-deep h2 {
+        opacity:1;
+      }
+      cursor:pointer;
+      filter: none;
+    }
+  }  
+} //End of realisations
+
+//Style comments
+.realisations-wrapper .content-wrapper-comments {
+  .element-comment {
+    margin:0 auto;
+    width:100%;
+    max-width: 900px;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .element-comment:nth-child(odd) {
+     flex-direction: row;
+  }
+  .element-comment:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  ::ng-deep kii-article-summary .kii-article-summary-container {
+    display:block;
     h1 {
         text-align: center;
+        transition: all 0.35s;
+        margin-top:20px;
+        margin-bottom:0px;
+        font-size: 18px;
+        font-weight: bold;
+        opacity: 0.9;
     }
-
-
-    &:hover {
-      cursor:pointer;
+    h2 {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 200;
+        opacity: 0.7;
+        margin-top:8px;
     }
-}
-}
-
-kii-article-summary {
-  transition: all 0.35s;
-
-}
-kii-article-summary:nth-child(even) {
-  filter: grayscale(80%);
-  transform: scale(0.8, 0.8) rotate(5deg);
-}
-kii-article-summary:nth-child(odd) {
-  filter: grayscale(80%);
-  transform: scale(0.8, 0.8) rotate(-5deg);
-}  
-
-//Desktops
-@media (pointer: fine) {
-  kii-article-summary:hover {
-    filter: none;
-    transform: scale(0.9, 0.9) rotate(0deg) !important;
+    width:200px;
+    .kii-article-summary-image-wrapper {
+      padding:2px;
+      border-radius: 50% 50%;
+      background: #fff !important;  
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      height:200px;
+      img {
+        border-radius: 50% 50%;
+        width:100%;
+      }
+    }
   }
-}  
-
-//On mobile devices we highlight when it appears
-@media (pointer:coarse) {
-  kii-article-summary.kii-appear {
-    filter: none;
-    transform: scale(0.9, 0.9) rotate(0deg) !important;
+  .element-comment:nth-child(odd) {
+    ::ng-deep kii-article .kii-editor-wrapper {
+      border-left: 2px solid #cddc39;
+    }
   }
-}
+  .element-comment:nth-child(even) {
+    ::ng-deep kii-article .kii-editor-wrapper {
+      border-right: 2px solid #cddc39;
+    }
+  }
+  ::ng-deep kii-article .kii-editor-wrapper {
+     max-width: 80%;
+     margin:0 auto;
+     margin-top:50px;
+  }
+  @media only screen and (max-width: 700px) {
+    .element-comment {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 90vw;
+    }
+    .element-comment:nth-child(odd) {
+      flex-direction: column;
+    }
+    .element-comment:nth-child(even) {
+      flex-direction: column;
+      ::ng-deep kii-article .kii-editor-wrapper {
+        border-left: 2px solid #cddc39;
+        border-right: none;
+      }
+    }
+    ::ng-deep kii-article .kii-editor-wrapper {
+      margin-top:0px;
+      margin-bottom:20px;
+      max-width: 100%;
+    }
+  }
 
+}
 

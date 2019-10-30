@@ -4,13 +4,16 @@
       <kii-article class="page-header-first" key="realisations-header-first"></kii-article>
       <kii-article class="page-header-second" key="realisations-header-second" kiiScroll (onAppear)="animateClients($event)"></kii-article>
     
-      <div *ngIf="showAnimationClients" class="content-wrapper" [@realisationsAnimation]="articlesClients.length">
-        <kii-article-summary class="prices-summary" *ngFor="let article of articlesClients" [key]="article.id" kiiScroll></kii-article-summary>  
+      <div *ngIf="showAnimationClients" class="content-wrapper-clients" [@realisationsAnimation]="articlesClients.length">
+        <kii-article-summary class="realisations-summary" *ngFor="let article of articlesClients" [key]="article.id" kiiScroll></kii-article-summary>  
       </div>
       <kii-article class="page-intermediate" key="realisations-intermediate" kiiScroll (onAppear)="animateComments($event)"></kii-article>
-      <div *ngIf="showAnimationComments" class="content-wrapper" [@realisationsAnimation]="articlesComments.length">
-          <kii-article-summary class="prices-summary" *ngFor="let article of articlesComments" [key]="article.id" kiiScroll></kii-article-summary>  
+      <div *ngIf="showAnimationComments" class="content-wrapper-comments" [@realisationsAnimation]="articlesComments.length">
+        <div *ngFor="let article of articlesComments" class="element-comment" kiiScroll>
+          <kii-article-summary class="realisations-comments-summary"  [key]="article.id" [hasRouterLink]="false"></kii-article-summary>  
+          <kii-article class="realisations-comments-article" [key]="article.id"></kii-article>  
         </div>
+      </div>
     </div>
     <kii-article class="page-footer" key="realisations-footer"></kii-article>
 </kii-spinner-overlay>
