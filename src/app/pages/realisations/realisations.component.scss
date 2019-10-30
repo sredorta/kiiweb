@@ -10,22 +10,7 @@
     padding-right:10px;
 }
 
-.wrapper {
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  .realisations-header, .content-wrapper {
-    max-width: 800px;
-  }
-}
 
-
-kii-article {
-  font-family: "Mansalva";
-  
-
-}
 
 .realisations-wrapper {
 ::ng-deep kii-article-summary .kii-article-summary-container {

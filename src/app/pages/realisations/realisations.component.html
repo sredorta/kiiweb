@@ -1,10 +1,17 @@
-<div class="realisations-wrapper">
+<div class="page-wrapper realisations-wrapper">
 <kii-spinner-overlay [show]="isLoading">
     <div class="wrapper">
-      <kii-article class="realisations-header" key="realisations-header"></kii-article>
-      <div class="content-wrapper" [@realisationsAnimation]="articles.length">
-        <kii-article-summary class="prices-summary" *ngFor="let article of articles" [key]="article.id" kiiScroll></kii-article-summary>  
+      <kii-article class="page-header-first" key="realisations-header-first"></kii-article>
+      <kii-article class="page-header-second" key="realisations-header-second" kiiScroll (onAppear)="animateClients($event)"></kii-article>
+    
+      <div *ngIf="showAnimationClients" class="content-wrapper" [@realisationsAnimation]="articlesClients.length">
+        <kii-article-summary class="prices-summary" *ngFor="let article of articlesClients" [key]="article.id" kiiScroll></kii-article-summary>  
       </div>
+      <kii-article class="page-intermediate" key="realisations-intermediate" kiiScroll (onAppear)="animateComments($event)"></kii-article>
+      <div *ngIf="showAnimationComments" class="content-wrapper" [@realisationsAnimation]="articlesComments.length">
+          <kii-article-summary class="prices-summary" *ngFor="let article of articlesComments" [key]="article.id" kiiScroll></kii-article-summary>  
+        </div>
     </div>
+    <kii-article class="page-footer" key="realisations-footer"></kii-article>
 </kii-spinner-overlay>
 </div>
