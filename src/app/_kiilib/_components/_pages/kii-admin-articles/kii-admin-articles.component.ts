@@ -54,7 +54,13 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
         this.loggedInUser = res;
       })
     );      
-
+    this.addSubscriber(
+      this.kiiApiSetting.onChange().subscribe(res => {
+        if (res.length>0)
+          this.cathegories = this.kiiApiSetting.getByKey("article_cathegories").value.split(","); 
+      })
+    ) 
+    console.log(this.cathegories); 
     //Load all articles
     this.addSubscriber(
       this.kiiApiArticle.onChange().subscribe(res => {
@@ -75,7 +81,7 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
         res = res.sort((a,b) => {
           return (a.cathegory>b.cathegory?1:0)
         });
-
+        console.log("WE ARE HERE",res);
         if (res.length>0) {
           this.articles = res;
           this.filterCathegories();
@@ -90,25 +96,21 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
         this.currentLang = res;
       })
     )
-    this.addSubscriber(
-      this.kiiApiSetting.onChange().subscribe(res => {
-        this.cathegories = this.kiiApiSetting.getByKey("article_cathegories").value.split(","); 
-      })
-    ) 
-    console.log(this.cathegories);  
+ 
     this.displayedColumns = ['id', 'image','cathegory', 'title', 'createdAt', 'updatedAt','public'];
   }
 
   /**Defines all filtering and sorting table settings */
   tableSettings() {
     this.dataSource.filterPredicate = function(data, filter: string): boolean {
-      return data.title.toLowerCase().includes(filter) || data.cathegory.toLowerCase().includes(filter);
+      return data.title.toLowerCase().includes(filter) || data.cathegory.toLowerCase().includes(filter) || data.description.includes(filter);
     };
     //Define the sorting if special
     this.dataSource.sortingDataAccessor = (item, property) => {
       switch (property) {
          case 'id': return item.id;
          case 'title': return item.title;
+         case 'description': return item.description;
          default: return item[property];
       }
     };

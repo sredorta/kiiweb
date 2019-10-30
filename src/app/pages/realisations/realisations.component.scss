@@ -140,9 +140,15 @@
     }
   }
   ::ng-deep kii-article .kii-editor-wrapper {
-     max-width: 80%;
-     margin:0 auto;
-     margin-top:50px;
+    .angular-editor-textarea {
+      font-family: "Mansalva";
+      font-weight: 200;
+      color: #616161 !important;
+    }
+
+    max-width: 80%;
+    margin:0 auto;
+    margin-top:50px;
   }
   @media only screen and (max-width: 700px) {
     .element-comment {

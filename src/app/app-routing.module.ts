@@ -176,7 +176,7 @@ export const routes: Routes = [
     data: {roles:["kubiiks","admin","stats"]}
   }, 
   {path: '404', component: KiiNotFoundComponent, pathMatch: "full"},
-  /////////{path: '**', redirectTo: '/404', pathMatch: "full"}
+  {path: '**', redirectTo: '/404', pathMatch: "full"}
 ];
 
 @NgModule({

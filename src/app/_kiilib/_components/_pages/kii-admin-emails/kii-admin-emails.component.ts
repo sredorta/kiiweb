@@ -65,7 +65,7 @@ export class KiiAdminEmailsComponent extends KiiTableAbstract implements OnInit 
       this.kiiApiEmail.onChange().subscribe(emails => {
           //Filter out cathegories of templates that are for kubiiks users only
           if (!this.loggedInUser.hasRole('kubiiks')) {
-              emails = emails.filter(obj => obj.isProtected != true);
+              this.emails = emails.filter(obj => obj.isProtected != true);
           }
           this.initTable(this.emails);
           this.tableSettings();
