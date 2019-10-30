@@ -3,6 +3,16 @@ import { trigger, state, style, transition, animate, keyframes, query,stagger } 
 
 export class KiiAinimations {
 
+    //Animation for contact elements
+    public static contact() {
+        return [
+            trigger('contactAnimation', [
+                state('collapsed', style({transform: 'scale(0.6)'})),
+                state('expanded', style({transform: 'scale(1)'})),
+                transition('expanded <=> collapsed', animate('500ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+              ]),
+        ]
+    };
 
     //Animation for blog elements
     public static blog() {

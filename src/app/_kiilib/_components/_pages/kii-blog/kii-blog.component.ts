@@ -12,7 +12,7 @@ import { LocalizeRouterService } from '../../../_libraries/localize-router';
   animations: KiiAinimations.blog()
 })
 export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
-
+  showAnimation : boolean = false;
   constructor(private kiiApiArticle: KiiApiArticleService, private localize: LocalizeRouterService) { super(kiiApiArticle); }
 
   ngOnInit() {
@@ -24,5 +24,8 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
   getRoute(articleId:number) {
     return this.localize.translateRoute('/article/'+ articleId);
   }
-
+  animate(event : boolean) {
+    console.log("Recieved onAppear",event);
+    this.showAnimation = true;
+  }
 }

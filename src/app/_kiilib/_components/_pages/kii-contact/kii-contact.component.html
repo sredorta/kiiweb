@@ -1,24 +1,24 @@
 
 <div class="page-wrapper">
 <kii-article  class="page-header-first" key="contact-header-first"></kii-article>
-<kii-article class="page-header-second" key="contact-header-second"></kii-article>
+<kii-article class="page-header-second" key="contact-header-second"  kiiScroll (onAppear)="animate($event)"></kii-article>
 
 <div class="wrapper">
    <div class="wrapper-content"> 
          <div class="wrapper-content-left">
-                <div class="element" >
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" >
                         <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
                 </div>
 
-                <div class="element">
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-time"></kii-article>
                 </div>
-                <div class="element">
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
                 </div>
          </div>
          <div class="wrapper-content-right">        
-                <div class="element">
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-form"></kii-article>
                         <div class="form-container default-theme">
                                 <kii-contact-form (kiiOnSubmit)="onSubmit($event)"></kii-contact-form>

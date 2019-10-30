@@ -1,10 +1,13 @@
-import { Directive, HostListener, Renderer2, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Directive, HostListener, Renderer2, ElementRef, Inject, PLATFORM_ID, Output, EventEmitter } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+
 
 @Directive({
   selector: '[kiiScroll]'
 })
 export class KiiScrollDirective {
+  /**Emits when element appears */
+  @Output() onAppear:EventEmitter<boolean> = new EventEmitter();
 
   scrollTop : number = 0;
   windowHeight : number =0;
@@ -20,6 +23,8 @@ export class KiiScrollDirective {
         document.getElementById('kii-app-main-container').addEventListener('scroll', this.scroll, true); //third parameter
         window.addEventListener('resize', this.resize,true);
         this.windowHeight = window.innerHeight;
+    } else {
+      this.onAppear.emit(true);  //If we are on server we tell we have appeared
     }
 
   }
@@ -43,6 +48,7 @@ export class KiiScrollDirective {
       if (this.isVisible() == true) {
           if (!this.appearDone) {
             this._renderer.addClass(this._element.nativeElement, 'kii-appear');
+            this.onAppear.emit(true);
             this.appearDone = true;
           }
       }

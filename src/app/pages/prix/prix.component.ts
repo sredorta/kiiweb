@@ -10,11 +10,16 @@ import { KiiAinimations } from '../../_kiilib/_utils/kii-animations';
   animations: KiiAinimations.prices()
 })
 export class PrixComponent extends KiiBlogAbstract implements OnInit {
-
+  showAnimation : boolean = false;
   constructor(private kiiApiArticle: KiiApiArticleService) { super(kiiApiArticle); }
 
   ngOnInit() {
     this.cathegory = "prix";
     this.initialize();
+  }
+
+  animate(event : boolean) {
+    console.log("Recieved onAppear",event);
+    this.showAnimation = true;
   }
 }
