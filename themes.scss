@@ -149,7 +149,6 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @import './themes/kubiiks/toolbar.scss';
 @import './themes/kubiiks/sidenav.scss';
 @import './themes/kubiiks/footer.scss';
-@import './themes/kubiiks/spinner.scss';
 @import './themes/kubiiks/forms.scss';
 @import './themes/kubiiks/scrollbar.scss';
 @import './themes/kubiiks/dialog.scss';
@@ -166,7 +165,6 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
     @include toolbar-theme($theme);
     @include sidenav-theme($theme);
     @include footer-theme($theme);
-    @include spinner-theme($theme);
     @include forms-theme($theme);
     @include scrollbar-theme($theme);
     @include dialog-theme($theme);

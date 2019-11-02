@@ -12,28 +12,5 @@
     right: 0;
     top: 0;
     width: 175px;
+    background-image: url('/assets/kiilib/images/loading.svg');
   }
-  
-  #spinner-loader .spinner-dot {
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    margin: auto;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 40px;
-  }
-  
-  #spinner-loader .spinner-dot::before {
-    border-radius: 100%;
-    content: "";
-    height: 40px;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: scale(0);
-    width: 40px;
-  }
-  

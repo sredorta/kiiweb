@@ -19,7 +19,6 @@ import { SwUpdate, SwPush, ServiceWorkerModule } from '@angular/service-worker';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
-import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
 
 

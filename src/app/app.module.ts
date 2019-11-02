@@ -84,7 +84,6 @@ import { RealisationsComponent } from './pages/realisations/realisations.compone
 import { KiiLanguageSelectorComponent } from './_kiilib/_components/kii-language-selector/kii-language-selector.component';
 import { SwPush, SwUpdate } from '@angular/service-worker';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
-import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 import { KiiLoginFormComponent } from './_kiilib/_components/_forms/kii-login-form/kii-login-form.component';
 import { KiiSignupFormComponent } from './_kiilib/_components/_forms/kii-signup-form/kii-signup-form.component';
 import { KiiSpinnerComponent } from './_kiilib/_components/kii-spinner/kii-spinner.component';
@@ -171,7 +170,6 @@ import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-p
     RealisationsComponent,
     KiiLanguageSelectorComponent,
     KiiBottomSheetSoftwareUpdateComponent,
-    KiiBottomSheetSoftwareInstallComponent,
     KiiLoginFormComponent,
     KiiSignupFormComponent,
     KiiSpinnerComponent,

@@ -22,7 +22,6 @@ import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
 import { KiiPwaService } from './_kiilib/_services/kii-pwa.service';
 import { KiiMiscService } from './_kiilib/_services/kii-misc.service';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
-import { KiiBottomSheetSoftwareInstallComponent } from './_kiilib/_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiSpinnerService } from './_kiilib/_services/kii-spinner.service';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
@@ -60,7 +59,7 @@ import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localiz
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production}),//, scope:"/"}),
   ],
-  entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetSoftwareInstallComponent,KiiBottomSheetCookiesComponent, KiiHttpErrorComponent],
+  entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetCookiesComponent, KiiHttpErrorComponent],
   providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService],
   bootstrap: [AppComponent]
 })

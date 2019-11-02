@@ -46,6 +46,7 @@
   {
     "name": "api-freshness",
     "urls": [
+      "/server/public/**", 
       "/server/api/initial",
       "/server/api/stats"
     ],

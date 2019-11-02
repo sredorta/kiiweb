@@ -5,12 +5,7 @@ import { MatBottomSheet } from '@angular/material';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { KiiBottomSheetSoftwareUpdateComponent } from '../_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
-import { KiiBottomSheetSoftwareInstallComponent } from '../_components/kii-bottom-sheet-software-install/kii-bottom-sheet-software-install.component';
 import {map} from 'rxjs/operators';
-import { KiiApiAuthService } from './kii-api-auth.service';
-import { User } from '../_models/user';
-import { KiiApiStatsService } from './kii-api-stats.service';
-import { StatAction } from '../_models/stat';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 
@@ -35,74 +30,58 @@ export class KiiPwaService {
   public offline = new BehaviorSubject<boolean>(false);
   private hasApp = new BehaviorSubject<boolean>(false);
 
-  constructor(private kiiStats : KiiApiStatsService,
+  constructor(
               private swUpdate: SwUpdate, 
               private swPush: SwPush,
               private http : HttpClient,
               private bottomSheet: MatBottomSheet,
-              private kiiApiAuth: KiiApiAuthService,
               @Inject(PLATFORM_ID) private _platformId: any,) {
 
 
     if (isPlatformBrowser(this._platformId)) {
-      //Handle version updates if required we show bottom sheet and upload new version
-      swUpdate.available.subscribe(event => {
-        console.log("Recieved SW UPDATE !!");
-        let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
-          panelClass :"default-theme",
-        })
-        myBottomSheet.afterDismissed().subscribe(res => {
-          if (res==true) {
-            window.location.reload();
+      if (navigator.serviceWorker && environment.production) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+          if (registrations.length == 0) {
+            console.log("REGISTERING SERVICE WORKER !");
+            navigator.serviceWorker.register('/ngsw-worker.js').then(function(registration) {
+              console.log('SERVICE WORKER REGISTERED CORRECTLY', registration);
+            }).catch(function(error) {
+              console.log('SERVICE WORKER REGISTRATION FAILED:', error);
+            });
+          } else {
+              console.log("CHECK IF NEW VERSION:");
+              //Handle version updates if required we show bottom sheet and upload new version
+              var refreshing;
+              let myObj = this;
+              navigator.serviceWorker.addEventListener('controllerchange',
+                function() {
+                  console.log("GOT CONTROLLER CHANGE !!!!!");
+                  if (refreshing) return;
+                  refreshing = true;
+                  let myBottomSheet = myObj.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
+                    panelClass :"default-theme",
+                  })
+                  myBottomSheet.afterDismissed().subscribe(res => {
+                    if (res==true) {
+                      window.location.reload();
+                    }
+                  })
+                }
+              );
           }
-        })
-      });
-
-//      swUpdate.checkForUpdate();
+        });
+      } 
 
       //Online/Offline detection
       this.checkInternet();
 
-      //Handle version updates if required we show bottom sheet and upload new version
-      var refreshing;
-      let myObj = this;
-      navigator.serviceWorker.addEventListener('controllerchange',
-        function() {
-          console.log("GOT CONTROLLER CHANGE !!!!!");
-          if (refreshing) return;
-          refreshing = true;
-          console.log("NEED REFRESHING !!!!!");
-          //window.location.reload();
-          let myBottomSheet = myObj.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
-            panelClass :"default-theme",
-          })
-          myBottomSheet.afterDismissed().subscribe(res => {
-            if (res==true) {
-              window.location.reload();
-            }
-          })
-        }
-      );
+
 
       //Handle install button and tell that we show the install bottom sheet
       window.addEventListener('beforeinstallprompt', event => {
         console.log("Recieved beforeinstallprompt!")
         this.promptEvent = event;
         this.hasApp.next(true);
-        if (!localStorage.getItem("app.visits")) localStorage.setItem("app.visits", '1');
-        else localStorage.setItem("app.visits", (parseInt(localStorage.getItem("app.visits")) + 1).toString());
-        if (parseInt(localStorage.getItem("app.visits"))>549760) {
-          localStorage.setItem("app.visits", '1');
-          let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareInstallComponent, {
-            panelClass :"default-theme",
-          })
-          myBottomSheet.afterDismissed().subscribe(res => {
-            if (res==true) {
-              this.promptEvent.prompt();
-              this.kiiStats.send(StatAction.APP_INSTALL,null)
-            }
-          })
-        } 
       });
     }
   }

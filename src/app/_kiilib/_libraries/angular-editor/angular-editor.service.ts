@@ -87,8 +87,11 @@ export class AngularEditorService {
    */
   setFontSize(fontSize: string) {
     document.execCommand('formatblock', false, 'span');
-    try {
-    let selectedElement : any = window.getSelection().focusNode.parentNode;
+    let selectedElement : any = null;
+    if (window)
+      if (window.getSelection())
+         if (window.getSelection().focusNode)
+            selectedElement  = window.getSelection().focusNode.parentNode;
     let value = "14px";
     switch (fontSize) {
       case "1":
@@ -114,10 +117,9 @@ export class AngularEditorService {
         break;
     }
     console.log("Applying size", value);
-    selectedElement.style.fontSize = value;
-    } catch(error) {
-       console.log(error);
-    }
+    if (selectedElement)
+      selectedElement.style.fontSize = value;
+
     //console.log("ListId is:", listId);
     //listId..addClass("oder2");
     //  this.doc.execCommand('fontSize', false, fontSize);

@@ -22,6 +22,7 @@ import { Router, RouterEvent,NavigationStart, NavigationEnd } from '@angular/rou
 import { StatAction } from '../../_models/stat';
 import { start } from 'repl';
 import { KiiPopupDialogComponent } from '../kii-popup-dialog/kii-popup-dialog.component';
+import { environment } from '../../../../environments/environment';
 
 
 
@@ -55,6 +56,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
+    console.log("ENVIRONMENT", environment);
     //Subscribe to authUser
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
