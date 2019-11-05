@@ -101,6 +101,13 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
     }
   }
 
+  /**Sets image to a new image */
+  setImage(image:string) {
+    this.image=image;
+    this.setInitialImage();
+  }
+
+
   /**When input image changes */
   ngOnChanges(changes:SimpleChanges) {
     if (changes.image) {

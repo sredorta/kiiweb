@@ -10,14 +10,14 @@ import { environment } from '../../../environments/environment';
 })
 export class KiiApiPageService extends KiiServiceAbstract<Page> {
 
-  prefix : string = "setting";
+  prefix : string = "page";
   constructor(private http: HttpClient) { 
-    super(http, "setting");
+    super(http, "page");
   }
 
-  /**Update setting in database : kubiiks rights required*/
+  /**Update page in database : kubiiks rights required*/
   public update(element:Page) {
-      return this.http.post<Page>(environment.apiURL + '/' + this.prefix + '/update', {setting: element}).pipe(map(res => new Page(res)));
+      return this.http.post<Page>(environment.apiURL + '/' + this.prefix + '/update', {page: element}).pipe(map(res => new Page(res)));
   }   
 
   /**Gets value of desired setting by giving it's key */

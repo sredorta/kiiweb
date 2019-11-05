@@ -201,6 +201,7 @@
     "kiilib.input.fbid.label"                     : "Facebook app id",
     "kiilib.input.fbid.placeholder"               : "2088315884799255",
     "kiilib.input.fbid.hint"                      : "Escribe el numero de Facebook App ID",
+    "kiilib.input.page.hint"                      : "Selecciona una pagina",
 
     "kiilib.icon.dialog.title"                    : "Añadir un icono",
     "kiilib.icon.dialog.subtitle"                 : "Entra el codigo de font-awesome correspondiente",

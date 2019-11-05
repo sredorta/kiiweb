@@ -152,6 +152,7 @@ import { KiiIconDialogComponent } from './_kiilib/_components/kii-icon-dialog/ki
 import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
 import { KiiPopupDialogComponent } from './_kiilib/_components/kii-popup-dialog/kii-popup-dialog.component';
 import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-popup/kii-admin-popup.component';
+import { KiiSeoFormComponent } from './_kiilib/_components/_forms/kii-seo-form/kii-seo-form.module';
 
 
 
@@ -196,6 +197,7 @@ import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-p
     KiiAdminSettingsComponent,
     KiiItemFormComponent,
     KiiAdminUsersComponent,
+    KiiSeoFormComponent,
     KiiArticleComponent,
     KiiArticleSummaryComponent,
     KiiAdminArticlesComponent,
@@ -293,8 +295,7 @@ import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-p
       MatTabsModule,
       MatToolbarModule,
       MatTooltipModule,
-      MatTreeModule,
-    ],    
+      MatTreeModule],    
     //EOF MATERIAL DESIGN
   ],
   entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiNewsletterDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent, KiiIconDialogComponent, KiiPopupDialogComponent],

@@ -1,0 +1,34 @@
+<kii-spinner-overlay [show]="isFormLoading">
+    <div class="wrapper">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+            <mat-form-field>
+                <mat-label>{{'kiilib.input.page.hint' | translate}}</mat-label>
+                <mat-select formControlName="page" (selectionChange)="onPageChange($event)">
+                <mat-option *ngFor="let page of pages" [value]="page.page">
+                    {{page.page}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field [appearance]="kiiInputAppearance">
+                    <mat-label>{{'kiilib.input.title.label' | translate }}</mat-label>
+                    <input matInput formControlName="title" placeholder="{{'kiilib.input.title.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="currentPage.title">
+                    <mat-icon matPrefix class="icon"><i class="fas fa-heading"></i></mat-icon>
+                    <mat-hint>{{'kiilib.input.title.hint' | translate }}</mat-hint>
+                    <mat-error kiiInputError="title"></mat-error>    
+            </mat-form-field>
+            <mat-form-field [appearance]="kiiInputAppearance">
+                    <mat-label>{{'kiilib.input.description.label' | translate}}</mat-label>
+                    <textarea matInput formControlName="description" placeholder="{{'kiilib.input.description.placeholder' | translate}}" required type="text" [kiiInputDefaultValue]="currentPage.description"></textarea>
+                    <mat-icon matPrefix class="icon"><i class="fas fa-paragraph"></i></mat-icon>
+                    <mat-hint>{{'kiilib.input.description.hint' | translate}}</mat-hint>
+                    <mat-error kiiInputError="description"></mat-error>    
+            </mat-form-field>  
+            <kii-image-upload [storage]="storage" [image]="currentPage.image" (onUpload)="onUpload($event)"></kii-image-upload>
+        
+            <div class="control-wrapper">
+                    <button mat-button type="reset" color="primary">{{'kiilib.cancel' | translate}}</button>
+                    <button mat-flat-button type="submit" color="primary">{{'kiilib.submit' | translate}}</button>
+            </div>
+        </form>
+    </div>
+</kii-spinner-overlay>        

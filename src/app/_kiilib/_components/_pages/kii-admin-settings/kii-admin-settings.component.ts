@@ -4,6 +4,8 @@ import { Setting } from '../../../_models/setting';
 import { KiiApiSettingService } from '../../../_services/kii-api-setting.service';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
+import { KiiApiPageService } from '../../../_services/kii-api-page.service';
+import { Page } from 'src/app/_kiilib/_models/page';
 
 @Component({
   selector: 'app-kii-admin-settings',
@@ -20,7 +22,7 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
   /**Shows spinner when loading */
   loading :boolean = false;
 
-  constructor(private kiiApiSetting: KiiApiSettingService) { super() }
+  constructor(private kiiApiSetting: KiiApiSettingService, private kiiApiPage: KiiApiPageService) { super() }
 
   ngOnInit() {
     this.setValidators();
@@ -146,6 +148,19 @@ export class KiiAdminSettingsComponent extends KiiBaseAbstract implements OnInit
          this.kiiApiSetting.refresh(res);
          this.loading = false;
       }, () => this.loading = false)
+    )
+  }
+
+  /**Saves SEO settings */
+  saveSeo(result:any) {
+    console.log("Saving seo:",result);
+    this.loading = true;
+    this.addSubscriber(
+      this.kiiApiPage.update(new Page(result)).subscribe(res => {
+        console.log("Recieved REsult:",res);
+        this.kiiApiPage.refresh(res);
+        this.loading = false;
+      },()=> this.loading = false)
     )
   }
 
