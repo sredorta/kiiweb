@@ -19,7 +19,17 @@
     "ROUTES.login"     : "conneccion",
     "ROUTES.reset-password": "password-olvidado",
     "ROUTES.profile"    : "mi-cuenta",
-    "ROUTES.alerts"     : "notificaciones"
+    "ROUTES.alerts"     : "notificaciones",
 
+    "home.title"                : "kubiiks",
+    "home.subtitle"             : "Crreador de experiencias web",
+    "realisations.title"        : "Clientes",
+    "realisations.subtitle"     : "Ya nos han hecho confianza",
+    "prix.title"                : "Precios",
+    "prix.subtitle"             : "Nuestros precios son cerrados",
+    "blog.title"                : "Blog",
+    "blog.subtitle"             : "Nuestra tecnologia a su servicio",
+    "contact.title"             : "Contacto",
+    "contact.subtitle"          : "Nuestro equipo esta a su disposicion"
 
 }

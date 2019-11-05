@@ -23,11 +23,10 @@
                     <mat-hint>{{'kiilib.input.description.hint' | translate}}</mat-hint>
                     <mat-error kiiInputError="description"></mat-error>    
             </mat-form-field>  
-            <kii-image-upload [storage]="storage" [image]="currentPage.image" (onUpload)="onUpload($event)"></kii-image-upload>
+            <kii-image-upload [maxSize]="1000" [storage]="storage" [image]="currentPage.image" (onUpload)="onUpload($event)"></kii-image-upload>
         
             <div class="control-wrapper">
-                    <button mat-button type="reset" color="primary">{{'kiilib.cancel' | translate}}</button>
-                    <button mat-flat-button type="submit" color="primary">{{'kiilib.submit' | translate}}</button>
+                    <button mat-flat-button type="submit" color="primary">{{'kiilib.save' | translate}}</button>
             </div>
         </form>
     </div>

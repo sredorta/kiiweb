@@ -1,7 +1,10 @@
 
 .wrapper {
-    padding:10px;
     min-height: 80vh;
+}
+
+h2 i {
+    margin-right:20px;
 }
 .title {
     margin-top:5px;
@@ -12,17 +15,30 @@
 }
 
 //Table part
-.table-wrapper {
-    min-height: 80vh;
+.header-wrapper {
     padding:10px;
+    padding-left:20px;
+    padding-right:20px;
 }
+
 .table {
     width:100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    background:transparent !important;
+}
+mat-paginator {
+    background:transparent !important;
 }
 
 tr.detail-row {
     height:0;
 }
+
+tr.mat-row.is-read {
+    opacity:0.5;
+}
+
 tr.element-row:not(.expanded-row):hover {
     cursor:pointer;
 }

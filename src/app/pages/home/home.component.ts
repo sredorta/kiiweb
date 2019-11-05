@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { KiiBlogAbstract } from '../../_kiilib/_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../_kiilib/_services/kii-api-article.service';
 import { KiiApiPageService } from '../../_kiilib/_services/kii-api-page.service';
+import { homedir } from 'os';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,6 @@ import { KiiApiPageService } from '../../_kiilib/_services/kii-api-page.service'
 })
 
 export class HomeComponent extends KiiBlogAbstract implements OnInit {
-
   constructor(private kiiApiArticle: KiiApiArticleService, 
     private kiiApiPage: KiiApiPageService, 
     private kiiMisc : KiiMiscService, 

@@ -1,0 +1,11 @@
+<div class="header-wrapper">
+  <div class="fallback-background" src="./assets/images/header.jpg" [ngClass]="{'is-playing': isPlaying}"></div>
+  <video #videoPlayer loop muted autoplay oncanplay="this.play();" onloadedmetadata="this.muted = true" [ngClass]="{'is-playing': isPlaying}">
+        <source src="./assets/videos/header.mov" type="video/mp4">
+  </video> 
+  <div class="content-wrapper">
+      <h1>{{data.title | translate}}</h1>
+      <h2>{{data.subtitle | translate}}</h2>
+  </div>  
+  <img class="icon" src="./assets/images/more.svg"/>
+</div>

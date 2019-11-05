@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="40"
+   viewBox="0 0 26.458332 10.583334"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="more.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2326"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#f2f2f2;stop-opacity:1;"
+         offset="0"
+         id="stop2324" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter2421"
+       x="-0.054224611"
+       width="1.1084492"
+       y="-0.18629907"
+       height="1.3725981">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.56933481"
+         id="feGaussianBlur2423" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="39.723952"
+     inkscape:cy="42.730107"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-286.41665)">
+    <g
+       id="g2390-6"
+       style="fill:#e6e6e6;opacity:0.64999998;filter:url(#filter2421)"
+       transform="translate(-3.9999998e-8,1.0583333)">
+      <rect
+         transform="rotate(-64.741507)"
+         ry="0"
+         y="124.07062"
+         x="-261.7836"
+         height="13.931423"
+         width="1.5367996"
+         id="rect2330-1"
+         style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
+      <rect
+         transform="matrix(-0.42670279,-0.90439191,-0.90439191,0.42670279,0,0)"
+         ry="0"
+         y="100.36806"
+         x="-272.96677"
+         height="13.931423"
+         width="1.5367996"
+         id="rect2330-8-9"
+         style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
+    </g>
+    <g
+       id="g2390">
+      <rect
+         transform="rotate(-64.741507)"
+         ry="0"
+         y="124.07062"
+         x="-261.7836"
+         height="13.931423"
+         width="1.5367996"
+         id="rect2330"
+         style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
+      <rect
+         transform="matrix(-0.42670279,-0.90439191,-0.90439191,0.42670279,0,0)"
+         ry="0"
+         y="100.36806"
+         x="-272.96677"
+         height="13.931423"
+         width="1.5367996"
+         id="rect2330-8"
+         style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
+    </g>
+  </g>
+</svg>

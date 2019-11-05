@@ -19,5 +19,16 @@
     "ROUTES.login"     : "login",
     "ROUTES.reset-password": "reset-password",
     "ROUTES.profile"    : "my-account",
-    "ROUTES.alerts"     : "notifications"
+    "ROUTES.alerts"     : "notifications",
+
+    "home.title"                : "kubiiks",
+    "home.subtitle"             : "Web experience creator",
+    "realisations.title"        : "Customers",
+    "realisations.subtitle"     : "They have already trusted us",
+    "prix.title"                : "Prices",
+    "prix.subtitle"             : "Our straight forward prices",
+    "blog.title"                : "Blog",
+    "blog.subtitle"             : "Our technology to your service",
+    "contact.title"             : "Contact",
+    "contact.subtitle"          : "We are here to answer your questions"
 }

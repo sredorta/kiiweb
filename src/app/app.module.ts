@@ -153,6 +153,8 @@ import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
 import { KiiPopupDialogComponent } from './_kiilib/_components/kii-popup-dialog/kii-popup-dialog.component';
 import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-popup/kii-admin-popup.component';
 import { KiiSeoFormComponent } from './_kiilib/_components/_forms/kii-seo-form/kii-seo-form.module';
+import { KiiHeaderComponent } from './_kiilib/_components/kii-header/kii-header.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -236,7 +238,9 @@ import { KiiSeoFormComponent } from './_kiilib/_components/_forms/kii-seo-form/k
     KiiIconDialogComponent,
     KiiScrollDirective,
     KiiPopupDialogComponent,
-    KiiAdminPopupComponent
+    KiiAdminPopupComponent,
+    KiiHeaderComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

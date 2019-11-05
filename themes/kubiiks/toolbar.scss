@@ -13,8 +13,9 @@
   $is-dark-theme: map-get($theme, is-dark);
 
   kii-app .kii-app-toolbar {
-    background-color: mat-color(mat-palette($mat-grey, 900));
-    transition: background-color 0.5s ease-in-out;
+    background:none;
+    //background-color: mat-color(mat-palette($mat-grey, 900));
+    //transition: background-color 0.5s ease-in-out;
     .kii-app-toolbar-icons {
         transition: opacity 0.5s ease-in-out;
     }

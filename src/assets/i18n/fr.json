@@ -19,5 +19,16 @@
     "ROUTES.login"     : "connection",
     "ROUTES.reset-password": "mot-de-passe-oublie",
     "ROUTES.profile"    : "mon-compte",
-    "ROUTES.alerts"     : "notifications"
+    "ROUTES.alerts"     : "notifications",
+
+    "home.title"                : "kubiiks",
+    "home.subtitle"             : "Créateur d'éxperiences web",
+    "realisations.title"        : "Clients",
+    "realisations.subtitle"     : "Nous ont déjà fait confiance",
+    "prix.title"                : "Prix",
+    "prix.subtitle"             : "Nos prix sont carrées",
+    "blog.title"                : "Blog",
+    "blog.subtitle"             : "Notre technologie a votre service",
+    "contact.title"             : "Contactez-nous",
+    "contact.subtitle"          : "Une equipe a votre disposition"
 }

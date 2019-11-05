@@ -1,9 +1,9 @@
 
 <kii-spinner-overlay [show]="isDataLoading">
     <div class="wrapper">
-          <div class="table-wrapper">
-              <h2>{{'kiilib.alerts.title' | translate}} ({{loggedInUser.getUnreadAlertCount()}})</h2>
-
+              <div class="header-wrapper">
+                 <h2><i class="fas fa-bell" [matBadge]="loggedInUser.getUnreadAlertCount()"></i>{{'kiilib.alerts.title' | translate}}</h2>
+              </div>  
               <table mat-table  [dataSource]="dataSource" matSort multiTemplateDataRows class="table" [trackBy]="trackById" matSortActive="id" matSortDirection="desc" matSortStart="desc">
                   <ng-container matColumnDef="id">
                       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'id' | translate}}</th>
@@ -34,6 +34,5 @@
                       (click)="expandedElement = expandedElement === element ? null : element;" [ngClass]="{'is-read' : element.isRead}"></tr>
               </table>  
               <mat-paginator [pageSizeOptions]="[10, 20, 50]"></mat-paginator>
-          </div>  
     </div>  
 </kii-spinner-overlay>

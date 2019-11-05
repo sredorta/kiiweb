@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, SimpleChanges, ViewChild } from '@angular/core';
 import { KiiTableAbstract } from '../../../_abstracts/kii-table.abstract';
 import { KiiApiAlertService } from '../../../_services/kii-api-alert.service';
 import { Alert } from '../../../_models/alert';
@@ -8,6 +8,7 @@ import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
 import { User } from '../../../_models/user';
 import { Router } from '@angular/router';
 import { LocalizeRouterService } from '../../../_libraries/localize-router/localize-router.service';
+import { MatSort, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'kii-alerts',
@@ -32,6 +33,20 @@ export class KiiAlertsComponent extends KiiTableAbstract implements OnInit {
 
   loggedInUser: User = new User(null);
 
+  /**Make sure that pagination works in this case */
+  @ViewChild(MatSort, {static:false}) set matSort(ms: MatSort) {
+    this.sort = ms;
+    this.setDataSourceAttributes();
+     }
+    
+  @ViewChild(MatPaginator,{static:false}) set matPaginator(mp: MatPaginator) {
+    this.paginator = mp;
+    this.setDataSourceAttributes();
+  }  
+  setDataSourceAttributes() {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+  }
   constructor(private kiiApiAlert: KiiApiAlertService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiAuth: KiiApiAuthService,
