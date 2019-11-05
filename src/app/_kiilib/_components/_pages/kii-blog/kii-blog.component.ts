@@ -4,6 +4,9 @@ import { KiiApiArticleService } from '../../../_services/kii-api-article.service
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { KiiAinimations } from '../../../_utils/kii-animations';
 import { LocalizeRouterService } from '../../../_libraries/localize-router';
+import { KiiApiPageService } from '../../../_services/kii-api-page.service';
+import { KiiMiscService } from '../../../_services/kii-misc.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'kii-blog',
@@ -13,10 +16,16 @@ import { LocalizeRouterService } from '../../../_libraries/localize-router';
 })
 export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
   showAnimation : boolean = false;
-  constructor(private kiiApiArticle: KiiApiArticleService, private localize: LocalizeRouterService) { super(kiiApiArticle); }
+  constructor( private localize: LocalizeRouterService,
+    private kiiApiArticle: KiiApiArticleService, 
+    private kiiApiPage: KiiApiPageService, 
+    private kiiMisc : KiiMiscService, 
+    private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
+
 
   ngOnInit() {
     this.cathegory = "blog";
+    this.page="blog";
     this.initialize();
   }
 

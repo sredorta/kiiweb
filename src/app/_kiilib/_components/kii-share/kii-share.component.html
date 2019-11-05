@@ -11,13 +11,10 @@
   <button mat-icon-button shareButton="whatsapp" [style.color]="share.prop.whatsapp.color" [url]="getUrl()" (click)="sendStats('whatsapp')">
       <fa-icon [style.color]="share.prop.whatsapp.color" [icon]="share.prop.whatsapp.icon" size="lg"></fa-icon>
   </button>
-  <!--
-    <share-button (click)="sendStats('facebook')" button="facebook"  theme="circles-dark"  [url]="url" [showText]="true" [icon]="['fab', 'facebook-f']"></share-button>
-    <share-button (click)="sendStats('tweeter')"  button="twitter"   theme="circles-dark"  [url]="url" [showText]="true" [icon]="['fab', 'twitter']"></share-button>
-    <share-button (click)="sendStats('linkedin')" button="linkedin" theme="circles-dark"  [url]="url" [showText]="true"  [icon]="['fab', 'linkedin-in']"></share-button>-->
-
-  <!--<share-buttons></share-buttons>-->
-  <!--<div class="button-wrapper" (click)="sendStats('facebook')"><share-button button="facebook" [url]="url"></share-button></div>
-  <div class="button-wrapper" (click)="sendStats('tweeter')"><share-button button="twitter" [url]="url"></share-button></div>
-  <div class="button-wrapper" (click)="sendStats('linkedin')"><share-button button="linkedin" [url]="url"></share-button></div>-->
+  <button mat-icon-button shareButton="telegram" [style.color]="share.prop.telegram.color" [url]="getUrl()" (click)="sendStats('telegram')">
+    <fa-icon [style.color]="share.prop.telegram.color" [icon]="share.prop.telegram.icon" size="lg"></fa-icon>
+  </button>
+  <button mat-icon-button shareButton="email" [style.color]="share.prop.email.color" [url]="getUrl()" (click)="sendStats('email')">
+    <fa-icon [style.color]="share.prop.email.color" [icon]="share.prop.email.icon" size="lg"></fa-icon>
+  </button>
 </div>

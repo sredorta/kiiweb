@@ -178,7 +178,6 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
    * @param command string from triggerCommand
    */
   executeCommand(command: string) {
-    console.log("Execute command :" , this.isEditMode,command);
     this.focus();
     if (command === 'toggleEditorMode') {
       this.toggleEditorMode(this.modeVisual);
@@ -192,7 +191,6 @@ export class AngularEditorComponent implements OnInit, ControlValueAccessor, Aft
       } else {
         this.editorService.executeCommand(command);
       }
-      console.log("isEditMode", this.isEditMode);
       this.exec();
     }
   }

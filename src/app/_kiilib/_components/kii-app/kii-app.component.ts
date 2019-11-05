@@ -23,6 +23,8 @@ import { StatAction } from '../../_models/stat';
 import { start } from 'repl';
 import { KiiPopupDialogComponent } from '../kii-popup-dialog/kii-popup-dialog.component';
 import { environment } from '../../../../environments/environment';
+import { Page } from '../../_models/page';
+import { KiiApiPageService } from '../../_services/kii-api-page.service';
 
 
 
@@ -45,6 +47,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               private kiiApiAuth: KiiApiAuthService,
               private kiiMisc: KiiMiscService,
               private kiiApiSetting: KiiApiSettingService,
+              private kiiApiPage: KiiApiPageService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiArticle: KiiApiArticleService,
               private kiiApiStats: KiiApiStatsService,
@@ -168,6 +171,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     //Get all initial data
     this.addSubscriber(
       this.kiiMisc.loadInitialData().subscribe(res => {
+        console.log(res);
         if (isPlatformBrowser(this.platformId))
           this.kiiApiAuth.setLoggedInUser(new User(res.user));
             //Set language based on user language 
@@ -181,6 +185,11 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           myArticles.push(new Article(article));
         }
         this.kiiApiArticle.set(myArticles);
+        let myPages = [];
+        for(let page of res.pages) {
+          myPages.push(new Page(page));
+        }
+        this.kiiApiPage.set(myPages);
         this.openPopupDialog(); //Opens popup if required
       })
     )

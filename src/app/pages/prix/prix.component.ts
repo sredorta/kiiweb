@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { KiiBlogAbstract } from '../../_kiilib/_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../_kiilib/_services/kii-api-article.service';
 import { KiiAinimations } from '../../_kiilib/_utils/kii-animations';
+import { KiiApiPageService } from '../../_kiilib/_services/kii-api-page.service';
+import { KiiMiscService } from '../../_kiilib/_services/kii-misc.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prix',
@@ -11,10 +14,15 @@ import { KiiAinimations } from '../../_kiilib/_utils/kii-animations';
 })
 export class PrixComponent extends KiiBlogAbstract implements OnInit {
   showAnimation : boolean = false;
-  constructor(private kiiApiArticle: KiiApiArticleService) { super(kiiApiArticle); }
+  constructor(private kiiApiArticle: KiiApiArticleService, 
+    private kiiApiPage: KiiApiPageService, 
+    private kiiMisc : KiiMiscService, 
+    private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
+
 
   ngOnInit() {
     this.cathegory = "prix";
+    this.page="prices";
     this.initialize();
   }
 

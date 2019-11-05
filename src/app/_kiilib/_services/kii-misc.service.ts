@@ -13,10 +13,12 @@ import {map} from 'rxjs/operators';
 import { Meta, Title } from '@angular/platform-browser';
 import { KiiApiLanguageService } from './kii-api-language.service';
 import { KiiApiSettingService } from './kii-api-setting.service';
+import { Page } from '../_models/page';
 
 
 export interface IInitialData  {
   settings: Setting[],
+  pages: Page[],
   articles: any[],   //TODO use article model here !
   user: IUser
 }
@@ -99,7 +101,7 @@ export class KiiMiscService {
     console.log("SITE", this.kiiApiSetting.getByKey('sitename').value);
   }
 
-
+  //REMOVE ME !!!!!
   publish() {
     return this.http.get(environment.apiURL + '/facebook/post');
   }

@@ -116,13 +116,8 @@ export class AngularEditorService {
         value="2em"      
         break;
     }
-    console.log("Applying size", value);
     if (selectedElement)
       selectedElement.style.fontSize = value;
-
-    //console.log("ListId is:", listId);
-    //listId..addClass("oder2");
-    //  this.doc.execCommand('fontSize', false, fontSize);
   }
 
   /**

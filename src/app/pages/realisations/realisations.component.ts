@@ -3,6 +3,9 @@ import { KiiBlogAbstract } from '../../_kiilib/_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../_kiilib/_services/kii-api-article.service';
 import { KiiAinimations } from '../../_kiilib/_utils/kii-animations';
 import { Article } from '../../_kiilib/_models/article';
+import { KiiApiPageService } from '../../_kiilib/_services/kii-api-page.service';
+import { KiiMiscService } from '../../_kiilib/_services/kii-misc.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-realisations',
@@ -18,10 +21,13 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
   articlesClients : Article[] = [];
   articlesComments : Article[] = [];
   
-
-  constructor(private kiiApiArticle: KiiApiArticleService) { super(kiiApiArticle); }
+  constructor(private kiiApiArticle: KiiApiArticleService, 
+    private kiiApiPage: KiiApiPageService, 
+    private kiiMisc : KiiMiscService, 
+    private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
 
   ngOnInit() {
+    this.page="realisations";
     this.initialize();
   }
 
@@ -35,6 +41,15 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
         this.articlesComments = res.filter(obj => obj.cathegory == "realisations-comments" && obj.public == true);
         console.log("Clients", this.articlesClients);
         console.log("Comments", this.articlesComments);
+        this.isLoading = false;
+      }, () => this.isLoading = false)
+    )  
+    this.addSubscriber(
+      this.kiiApiPage.onChange().subscribe(res => {
+        console.log("MyPage is:",this.kiiApiPage.getByKey(this.page));
+        let myPage = this.kiiApiPage.getByKey(this.page);
+        this.kiiMisc.seo(myPage.title,myPage.description,myPage.image, this.router.url);
+        //this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
         this.isLoading = false;
       }, () => this.isLoading = false)
     )  
