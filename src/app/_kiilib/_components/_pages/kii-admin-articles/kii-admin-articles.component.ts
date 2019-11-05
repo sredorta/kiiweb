@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { KiiTableAbstract } from '../../../_abstracts/kii-table.abstract';
 import { Article } from '../../../_models/article';
 import { User } from '../../../_models/user';
@@ -8,7 +8,7 @@ import { KiiApiArticleService } from '../../../_services/kii-api-article.service
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiConfirmDialogComponent } from '../../kii-confirm-dialog/kii-confirm-dialog.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { MatDialog, MatSelectChange, MatSlideToggleChange } from '@angular/material';
+import { MatDialog, MatSelectChange, MatSlideToggleChange, MatSort, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'kii-admin-articles',
@@ -41,6 +41,21 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
   /**Contains current language for nice date format */
   currentLang : string;
 
+  /**Make sure that pagination works in this case */
+  @ViewChild(MatSort, {static:false}) set matSort(ms: MatSort) {
+    this.sort = ms;
+    this.setDataSourceAttributes();
+     }
+    
+  @ViewChild(MatPaginator,{static:false}) set matPaginator(mp: MatPaginator) {
+    this.paginator = mp;
+    this.setDataSourceAttributes();
+  }  
+  setDataSourceAttributes() {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+  }
+
   constructor(private kiiApiAuth: KiiApiAuthService,
               private kiiApiSetting: KiiApiSettingService,
               private kiiApiArticle: KiiApiArticleService,
@@ -60,7 +75,6 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
           this.cathegories = this.kiiApiSetting.getByKey("article_cathegories").value.split(","); 
       })
     ) 
-    console.log(this.cathegories); 
     //Load all articles
     this.addSubscriber(
       this.kiiApiArticle.onChange().subscribe(res => {
@@ -81,8 +95,8 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
         res = res.sort((a,b) => {
           return (a.cathegory>b.cathegory?1:0)
         });
-        console.log("WE ARE HERE",res);
         if (res.length>0) {
+          this.displayedColumns= ['id', 'image','cathegory','title','createdAt','updatedAt','public'];
           this.articles = res;
           this.filterCathegories();
           this.initTable(this.articles);
@@ -96,8 +110,6 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
         this.currentLang = res;
       })
     )
- 
-    this.displayedColumns = ['id', 'image','cathegory', 'title', 'createdAt', 'updatedAt','public'];
   }
 
   /**Defines all filtering and sorting table settings */
