@@ -55,7 +55,7 @@
     .icon {
         position:absolute;
         top:85%;
-        left:50vw;
+        left:calc(50vw - 40px);
         z-index: 6;
         width:80px;
         animation: 1s iconAnimation 5;

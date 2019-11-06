@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import {DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-header',
@@ -23,10 +24,14 @@ export class HeaderComponent implements OnInit {
   /**Do not show video in development */
   showVideo : boolean = false;
 
+  /**Checks if user is on a mobile device */
+  isMobile : boolean = this.device.isMobile();
+
+
   @ViewChild('videoPlayer',{static:false}) videoplayer: ElementRef;
 
 
-  constructor() { 
+  constructor(private device : DeviceDetectorService) { 
   }
 
   ngOnInit() {
