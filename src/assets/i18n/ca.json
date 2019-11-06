@@ -39,5 +39,9 @@
     "login.title"               : "Comptes",
     "login.subtitle"            : "Créa un compte o accedeix al teu compte",
     "reset-password.title"      : "Password",
-    "reset-password.subtitle"   : "Generar un nou password"
+    "reset-password.subtitle"   : "Generar un nou password",
+    "oauth.title"               : "Dades personals",
+    "oauth.subtitle"            : "Politica d'utilització de dades personals",
+    "email-validate.title"      : "Validació de compte",
+    "email-validate.subtitle"   : "Validació del compte de correu electrònic"
 }

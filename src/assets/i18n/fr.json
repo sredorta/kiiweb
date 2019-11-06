@@ -39,5 +39,9 @@
     "login.title"               : "Comptes",
     "login.subtitle"            : "Creez votre compte ou accéder a un compte existant",
     "reset-password.title"      : "Mot de passe",
-    "reset-password.subtitle"   : "Genereer un nouveau mot de passe"
+    "reset-password.subtitle"   : "Genereer un nouveau mot de passe",
+    "oauth.title"               : "Données personnelles",
+    "oauth.subtitle"            : "Conditions d'utilisatión des données personnelles",
+    "email-validate.title"      : "Validation du compte",
+    "email-validate.subtitle"   : "Validation du compte de courrier electronique"
 }

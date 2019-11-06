@@ -39,5 +39,9 @@
     "login.title"               : "Accounts",
     "login.subtitle"            : "Create an account or connect to your account",
     "reset-password.title"      : "Password",
-    "reset-password.subtitle"   : "Generate a new password"
+    "reset-password.subtitle"   : "Generate a new password",
+    "oauth.title"               : "Personal data",
+    "oauth.subtitle"            : "Personal data usage policy",
+    "email-validate.title"      : "Account validation",
+    "email-validate.subtitle"   : "Email account validation"
 }

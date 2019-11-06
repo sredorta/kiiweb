@@ -91,7 +91,25 @@ export class HeaderComponent implements OnInit {
         this.data.subtitle = "reset-password.subtitle";
         this.format = "short";
         break;
-      }            
+      }        
+      case "oauth": {
+        this.data.title = "oauth.title";
+        this.data.subtitle = "oauth.subtitle";
+        this.format = "short";
+        break;        
+      }    
+      case "email-validate": {
+        this.data.title = "email-validate.title";
+        this.data.subtitle = "email-validate.subtitle";
+        this.format = "short";
+        break;        
+      }  
+      case "article": {
+        //this.data.title = "article.title";
+        //this.data.subtitle = "article.subtitle";
+        this.format = "short";
+        break;        
+      }        
       default: {
         this.data.title = "Page not found";
         this.data.subtitle = "Provide a page to the header";
