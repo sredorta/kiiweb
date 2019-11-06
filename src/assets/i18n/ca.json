@@ -30,5 +30,14 @@
     "blog.title"                : "Blog",
     "blog.subtitle"             : "La nostra tecnologia al vostre servei",
     "contact.title"             : "Contacte",
-    "contact.subtitle"          : "Un equip a la vostre disposició"
+    "contact.subtitle"          : "Un equip a la vostre disposició",
+    "alerts.title"              : "Notificacions",
+    "alerts.subtitle"           : "Les vostres notificacions",
+    "profile.title"             : "Mon compte",
+    "not-found.title"           : "Aquesta pàgina no existeix",
+    "not-found.subtitle"        : "La pàgina que busques no existeix",
+    "login.title"               : "Comptes",
+    "login.subtitle"            : "Créa un compte o accedeix al teu compte",
+    "reset-password.title"      : "Password",
+    "reset-password.subtitle"   : "Generar un nou password"
 }

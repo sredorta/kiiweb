@@ -204,6 +204,8 @@
     "kiilib.input.fbid.hint"                      : "Écrivez le numero de Facebook App ID",
     "kiilib.input.page.hint"                      : "Selectioner une page",
 
+    "kiilib.userdata.dialog.title"                : "Données personnelles",
+    "kiilib.userdata.dialog.subtitle"             : "Collecte et utilisation des données à caràctere personnel",
 
     "kiilib.icon.dialog.title"                    : "Ajouter une icone",
     "kiilib.icon.dialog.subtitle"                 : "Entrez le code fontawesome correspondant",

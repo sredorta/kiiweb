@@ -12,11 +12,13 @@ export class HeaderComponent implements OnInit {
   /**Tells if video can be played or fallback */
   canPlayVideo : boolean = false;
 
-
   /**Tells if video is active */
   isPlaying : boolean = false;
-
   video : HTMLVideoElement = null;
+
+  /**Tells which format to display*/
+  format : string ="default";
+
 
   @ViewChild('videoPlayer',{static:false}) videoplayer: ElementRef;
 
@@ -61,6 +63,35 @@ export class HeaderComponent implements OnInit {
         this.data.subtitle = "contact.subtitle";
         break;
       }
+      case "alerts": {
+        this.data.title = "alerts.title";
+        this.data.subtitle = "alerts.subtitle";
+        this.format = "short";
+        break;
+      }
+      case "profile": {
+        this.data.title = "profile.title";
+        this.format = "short";
+        break;
+      }      
+      case "not-found": {
+        this.data.title = "not-found.title";
+        this.data.subtitle = "not-found.subtitle";
+        this.format = "short";
+        break;
+      }
+      case "login": {
+        this.data.title = "login.title";
+        this.data.subtitle = "login.subtitle";
+        this.format = "short";
+        break;
+      }     
+      case "reset-password": {
+        this.data.title = "reset-password.title";
+        this.data.subtitle = "reset-password.subtitle";
+        this.format = "short";
+        break;
+      }            
       default: {
         this.data.title = "Page not found";
         this.data.subtitle = "Provide a page to the header";

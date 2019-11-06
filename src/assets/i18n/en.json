@@ -30,5 +30,14 @@
     "blog.title"                : "Blog",
     "blog.subtitle"             : "Our technology to your service",
     "contact.title"             : "Contact",
-    "contact.subtitle"          : "We are here to answer your questions"
+    "contact.subtitle"          : "We are here to answer your questions",
+    "alerts.title"              : "Notifications",
+    "alerts.subtitle"           : "Your notifications",
+    "profile.title"             : "My account",
+    "not-found.title"           : "Page not found",
+    "not-found.subtitle"        : "The requested page doesn't exist",
+    "login.title"               : "Accounts",
+    "login.subtitle"            : "Create an account or connect to your account",
+    "reset-password.title"      : "Password",
+    "reset-password.subtitle"   : "Generate a new password"
 }

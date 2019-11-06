@@ -2,9 +2,7 @@
 
 <div class="page-wrapper page-prix">
 <kii-spinner-overlay [show]="isLoading">
-    <kii-article class="page-header-first" key="price-header-first"></kii-article>
-    <kii-article class="page-header-second" key="price-header-second" kiiScroll (onAppear)="animate($event)"></kii-article>
-
+  <kii-article class="page-header" key="price-header" kiiScroll (onAppear)="animate($event)"></kii-article>
   <div *ngIf="showAnimation" class="wrapper-content"  [@pricesAnimation]="articles.length">
     <div class="element" *ngFor="let article of articles" kiiScroll >
         <kii-article-summary [hasRouterLink]="false" class="prices-summary"  [key]="article.id"></kii-article-summary>  

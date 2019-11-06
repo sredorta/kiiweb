@@ -13,6 +13,13 @@
   $is-dark-theme: map-get($theme, is-dark);
 
   kii-fill-side {
+    .kii-fill-side-side {
+      background-image: url("/assets/images/background1_trans.png");
+      background-position: center center !important;
+      background-repeat: no-repeat;
+      background-size: cover !important;
+      background-clip: border-box;
+    }
     .kii-fill-side-side kii-article {
         width: 100%;
         height:100%;
@@ -22,7 +29,7 @@
         }
         .angular-editor-textarea {
           padding-top:30vh !important;
-          height:90vh;
+          height:100%;
           background-position: center center !important;
           background-repeat: no-repeat;
           background-size: cover !important;

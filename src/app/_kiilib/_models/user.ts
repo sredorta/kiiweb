@@ -143,5 +143,8 @@ export class User {
     getNameInitials() {
         return (this.firstName[0] + this.lastName[0]).toUpperCase();
     }
-
+    /**Returns the user's full name */
+    getFullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
 }

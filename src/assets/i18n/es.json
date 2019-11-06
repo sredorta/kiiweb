@@ -30,6 +30,15 @@
     "blog.title"                : "Blog",
     "blog.subtitle"             : "Nuestra tecnologia a su servicio",
     "contact.title"             : "Contacto",
-    "contact.subtitle"          : "Nuestro equipo esta a su disposicion"
+    "contact.subtitle"          : "Nuestro equipo esta a su disposicion",
+    "alerts.title"              : "Notificaciones",
+    "alerts.subtitle"           : "Sus notificaciones",
+    "profile.title"             : "Mi cuenta",
+    "not-found.title"           : "Esta pagina no existe",
+    "not-found.subtitle"        : "La pagina que buscas no existe",
+    "login.title"               : "Cuenta",
+    "login.subtitle"            : "Crea tu cuenta o accede a tu cuenta existente",
+    "reset-password.title"      : "Password",
+    "reset-password.subtitle"   : "Generar un nuevo password"
 
 }
