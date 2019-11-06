@@ -139,7 +139,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           width:"100vw",
           maxHeight:'90vh',
           position: {
-            top: '10px'
+            top: '10px',
+            right:'10px'
           },
           data:  null 
         });

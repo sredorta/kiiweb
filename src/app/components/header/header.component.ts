@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,8 @@ export class HeaderComponent implements OnInit {
   /**Tells which format to display*/
   format : string ="default";
 
+  /**Do not show video in development */
+  showVideo : boolean = false;
 
   @ViewChild('videoPlayer',{static:false}) videoplayer: ElementRef;
 
@@ -27,7 +30,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("RECIEVED DATA", this.data);
+    this.showVideo = environment.production;
     if (!this.data) {
       this.data.title = "Page not found";
       this.data.subtitle = "Provide a page to the header";
@@ -118,41 +121,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.videoplayer);
-    this.video = this.videoplayer.nativeElement;
-    this.video.oncanplaythrough = () => {
-      console.log("CAN PLAY THROUGH !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    if (this.showVideo) {
+      this.video = this.videoplayer.nativeElement;
+      this.video.oncanplaythrough = () => {
+      }
+      this.video.onplaying = () => {
+        this.isPlaying = true;
+      }
     }
-    this.video.onplaying = () => {
-      this.isPlaying = true;
-      console.log("IS PLAYING  !!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-    }
-    console.log("CANPLAY TYPE:",this.video.canPlayType('video/mp4'));
-
-    /*this.video = this.videoplayer.nativeElement;
-    console.log("VIDEO:", this.video);
-    this.video.onloadend = () => {
-      console.log("VIDEO ENDED LOADING");
-      this.isVideoLoading = false;
-    } */
-
-    /*console.log(this.videoplayer);
-
-    let myObj = this;
-    this.videoplayer.nativeElement.onplay = () => {
-      this.isVideoPlaying = true;
-    }
-      this.videoplayer.nativeElement.onloadeddata = () => {
-        console.log("Loaded video !!!");
-        if (!myObj.isVideoPlaying)
-          myObj.playVideo();
-      };*/
   }
-
-  test(event:any) {
-    console.log("GOT CANRUNTRHIGAAD S: ", event);
-  }
-
-
 }

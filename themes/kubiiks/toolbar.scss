@@ -27,13 +27,13 @@
   //Show only menu button if small screens and we have scrolled
   @media only screen and (max-width: 700px) {
     kii-app .kii-app-toolbar.kii-scrolled  {
-      background-color:rgba(mat-color(mat-palette($mat-grey, 900)),0.1);
-      .kii-app-toolbar-icons {
-          display: none;
-      }
-      //Main button
-      .kii-app-toolbar-button.menu-button {
-        background-color: mat-color(mat-palette($mat-grey, 900));
+      transition: all 0.3s ease-in-out;
+      opacity:0;
+      height: 0;
+    }
+    //Main button
+    kii-app  .kii-app-toolbar-main-button {
+      &.kii-scrolled {
         animation: shadow-pulse 0.8s 8;
       }
     }

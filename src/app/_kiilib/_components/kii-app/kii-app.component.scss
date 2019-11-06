@@ -26,9 +26,19 @@ $toolbar-height : 65px;
     min-width: 320px;
 }
 
-//.kii-app-router-outlet-wrapper {
-    //padding-top: $toolbar-height;
-//}
+.kii-app-toolbar-main-button {
+    position:absolute;
+    top:10px;
+    left:5px;
+    z-index: 11;
+    background-image: url("/assets/images/menu.svg");
+    background-size: 100% 100%;
+    background-position: center;
+    border-radius: 50% 50%;
+    width:0px;
+    height:0px;
+    transition: all 0.2s ease-in-out;
+}
 
 //Toolbar part
 .kii-app-toolbar-content {
@@ -106,6 +116,9 @@ $toolbar-height : 65px;
     position: absolute;
     z-index: 100000;
     font-size: 22px;
+    background-image: url("/assets/images/chat-icon.svg");
+    background-size: cover;
+
 }
 
 .kii-app-wrapper textarea {
@@ -119,30 +132,27 @@ $toolbar-height : 65px;
         display:none;
     }
     .kii-app-toolbar {
-        justify-content: space-between;
+        justify-content: flex-end;
     }
     .kii-app-toolbar-button {
         display:flex;
     }
+    .kii-app-toolbar-main-button {
+        width:50px;
+        height:50px;
+    }
 }
 
 .kii-app-toolbar-offline {
-    position: fixed;
-    width:100vw;
-    height:16px;
-    background:rgba(red,0.4);
-    color:white;
-    top:0;
+    position: absolute;
+    top: calc(100vh - 100px);
     left:0;
-    font-size: 14px;
-    //font-weight: bold;
-    text-align: right;
-    padding-right:10px;
-    i {
-        margin-right:5px;
-        font-size: 12px;
-    }
+    width:100px;
+    height:100px;
     display:none;
+    background-image: url("/assets/images/offline_animated.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .kii-app-toolbar-offline.offline {
     display:block;

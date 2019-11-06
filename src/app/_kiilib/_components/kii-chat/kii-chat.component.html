@@ -14,9 +14,12 @@
     <mat-card-content #content  [scrollTop]="content.scrollHeight"> 
       <div *ngFor="let message of messages" >
           <div class="message" [ngClass]="{'i-am-sender' : iAmSender(message), 'i-am-reciever': !iAmSender(message), 'is-bot': isBot(message)}">
-             <div class="message-owner">{{getMessageOwner(message)}}</div>
-             <div class="message-content">{{message.message}}</div>
-             <div class="message-date"><span>{{message.date | date:'HH:mm'}}</span></div>
+             <div *ngIf="isBot(message)" class="bot-image"></div>
+             <div class="message-text">
+                <div class="message-owner">{{getMessageOwner(message)}}</div>
+                <div class="message-content">{{message.message}}</div>
+                <div class="message-date"><span>{{message.date | date:'HH:mm'}}</span></div>
+              </div>
           </div>
       </div>
     </mat-card-content>

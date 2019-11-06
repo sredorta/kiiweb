@@ -1,6 +1,6 @@
 <div class="header-wrapper" [ngClass]="{'is-short' : format == 'short'}">
   <div class="fallback-background" src="./assets/images/header.jpg" [ngClass]="{'is-playing': isPlaying}"></div>
-  <video #videoPlayer loop muted autoplay oncanplay="this.play();" onloadedmetadata="this.muted = true" [ngClass]="{'is-playing': isPlaying}">
+  <video *ngIf="showVideo" #videoPlayer loop muted autoplay oncanplay="this.play();" onloadedmetadata="this.muted = true" [ngClass]="{'is-playing': isPlaying}">
         <source src="./assets/videos/header_s05.mp4" type="video/mp4">
   </video> 
   <div class="content-wrapper">
