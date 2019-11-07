@@ -35,8 +35,8 @@ $toolbar-height : 65px;
     background-size: 100% 100%;
     background-position: center;
     border-radius: 50% 50%;
-    width:0px;
-    height:0px;
+    width:0px !important;
+    height:0px !important;
     transition: all 0.2s ease-in-out;
 }
 
@@ -118,7 +118,11 @@ $toolbar-height : 65px;
     font-size: 22px;
     background-image: url("/assets/images/chat-icon.svg");
     background-size: cover;
+    transition: all 0.3s ease-in-out;
+}
 
+.kii-app-chat-button:disabled {
+    transform: scale(0);
 }
 
 .kii-app-wrapper textarea {
@@ -138,8 +142,8 @@ $toolbar-height : 65px;
         display:flex;
     }
     .kii-app-toolbar-main-button {
-        width:50px;
-        height:50px;
+        width:50px !important;
+        height:50px !important;
     }
 }
 

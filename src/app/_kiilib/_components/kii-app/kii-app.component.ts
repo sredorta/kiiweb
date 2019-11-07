@@ -172,7 +172,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
     //Get all initial data
     this.addSubscriber(
       this.kiiMisc.loadInitialData().subscribe(res => {
-        console.log("INITIAL DATA:",res);
+        //console.log("INITIAL DATA:",res);
         if (isPlatformBrowser(this.platformId))
           this.kiiApiAuth.setLoggedInUser(new User(res.user));
             //Set language based on user language 

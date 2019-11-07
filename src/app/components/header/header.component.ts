@@ -1,6 +1,8 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, NgZone, Inject, PLATFORM_ID, SimpleChanges } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import {DeviceDetectorService } from 'ngx-device-detector';
+import { isPlatformBrowser } from '@angular/common';
+import * as merge from 'deepmerge';
 
 @Component({
   selector: 'app-header',
@@ -21,94 +23,111 @@ export class HeaderComponent implements OnInit {
   /**Tells which format to display*/
   format : string ="default";
 
-  /**Do not show video in development */
+  /**Do not show video in development or on server side*/
   showVideo : boolean = false;
 
   /**Checks if user is on a mobile device */
   isMobile : boolean = this.device.isMobile();
 
+  /**Muted version of data */
+  myData : any = {};
 
   @ViewChild('videoPlayer',{static:false}) videoplayer: ElementRef;
 
 
-  constructor(private device : DeviceDetectorService) { 
+  constructor(
+    private device : DeviceDetectorService, 
+    @Inject(PLATFORM_ID) private platformId: any) { 
+  }
+
+  ngOnChanges(changes:SimpleChanges) {
+    if (changes.data.currentValue.alertCount) {
+        this.myData.alertCount = changes.data.currentValue.alertCount;
+    }
+    if (changes.data.currentValue.title) {
+      this.myData.title = changes.data.currentValue.title;
+    }
+    if (changes.data.currentValue.subtitle) {
+      this.myData.subtitle = changes.data.currentValue.subtitle;
+    }
   }
 
   ngOnInit() {
-    this.showVideo = environment.production;
-    if (!this.data) {
-      this.data.title = "Page not found";
-      this.data.subtitle = "Provide a page to the header";
+    this.myData = JSON.parse(JSON.stringify(this.data));
+    this.showVideo = environment.production && isPlatformBrowser(this.platformId);
+    if (!this.myData) {
+      this.myData.title = "Page not found";
+      this.myData.subtitle = "Provide a page to the header";
     }
-    switch (this.data.page) {
+    switch (this.myData.page) {
       case "home": {
-        this.data.title = "home.title";
-        this.data.subtitle = "home.subtitle";
+        this.myData.title = "home.title";
+        this.myData.subtitle = "home.subtitle";
         break;
       }
       case "demo": {
-        this.data.title = "demo.title";
-        this.data.subtitle = "demo.subtitle";
+        this.myData.title = "demo.title";
+        this.myData.subtitle = "demo.subtitle";
         break;
       }
       case "realisations": {
-        this.data.title = "realisations.title";
+        this.myData.title = "realisations.title";
         this.data.subtitle = "realisations.subtitle";
         break;
       }      
       case "blog": {
-        this.data.title = "blog.title";
-        this.data.subtitle = "blog.subtitle";
+        this.myData.title = "blog.title";
+        this.myData.subtitle = "blog.subtitle";
         break;
       }
       case "prix": {
-        this.data.title = "prix.title";
-        this.data.subtitle = "prix.subtitle";
+        this.myData.title = "prix.title";
+        this.myData.subtitle = "prix.subtitle";
         break;
       }
       case "contact": {
-        this.data.title = "contact.title";
-        this.data.subtitle = "contact.subtitle";
+        this.myData.title = "contact.title";
+        this.myData.subtitle = "contact.subtitle";
         break;
       }
       case "alerts": {
-        this.data.title = "alerts.title";
-        this.data.subtitle = "alerts.subtitle";
+        this.myData.title = "alerts.title";
+        this.myData.subtitle = "alerts.subtitle";
         this.format = "short";
         break;
       }
       case "profile": {
-        this.data.title = "profile.title";
+        this.myData.title = "profile.title";
         this.format = "short";
         break;
       }      
       case "not-found": {
-        this.data.title = "not-found.title";
-        this.data.subtitle = "not-found.subtitle";
+        this.myData.title = "not-found.title";
+        this.myData.subtitle = "not-found.subtitle";
         this.format = "short";
         break;
       }
       case "login": {
-        this.data.title = "login.title";
-        this.data.subtitle = "login.subtitle";
+        this.myData.title = "login.title";
+        this.myData.subtitle = "login.subtitle";
         this.format = "short";
         break;
       }     
       case "reset-password": {
-        this.data.title = "reset-password.title";
-        this.data.subtitle = "reset-password.subtitle";
+        this.myData.title = "reset-password.title";
+        this.myData.subtitle = "reset-password.subtitle";
         this.format = "short";
         break;
       }        
       case "oauth": {
-        this.data.title = "oauth.title";
-        this.data.subtitle = "oauth.subtitle";
+        this.myData.title = "oauth.title";
+        this.myData.subtitle = "oauth.subtitle";
         this.format = "short";
         break;        
       }    
       case "email-validate": {
-        this.data.title = "email-validate.title";
-        this.data.subtitle = "email-validate.subtitle";
+        this.myData.title = "email-validate.title";
+        this.myData.subtitle = "email-validate.subtitle";
         this.format = "short";
         break;        
       }  

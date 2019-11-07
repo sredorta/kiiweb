@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { LocalizeRouterModule, LocalizeParser, LocalizeRouterSettings, ManualParserLoader } from './_kiilib/_libraries/localize-router';
 import {routes} from './app-routing.module';
 import { Location } from '@angular/common';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { Observable, Observer } from 'rxjs';
 import * as merge from 'deepmerge';
@@ -54,7 +55,7 @@ const fs = require('fs');
   ],
   entryComponents: [],
 
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true }],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}

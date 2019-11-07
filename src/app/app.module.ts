@@ -155,6 +155,7 @@ import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-p
 import { KiiSeoFormComponent } from './_kiilib/_components/_forms/kii-seo-form/kii-seo-form.module';
 import { KiiHeaderComponent } from './_kiilib/_components/kii-header/kii-header.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector';
 
 
 
