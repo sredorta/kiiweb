@@ -145,7 +145,6 @@ import { AngularEditorToolbarComponent } from './_kiilib/_libraries/angular-edit
 import { AeSelectComponent } from './_kiilib/_libraries/angular-editor/ae-select/ae-select.component';
 import { KiiVideoGalleryComponent } from './_kiilib/_components/kii-video-gallery/kii-video-gallery.component';
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
-import { KiiNewsletterDialogComponent } from './_kiilib/_components/kii-newsletter-dialog/kii-newsletter-dialog.component';
 import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { KiiLinkDialogComponent } from './_kiilib/_components/kii-link-dialog/kii-link-dialog.component';
 import { KiiIconDialogComponent } from './_kiilib/_components/kii-icon-dialog/kii-icon-dialog.component';
@@ -156,6 +155,7 @@ import { KiiSeoFormComponent } from './_kiilib/_components/_forms/kii-seo-form/k
 import { KiiHeaderComponent } from './_kiilib/_components/kii-header/kii-header.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector';
+import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii-newsletter.component';
 
 
 
@@ -233,7 +233,6 @@ import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector
     AeSelectComponent,
     KiiVideoGalleryComponent,
     KiiVideoGalleryDialogComponent,
-    KiiNewsletterDialogComponent,
     KiiImageGalleryDialogComponent,
     KiiLinkDialogComponent,
     KiiIconDialogComponent,
@@ -241,7 +240,8 @@ import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector
     KiiPopupDialogComponent,
     KiiAdminPopupComponent,
     KiiHeaderComponent,
-    HeaderComponent
+    HeaderComponent,
+    KiiNewsletterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -303,7 +303,7 @@ import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector
       MatTreeModule],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiNewsletterDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent, KiiIconDialogComponent, KiiPopupDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent, KiiIconDialogComponent, KiiPopupDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
