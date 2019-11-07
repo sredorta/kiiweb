@@ -11,6 +11,7 @@
 
   ::ng-deep kii-article-summary .kii-article-summary-container {
     display:block;
+    max-width: 300px;
     h1 {
         transition: all 0.35s;
         margin-top:20px;
@@ -36,7 +37,7 @@
          width:100%;
       }
     }
-    max-width: 400px;
+
     @media only screen and (max-width: 1260px) { 
       h1 {
         font-size: 20px;
