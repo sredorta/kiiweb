@@ -15,7 +15,9 @@
 
 
     kii-footer {
-        
+        .kii-newsletter {
+            background-color: #1a1a1a;
+        }
         .kii-footer-link {
             text-decoration: none;
             color:mat-color($foreground,text);

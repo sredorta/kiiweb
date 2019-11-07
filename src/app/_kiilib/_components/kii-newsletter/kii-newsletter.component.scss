@@ -22,13 +22,34 @@ mat-card-actions {
     justify-content: space-between;
 }
 mat-card {
+    flex: 2 2 auto;
     max-width: 500px;
     margin-right:0;
     margin-left:auto;
 }
 .kii-newsletter {
+    display:flex;
+    justify-content: center;
+    align-items: stretch;
     padding:10px;
+}
+
+.newsletter-svg {
+    flex: 1 1 auto;
+    min-width: 320px;
+    min-height: 200px;
     background-image: url("/assets/kiilib/images/newsletter.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center center;
+}
+@media only screen and (max-width: 700px) {
+    .kii-newsletter {
+        display:block;
+    }
+    mat-card {margin:0 auto;}
+    .newsletter-svg {
+        margin:0 auto;
+        min-height: 140px;
+    }
 }
