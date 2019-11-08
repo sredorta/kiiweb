@@ -67,6 +67,7 @@ export class KiiNewsletterComponent extends KiiBaseAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiNews.unsubscribeNews(email).subscribe(res => {
         this.isDataLoading = false;
+        this.reset();
       },() => this.isDataLoading = false)
     )
   }
@@ -77,8 +78,16 @@ export class KiiNewsletterComponent extends KiiBaseAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiNews.subscribeNews(email).subscribe(res => {
         this.isDataLoading = false;
+        this.reset();
       },() => this.isDataLoading = false)
     )
+  }
+
+  /**Reset form */
+  reset() {
+    this.terms.writeValue(false);
+    this.form.myForm.reset();
+
   }
 
 }

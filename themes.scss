@@ -200,6 +200,26 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
   background-color: mat-color(mat-palette($mat-grey,50));
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// MAIN ALTERNATE THEME
+////////////////////////////////////////////////////////////////////////////////////
+kii-app .main-alternate-theme {
+  @include angular-material-theme($main-theme);
+  @include design-theme($main-theme);
+  @include editor-theme($main-theme); //Editor is allways main-theme
+
+    //background-image: url('/assets/images/paper-texture-1.jpg');
+    background-color:mat-color(mat-palette($mat-grey,200));
+
+
+  .angular-editor-textarea {
+    color: map_get($mat-light-theme-foreground,text);
+  }
+  .admin-theme .angular-editor-textarea {
+    background-color:mat-color(mat-palette($mat-grey,200)) !important;
+  }
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////
 // TOOLBAR THEME

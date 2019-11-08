@@ -1,9 +1,9 @@
 <mat-sidenav-container>
   <div id="kii-app-main-container" class="kii-app-wrapper" style="overflow-y: scroll;overflow-x:hidden">
-      <a mat-icon-button class="kii-app-toolbar-main-button menu-button toolbar-theme" [routerLink]="'/sidenav' | localize" kiiScroll>
+      <a mat-icon-button class="kii-app-toolbar-main-button toolbar-theme" [routerLink]="'/sidenav' | localize" kiiScroll>
       </a>
+      <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"></div>
       <div class="kii-app-toolbar toolbar-theme" kiiScroll>
-          <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"></div>
           <div class="kii-app-toolbar-content">
               <ng-content select="[kiiToolbarMenu]"></ng-content>
           </div>

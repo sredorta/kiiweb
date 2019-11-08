@@ -10,18 +10,15 @@ $anim-duration : 0.4s;
 }
 
 .kii-sidenav-content-wrapper {
-    padding:20px;
     overflow-y: auto;
     box-sizing: border-box;
-    display: block;
-    opacity:1;
-    width:0;
-    height:100%;
-    animation:slidein $anim-duration forwards ease-in-out;
+    display: flex;
+    flex-direction: column;
+    width:100vw;
+    height:100vh;
 }
-@keyframes slidein {
-    from {width:0;}
-    to {width:100%;}
+.kii-sidenav-app-wrapper {
+    flex:1 1 auto;
 }
 
 .kii-sidenav-button-wrapper {
@@ -31,11 +28,18 @@ $anim-duration : 0.4s;
     align-items: flex-end;
     margin-bottom:10px;
 }
-.app-install-container {
+.kii-sidenav-bottom-container {
+    padding:10px;
+    padding-top:30px;
+    height:100%;
+    max-height: 160px;
     width:100%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-image: url("/assets/kiilib/images/sidenav-background.svg");
+    background-size: cover;
+    background-position: center top;
 }
 .app-install-wrapper {
     margin:0 auto;
@@ -44,9 +48,6 @@ $anim-duration : 0.4s;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    i {
-        font-size: 50px;
-    }
     .app-install-text {
         font-size: 14px;
     }
@@ -54,11 +55,25 @@ $anim-duration : 0.4s;
     .app-install-icon-wrapper {
         width:80px;
         height:80px;
-        display:flex;
-        justify-content: center;
-        align-items: center;
+        background-image:url("/assets/kiilib/images/app-install-icon.svg");
+        background-size: contain;
     }
 }
 .app-install-wrapper:hover {
     cursor:pointer;
+}
+//Logo part
+.app-logo-wrapper {
+    margin:0 auto;
+    max-width: 200px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .app-logo-icon-wrapper {
+        width:80px;
+        height:80px;
+        background-image:url("/assets/kiilib/images/logo-sidenav.svg");
+        background-size: contain;
+    }
 }

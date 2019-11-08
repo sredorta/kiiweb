@@ -157,6 +157,7 @@ $toolbar-height : 65px;
     background-image: url("/assets/images/offline_animated.svg");
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: 8;
 }
 .kii-app-toolbar-offline.offline {
     display:block;
