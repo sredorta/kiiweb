@@ -52,7 +52,7 @@ export class Page {
         if (this.image) {
             return this.image;
         } else
-            return './assets/kiilib/images/no-photo-available.jpg';
+            return './assets/kiilib/images/no-photo.svg';
     }
 
     /**Returns article image url*/

@@ -20,7 +20,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
   @Input() hint : string = null;
 
   /**Contains the current image */
-  @Input() image : string = './assets/kiilib/images/no-photo-available.jpg';
+  @Input() image : string = './assets/kiilib/images/no-photo.svg';
   
   /**Maximum file width/height */
   @Input() maxSize : number = 500;
@@ -92,10 +92,10 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
       }
     }
     if (!this.image)
-      this.base64 = "./assets/kiilib/images/no-photo-available.jpg";
+      this.base64 = "./assets/kiilib/images/no-photo.svg";
     else {  
       if (this.image == "none")
-        this.base64 = "./assets/kiilib/images/no-photo-available.jpg";
+        this.base64 = "./assets/kiilib/images/no-photo.svg";
       else  
         this.base64 = this.image; //Initial input image isbeing displayed
     }
@@ -166,7 +166,7 @@ export class KiiImageUploadComponent extends KiiBaseAbstract implements OnInit {
 
   /**When we remove the image */
   removeImage() {
-    this.base64 = './assets/kiilib/images/no-photo-available.jpg';
+    this.base64 = './assets/kiilib/images/no-photo.svg';
     this.isUploadable = false;
     this.onUpload.emit("none");
     this.isUploaded = false;
