@@ -184,7 +184,6 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
 .kii-app-router-outlet-wrapper {
-  //background-image: url('/assets/images/paper-texture-1.jpg');
   background-color:mat-color(mat-palette($mat-grey,50));
 }
 
@@ -208,7 +207,6 @@ kii-app .main-alternate-theme {
   @include design-theme($main-theme);
   @include editor-theme($main-theme); //Editor is allways main-theme
 
-    //background-image: url('/assets/images/paper-texture-1.jpg');
     background-color:mat-color(mat-palette($mat-grey,200));
 
 
@@ -233,8 +231,6 @@ $toolbar-theme: create-dark-theme($toolbar-primary, $toolbar-accent, $toolbar-wa
 kii-app .toolbar-theme {
   @include angular-material-theme($toolbar-theme);
   color:mat-color(mat-palette($mat-grey, 400));
-
-  //background-image: url('/assets/images/black-paper.jpg');
 }
 
 

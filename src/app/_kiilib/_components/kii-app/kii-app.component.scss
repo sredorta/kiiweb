@@ -31,7 +31,7 @@ $toolbar-height : 65px;
     top:10px;
     left:5px;
     z-index: 11;
-    background-image: url("/assets/images/menu.svg");
+    background-image: url("/assets/kiilib/images/menu.svg");
     background-size: 100% 100%;
     background-position: center;
     border-radius: 50% 50%;
@@ -96,7 +96,7 @@ $toolbar-height : 65px;
     display:flex;
     justify-content: center;
     align-items: center;
-    background-image: url("/assets/kiilib/images/user-default.jpg");
+    background-image: url("/assets/kiilib/images/profile.svg");
     background-size: contain;
 }
 
@@ -116,7 +116,7 @@ $toolbar-height : 65px;
     position: absolute;
     z-index: 100000;
     font-size: 22px;
-    background-image: url("/assets/images/chat-icon.svg");
+    background-image: url("/assets/kiilib/images/chat-icon.svg");
     background-size: cover;
     transition: all 0.3s ease-in-out;
 }
@@ -154,7 +154,7 @@ $toolbar-height : 65px;
     width:100px;
     height:100px;
     display:none;
-    background-image: url("/assets/images/offline_animated.svg");
+    background-image: url("/assets/kiilib/images/offline_animated.svg");
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 8;
