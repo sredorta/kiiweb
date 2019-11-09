@@ -70,6 +70,16 @@ export class KiiPwaService {
               );
           }
         });
+        swUpdate.available.subscribe(event => {
+          let myBottomSheet = this.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
+            panelClass :"default-theme",
+          })
+          myBottomSheet.afterDismissed().subscribe(res => {
+            if (res==true) {
+              window.location.reload();
+            }
+          })
+        });
       } 
 
       //Online/Offline detection

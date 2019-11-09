@@ -38,14 +38,28 @@
     video {
         pointer-events: none;
         position:absolute;
-        top: 0px;
-        left: 0vw;
-        width: 100vw;
-        height:100vh;
+        top: 0;
+        left: 0;
+        height:100%;
+        width:100%;
         min-height: 300px;
-        max-height: 70vh;
-        object-fit: cover;
         z-index: 4;
+    }
+    //IE not supporting object-fit
+    //wider than video
+    @media (min-aspect-ratio: 16/9) {
+        video {
+            height:300%;
+            top:-100%;
+        }
+    }
+    //taller than video
+    @media (max-aspect-ratio: 16/9) {
+        video {
+            width:300%;
+            //height:auto;
+            left:-100%
+        }
     }
 
     video::-webkit-media-controls-start-playback-button {
