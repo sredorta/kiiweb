@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { MatBottomSheet, MatDialog } from '@angular/material';
 import { KiiPwaService } from '../../_services/kii-pwa.service';
@@ -38,6 +38,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   public isBrowser = isPlatformBrowser(this.platformId);
   public alertCount : number = 0;
   public offline = false;
+
+  @ViewChild('scrollContainer', {static:true}) sidenavContent : ElementRef;
 
   constructor(
               @Inject(PLATFORM_ID) private platformId: any,
@@ -223,10 +225,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   onActivate(event : any) {
     //Send stats if we are in browser and cookies accepted
     this.kiiApiStats.send(StatAction.NAVIGATION_START, this.router.url);
-
-    //this.kiiApiStats.send(this.router.url);
     //Scroll to sidenav top !
-    //this.sidenavContent.scrollTo({top:0,left:0, behavior: 'smooth'});
+    this.sidenavContent.nativeElement.scrollTo({top:0,left:0});
   } 
 
 
