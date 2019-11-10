@@ -13,13 +13,25 @@
   $is-dark-theme: map-get($theme, is-dark);
 
   kii-fill-side {
-    .kii-fill-side-side {
+    &.signup-fill  {
+      .kii-fill-side-wrapper {
+        background-image: url("/assets/kiilib/images/login-background.svg");
+        background-size: auto 100%;
+      }
+      .kii-login-signup-content {
+        background:rgba(white,0.5);
+        padding:10px;
+        margin:10px;
+      }
+
+    }
+/*    .kii-fill-side-side {
       background-image: url("/assets/images/background1_trans.png");
       background-position: center center !important;
       background-repeat: no-repeat;
       background-size: cover !important;
       background-clip: border-box;
-    }
+    }*/
     .kii-fill-side-side kii-article {
         width: 100%;
         height:100%;
