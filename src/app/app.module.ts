@@ -147,7 +147,6 @@ import { KiiVideoGalleryComponent } from './_kiilib/_components/kii-video-galler
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { KiiLinkDialogComponent } from './_kiilib/_components/kii-link-dialog/kii-link-dialog.component';
-import { KiiIconDialogComponent } from './_kiilib/_components/kii-icon-dialog/kii-icon-dialog.component';
 import { KiiScrollDirective } from './_kiilib/_directives/kii-scroll.directive';
 import { KiiPopupDialogComponent } from './_kiilib/_components/kii-popup-dialog/kii-popup-dialog.component';
 import { KiiAdminPopupComponent } from './_kiilib/_components/_pages/kii-admin-popup/kii-admin-popup.component';
@@ -235,7 +234,6 @@ import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii
     KiiVideoGalleryDialogComponent,
     KiiImageGalleryDialogComponent,
     KiiLinkDialogComponent,
-    KiiIconDialogComponent,
     KiiScrollDirective,
     KiiPopupDialogComponent,
     KiiAdminPopupComponent,
@@ -303,7 +301,7 @@ import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii
       MatTreeModule],    
     //EOF MATERIAL DESIGN
   ],
-  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent, KiiIconDialogComponent, KiiPopupDialogComponent],
+  entryComponents: [KiiSpinnerOverlayComponent, KiiTermsDialogComponent, KiiConfirmDialogComponent, KiiChatDialogComponent,KiiImageGalleryDialogComponent, KiiVideoGalleryDialogComponent, KiiLinkDialogComponent,  KiiPopupDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

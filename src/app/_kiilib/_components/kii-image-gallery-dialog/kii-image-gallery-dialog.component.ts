@@ -66,6 +66,8 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
     if (this.hasAltText) {
       if (this.altForm.myForm.valid) {
          this.dialogRef.close({url:image, alt:this.altForm.myForm.value.result});
+      } else {
+        //this.altForm.myForm.
       }
     } else {
       this.dialogRef.close({url:image, alt:null});

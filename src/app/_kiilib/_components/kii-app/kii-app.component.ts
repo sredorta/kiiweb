@@ -225,8 +225,8 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   onActivate(event : any) {
     //Send stats if we are in browser and cookies accepted
     this.kiiApiStats.send(StatAction.NAVIGATION_START, this.router.url);
-    //Scroll to sidenav top !
-    this.sidenavContent.nativeElement.scrollTo({top:0,left:0});
+    //Scroll to sidenav top ! //FAILING IN IE
+    this.sidenavContent.nativeElement.scrollTop=0; //scrollTo not working on Edge
   } 
 
 

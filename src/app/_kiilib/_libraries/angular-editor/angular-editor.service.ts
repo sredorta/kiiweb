@@ -49,11 +49,6 @@ export class AngularEditorService {
       this.insertHtml(newUrl);
   }
 
-  /**Inserts font awesome icon */
-  insertIcon(iconClasses : string) {
-    const html = '<i class="'+iconClasses+'"></i>';
-    this.insertHtml(html);
-  }
 
 
   /**

@@ -209,9 +209,6 @@
     "kiilib.userdata.dialog.title"                : "Dades personals",
     "kiilib.userdata.dialog.subtitle"             : "Collecte i utilització de dades a caracter personnal",
 
-    "kiilib.icon.dialog.title"                    : "Afegir una icone",
-    "kiilib.icon.dialog.subtitle"                 : "Entra el codi de font-awesome corresponent",
-
 
     "kiilib.link.dialog.default"                  : "Enllaç",
     "kiilib.link.dialog.button"                   : "Buttó",

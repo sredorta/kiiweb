@@ -4,7 +4,6 @@
 <kii-article  class="page-header" key="contact-header" kiiScroll (onAppear)="animate($event)"></kii-article>
 <div class="wrapper">
    <div class="wrapper-content"> 
-         <div class="wrapper-content-left">
                 <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" >
                         <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
                 </div>
@@ -15,15 +14,12 @@
                 <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
                 </div>
-         </div>
-         <div class="wrapper-content-right">        
                 <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-form"></kii-article>
                         <div class="form-container default-theme">
                                 <kii-contact-form></kii-contact-form>
                         </div>
                 </div>
-         </div>       
    </div>  
    <div class="element">
         <kii-article class="contact-phone-editable-content" key="contact-address"></kii-article>

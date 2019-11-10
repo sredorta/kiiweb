@@ -207,9 +207,6 @@
     "kiilib.userdata.dialog.title"                : "Données personnelles",
     "kiilib.userdata.dialog.subtitle"             : "Collecte et utilisation des données à caràctere personnel",
 
-    "kiilib.icon.dialog.title"                    : "Ajouter une icone",
-    "kiilib.icon.dialog.subtitle"                 : "Entrez le code fontawesome correspondant",
-
     "kiilib.link.dialog.default"                  : "Lien",
     "kiilib.link.dialog.button"                   : "Bouton",
     "kiilib.link.dialog.flat"                     : "Bouton plat",
