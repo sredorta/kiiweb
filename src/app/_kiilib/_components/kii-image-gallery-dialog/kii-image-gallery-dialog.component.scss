@@ -45,3 +45,24 @@
         object-fit: contain;
     }
 }
+
+.size-title {
+    opacity:0.8;
+    border-bottom:1px solid;
+}
+.slider-wrapper {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    mat-slider {
+        margin-left:5px;
+        margin-right:5px;
+        flex:1;
+    }
+    div {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

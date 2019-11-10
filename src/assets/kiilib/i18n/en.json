@@ -368,6 +368,9 @@
     "kiilib.image.gallery.title"        : "Image Gallery",
     "kiilib.image.gallery.subtitle"     : "Write the alt text and upload or select an image",
     "kiilib.image.gallery.select"       : "Select",
+    "kiilib.image.gallery.size"         : "Define the image size",
+    "kiilib.image.gallery.percentage"   : "In width percentage",
+    "kiilib.image.gallery.pixels"       : "In pixels",
 
     "kiilib.cookies.title"              : "Cookies usage",
     "kiilib.cookies.subtitle"           : "This website or its third-party tools use cookies, which are necessary for some functionalities like statistics and social sharing among others. Do you accept the cookies usage ?",

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output,EventEmitter, Inject, ViewChild} from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatSliderChange, MatSlideToggleChange } from '@angular/material';
 import { Validators } from '@angular/forms';
 import { KiiItemFormComponent } from '../_forms/kii-item-form/kii-item-form.component';
 
@@ -15,6 +15,14 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
   isDataLoading : boolean = false;
   images:string[] = [];
   validator : Validators;
+  /**Size of the image */
+  size :number = 100;
+
+  /**Max image size to display */
+  max : number = 100;
+
+  /**Percentage or units */
+  percentage : boolean = true;
 
   hasAltText : boolean = true;
   @Input() disk : DiskType = DiskType.BLOG;
@@ -63,14 +71,18 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
 
   //When a image from the gallery is selected
   onSelect(image:string) {
+    let mySize = this.size.toString();
+    if (this.percentage) mySize = mySize + "%";
+    else mySize = mySize + "px";
     if (this.hasAltText) {
       if (this.altForm.myForm.valid) {
-         this.dialogRef.close({url:image, alt:this.altForm.myForm.value.result});
+         this.dialogRef.close({url:image, alt:this.altForm.myForm.value.result,size:mySize });
       } else {
-        //this.altForm.myForm.
+        //Show form error
+        this.altForm.validate();
       }
     } else {
-      this.dialogRef.close({url:image, alt:null});
+      this.dialogRef.close({url:image, alt:null, size:mySize});
     }
   }
 
@@ -80,6 +92,17 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
 
   onClose() {
     this.dialogRef.close(null);
+  }
+
+  onSizeChange(event: MatSliderChange) {
+    this.size = event.value;
+    console.log(event);
+  }
+
+  onPercentageChange(event: MatSlideToggleChange) {
+    this.percentage = event.checked;
+    if (this.percentage) this.max= 100;
+    else this.max = 300;
   }
 
 }

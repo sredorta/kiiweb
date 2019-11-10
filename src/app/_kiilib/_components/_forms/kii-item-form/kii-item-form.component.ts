@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
-import { FormGroup, Validators, FormControl, ValidatorFn } from '@angular/forms';
+import { FormGroup, Validators, FormControl, ValidatorFn, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'kii-item-form',
@@ -37,8 +37,6 @@ export class KiiItemFormComponent extends KiiFormAbstract implements OnInit {
   /**When any control changes we emit new changes with content of the current language */
   @Output() onChange = new EventEmitter<string>();
 
-
-
   constructor() { super() }
 
   ngOnInit() {
@@ -49,6 +47,12 @@ export class KiiItemFormComponent extends KiiFormAbstract implements OnInit {
     this.myForm =  new FormGroup({
       result: new FormControl('', this.validators),
     });
+  }
+
+  /**Show any validation error */
+  validate() {
+    this.myForm.controls["result"].markAsTouched({onlySelf:true});
+    this.myForm.controls["result"].updateValueAndValidity({onlySelf:true});
   }
 
 

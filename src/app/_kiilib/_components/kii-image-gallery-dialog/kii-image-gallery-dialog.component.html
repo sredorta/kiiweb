@@ -15,7 +15,18 @@
               </div>
             </div>
             <kii-item-form *ngIf="hasAltText" [hasCancelSave]="false" hint="kiilib.input.image.alt.hint" label="kiilib.input.image.alt.label" placeholder="kiilib.input.image.alt.placeholder" icon="fas fa-paragraph" [validators]="validator" (kiiOnSubmit)="onYouTube($event)"></kii-item-form>
+            <p class="size-title">{{'kiilib.image.gallery.size' | translate}}</p>
+            <mat-slide-toggle  color="primary" [checked]="percentage" (change)="onPercentageChange($event)"><span *ngIf="percentage">{{'kiilib.image.gallery.percentage' | translate}}</span><span *ngIf="!percentage">{{'kiilib.image.gallery.pixels' | translate}}</span></mat-slide-toggle>
+            <div class="slider-wrapper">
+               <div>0</div> 
+               <div *ngIf="percentage">%</div> 
+               <div *ngIf="!percentage">px</div> 
+               <mat-slider color="primary" [(value)]="size" thumbLabel tickInterval="1" min="1" [max]="max" (change)="onSizeChange($event)"></mat-slider>
+               <div>{{max}}</div> 
+               <div *ngIf="percentage">%</div>
+               <div *ngIf="!percentage">px</div>
 
+            </div>
             <kii-image-upload [storage]="disk" [crop]="false" [maxSize]="maxSize" (onUpload)="onUploadImage($event)"></kii-image-upload>      
         </kii-spinner-overlay>
     </mat-card-content>

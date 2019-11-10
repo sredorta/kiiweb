@@ -283,7 +283,7 @@ export class AngularEditorToolbarComponent {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result)
-        this.editorService.insertImage(result.url, result.alt);
+        this.editorService.insertImage(result.url, result.alt, result.size);
     });
   }
 

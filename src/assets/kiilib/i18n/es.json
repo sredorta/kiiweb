@@ -368,6 +368,9 @@
     "kiilib.image.gallery.title"        : "Galeria de imagenes",
     "kiilib.image.gallery.subtitle"     : "Entra el texto alternativo y selecciona o carga una imagen",
     "kiilib.image.gallery.select"       : "Selecciona",
+    "kiilib.image.gallery.size"         : "Define la medida de la imagen",
+    "kiilib.image.gallery.percentage"   : "En percentaje",
+    "kiilib.image.gallery.pixels"       : "En pixels",
 
     "kiilib.cookies.title"              : "Utilización de Cookies",
     "kiilib.cookies.subtitle"           : "Esta pagina web o algunos de sus componentes utilizan cookies, que son necessarias para algunas funcionalidades como la generación de stadisticas o el compartir en redes sociales. Acceptas el uso de cookies ?",
