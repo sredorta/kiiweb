@@ -14,8 +14,26 @@
 
 
 kii-contact {
+  .contact-page-wrapper {
+      background-image: url("/assets/kiilib/images/contact-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center left;
+  }  
+  .page-header  .angular-editor-wrapper {
+    background: rgba(white,0.7);
+  }
+  .page-footer .angular-editor-wrapper {
+    background: rgba(white,0.7);
+  }
   .element {
-    border:1px solid red;
+    background: rgba(white,0.7);
+    form {
+        margin:5px;
+    }
+  }
+  .contact-map-wrapper {
+      margin:10px;
   }
   /*  
     filter:grayscale(60%);  

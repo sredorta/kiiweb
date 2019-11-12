@@ -16,15 +16,30 @@
     &.signup-fill  {
       .kii-fill-side-wrapper {
         background-image: url("/assets/kiilib/images/login-background.svg");
-        background-size: auto 100%;
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        padding-bottom:30px;
+        padding-top:30px;
       }
       .kii-login-signup-content {
-        background:rgba(white,0.5);
         padding:10px;
-        margin:10px;
+        background:rgba(white,0.3);
       }
-
     }
+    &.profile-fill  {
+      .kii-fill-side-wrapper {
+        background-image: url("/assets/kiilib/images/profile-background.svg");
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        padding-bottom:30px;
+        padding-top:30px;
+      }
+      .kii-profile-wrapper {
+        padding:10px;
+        background:rgba(white,1);
+      }
+    }
+
 /*    .kii-fill-side-side {
       background-image: url("/assets/images/background1_trans.png");
       background-position: center center !important;
@@ -40,7 +55,7 @@
             height:100%;
         }
         .angular-editor-textarea {
-          padding-top:30vh !important;
+          padding-top:10vh !important;
           height:100%;
           background-position: center center !important;
           background-repeat: no-repeat;

@@ -1,5 +1,5 @@
 <kii-header [data]="{page:'profile', subtitle:loggedInUser.getFullName()}"></kii-header>
-<kii-fill-side key="profile-side">
+<kii-fill-side class="profile-fill" key="profile-side">
     <div class="kii-profile-wrapper">
         <button mat-menu-item (click)="onLogout()"><i class="fas fa-sign-out-alt"></i>{{'kiilib.profile.logout' | translate}}</button>
         <button mat-menu-item (click)="onDelete()"><i class="fas fa-user-slash"></i>{{'kiilib.profile.delete' | translate}}</button>

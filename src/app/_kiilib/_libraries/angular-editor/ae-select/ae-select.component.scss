@@ -97,6 +97,8 @@
     }
   }
   .ae-picker-options {
+    height:80px;
+    overflow-y: scroll;
     background-color: #fff;
     display: none;
     min-width: 100%;
