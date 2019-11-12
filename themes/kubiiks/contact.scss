@@ -21,86 +21,43 @@ kii-contact {
       background-position: center left;
   }  
   .page-header  .angular-editor-wrapper {
-    background: rgba(white,0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
   }
   .page-footer .angular-editor-wrapper {
-    background: rgba(white,0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
   }
   .element {
-    background: rgba(white,0.7);
+    background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
     form {
         margin:5px;
     }
   }
-  .contact-map-wrapper {
-      margin:10px;
+
+  .address-element {
+      padding:5px;
+      display:flex;
+      .contact-map-wrapper {
+          flex:1 1 auto;
+          width:100%;
+      }
+      .contact-address-wrapper {
+          flex:1 1 auto;
+          width:100%;
+      }
   }
-  /*  
-    filter:grayscale(60%);  
-    transition: all 0.3s ease-in-out;
-    background-color:white;
-    border-radius: 3px;
-    margin:10px;
-    .angular-editor-wrapper {
-        font-size:18px !important;
+  @media only screen and (max-width: 700px) {
+    .address-element {
+        flex-direction: column;
     }
-    @media only screen and (max-width: 900px) { 
-        .angular-editor-wrapper {
-            font-size:18px !important;
-        }
-    }
-    @media only screen and (max-width: 700px) { 
-        .angular-editor-wrapper {
-            font: 18px !important;
-        }
-    }
-    @media only screen and (max-width: 400px) { 
-        .angular-editor-wrapper {
-            font-size:16px !important;
-        }
-    }
-
-    .angular-editor-textarea {
-        background-position: center top !important;
-        img {
-            transition: all 0.3s ease-in-out;
-            transform: scale(0.9);
-        }
-    }
-
-    form {
-        padding:5px;
-    }
-    kii-gmap .wrapper {
-        padding:5px;
-    }
-
   }
 
-//Desktops
-/*  @media (pointer: fine) {
-        .element:hover {
-            box-shadow: 1px 1px 2px 2px rgba(black,0.1);
-            filter: none;
-            .angular-editor-textarea {
-                img {
-                    transform: scale(1);
-                }
-            }
-        }
-  }
-  //Mobile devices
-  @media (pointer: coarse) {
-    .element.kii-appear {
-        box-shadow: 1px 1px 2px 2px rgba(black,0.1);
-        filter: none;
-        .angular-editor-textarea {
-            img {
-                transform: scale(1);
-            }
-        }
-    }
-}*/
+ 
 
 } //End contact
 
