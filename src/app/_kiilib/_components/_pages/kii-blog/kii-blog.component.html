@@ -3,9 +3,9 @@
   <kii-spinner-overlay [show]="isLoading">
       <kii-article class="page-header" key="blog-header" kiiScroll (onAppear)="animate($event)" ></kii-article>
       <div  class="wrapper">
-        <div *ngIf="showAnimation" class="wrapper-content" [@blogAnimation]="articles.length">
-          <div class="element" *ngFor="let article of articles" kiiScroll>
-            <kii-article-summary class="article-element"  [key]="article.id" ></kii-article-summary> 
+        <div class="wrapper-content" [@blogAnimation]="showAnimation && articles.length>0">
+          <div class="element" [routerLink]="['/articles',article.id] | localize" matRipple  *ngFor="let article of articles" kiiScroll>
+            <kii-article-summary [hasRouterLink]="false" class="article-element"  [key]="article.id" ></kii-article-summary> 
             <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
           </div>
         </div>

@@ -13,23 +13,7 @@
   $is-dark-theme: map-get($theme, is-dark);
 
 kii-blog {
-  .page-wrapper {
-    background: url("/assets/kiilib/images/blog-background.jpg");
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-position: left top;
-  }
-  .page-header  .angular-editor-wrapper {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(mat-color(mat-palette($mat-grey,50)),0.8);
-  }
-  .page-footer .angular-editor-wrapper {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(mat-color(mat-palette($mat-grey,50)),0.8);
-  }
-
+  //MOBILE
   .wrapper-content {
     display:flex;
     flex-direction: row;
@@ -37,187 +21,63 @@ kii-blog {
     justify-content: center;
     align-items: flex-start;
     width:100%;
-    .element:nth-child(odd) {
-      .kii-article-summary-image-wrapper{
-          height:300px;
-      }
-      .kii-article-summary-text{
-         h2 {
-           @include truncate-text(1.2rem, 10);
-         }
-         height : 270px;
-      }
-    }
-    .element:nth-child(even) {
-      .kii-article-summary-image-wrapper{
-         height:455px;
-      } 
-      .kii-article-summary-text {
-        h2 {
-          @include truncate-text(1.2rem, 3);
-        }
-        height : 115px;
-      }
-    }
+  }
+  
+  kii-share button {
+    transition: 0.3s ease-in-out;
+    opacity: 0.2;
+    filter:grayscale(100%);
   }
 
-  //Main post formatting
   .element {
-    background: mat-color(mat-palette($mat-grey,50));
-    margin:10px;
-    padding:10px;
-    border-bottom:2px solid transparent;
-    margin-bottom:30px;
-    //transition: all 0.3s ease-in-out;
-    width:100%;
-    min-width: 300px;
-    max-width: 300px;
-    border-radius: 1px;
-    display:block;
-    kii-share button {
-      transition: 0.3s ease-in-out;
-      opacity: 0.2;
-      filter:grayscale(100%);
-    }
-    .kii-article-summary-image-wrapper {
-      width:100%;
-      display: inline-block;
-      overflow: hidden;
-      img {
-        object-fit: contain;
-        transition: 0.3s ease-in-out;
-        height:100%;
-        transform: scale(1);
-        -webkit-filter: brightness(70%);
-        filter:brightness(70%);
-      }
-    }
-    .kii-article-summary-text {
-      opacity:0.8;
-      transition: 0.3s ease-in-out;
-      width:100%;
-      h1 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom:10px;
-      }
-      h2 {
-          font-size: 16px;
-          font-weight: 200;
-          margin-top:0px;
-          transition: all 0.3s ease-in-out;
-          &:after {
-            transition: all 0.3s ease-in-out;
-          }
-      }
-    }
+    max-width: 400px;
   }
 
-
-
-  //Desktops
-  @media (pointer: fine) {
-    .element:hover {
-      background: #E8E8C5;
-      border-bottom:2px solid mat-color($primary);
-      kii-share button {
-        opacity: 0.9;
-        filter:grayscale(50%);
-      }
-      .kii-article-summary-image-wrapper {
-        background: rgba(black,0);
-        img {
-          transform-origin: 50% 50%;
-          -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-          -webkit-filter: brightness(100%);
-          filter:brightness(100%);
-          overflow: hidden;
-        }
-      }
-      .kii-article-summary-text {
-        opacity:1;
-        h2:after {  
-          background: linear-gradient(to right, rgba(#E8E8C5,0), rgba(#E8E8C5,1) 50%) !important;
-        }
-      }
-      cursor:pointer;
-      filter: none;
+  //DESKTOP
+  @media only screen and (min-width: 600px) { 
+    .page-wrapper {
+      background: url("/assets/kiilib/images/blog-background.jpg");
+      background-repeat:no-repeat;
+      background-size: cover;
+      background-position: left top;
     }
-  }
-
-  //On mobile devices we highlight when it appears
-  @media (pointer:coarse) {
-    .element.kii-appear {
-      background: #E8E8C5;
-      border-bottom:2px solid mat-color($primary);
-      kii-share button {
-        opacity: 0.9;
-        filter:grayscale(50%);
-      }
-      .kii-article-summary-image-wrapper {
-        background: rgba(black,0);
-        img {
-          transform-origin: 50% 50%;
-          -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-          -webkit-filter: brightness(100%);
-          filter:brightness(100%);
-          overflow: hidden;
-        }
-      }
-      .kii-article-summary-text {
-        opacity:1;
-        h2:after {  
-          background: linear-gradient(to right, rgba(#E8E8C5,0), rgba(#E8E8C5,1) 50%) !important;
-        }
-      }
-      cursor:pointer;
-      filter: none;
-    }
-  }
-  @media only screen and (max-width: 655px) {
     .element {
-      margin:10px;
-      width:100%;
-      max-width: 550px;
-    }
-    .element:nth-child(odd) {
-      .kii-article-summary-image-wrapper{
-        width:100%;
-        height:300px;
-        img {
-          width:100%;
-          height: auto !important;
-        }
-      }
-    }
-    .element:nth-child(even) {
-      .kii-article-summary-image-wrapper{
-        min-width: 100%;
-         max-height:455px;
-         min-height: 455px;
-      } 
-    }
-
-    .element kii-article-summary .kii-article-summary-container {
-      max-width: 550px;
-      .kii-article-summary-image-wrapper {
-        img {
-          min-width: 100%;
-        }
-      }
+      max-width: 280px;
     }
   }
-} //end kii-blog
-} //end theme
+
+//HOVER PART
+    //Desktops
+    @media (pointer: fine)  { 
+      .element:hover {
+        kii-share button {
+          opacity: 0.8;
+          filter:grayscale(0%);
+        }
+      }
+    }  
+    //Tablets and phones
+    @media (pointer: coarse) {
+      .element.kii-appear {
+        kii-share button {
+          opacity: 0.8;
+          filter:grayscale(0%);
+        }
+      }
+    }  
+
+
+} //End kii-blog
+} //end mixin
+
+
 
 @mixin truncate-text($lh,$maxLines) {
     position: relative;
     height: calc(#{$lh} * #{$maxLines});
     line-height: $lh;
     overflow: hidden;
-    padding-right: 1rem; /* space for ellipsis */
+    padding-right: 1rem; 
     display: inline-block;
 
   &:after {
@@ -230,5 +90,4 @@ kii-blog {
     inset-block-end:0;
     background: linear-gradient(to right, rgba(mat-color(mat-palette($mat-grey,50)),0), rgba(mat-color(mat-palette($mat-grey,50)),1) 50%);
   }
-
 }

@@ -14,31 +14,28 @@
 
 
 kii-contact {
-  .contact-page-wrapper {
-      background-image: url("/assets/kiilib/images/contact-background.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center left;
-  }  
-  .page-header  .angular-editor-wrapper {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
+  @media only screen and (min-width: 600px) {   
+    .contact-page-wrapper {
+        background-image: url("/assets/kiilib/images/contact-background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center left;
+    }  
   }
-  .page-footer .angular-editor-wrapper {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
-  }
-  .element {
-    background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px);
+
+  .element { 
+      margin:5px;
+      padding:0px;
     form {
         margin:5px;
     }
   }
-
+  .element:hover {
+      cursor:auto;
+  }
+  .wrapper-content {
+      margin-bottom:5px;
+  }
   .address-element {
       padding:5px;
       display:flex;

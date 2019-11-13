@@ -4,12 +4,12 @@
 <kii-spinner-overlay [show]="isLoading">
     <div class="wrapper">
       <kii-article class="page-header" key="realisations-header" kiiScroll (onAppear)="animateClients($event)"></kii-article>    
-      <div *ngIf="showAnimationClients" class="content-wrapper-clients" [@realisationsAnimation]="articlesClients.length">
-        <kii-article-summary class="realisations-summary" *ngFor="let article of articlesClients" [key]="article.id" kiiScroll></kii-article-summary>  
+      <div  class="content-wrapper-clients" [@realisationsAnimation]="showAnimationClients && articlesClients.length>0">
+        <div class="wrapper-summary element" *ngFor="let article of articlesClients" kiiScroll matRipple [routerLink]="['/articles',article.id] | localize" ><kii-article-summary [hasRouterLink]="false" class="realisations-summary" [key]="article.id" kiiScroll></kii-article-summary> </div> 
       </div>
       <div class="comments-wrapper-container main-alternate-theme">
         <kii-article class="page-intermediate" key="realisations-intermediate" kiiScroll (onAppear)="animateComments($event)"></kii-article>
-        <div *ngIf="showAnimationComments" class="content-wrapper-comments" [@realisationsAnimation]="articlesComments.length">
+        <div  class="content-wrapper-comments" [@realisationsAnimation]="showAnimationComments && articlesComments.length>0">
           <div *ngFor="let article of articlesComments" class="element-comment" kiiScroll>
             <kii-article-summary class="realisations-comments-summary"  [key]="article.id" [hasRouterLink]="false"></kii-article-summary>  
             <kii-article class="realisations-comments-article" [key]="article.id"></kii-article>  
