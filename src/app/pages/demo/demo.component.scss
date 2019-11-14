@@ -1,0 +1,47 @@
+.page-demo {
+    .button-wrapper {
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button {
+        margin:0 auto;
+        i {
+        margin-right:10px;
+        }
+        span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+    }
+    .element {
+        margin: 0 auto;
+        margin-bottom:20px;
+        max-width: 900px;
+        ::ng-deep  kii-article-summary .kii-article-summary-container {
+            display:flex;
+            flex-direction: column-reverse;
+            .kii-article-summary-image-wrapper {
+                margin-right:20px;
+                max-width: 100px;
+                display:none;
+            }
+
+        }
+    }
+    .element:hover {
+        cursor:auto;
+    }
+    @media only screen and (min-width: 600px) { 
+        .element {
+            ::ng-deep  kii-article-summary .kii-article-summary-container {
+                flex-direction:row;
+                .kii-article-summary-image-wrapper {
+                    display:block;
+                }
+            }
+        }
+
+    }
+}

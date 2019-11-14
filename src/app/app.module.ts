@@ -155,6 +155,7 @@ import { KiiHeaderComponent } from './_kiilib/_components/kii-header/kii-header.
 import { HeaderComponent } from './components/header/header.component';
 import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector';
 import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii-newsletter.component';
+import { DemoComponent } from './pages/demo/demo.component';
 
 
 
@@ -239,7 +240,8 @@ import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii
     KiiAdminPopupComponent,
     KiiHeaderComponent,
     HeaderComponent,
-    KiiNewsletterComponent
+    KiiNewsletterComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

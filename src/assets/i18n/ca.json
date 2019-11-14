@@ -20,9 +20,12 @@
     "ROUTES.reset-password": "password-perdut",
     "ROUTES.profile"    : "compte",
     "ROUTES.alerts"     : "notificacions",
+    
 
     "home.title"                : "kubiiks",
     "home.subtitle"             : "Creador d'experiencies web",
+    "demo.title"                : "Demo",
+    "demo.subtitle"             : "Benvinguts a la quarta dimensió",
     "realisations.title"        : "Clients",
     "realisations.subtitle"     : "Ja ens han fet confiança",
     "prix.title"                : "Preus",

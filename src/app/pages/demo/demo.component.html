@@ -1,0 +1,17 @@
+<kii-header [data]="{page:'demo'}"></kii-header>
+
+<div class="page-wrapper page-demo">
+<kii-spinner-overlay [show]="isLoading">
+  <kii-article class="page-header" key="demo-header" kiiScroll (onAppear)="animate($event)"></kii-article>
+  <div class="wrapper-content"  [@pricesAnimation]="showAnimation">
+    <div class="element" *ngFor="let article of articles" kiiScroll >
+        <kii-article-summary  class="demo-summary"  [key]="article.id"></kii-article-summary>  
+        <div class="button-wrapper"><button mat-button (click)="showVideo(article.id)"><span *ngIf="!videos[article.id]"><i class="fas fa-play"></i>Voir la video</span><span *ngIf="videos[article.id]"><i class="fas fa-times"></i>Masquer la video</span></button></div>
+        <kii-article *ngIf="videos[article.id]" class="demo-article"  [key]="article.id"></kii-article>  
+    </div>
+  </div>
+
+  <kii-article  class="page-footer" key="demo-footer"></kii-article>
+
+</kii-spinner-overlay>
+</div>
