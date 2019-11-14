@@ -17,9 +17,6 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
   /**Key or id of the concerned article */
   @Input() key : string = null;
 
-  /**Allows summary to have a routerLink to the detail or not */
-  @Input() hasRouterLink : boolean = true;
-
   /**Current article that we are editing */
   article : Article = new Article(null);
 

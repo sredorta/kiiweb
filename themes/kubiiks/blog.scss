@@ -35,12 +35,6 @@ kii-blog {
 
   //DESKTOP
   @media only screen and (min-width: 600px) { 
-    .page-wrapper {
-      background: url("/assets/kiilib/images/blog-background.jpg");
-      background-repeat:no-repeat;
-      background-size: cover;
-      background-position: left top;
-    }
     .element {
       max-width: 280px;
     }

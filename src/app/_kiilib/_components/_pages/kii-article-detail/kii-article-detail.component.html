@@ -1,4 +1,6 @@
 <kii-header [data]="{page:'article',title:article.title}"></kii-header>
-<div class="kii-article-detail-wrapper">
-    <kii-article *ngIf="article.exists()" [showCreated]="showCreated" class="blog-article" [key]="this.id" [showCreated]="true"></kii-article>
+<div class="page-wrapper kii-article-detail">
+    <div class="kii-article-detail-wrapper">
+        <kii-article *ngIf="article.exists()" [showCreated]="showCreated" class="blog-article" [key]="this.id" [showCreated]="true"></kii-article>
+    </div>
 </div>

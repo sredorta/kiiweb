@@ -5,7 +5,7 @@
   <kii-article class="page-header" key="price-header" kiiScroll (onAppear)="animate($event)"></kii-article>
   <div class="wrapper-content"  [@pricesAnimation]="showAnimation">
     <div class="element" *ngFor="let article of articles" kiiScroll >
-        <kii-article-summary [hasRouterLink]="false" class="prices-summary"  [key]="article.id"></kii-article-summary>  
+        <kii-article-summary  class="prices-summary"  [key]="article.id"></kii-article-summary>  
         <kii-article class="prices-article"  [key]="article.id"></kii-article>  
     </div>
   </div>

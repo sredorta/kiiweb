@@ -14,47 +14,6 @@
 
 
 kii-contact {
-  @media only screen and (min-width: 600px) {   
-    .contact-page-wrapper {
-        background-image: url("/assets/kiilib/images/contact-background.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center left;
-    }  
-  }
-
-  .element { 
-      margin:5px;
-      padding:0px;
-    form {
-        margin:5px;
-    }
-  }
-  .element:hover {
-      cursor:auto;
-  }
-  .wrapper-content {
-      margin-bottom:5px;
-  }
-  .address-element {
-      padding:5px;
-      display:flex;
-      .contact-map-wrapper {
-          flex:1 1 auto;
-          width:100%;
-      }
-      .contact-address-wrapper {
-          flex:1 1 auto;
-          width:100%;
-      }
-  }
-  @media only screen and (max-width: 700px) {
-    .address-element {
-        flex-direction: column;
-    }
-  }
-
- 
 
 } //End contact
 

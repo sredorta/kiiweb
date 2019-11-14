@@ -5,7 +5,7 @@
       <div  class="wrapper">
         <div class="wrapper-content" [@blogAnimation]="showAnimation && articles.length>0">
           <div class="element" [routerLink]="['/articles',article.id] | localize" matRipple  *ngFor="let article of articles" kiiScroll>
-            <kii-article-summary [hasRouterLink]="false" class="article-element"  [key]="article.id" ></kii-article-summary> 
+            <kii-article-summary class="article-element"  [key]="article.id" ></kii-article-summary> 
             <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
           </div>
         </div>

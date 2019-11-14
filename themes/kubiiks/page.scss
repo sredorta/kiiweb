@@ -13,21 +13,26 @@
   $is-dark-theme: map-get($theme, is-dark);
 
   .page-wrapper {
-    width:100%;
-       background:mat-color(mat-palette($mat-grey,900));
+
+       width:100%;
+       //background:mat-color(mat-palette($mat-grey,900));
+        background-image: url("/assets/images/page-background.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
     }
     .page-header {
         .angular-editor-wrapper {
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            background: rgba(mat-color(mat-palette($mat-grey,50)),0.7);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
         }
     }
     .page-footer {
         .angular-editor-wrapper {
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            background: rgba(mat-color(mat-palette($mat-grey,50)),0.7);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
         }
 
     }
@@ -38,9 +43,9 @@
     .element {
         box-sizing: border-box;
         transition:background 0.3s ease-in-out;
-        background:rgba(mat-color(mat-palette($mat-grey,50)),0.7);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
+        background:rgba(mat-color(mat-palette($mat-grey,50)),0.6);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
         padding:10px;
         margin:10px;
         border-radius: 2px;
@@ -57,7 +62,7 @@
                 margin-top:0px;
             }
         }
-        width:100%;
+        width:80%;
         .kii-article-summary-image-wrapper {
               width:100%;
               img {

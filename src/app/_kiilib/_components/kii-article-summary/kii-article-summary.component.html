@@ -1,12 +1,5 @@
 <!--View part-->
-  <div *ngIf="hasRouterLink" class="kii-article-summary-container" [ngClass]="{'is-editing' : isEditing}" [routerLink]="['/articles',article.id] | localize" mat-ripple>
-    <div class="kii-article-summary-image-wrapper"><img class="kii-article-summary-image" [src]="article.getImage()" alt="test"></div>
-    <div class="kii-article-summary-text">
-      <h1>{{article.title}}</h1>
-      <h2>{{article.description}}</h2>
-    </div>
-  </div>
-  <div *ngIf="!hasRouterLink" class="kii-article-summary-container">
+  <div class="kii-article-summary-container">
       <div class="kii-article-summary-image-wrapper"><img class="kii-article-summary-image" [src]="article.getImage()" alt="test"></div>
       <div class="kii-article-summary-text">
         <h1>{{article.title}}</h1>

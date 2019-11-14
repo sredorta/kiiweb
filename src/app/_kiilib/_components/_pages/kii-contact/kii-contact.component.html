@@ -5,19 +5,19 @@
 <div class="wrapper">
    <div class="wrapper-content"> 
          <div class="wrapper-content-left">
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" >
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
                         <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
                 </div>
 
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
                         <kii-article class="contact-phone-editable-content" key="contact-time"></kii-article>
                 </div>
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
                         <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
                 </div>
          </div>
          <div class="wrapper-content-right">        
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element">
+                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
                         <kii-article class="contact-phone-editable-content" key="contact-form"></kii-article>
                         <div class="form-container default-theme">
                                 <kii-contact-form></kii-contact-form>
@@ -25,7 +25,7 @@
                 </div>
          </div>       
    </div>  
-   <div class="element address-element">
+   <div class="element address-element" kiiScroll>
         <div class="contact-address-wrapper"><kii-article class="contact-phone-editable-content" key="contact-address"></kii-article></div>
         <div class="contact-map-wrapper"><kii-gmap style="width:100%"></kii-gmap></div>
    </div>   
