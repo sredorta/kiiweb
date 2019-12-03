@@ -31,6 +31,7 @@
     "kiilib.sunday" : "Diumenge",
     "kiilib.language" : "Idioma",
     "kiilib.network": "Xarxa",
+    "kiilib.readmore" : "Llegir mes",
 
     "kiilib.editor.placeholder"     : "Escriu el teu texte aqui...",
     "kiilib.editor.undo"            : "Desfer",

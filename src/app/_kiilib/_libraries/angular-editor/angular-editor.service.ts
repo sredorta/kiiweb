@@ -90,26 +90,35 @@ export class AngularEditorService {
     let value = "14px";
     switch (fontSize) {
       case "1":
-        value="0.6em";
+        value="14px";
         break;
       case "2":
-        value="0.8em";
+        value="16px";
         break;
       case "3":
-        value="1em";
+        value="18px";
         break;
       case "4":
-        value="1.2em"      
+        value="20px"      
         break;
       case "5":
-        value="1.4em";
+        value="22px";
         break;
       case "6":
-        value="1.8em";
+        value="24px";
         break;
       case "7":
-        value="2em"      
+        value="26px"      
         break;
+      case "8":
+        value="28px"      
+        break;
+      case "9":
+        value="30px"      
+        break;
+      case "10":
+        value="32px"      
+        break;                        
     }
     if (selectedElement)
       selectedElement.style.fontSize = value;

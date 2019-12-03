@@ -13,42 +13,32 @@
   $is-dark-theme: map-get($theme, is-dark);
 
   .page-wrapper {
-
        width:100%;
-       //background:mat-color(mat-palette($mat-grey,900));
-        background-image: url("/assets/images/page-background.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
     }
-    .page-header {
+ /*   .page-header {
         .angular-editor-wrapper {
-            //backdrop-filter: blur(2px);
-            //-webkit-backdrop-filter: blur(2px);
             background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
         }
     }
     .page-footer {
         .angular-editor-wrapper {
-            //backdrop-filter: blur(2px);
-            //-webkit-backdrop-filter: blur(2px);
             background: rgba(mat-color(mat-palette($mat-grey,50)),0.6);
         }
 
-    }
+    }*/
     .wrapper-content {
-        margin-top:30px;
-        margin-bottom:30px;
+        margin-top:10px;
+        margin-bottom:10px;
     }
     .element {
+        overflow: hidden;
         box-sizing: border-box;
         transition:background 0.3s ease-in-out;
-        background:rgba(mat-color(mat-palette($mat-grey,50)),0.6);
-        //backdrop-filter: blur(3px);
-        //-webkit-backdrop-filter: blur(3px);
+        background:white;
         padding:10px;
         margin:10px;
         border-radius: 2px;
+        transition: box-shadow 0.3s ease-in-out;
         .kii-article-summary-text {
             width:100%;
             h1 {
@@ -68,34 +58,22 @@
               img {
                 width:100%;
                 height: auto !important;
+                overflow: hidden;
               }
         }
     }
-    .element:hover {
-        cursor:pointer;
-    }
 
-    @media only screen and (min-width: 600px) { 
-        .wrapper-content {
-            margin-top:10vh;
-            margin-bottom:10vh;
-        }
-    }
 
     //Desktops
     @media (pointer: fine)  { 
             .element:hover {
-                background: rgba(mat-color(mat-palette($mat-grey,50)),1);
-                //backdrop-filter: blur(15px);
-                //-webkit-backdrop-filter: blur(15px);
+                box-shadow: 2px 2px 4px 2px rgba(mat-color(mat-palette($mat-grey,700)),0.2);
             }
     } 
     //Tablets and phones
     @media (pointer: coarse) {
             .element.kii-appear {
-                background: rgba(mat-color(mat-palette($mat-grey,50)),1);
-                //backdrop-filter: blur(15px);
-                //-webkit-backdrop-filter: blur(15px);
+                box-shadow: 2px 2px 4px 2px rgba(mat-color(mat-palette($mat-grey,700)),0.2);
             }
     }
  

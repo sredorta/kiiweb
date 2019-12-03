@@ -31,7 +31,8 @@
     "kiilib.sunday" : "Domingo",
     "kiilib.language" : "Idioma",
     "kiilib.network": "Red",
-
+    "kiilib.readmore" : "Leer mas",
+    
     "kiilib.editor.placeholder"     : "Escribe tu texto aqui...",
     "kiilib.editor.undo"            : "Deshacer",
     "kiilib.editor.redo"            : "Rehacer",

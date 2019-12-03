@@ -22,7 +22,36 @@ kii-blog {
     align-items: flex-start;
     width:100%;
   }
-  
+  kii-article-summary h2 {
+    min-height:100px;
+  }
+  kii-article-summary .kii-article-summary-image-wrapper {
+    height: 260px;
+    overflow: hidden;
+  }
+  .read-more-button {
+    font-size: 16px !important;
+    font-weight: bold;
+    i {
+      transition:all 0.3s ease-in-out;
+      margin-left:20px;
+    }
+    width:100%;
+    margin-bottom:15px;
+  }
+  .created-at-wrapper {
+    width:100%;
+    opacity:0.5;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    margin-top:10px;
+    i {
+      margin-right:10px;
+    }
+  }
+
   kii-share button {
     transition: 0.3s ease-in-out;
     opacity: 0.2;
@@ -31,6 +60,9 @@ kii-blog {
 
   .element {
     max-width: 400px;
+    kii-article-summary .kii-article-summary-image-wrapper img {
+      transition: transform 2s ease-in-out;
+    }
   }
 
   //DESKTOP
@@ -48,6 +80,13 @@ kii-blog {
           opacity: 0.8;
           filter:grayscale(0%);
         }
+        kii-article-summary .kii-article-summary-image-wrapper img {
+          transform: scale(1.5);
+        }
+        .read-more-button {
+          animation: arrowAnimation 1s 3 ;
+          -webkit-animation: arrowAnimation 1s 3;
+        }
       }
     }  
     //Tablets and phones
@@ -57,31 +96,17 @@ kii-blog {
           opacity: 0.8;
           filter:grayscale(0%);
         }
+        kii-article-summary .kii-article-summary-image-wrapper img {
+          transform: scale(1.5);
+        }
       }
     }  
 
+    @keyframes arrowAnimation {
+      0% { padding-left:15px; }
+      50% { padding-left: 40px; }
+      100% { padding-left: 15px; }      
+  }
 
 } //End kii-blog
 } //end mixin
-
-
-
-@mixin truncate-text($lh,$maxLines) {
-    position: relative;
-    height: calc(#{$lh} * #{$maxLines});
-    line-height: $lh;
-    overflow: hidden;
-    padding-right: 1rem; 
-    display: inline-block;
-
-  &:after {
-    position: absolute;
-    content: "";
-    height: $lh;
-    width:100%;;
-    bottom:0;
-    left:0;
-    inset-block-end:0;
-    background: linear-gradient(to right, rgba(mat-color(mat-palette($mat-grey,50)),0), rgba(mat-color(mat-palette($mat-grey,50)),1) 50%);
-  }
-}

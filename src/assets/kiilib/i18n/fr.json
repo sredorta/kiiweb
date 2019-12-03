@@ -31,6 +31,7 @@
     "kiilib.sunday" : "Dimanche",
     "kiilib.language" : "Langue",
     "kiilib.network": "Reseau",
+    "kiilib.readmore" : "Lire plus",
 
     "kiilib.editor.placeholder"     : "Écrire votre texte ici...",
     "kiilib.editor.undo"            : "Défaire",

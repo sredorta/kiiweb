@@ -196,19 +196,19 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
 .kii-app-router-outlet-wrapper {
-  background-color:mat-color(mat-palette($mat-grey,50));
+  background-color:mat-color(mat-palette($mat-grey,200));
 }
 
 .angular-editor-textarea {
   color: map_get($mat-light-theme-foreground,text);
 }
 .admin-theme .angular-editor-textarea {
-  background-color:mat-color(mat-palette($mat-grey,50)) !important;
+  background-color:mat-color(mat-palette($mat-grey,200)) !important;
 }
 
 //FOOTER
 .kii-app-footer-wrapper {
-  background-color: mat-color(mat-palette($mat-grey,50));
+  background-color: mat-color(mat-palette($mat-grey,200));
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -219,14 +219,14 @@ kii-app .main-alternate-theme {
   @include design-theme($main-theme);
   @include editor-theme($main-theme); //Editor is allways main-theme
 
-    background-color:mat-color(mat-palette($mat-grey,200));
+    background-color:mat-color(mat-palette($mat-grey,300)) !important;
 
 
   .angular-editor-textarea {
     color: map_get($mat-light-theme-foreground,text);
   }
   .admin-theme .angular-editor-textarea {
-    background-color:mat-color(mat-palette($mat-grey,200)) !important;
+    background-color:mat-color(mat-palette($mat-grey,400)) !important;
   }
   .admin-theme {
     @include angular-material-theme($admin-theme);

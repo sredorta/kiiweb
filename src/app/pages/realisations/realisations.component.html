@@ -5,7 +5,10 @@
     <div class="wrapper">
       <kii-article class="page-header" key="realisations-header" kiiScroll (onAppear)="animateClients($event)"></kii-article>    
       <div  class="content-wrapper-clients" [@realisationsAnimation]="showAnimationClients && articlesClients.length>0">
-        <div class="wrapper-summary element" *ngFor="let article of articlesClients" kiiScroll matRipple [routerLink]="['/articles',article.id] | localize" ><kii-article-summary class="realisations-summary" [key]="article.id" kiiScroll></kii-article-summary> </div> 
+        <div class="wrapper-summary element" *ngFor="let article of articlesClients" kiiScroll >
+          <kii-article-summary [descriptionTrimLength]="100" class="realisations-summary" [key]="article.id" kiiScroll></kii-article-summary> 
+          <button class="read-more-button" mat-button color="primary" [routerLink]="['/articles',article.id] | localize">{{'kiilib.readmore' | translate}}<i class="fa fa-arrow-right"></i></button>
+        </div> 
       </div>
       <div class="comments-wrapper-container main-alternate-theme">
         <kii-article class="page-intermediate" key="realisations-intermediate" kiiScroll (onAppear)="animateComments($event)"></kii-article>

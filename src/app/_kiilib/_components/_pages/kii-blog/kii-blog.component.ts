@@ -7,6 +7,7 @@ import { LocalizeRouterService } from '../../../_libraries/localize-router';
 import { KiiApiPageService } from '../../../_services/kii-api-page.service';
 import { KiiMiscService } from '../../../_services/kii-misc.service';
 import { Router } from '@angular/router';
+import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 
 @Component({
   selector: 'kii-blog',
@@ -16,10 +17,12 @@ import { Router } from '@angular/router';
 })
 export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
   showAnimation : boolean = false;
+  currentLang : string; 
   constructor( private localize: LocalizeRouterService,
     private kiiApiArticle: KiiApiArticleService, 
     private kiiApiPage: KiiApiPageService, 
-    private kiiMisc : KiiMiscService, 
+    private kiiMisc : KiiMiscService,
+    private kiiApiLang: KiiApiLanguageService, 
     private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
 
 
@@ -27,6 +30,12 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
     this.cathegory = "blog";
     this.page="blog";
     this.initialize();
+        //Update nice time format language when we change language
+        this.addSubscriber(
+          this.kiiApiLang.onChange().subscribe(res => {
+            this.currentLang = res;
+          })
+        )
   }
 
   /**Gets route of article */

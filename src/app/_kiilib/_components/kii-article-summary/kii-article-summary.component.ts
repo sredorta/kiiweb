@@ -17,6 +17,9 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
   /**Key or id of the concerned article */
   @Input() key : string = null;
 
+  /**Defines if description is trimmed by number */
+  @Input() descriptionTrimLength : number = null;
+
   /**Current article that we are editing */
   article : Article = new Article(null);
 
@@ -86,6 +89,18 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     this.article.title = value.title;
     this.article.description = value.description;
     this.article.image = value.image;
+  }
+
+  /**Trims description to have always same length*/
+  trimDescription(description:string) {
+    if (!this.descriptionTrimLength) return description;
+    let result = "";
+    if (description.length > this.descriptionTrimLength) {
+      result = description.substr(0, this.descriptionTrimLength) + " ...";
+    } else {
+      result = description + " ...";
+    }
+    return result;
   }
 
 

@@ -3,7 +3,7 @@
       <div class="kii-article-summary-image-wrapper"><img class="kii-article-summary-image" [src]="article.getImage()" alt="test"></div>
       <div class="kii-article-summary-text">
         <h1>{{article.title}}</h1>
-        <h2>{{article.description}}</h2>
+        <h2>{{trimDescription(article.description)}}</h2>
       </div>
   </div>
 <div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
