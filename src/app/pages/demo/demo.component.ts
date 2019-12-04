@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.scss'],
-  animations: KiiAinimations.prices()
+  animations: KiiAinimations.demo()
 })
 export class DemoComponent extends KiiBlogAbstract implements OnInit {
   showAnimation : boolean = false;
-  videos : boolean[] = [];
   constructor(private kiiApiArticle: KiiApiArticleService, 
     private kiiApiPage: KiiApiPageService, 
     private kiiMisc : KiiMiscService, 
@@ -32,9 +31,4 @@ export class DemoComponent extends KiiBlogAbstract implements OnInit {
     this.showAnimation = true;
   }
 
-  showVideo(id:number) {
-    if (!this.videos[id]) this.videos[id] = true;
-    else this.videos[id] = !this.videos[id];
-
-  }
 }

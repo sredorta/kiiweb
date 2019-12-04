@@ -16,21 +16,21 @@
         z-index: 6;
         h1 {
             font-size: 3em; 
-            opacity:0.1;
-            animation: 2s ease-in 0.1s textAnimationH1 forwards;
+            opacity:0;
+            animation: 2s ease-in 0.5s textAnimationH1 forwards;
         }
         h2 {
             font-size: 2em;
-            opacity:0.1;
-            animation: 4s ease-in 0.1s textAnimationH2 forwards;
+            opacity:0;
+            animation: 2s ease-in 2s textAnimationH2 forwards;
         }
     }
     @keyframes textAnimationH1 {
-        0%   { opacity:0.1; }
+        0%   { opacity:0; }
         100% {opacity:1;}
       }
     @keyframes textAnimationH2 {
-        0%   { margin-top:60px; opacity:0.1; }
+        0%   { margin-top:60px; opacity:0; }
         100% { margin-top:0px; opacity:1; }
       }     
     .fallback-background {

@@ -19,8 +19,8 @@ export class KiiAinimations {
         return [
             trigger('blogAnimation', [
                 transition('* <=> *', [ 
-                    query('.element', style({opacity:0.1,transform: 'translateX(-100vw)'}),{optional:true}),
-                    query('.element', stagger('.3s', [animate('.3s  ease-in-out')]),{optional:true})
+                    query('.element', style({transform:'scale(0)'}),{optional:true}),
+                    query('.element', stagger('0.5s', [animate('0.5s  ease-in-out')]),{optional:true})
                 ])
             ])
         ]
@@ -33,7 +33,7 @@ export class KiiAinimations {
             trigger('pricesAnimation', [
                 transition('* <=> *', [ 
                     query('.element', style({opacity:0.1,transform: 'translateX(-100vw)'}),{optional:true}),
-                    query('.element', stagger('.3s', [animate('.3s  ease-in-out')]),{optional:true})
+                    query('.element', stagger('1s', [animate('1s  ease-in-out')]),{optional:true})
                 ])
             ])
         ]
@@ -43,11 +43,21 @@ export class KiiAinimations {
         return [
             trigger('realisationsAnimation', [
                 transition('* <=> *', [ 
-                    query('.element', style({opacity:0.1,transform: 'translateX(-100vw)'}),{optional:true}),
-                    query('.element', stagger('.3s', [animate('.3s  ease-in-out')]),{optional:true})
+                    query('.element, .element-comment', style({opacity:0.1,transform: 'translateX(-100vw)'}),{optional:true}),
+                    query('.element, .element-comment', stagger('1s', [animate('1s  ease-in-out')]),{optional:true})
                 ])
             ])
         ]
     };
-
+    //Animation for demo elements
+    public static demo() {
+        return [
+            trigger('demoAnimation', [
+                transition('* <=> *', [ 
+                    query('.element', style({transform:'scale(0)'}),{optional:true}),
+                    query('.element', stagger('0.5s', [animate('0.5s  ease-in-out')]),{optional:true})
+                ])
+            ])
+        ]
+    };
 }

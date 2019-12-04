@@ -67,13 +67,15 @@
     //Desktops
     @media (pointer: fine)  { 
             .element:hover {
-                box-shadow: 2px 2px 4px 2px rgba(mat-color(mat-palette($mat-grey,700)),0.2);
+                //box-shadow: 2px 2px 4px 2px rgba(mat-color(mat-palette($mat-grey,700)),0.2);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
             }
     } 
     //Tablets and phones
     @media (pointer: coarse) {
             .element.kii-appear {
-                box-shadow: 2px 2px 4px 2px rgba(mat-color(mat-palette($mat-grey,700)),0.2);
+                //box-shadow: 2px 2px 4px 2px rgba(mat-color(mat-palette($mat-grey,700)),0.2);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
     }
  
