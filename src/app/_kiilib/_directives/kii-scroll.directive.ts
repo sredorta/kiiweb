@@ -39,7 +39,7 @@ export class KiiScrollDirective {
   scroll = (element:any): void => {
     if (element && element.srcElement && element.srcElement.scrollTop) {
       this.scrollTop = element.srcElement.scrollTop;
-      if (element.srcElement.scrollTop>150) {
+      if (element.srcElement.scrollTop>300) {
         this._renderer.addClass(this._element.nativeElement, 'kii-scrolled');
       } else {
         this._renderer.removeClass(this._element.nativeElement, 'kii-scrolled');

@@ -87,41 +87,49 @@ export class AngularEditorService {
       if (window.getSelection())
          if (window.getSelection().focusNode)
             selectedElement  = window.getSelection().focusNode.parentNode;
-    let value = "14px";
+    console.log("SELECTED :", selectedElement);        
+    let value = "0.6em";
     switch (fontSize) {
       case "1":
-        value="14px";
+        value="0.6em";
         break;
       case "2":
-        value="16px";
+        value="0.8em";
         break;
       case "3":
-        value="18px";
+        value="1em";
         break;
       case "4":
-        value="20px"      
+        value="1.2em"      
         break;
       case "5":
-        value="22px";
+        value="1.4em";
         break;
       case "6":
-        value="24px";
+        value="1.6em";
         break;
       case "7":
-        value="26px"      
+        value="1.8em"      
         break;
       case "8":
-        value="28px"      
+        value="2em"      
         break;
       case "9":
-        value="30px"      
+        value="2.6em"      
         break;
       case "10":
-        value="32px"      
+        value="3.2em"      
         break;                        
     }
-    if (selectedElement)
-      selectedElement.style.fontSize = value;
+    console.log("selection:", document.getSelection());
+    console.log("Setting size to:", value);
+    if (selectedElement) {
+      if (selectedElement.classList.value.includes('angular-editor-textarea')) {
+        document.execCommand("insertHTML", false, '<span style="font-size:'+value+';">'+document.getSelection()+'</span>');
+      } else {
+        selectedElement.style.fontSize = value;
+      }
+    }
   }
 
   /**

@@ -144,7 +144,8 @@ export class AngularEditorToolbarComponent {
 
   @Input() disk : DiskType = DiskType.CONTENT;
 
-  //@ViewChild('fileInput', {static: false}) myInputFile: ElementRef;
+  @ViewChild('fgInput', {static: false}) myColorInput: ElementRef;
+  @ViewChild('bgInput', {static: false}) myBgColorInput: ElementRef;
 
   public get isLinkButtonDisabled(): boolean {
     return this.htmlMode || !Boolean(this.editorService.selectedText);
@@ -324,6 +325,8 @@ export class AngularEditorToolbarComponent {
   insertColor(color: string, where: string) {
     this.editorService.insertColor(color, where);
     this.execute.emit('');
+    this.myColorInput.nativeElement.value = null;
+    this.myBgColorInput.nativeElement.value = null;
   }
 
   /**

@@ -15,22 +15,16 @@
   kii-fill-side {
     &.signup-fill  {
       .kii-fill-side-wrapper {
-        background-image: url("/assets/images/page-background.svg");
-        background-size: cover !important;
-        background-repeat: no-repeat;
         padding-bottom:30px;
         padding-top:30px;
       }
       .kii-login-signup-content {
         padding:10px;
-        background:rgba(white,0.3);
+        background:rgba(white,1);
       }
     }
     &.profile-fill  {
       .kii-fill-side-wrapper {
-        /*background-image: url("/assets/images/page-background.svg");
-        background-size: cover !important;
-        background-repeat: no-repeat;*/
         padding-bottom:30px;
         padding-top:30px;
       }

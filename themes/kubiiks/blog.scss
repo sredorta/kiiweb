@@ -23,7 +23,7 @@ kii-blog {
     width:100%;
   }
   kii-article-summary h2 {
-    min-height:100px;
+    min-height:120px;
   }
   kii-article-summary .kii-article-summary-image-wrapper {
     height: 260px;
@@ -98,6 +98,10 @@ kii-blog {
         }
         kii-article-summary .kii-article-summary-image-wrapper img {
           transform: scale(1.5);
+        }
+        .read-more-button {
+            animation: arrowAnimation 1s 3 ;
+            -webkit-animation: arrowAnimation 1s 3;
         }
       }
     }  

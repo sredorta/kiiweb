@@ -1,5 +1,5 @@
 <kii-spinner-overlay [show]="isFormLoading">
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
+    <form #form="ngForm" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" novalidate> 
      <mat-form-field [appearance]="kiiInputAppearance" style="width:100%">
          <mat-label>{{'kiilib.input.email.label' | translate}}</mat-label>
          <input matInput formControlName="email" placeholder="{{'kiilib.input.email.placeholder' | translate}}" required type="email">
