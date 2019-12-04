@@ -14,6 +14,78 @@
 
 
 kii-contact {
+  .page-header {
+    display:none;
+  }
+  .wrapper-content-main {
+    padding-top:20px;
+    background:mat-color($primary,darker);
+    color:white;
+    padding-bottom:20px;
+  }
+  .chat-button-wrapper {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    .chat-button {
+      background-image: url("/assets/kiilib/images/chat-icon.svg");
+      background-size: cover;
+     }
+  }
+  .wrapper-content-form {
+    padding:10px;
+    padding-top:30px;
+    padding-bottom:30px;
+    .form-container {
+      min-width: 60vw;
+      padding:10px;
+    }
+    background:mat-color(mat-palette($mat-grey,50));
+  }
+  .wrapper-content-address {
+    padding:10px;
+    padding-top:30px;
+    padding-bottom:30px;
+    .contact-map-wrapper {
+      padding:10px;
+    }
+  }
+
+  //For desktops
+  @media only screen and (min-width: 700px) { 
+    .wrapper-content-main {
+      display:flex;
+      flex-direction: row;
+      & > div.element {
+        flex:1;
+      }
+    }
+    .wrapper-content-form {
+       display:flex;
+       flex-direction:row;
+       .form-header {
+         padding-right:10vw;
+       }
+    }
+    .wrapper-content-address {
+      padding:0px;
+      padding-left:10px;
+      display:flex;
+      flex-direction: row;
+      & > div {
+        flex:1;
+      }
+      .contact-map-wrapper {
+        min-width: 60vw;
+        padding:0px;
+      }
+      .contact-address-wrapper {
+        padding-right:10vw;
+      }
+    }
+
+  }
 
 } //End contact
 

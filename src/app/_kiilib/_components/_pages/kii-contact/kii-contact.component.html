@@ -1,34 +1,28 @@
 
 <kii-header [data]="{page:'contact'}"></kii-header>
-<div class="page-wrapper contact-page-wrapper">
 <kii-article  class="page-header" key="contact-header" kiiScroll (onAppear)="animate($event)"></kii-article>
-<div class="wrapper">
-   <div class="wrapper-content"> 
-         <div class="wrapper-content-left">
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
+<div class="wrapper-content" [@contactAnimation]="showAnimation" class="element" kiiScroll> 
+         <div class="wrapper-content-main">
+                <div  class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-phone"></kii-article>
                 </div>
-
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
+                <div  class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-time"></kii-article>
                 </div>
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
+                <div  class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
+                        <div class="chat-button-wrapper"><button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" mat-fab color="primary" class="chat-button" (click)="onOpenChat()"></button></div>
                 </div>
          </div>
-         <div class="wrapper-content-right">        
-                <div [@contactAnimation]="showAnimation == true ? 'expanded' : 'collapsed'" class="element" kiiScroll>
-                        <kii-article class="contact-phone-editable-content" key="contact-form"></kii-article>
-                        <div class="form-container default-theme">
-                                <kii-contact-form></kii-contact-form>
-                        </div>
+         <div class="wrapper-content-form">        
+                <div class="form-header"><kii-article class="contact-phone-editable-content" key="contact-form"></kii-article></div>
+                <div class="form-container default-theme">
+                        <kii-contact-form></kii-contact-form>
                 </div>
-         </div>       
-   </div>  
-   <div class="element address-element" kiiScroll>
-        <div class="contact-address-wrapper"><kii-article class="contact-phone-editable-content" key="contact-address"></kii-article></div>
-        <div class="contact-map-wrapper"><kii-gmap style="width:100%"></kii-gmap></div>
-   </div>   
+        </div>       
+        <div class="wrapper-content-address">        
+                <div class="contact-address-wrapper"><kii-article class="contact-phone-editable-content" key="contact-address"></kii-article></div>
+                <div class="contact-map-wrapper"><kii-gmap style="width:100%"></kii-gmap></div>
+        </div> 
 </div>
 <kii-article class="page-footer" key="contact-footer"></kii-article>
-</div>

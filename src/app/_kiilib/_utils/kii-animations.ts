@@ -7,10 +7,11 @@ export class KiiAinimations {
     public static contact() {
         return [
             trigger('contactAnimation', [
-                state('collapsed', style({opacity:0.1})),
-                state('expanded', style({opacity:1})),
-                transition('expanded <=> collapsed', animate('.5s .3s cubic-bezier(0.4, 0.0, 0.2, 1)')),
-              ]),
+                transition('* <=> *', [ 
+                    query('.element', style({opacity:0.1,transform: 'translateX(-100vw)'}),{optional:true}),
+                    query('.element', stagger('-1s', [animate('1s  ease-in-out')]),{optional:true})
+                ])
+            ])
         ]
     };
 
