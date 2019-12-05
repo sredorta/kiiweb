@@ -68,4 +68,11 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
     if (!this.device.isMobile())
       this.showAnimationComments = true;
   }
+  /**Determines if element is odd or even */
+  oddOrEven(index:number) {
+    if (index % 2 == 1) {
+      return 'even';
+    }
+    return 'odd';
+  }
 }

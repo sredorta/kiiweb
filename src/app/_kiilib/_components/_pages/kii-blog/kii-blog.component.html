@@ -4,11 +4,13 @@
       <kii-article class="page-header" key="blog-header" kiiScroll (onAppear)="animate($event)" ></kii-article>
       <div  class="wrapper">
         <div class="wrapper-content" [@blogAnimation]="showAnimation && articles.length>0">
-          <div class="element" *ngFor="let article of articles" kiiScroll>
-            <kii-article-summary [descriptionTrimLength]="150" class="article-element"  [key]="article.id" ></kii-article-summary> 
-            <button class="read-more-button" mat-button color="primary" [routerLink]="['/articles',article.id] | localize">{{'kiilib.readmore' | translate}}<i class="fa fa-arrow-right"></i></button>
-            <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
-            <div class="created-at-wrapper"><i class="fa fa-upload"></i><small class="created-at">{{{date:article.createdAt,lang:currentLang} | kiiNiceDateFormat}}</small></div>
+          <div class="kii-element-wrapper" *ngFor="let article of articles; let i = index">
+              <kii-element [ngClass]="article.cathegory" [attr.data-index]="i">
+                      <kii-article-summary [descriptionTrimLength]="150" [key]="article.id"></kii-article-summary>  
+                      <button class="read-more-button" mat-button color="primary" [routerLink]="['/articles',article.id] | localize">{{'kiilib.readmore' | translate}}<i class="fa fa-arrow-right"></i></button>
+                      <div class="sharer-wrapper"><kii-share [route]="getRoute(article.id)"></kii-share></div>
+                      <div class="created-at-wrapper"><i class="fa fa-upload"></i><small class="created-at">{{{date:article.createdAt,lang:currentLang} | kiiNiceDateFormat}}</small></div>          
+              </kii-element>
           </div>
         </div>
       </div>

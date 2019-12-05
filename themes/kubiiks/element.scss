@@ -1,0 +1,423 @@
+@import '~@angular/material/theming';
+
+// mixin name will be used in main style.scss
+@mixin element-theme($theme) {
+    /////////////////////////////////////////////////////////////////////
+    // BLOG FORMAT
+    /////////////////////////////////////////////////////////////////////
+    kii-element.blog {
+        .kii-element-container {
+            width:280px;
+            margin:0 auto;
+            overflow: hidden;
+            transition:background 0.3s ease-in-out;
+            background:white;
+            padding:10px;
+            border-radius: 2px;
+            transition: box-shadow 0.3s ease-in-out;
+            kii-article {
+                display:none;
+            }
+            kii-article-summary {
+                .kii-article-summary-text {
+                    width:100%;
+                    h1 {
+                      font-size: 18px;
+                      font-weight: bold;
+                      margin-bottom:10px;
+                    }
+                    h2 {
+                        overflow: hidden;
+                        font-size: 16px;
+                        font-weight: 200;
+                        margin-top:0px;
+                        min-height:120px;
+                    }
+                }
+                .kii-article-summary-image-wrapper {
+                  height: 260px;
+                  overflow: hidden;
+                  img {
+                    width:100%;
+                    transition: transform 2s ease-in-out;
+                  }
+                }
+            }
+            .read-more-button {
+                font-size: 16px !important;
+                font-weight: bold;
+                i {
+                  transition:all 0.3s ease-in-out;
+                  margin-left:20px;
+                }
+                width:100%;
+                margin-bottom:15px;
+            }
+            .created-at-wrapper {
+                width:100%;
+                opacity:0.5;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                margin-top:10px;
+                i {
+                  margin-right:10px;
+                }
+            }
+            
+            kii-share button {
+                transition: 0.3s ease-in-out;
+                opacity: 0.2;
+                filter:grayscale(100%);
+            }
+        }
+    }
+    @media (pointer: fine)  { 
+        kii-element.blog .kii-element-container:hover {
+          kii-share button {
+                opacity: 0.8;
+                filter:grayscale(0%);
+          }
+          .read-more-button {
+            animation: arrowAnimation 1s 3 ;
+            -webkit-animation: arrowAnimation 1s 3;
+          }
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+      }  
+      //Tablets and phones
+      @media (pointer: coarse) {
+        kii-element.blog .kii-element-container.kii-appear {
+          kii-share button {
+                opacity: 0.8;
+                filter:grayscale(0%);
+          }
+          .read-more-button {
+            animation: arrowAnimation 1s 3 ;
+            -webkit-animation: arrowAnimation 1s 3;
+          }
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+      }  
+
+    /////////////////////////////////////////////////////////////////////
+    // REALISATIONS FORMAT
+    /////////////////////////////////////////////////////////////////////
+    kii-element.realisations {
+        .kii-element-container {
+            width:290px;
+            margin:0 auto;
+            overflow: hidden;
+            transition:background 0.3s ease-in-out;
+            background:white;
+            padding:10px;
+            border-radius: 2px;
+            transition: box-shadow 0.3s ease-in-out;
+            kii-article {
+                display:none;
+            }
+        }
+        kii-article-summary { 
+            .kii-article-summary-container {
+                display:flex;
+                flex-direction: column;
+            }
+            .kii-article-summary-text {
+                width:100%;
+                h1 {
+                  font-size: 18px;
+                  font-weight: bold;
+                  margin-bottom:10px;
+                }
+                h2 {
+                    height:75px;
+                    overflow: hidden;
+                    font-size: 16px;
+                    font-weight: 200;
+                    margin-top:0px;
+                }
+            }
+            .kii-article-summary-image-wrapper {
+                width:100%;
+                img {
+                  width:100%;
+                  height: auto !important;
+                  overflow: hidden;
+                }
+            }
+        }
+        .read-more-button {
+            font-size: 16px !important;
+            font-weight: bold;
+            i {
+              transition:all 0.3s ease-in-out;
+              margin-left:20px;
+            }
+            width:100%;
+            margin-bottom:15px;
+        }
+    }
+    @media (pointer: fine)  { 
+        kii-element.realisations .kii-element-container:hover {
+          .read-more-button {
+            animation: arrowAnimation 1s 3 ;
+            -webkit-animation: arrowAnimation 1s 3;
+          }
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+      }  
+      //Tablets and phones
+      @media (pointer: coarse) {
+        kii-element.realisations .kii-element-container.kii-appear {
+          .read-more-button {
+            animation: arrowAnimation 1s 3 ;
+            -webkit-animation: arrowAnimation 1s 3;
+          }
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+      }  
+      
+    @keyframes arrowAnimation {
+        0% { padding-left:15px; }
+        50% { padding-left: 40px; }
+        100% { padding-left: 15px; }      
+    }
+
+    /////////////////////////////////////////////////////////////////////
+    // REALISATIONS FORMAT
+    /////////////////////////////////////////////////////////////////////
+    kii-element.realisations-comments {
+        .kii-element-container {
+            margin:0 auto;
+            width:100%;
+            max-width: 90vw;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+            kii-article-summary .kii-article-summary-container {
+                display:block;
+                h1 {
+                    text-align: center;
+                    transition: all 0.35s;
+                    margin-top:20px;
+                    margin-bottom:0px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    opacity: 0.9;
+                }
+                h2 {
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: 200;
+                    opacity: 0.7;
+                    margin-top:8px;
+                }
+                width:200px;
+                .kii-article-summary-image-wrapper {
+                  padding:2px;
+                  border-radius: 50% 50%;
+                  background: #fff !important;  
+                  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+                  height:100px;
+                  width:100px;
+                  margin:0 auto;
+                  img {
+                    border-radius: 50% 50%;
+                    width:100%;
+                  }
+                }
+            }
+            kii-article .kii-editor-wrapper {
+                .angular-editor-textarea {
+                  font-family: "Mansalva";
+                  font-weight: 200;
+                  color: #616161 !important;
+                }
+            }
+        }
+    }
+    //DESKTOPS
+    @media only screen and (min-width: 700px) { 
+        kii-element.realisations-comments.odd .kii-element-container {
+            display:flex;
+            flex-direction: row;
+            align-items: flex-start;
+            &>* {
+                flex:1 1 auto;
+            }
+            kii-article {
+                padding-left:10vw;
+            }
+        }
+        kii-element.realisations-comments.even .kii-element-container {
+            display:flex;
+            flex-direction: row-reverse;
+            align-items: flex-start;
+            &>* {
+                flex:1 1 auto;
+            }
+            kii-article {
+                padding-right:10vw;
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////
+    // PRICES FORMAT
+    /////////////////////////////////////////////////////////////////////
+    kii-element.prix {
+        .kii-element-container {
+            width:290px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        &:not(.isAdminContext) .kii-element-container {
+            height:100%;
+        }
+        //Default background for admin content editor
+        .kii-element-container {
+            background-image: url('/assets/images/prices-basic.svg');
+        }
+        &[data-index="0"] .kii-element-container {
+            background-image: url('/assets/images/prices-basic.svg');
+        }
+        &[data-index="1"] .kii-element-container {
+            background-image: url('/assets/images/prices-intermediate.svg');
+        }
+        &[data-index="2"] .kii-element-container  {
+            background-image: url('/assets/images/prices-gold.svg');
+        }
+        &[data-index="3"] .kii-element-container  {
+            background-image: url('/assets/images/prices-ultra.svg');
+        }
+
+        kii-article-summary {
+            width:100%;
+            color:white;
+            .kii-article-summary-container {
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .kii-article-summary-image-wrapper {
+                    width:50%;
+                    margin-top:15px;
+                    img {
+                        width:100%;
+                    }
+                }
+                .kii-article-summary-text {
+                    text-align: center;
+                    h1 {
+                        margin-top:10px;
+                    }
+                    h2 {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        kii-article {
+            width:100%;
+            .angular-editor-wrapper {
+                font-size: 18px !important;
+            }
+            .angular-editor-textarea {
+                color:white;
+                ul {
+                    margin:0;
+                    padding:0;
+                    list-style-position: none;
+                    li {
+                        margin-top:3px;
+                        margin-bottom:3px;
+                        background: url('/assets/images/tick.svg') no-repeat 7px 3px transparent;
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 3px 0px 3px 34px;
+                        vertical-align: middle;
+                    }
+            
+                }
+            }
+        }        
+    }
+    //Desktops
+    @media (pointer: fine)  { 
+            kii-element.prix .kii-element-container:hover {
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            }
+    } 
+    //Tablets and phones
+    @media (pointer: coarse) {
+            kii-element.prix .kii-element-container.kii-appear {
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            }
+    }  
+
+    /////////////////////////////////////////////////////////////////////
+    // DEMO FORMAT
+    /////////////////////////////////////////////////////////////////////
+    kii-element.demo {
+        .kii-element-container {
+            min-width: 280px;
+            margin:0 auto;
+            width:100%;
+            overflow: hidden;
+            transition:background 0.3s ease-in-out;
+            background:white;
+            padding:10px;
+            border-radius: 2px;
+            transition: box-shadow 0.3s ease-in-out;
+            display:flex;
+            flex-flow: column-reverse;
+            kii-article-summary { 
+                .kii-article-summary-container {
+                    display:flex;
+                    flex-direction: column-reverse;
+                    .kii-article-summary-image-wrapper {
+                        display:none;
+                    }
+                }
+                .kii-article-summary-text {
+                    width:100%;
+                    h1 {
+                      font-size: 18px;
+                      font-weight: bold;
+                      margin-bottom:10px;
+                    }
+                    h2 {
+                        font-size: 16px;
+                        font-weight: 200;
+                        margin-top:0px;
+                    }
+                }
+                .kii-article-summary-image-wrapper {
+                    width:100%;
+                    img {
+                      width:100%;
+                      height: auto !important;
+                      overflow: hidden;
+                    }
+                }
+            }
+            kii-article .angular-editor-textarea {
+                padding:0px !important;
+            }
+        }
+    }
+    //Desktops
+    @media (pointer: fine)  { 
+        kii-element.demo .kii-element-container:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+    } 
+    //Tablets and phones
+    @media (pointer: coarse) {
+        kii-element.demo .kii-element-container.kii-appear {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+    }   
+
+} //End of mixin

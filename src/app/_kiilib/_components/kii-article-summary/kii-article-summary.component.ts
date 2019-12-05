@@ -98,7 +98,7 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
     if (description.length > this.descriptionTrimLength) {
       result = description.substr(0, this.descriptionTrimLength) + " ...";
     } else {
-      result = description + " ...";
+      result = description;
     }
     return result;
   }

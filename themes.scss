@@ -158,6 +158,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
 @import './themes/kubiiks/contact.scss';
 @import './themes/kubiiks/page.scss';
 @import './themes/kubiiks/fill-side.scss';
+@import './themes/kubiiks/element.scss';
 
 @mixin design-theme($theme) {
     @include toolbar-theme($theme);
@@ -171,6 +172,7 @@ $main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-f
     @include contact-theme($theme);
     @include page-theme($theme);
     @include fill-side-theme($theme);
+    @include element-theme($theme);
 }
 
 
@@ -199,11 +201,17 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
   background-color:mat-color(mat-palette($mat-grey,200));
 }
 
-.angular-editor-textarea {
+/*.angular-editor-textarea {
   color: map_get($mat-light-theme-foreground,text);
 }
 .admin-theme .angular-editor-textarea {
   background-color:mat-color(mat-palette($mat-grey,200)) !important;
+}*/
+
+//Define as main for admin content
+.admin-theme kii-element {
+  color: map_get($mat-light-theme-foreground,text);
+  background-color:mat-color(mat-palette($mat-grey,200));
 }
 
 //FOOTER

@@ -3,40 +3,11 @@
         padding-left:10px;
         padding-right:10px;
     }
-    .button-wrapper {
-        width:100%;
-        display:flex;
-        justify-content: center;
-        align-items: center;
+
+    .kii-element-wrapper {
+        margin-bottom:30px;
     }
-    button {
-        margin:0 auto;
-        i {
-        margin-right:10px;
-        }
-        span {
-            font-size: 16px;
-            font-weight: bold;
-        }
-    }
-    .element {
-        margin:0 auto;
-        margin-bottom:20px;
-        width:100%;
-        ::ng-deep  kii-article-summary .kii-article-summary-container {
-            display:flex;
-            flex-direction: column-reverse;
-            .kii-article-summary-image-wrapper {
-                display:none;
-            }
-        }
-        ::ng-deep kii-article .angular-editor-textarea {
-            padding:0px !important;
-        }
-    }
-    .element:hover {
-        cursor:auto;
-    }
+
     @media only screen and (min-width: 600px) { 
         .wrapper-content {
             padding-left:30px;

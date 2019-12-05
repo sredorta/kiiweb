@@ -22,6 +22,13 @@ kii-blog {
     align-items: flex-start;
     width:100%;
   }
+
+  .kii-element-wrapper {
+    margin:10px;
+  }
+
+
+
   kii-article-summary h2 {
     min-height:120px;
   }
@@ -113,4 +120,38 @@ kii-blog {
   }
 
 } //End kii-blog
+//Content part
+kii-admin-articles .kii-admin-articles-element-detail-content {
+  max-width: 500px;
+  kii-article-summary h2 {
+    min-height:120px;
+  }
+  kii-article-summary .kii-article-summary-image-wrapper {
+    height: 260px;
+    overflow: hidden;
+  }
+  kii-article-summary .kii-article-summary-text {
+    width:100%;
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom:10px;
+    }
+    h2 {
+        font-size: 16px;
+        font-weight: 200;
+        margin-top:0px;
+    }
+  }
+
+  kii-article-summary .kii-article-summary-image-wrapper {
+      width:100%;
+      img {
+        width:100%;
+        height: auto !important;
+        overflow: hidden;
+      }
+  }
+}
+
 } //end mixin

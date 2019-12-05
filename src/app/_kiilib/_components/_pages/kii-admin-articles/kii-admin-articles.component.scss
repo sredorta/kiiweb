@@ -47,6 +47,12 @@ tr.element-row:not(.expanded-row):hover {
     padding-top:10px;
     padding-bottom:10px;
 }
+.kii-element-container {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 
 //Row definitions
 .thumbnail {
@@ -83,6 +89,14 @@ tr.element-row:not(.expanded-row):hover {
         background-size:cover;
         border-radius: 3px;
         margin:5px;
+    }
+    .mat-column-expandedDetail {
+        padding-right:5px !important;
+        padding-left:5px !important;
+    }
+    .table-wrapper {
+        padding-right:0;
+        padding-left:0;
     }
 }
 //Create part

@@ -4,10 +4,12 @@
 <kii-spinner-overlay [show]="isLoading">
   <kii-article class="page-header" key="demo-header" kiiScroll (onAppear)="animate($event)"></kii-article>
   <div class="wrapper-content"  [@demoAnimation]="showAnimation">
-    <div class="element" *ngFor="let article of articles" kiiScroll >
-        <kii-article  class="demo-article"  [key]="article.id"></kii-article>  
-        <kii-article-summary  class="demo-summary"  [key]="article.id"></kii-article-summary>  
-    </div>
+      <div class="kii-element-wrapper" *ngFor="let article of articles; let i = index">
+          <kii-element [ngClass]="article.cathegory" [attr.data-index]="i">
+                <kii-article-summary  [key]="article.id"></kii-article-summary>  
+                <kii-article  [key]="article.id"></kii-article>  
+          </kii-element>
+      </div>
   </div>
 
   <kii-article  class="page-footer" key="demo-footer"></kii-article>
