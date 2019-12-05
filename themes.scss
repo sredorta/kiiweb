@@ -201,12 +201,10 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
   background-color:mat-color(mat-palette($mat-grey,200));
 }
 
-/*.angular-editor-textarea {
-  color: map_get($mat-light-theme-foreground,text);
-}
-.admin-theme .angular-editor-textarea {
+//Email editor
+.admin-theme kii-email-edit-form .angular-editor-textarea {
   background-color:mat-color(mat-palette($mat-grey,200)) !important;
-}*/
+}
 
 //Define as main for admin content
 .admin-theme kii-element {
