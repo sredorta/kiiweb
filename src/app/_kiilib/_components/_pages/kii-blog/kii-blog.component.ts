@@ -8,6 +8,7 @@ import { KiiApiPageService } from '../../../_services/kii-api-page.service';
 import { KiiMiscService } from '../../../_services/kii-misc.service';
 import { Router } from '@angular/router';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'kii-blog',
@@ -23,6 +24,7 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
     private kiiApiPage: KiiApiPageService, 
     private kiiMisc : KiiMiscService,
     private kiiApiLang: KiiApiLanguageService, 
+    private device : DeviceDetectorService,
     private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
 
 
@@ -44,6 +46,7 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
   }
   animate(event : boolean) {
     console.log("Recieved onAppear",event);
-    this.showAnimation = true;
+    if (!this.device.isMobile())
+      this.showAnimation = true;
   }
 }

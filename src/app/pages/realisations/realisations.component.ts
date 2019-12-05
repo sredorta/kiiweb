@@ -6,6 +6,7 @@ import { Article } from '../../_kiilib/_models/article';
 import { KiiApiPageService } from '../../_kiilib/_services/kii-api-page.service';
 import { KiiMiscService } from '../../_kiilib/_services/kii-misc.service';
 import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-realisations',
@@ -24,6 +25,7 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
   constructor(private kiiApiArticle: KiiApiArticleService, 
     private kiiApiPage: KiiApiPageService, 
     private kiiMisc : KiiMiscService, 
+    private device : DeviceDetectorService,
     private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
 
   ngOnInit() {
@@ -58,10 +60,12 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
 
   animateClients(event : boolean) {
     console.log("Recieved onAppear",event);
-    this.showAnimationClients = true;
+    if (!this.device.isMobile())
+      this.showAnimationClients = true;
   }
   animateComments(event : boolean) {
     console.log("Recieved onAppear",event);
-    this.showAnimationComments = true;
+    if (!this.device.isMobile())
+      this.showAnimationComments = true;
   }
 }

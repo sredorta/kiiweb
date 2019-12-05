@@ -13,6 +13,7 @@ import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
 import { KiiSocketService } from '../../../_services/kii-socket.service';
 import { MatDialog } from '@angular/material';
 import { KiiChatDialogComponent } from '../../kii-chat-dialog/kii-chat-dialog.component';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 
 interface Icons  {
@@ -46,6 +47,7 @@ export class KiiContactComponent extends KiiBlogAbstract implements OnInit {
     private kiiApiPage: KiiApiPageService, 
     private kiiMisc : KiiMiscService, 
     private kiiApiAuth : KiiApiAuthService,
+    private device : DeviceDetectorService,
     @Inject(PLATFORM_ID) private platformId: any,
     private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
 
@@ -63,7 +65,8 @@ export class KiiContactComponent extends KiiBlogAbstract implements OnInit {
 
   animate(event : boolean) {
     console.log("Recieved onAppear",event);
-    this.showAnimation = true;
+    if (!this.device.isMobile())
+      this.showAnimation = true;
   }
 
 
