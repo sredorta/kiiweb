@@ -11,9 +11,7 @@
   $foreground: map-get($theme, foreground);
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
-
-
-
+ 
     kii-footer {
         .kii-newsletter {
             background-color: #1a1a1a;
@@ -26,6 +24,36 @@
         .kii-footer-link:hover {
             opacity:1;
         }
+        .kii-footer-end {
+            padding-top:50px;
+            transition:padding-top 0.3s ease-in-out;
+            padding-bottom:10px;
+            background-image: url("/assets/images/footer.svg");
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: 100% auto;
+            background-color:white;
+        }
     } 
+    @media only screen and (min-width: 550px) { 
+        kii-footer .kii-footer-end {
+            padding-top:80px;
+        }
+    }
+    @media only screen and (min-width: 700px) { 
+        kii-footer .kii-footer-end {
+            padding-top:110px;
+        }
+    }
+    @media only screen and (min-width: 900px) { 
+        kii-footer .kii-footer-end {
+            padding-top:150px;
+        }
+    }
+    @media only screen and (min-width: 1200px) { 
+        kii-footer .kii-footer-end {
+            padding-top:180px;
+        }
+    }
 
 }

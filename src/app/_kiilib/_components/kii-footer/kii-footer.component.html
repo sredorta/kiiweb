@@ -1,7 +1,4 @@
 <footer class="footer-theme kii-footer-wrapper">
-    <div *ngIf="loggedInUser.hasRoles()" class="kii-footer-admin">
-            <button mat-flat-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
-    </div>
     <div class="share-wrapper">
         <kii-share></kii-share>
     </div>
@@ -11,7 +8,7 @@
     <div class="kii-footer-content-wrapper">
       <ng-content></ng-content>
     </div>
-    <div class="kii-footer-end"> 
+    <div class="kii-footer-end "> 
         <div class="kii-footer-copyright-wrapper">
             <small>{{'kiilib.footer.kubiiks' | translate}} <a class="kii-footer-link" title="kubiiks" [href]="kubiiksLink" rel="follow">kubiiks</a></small>
             <small style="font-style: italic; margin-left:10px">© kubiiks 2019</small>
@@ -22,4 +19,7 @@
             </ng-container>
         </div>
     </div> 
+    <!--<div *ngIf="loggedInUser.hasRoles()" class="kii-footer-admin">
+            <button mat-flat-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
+    </div>-->
 </footer>

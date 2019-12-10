@@ -15,6 +15,7 @@
               <button mat-button class="footer-item" (click)="openTermsAndConditionsDialog()">{{'footer.user-data' | translate}}</button>
               <button *ngIf="loggedInUser.exists()" mat-button class="footer-item" [routerLink]="'/profile' | localize">{{'footer.profile' | translate}}</button>
               <button *ngIf="!loggedInUser.exists()" mat-button class="footer-item" [routerLink]="'/login' | localize">{{'footer.login' | translate}}</button>
+              <button *ngIf="loggedInUser.hasRoles()" mat-button class="footer-item" color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
           </div>
         </div>
     </div>
