@@ -45,6 +45,9 @@
     "oauth.title"               : "Datos personales",
     "oauth.subtitle"            : "Politica de utilización de datos personales",
     "email-validate.title"      : "Validacion de la cuenta",
-    "email-validate.subtitle"   : "Validacion de la cuenta de correo electronico"
+    "email-validate.subtitle"   : "Validacion de la cuenta de correo electronico",
+    "footer.profile"            : "Mi cuenta",
+    "footer.login"              : "Connectarse",
+    "footer.user-data"          : "Utilizacion datos personales"
 
 }

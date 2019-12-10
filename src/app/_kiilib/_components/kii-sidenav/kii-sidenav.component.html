@@ -4,8 +4,11 @@
     </div>
     <div class="kii-sidenav-app-wrapper">
         <app-sidenav></app-sidenav>
+        <div *ngIf="loggedInUser.hasRoles()" class="kii-admin-button">
+                <button mat-button color="primary" [routerLink]="'/admin-menu' | localize">{{'kiilib.footer.admin' | translate}}</button>
+        </div>
     </div>
-    <!--<div *ngIf="showApp" class="app-install-container">-->
+
     <div class="kii-sidenav-bottom-container">   
         <div *ngIf="showApp" class="app-install-wrapper" mat-ripple (click)="installApp()">
             <div class="app-install-icon-wrapper" >

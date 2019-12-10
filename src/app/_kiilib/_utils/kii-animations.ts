@@ -50,6 +50,16 @@ export class KiiAinimations {
             ])
         ]
     };
+    public static realisationsComments() {
+        return [
+            trigger('realisationsCommentsAnimation', [
+                transition('* <=> *', [ 
+                    query('kii-article-summary', style({opacity:0.1,transform: 'translateY(100vw)'}),{optional:true}),
+                    query('kii-article-summary', stagger('1s', [animate('2s  ease-in-out')]),{optional:true})
+                ])
+            ])
+        ]
+    };
     //Animation for demo elements
     public static demo() {
         return [

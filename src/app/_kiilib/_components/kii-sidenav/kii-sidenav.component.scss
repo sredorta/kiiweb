@@ -20,7 +20,13 @@ $anim-duration : 0.4s;
 .kii-sidenav-app-wrapper {
     flex:1 1 auto;
 }
-
+.kii-admin-button {
+    width:100%;
+    margin-top:15px;
+    button {
+        width:100%;
+    }
+}
 .kii-sidenav-button-wrapper {
     width:100%;
     display: flex;

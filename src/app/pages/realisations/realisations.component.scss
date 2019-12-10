@@ -16,8 +16,43 @@
 //STYLE COMMENTS NOW
 .comments-wrapper-container {
   padding-top:15px;
-  padding-bottom:15px;
+  padding-bottom:0px;
   .kii-element-wrapper {
-    margin-bottom:30px;
+    width:100%;
+    padding:5px;
+    margin-bottom:20px;
+    box-sizing: border-box;
+    display:flex;
+  }
+  .kii-element-wrapper:first-child {
+    padding-left:10px;
+  }
+  .kii-element-wrapper:last-child {
+    padding-right:10px;
+  }
+  .content-wrapper-comments {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+    overflow-x: auto;
+    overflow-y:hidden;
+    ::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+}
+@media only screen and (min-width: 500px) { 
+  .comments-wrapper-container {
+    .kii-element-wrapper {
+      padding:10px;
+    }
+    .kii-element-wrapper:first-child {
+      padding-left:30px;
+    }
+    .kii-element-wrapper:last-child {
+      padding-right:30px;
+    }
   }
 }

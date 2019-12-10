@@ -101,11 +101,17 @@
         }
       }  
 
+    @keyframes arrowAnimation {
+        0% { padding-left:15px; }
+        50% { padding-left: 40px; }
+        100% { padding-left: 15px; }      
+    }
     /////////////////////////////////////////////////////////////////////
     // REALISATIONS FORMAT
     /////////////////////////////////////////////////////////////////////
     kii-element.realisations {
         .kii-element-container {
+            position:relative;
             width:290px;
             margin:0 auto;
             overflow: hidden;
@@ -147,55 +153,77 @@
                 }
             }
         }
-        .read-more-button {
-            font-size: 16px !important;
-            font-weight: bold;
-            i {
-              transition:all 0.3s ease-in-out;
-              margin-left:20px;
+        .read-more-wrapper {
+            background-image: url("/assets/images/corner.svg");
+            background-size:0% 0%;
+            background-position: right top;
+            background-repeat: no-repeat;
+            transition: background-size 0.4s ease-in-out;
+            width:150px;
+            height:150px;
+            position:absolute;
+            top:0;
+            right:0;
+            display:flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            .read-more-button {
+                width:0px;
+                height:60px;
+                font-size: 16px;
+                transition: all 0.4s ease-in-out;
+                max-width: 0;
+                min-width: 0px;
+                opacity:0;
             }
-            width:100%;
-            margin-bottom:15px;
         }
     }
     @media (pointer: fine)  { 
         kii-element.realisations .kii-element-container:hover {
-          .read-more-button {
-            animation: arrowAnimation 1s 3 ;
-            -webkit-animation: arrowAnimation 1s 3;
-          }
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+           .read-more-wrapper {
+                background-size:100% 100%;
+                .read-more-button {
+                    width:120px;
+                    min-width: 64px;
+                    max-width: 120px;
+                    opacity:1;
+                }
+            }
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
       }  
       //Tablets and phones
       @media (pointer: coarse) {
         kii-element.realisations .kii-element-container.kii-appear {
-          .read-more-button {
-            animation: arrowAnimation 1s 3 ;
-            -webkit-animation: arrowAnimation 1s 3;
-          }
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            .read-more-wrapper {
+                background-size:100% 100%;
+                .read-more-button {
+                    width:120px;
+                    min-width: 64px;
+                    max-width: 120px;
+                    opacity:1;
+                }
+            }
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
       }  
       
-    @keyframes arrowAnimation {
-        0% { padding-left:15px; }
-        50% { padding-left: 40px; }
-        100% { padding-left: 15px; }      
-    }
+
+
 
     /////////////////////////////////////////////////////////////////////
-    // REALISATIONS FORMAT
+    // REALISATIONS COMMENTS FORMAT
     /////////////////////////////////////////////////////////////////////
     kii-element.realisations-comments {
+        margin:0 auto;
         .kii-element-container {
-            margin:0 auto;
-            width:100%;
-            max-width: 90vw;
             display:flex;
-            flex-direction:column;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column-reverse;
+            width:280px;
+            background-image:url("/assets/images/comment.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
             kii-article-summary .kii-article-summary-container {
                 display:block;
                 h1 {
@@ -203,63 +231,39 @@
                     transition: all 0.35s;
                     margin-top:20px;
                     margin-bottom:0px;
-                    font-size: 18px;
+                    font-size: 16px;
                     font-weight: bold;
                     opacity: 0.9;
                 }
                 h2 {
                     text-align: center;
-                    font-size: 16px;
+                    font-size: 14px;
                     font-weight: 200;
-                    opacity: 0.7;
+                    opacity: 0.8;
                     margin-top:8px;
                 }
-                width:200px;
                 .kii-article-summary-image-wrapper {
-                  padding:2px;
-                  border-radius: 50% 50%;
-                  background: #fff !important;  
-                  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-                  height:100px;
-                  width:100px;
-                  margin:0 auto;
-                  img {
+                    padding:2px;
                     border-radius: 50% 50%;
-                    width:100%;
-                  }
+                    background: #fff !important;  
+                    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+                    height:100px;
+                    width:100px;
+                    margin:0 auto;
+                    img {
+                      border-radius: 50% 50%;
+                      width:100%;
+                    }
                 }
             }
             kii-article .kii-editor-wrapper {
                 .angular-editor-textarea {
+                  padding-right:20px !important;
+                  min-height: 200px !important;
                   font-family: "Mansalva";
                   font-weight: 200;
-                  color: #616161 !important;
+                  color: white !important;
                 }
-            }
-        }
-    }
-    //DESKTOPS
-    @media only screen and (min-width: 700px) { 
-        kii-element.realisations-comments.odd .kii-element-container {
-            display:flex;
-            flex-direction: row;
-            align-items: flex-start;
-            &>* {
-                flex:1 1 auto;
-            }
-            kii-article {
-                padding-left:10vw;
-            }
-        }
-        kii-element.realisations-comments.even .kii-element-container {
-            display:flex;
-            flex-direction: row-reverse;
-            align-items: flex-start;
-            &>* {
-                flex:1 1 auto;
-            }
-            kii-article {
-                padding-right:10vw;
             }
         }
     }

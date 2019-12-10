@@ -14,6 +14,7 @@
     //opacity: 0.5;
     background-color:rgba(mat-color(map-get($theme, background),background),1);
     width:5px;
+    height:5px;
   }
 
   ::-webkit-scrollbar-thumb {

@@ -6,9 +6,9 @@
           <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
         </mat-card-header>
         <mat-card-content mat-dialog-content>
-                <kii-article class="test" key="legal-user-data"></kii-article>
+                <kii-article class="legal-article" key="legal-user-data"></kii-article>
         </mat-card-content>
-        <mat-card-actions>
+        <mat-card-actions *ngIf="hasButtons==true">
                 <button mat-button mat-dialog-close color="primary" [mat-dialog-close]="false" tabindex="-1">{{'kiilib.cancel' | translate}}</button>
                 <button mat-raised-button mat-dialog-close color="primary" [mat-dialog-close]="true" tabindex="-1">{{'kiilib.accept' | translate}}</button>         
         </mat-card-actions>

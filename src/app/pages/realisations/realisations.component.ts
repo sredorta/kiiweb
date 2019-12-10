@@ -12,7 +12,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
   selector: 'app-realisations',
   templateUrl: './realisations.component.html',
   styleUrls: ['./realisations.component.scss'],
-  animations: KiiAinimations.realisations()
+  animations: [KiiAinimations.realisations(), KiiAinimations.realisationsComments()]
 
 })
 export class RealisationsComponent extends KiiBlogAbstract implements OnInit {

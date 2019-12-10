@@ -243,7 +243,7 @@ import { KiiElementComponent } from './_kiilib/_components/kii-element/kii-eleme
     HeaderComponent,
     KiiNewsletterComponent,
     DemoComponent,
-    KiiElementComponent
+    KiiElementComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

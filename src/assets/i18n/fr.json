@@ -31,7 +31,7 @@
     "prix.subtitle"             : "Nos prix sont carrées",
     "blog.title"                : "Blog",
     "blog.subtitle"             : "Notre technologie a votre service",
-    "contact.title"             : "Contactez-nous",
+    "contact.title"             : "Contact",
     "contact.subtitle"          : "Une equipe a votre disposition",
     "alerts.title"              : "Notificacions",
     "alerts.subtitle"           : "Vos notifications",
@@ -45,5 +45,8 @@
     "oauth.title"               : "Données personnelles",
     "oauth.subtitle"            : "Conditions d'utilisatión des données personnelles",
     "email-validate.title"      : "Validation du compte",
-    "email-validate.subtitle"   : "Validation du compte de courrier electronique"
+    "email-validate.subtitle"   : "Validation du compte de courrier electronique",
+    "footer.profile"            : "Mon compte",
+    "footer.login"              : "Se connecter",
+    "footer.user-data"          : "Utilization données personelles"
 }

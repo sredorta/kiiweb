@@ -46,5 +46,9 @@
     "oauth.title"               : "Dades personals",
     "oauth.subtitle"            : "Politica d'utilització de dades personals",
     "email-validate.title"      : "Validació de compte",
-    "email-validate.subtitle"   : "Validació del compte de correu electrònic"
+    "email-validate.subtitle"   : "Validació del compte de correu electrònic",
+    "footer.profile"            : "El meu compte",
+    "footer.login"              : "Connectar-se",
+    "footer.user-data"          : "Utilització dades personals"
+
 }

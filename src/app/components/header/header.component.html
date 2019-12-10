@@ -9,7 +9,7 @@
       <source *ngIf="isMobile"  src="./assets/videos/header_s025.ogv" type="video/ogg">  
   </video> 
   <div class="content-wrapper">
-      <h1><span class="header-icon" *ngIf="myData.page=='alerts'"><i class="fas fa-bell" [matBadge]="myData.alertCount"></i></span><span>{{myData.title | translate}}</span></h1>
+      <h1><span class="header-icon" *ngIf="myData.page=='alerts'"><i class="fas fa-bell" [matBadge]="myData.alertCount"></i></span>{{myData.title | translate}}</h1>
       <h2>{{myData.subtitle | translate}}</h2>
   </div>  
   <img class="icon" src="./assets/images/more.svg"/>

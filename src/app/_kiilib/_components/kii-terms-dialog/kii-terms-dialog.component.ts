@@ -9,9 +9,15 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogContainer} from '@ang
   styleUrls: ['./kii-terms-dialog.component.scss']
 })
 export class KiiTermsDialogComponent implements OnInit {
+  hasButtons : boolean = true;
   constructor(
     public dialogRef: MatDialogRef<KiiTermsDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { 
+      if (data)
+        if (data.noButtons) { 
+          this.hasButtons = false;
+          console.log("hasButtons is", this.hasButtons)
+        } 
     }
 
   ngOnInit() {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { KiiPwaService } from '../../_services/kii-pwa.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
+import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
+import { User } from '../../_models/user';
 
 @Component({
   selector: 'kii-sidenav',
@@ -13,9 +15,16 @@ export class KiiSidenavComponent extends KiiBaseAbstract implements OnInit {
   /**Show or not install app */
   showApp = false;
 
-  constructor(private _location : Location, private kiiPwa : KiiPwaService) { super() }
+  loggedInUser : User = new User(null);
+
+  constructor(private _location : Location, private kiiPwa : KiiPwaService, private kiiApiAuth : KiiApiAuthService) { super() }
 
   ngOnInit() {
+    this.addSubscriber(
+      this.kiiApiAuth.getLoggedInUser().subscribe(res => {
+        this.loggedInUser = res;
+      })
+    )
     this.addSubscriber(
       this.kiiPwa.canInstallApp().subscribe(res => {
          if (res ==true) {

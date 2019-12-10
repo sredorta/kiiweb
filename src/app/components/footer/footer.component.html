@@ -1,3 +1,30 @@
-<p>
-  project footer
-</p>
+<div class="wrapper">
+  <div class="column-wrapper">
+    <div class="menu-wrapper">
+        <div class="title">MENU</div>
+        <div class="menu-content">
+          <div class="column1 column">
+              <button mat-button class="footer-item" [routerLink]="'/home' | localize">{{'menu.home' | translate}}</button>
+              <button mat-button class="footer-item" [routerLink]="'/demo' | localize">{{'menu.demo' | translate}}</button>
+              <button mat-button class="footer-item" [routerLink]="'/clients' | localize">{{'menu.realisations' | translate}}</button>
+              <button mat-button class="footer-item" [routerLink]="'/prices' | localize">{{'menu.price' | translate}}</button>
+              <button mat-button class="footer-item" [routerLink]="'/blog' | localize">{{'menu.blog' | translate}}</button>
+              <button mat-button class="footer-item" [routerLink]="'/contact' | localize">{{'menu.contact' | translate}}</button>
+          </div>
+          <div class="column2 column">
+              <button mat-button class="footer-item" (click)="openTermsAndConditionsDialog()">{{'footer.user-data' | translate}}</button>
+              <button *ngIf="loggedInUser.exists()" mat-button class="footer-item" [routerLink]="'/profile' | localize">{{'footer.profile' | translate}}</button>
+              <button *ngIf="!loggedInUser.exists()" mat-button class="footer-item" [routerLink]="'/login' | localize">{{'footer.login' | translate}}</button>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="column3 column">
+        <div class="title">{{'menu.contact' | translate | uppercase}}</div>
+        <a mat-button class="footer-item" href="tel:{{getPhone()}}"><i class="fas fa-phone"></i>{{getPhone()}}</a>
+        <a mat-button class="footer-item" href="mailto:{{getEmail()}}"><i class="fas fa-at"></i>{{getEmail()}}</a>
+        <div class="footer-item address"><div><i class="fas fa-map-marker-alt"></i><span>{{getAddress(0)}}</span></div><div>{{getAddress(1)}}</div><div>{{getAddress(2)}}</div> </div>
+    </div>  
+  </div>
+</div>

@@ -45,5 +45,8 @@
     "oauth.title"               : "Personal data",
     "oauth.subtitle"            : "Personal data usage policy",
     "email-validate.title"      : "Account validation",
-    "email-validate.subtitle"   : "Email account validation"
+    "email-validate.subtitle"   : "Email account validation",
+    "footer.profile"            : "My account",
+    "footer.login"              : "Sign in",
+    "footer.user-data"          : "Personal data usage"
 }
