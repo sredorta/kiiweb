@@ -1,27 +1,21 @@
 <kii-app>
     <ng-container kiiToolbarMenu>
-        <a mat-button class="kii-app-toolbar-button" [routerLink]="'/home' | localize">
-            <i class="icon fas fa-home"></i>
+        <a mat-button class="kii-app-toolbar-button home" [routerLink]="'/home' | localize">
             <small>{{'menu.home' | translate}}</small>
         </a>
-        <a mat-button class="kii-app-toolbar-button" [routerLink]="'/demo' | localize">
-          <i class="icon fas fa-laptop-code"></i>
+        <a mat-button class="kii-app-toolbar-button demo" [routerLink]="'/demo' | localize">
           <small>{{'menu.demo' | translate}}</small>
         </a>
-        <a mat-button class="kii-app-toolbar-button" [routerLink]="'/clients' | localize">
-          <i class="icon fas fa-hands-helping"></i>
+        <a mat-button class="kii-app-toolbar-button clients" [routerLink]="'/clients' | localize">
           <small>{{'menu.realisations' | translate}}</small>
         </a>
-        <a mat-button class="kii-app-toolbar-button" [routerLink]="'/prices' | localize">
-          <i class="icon fas fa-dollar-sign"></i>
+        <a mat-button class="kii-app-toolbar-button prices" [routerLink]="'/prices' | localize">
           <small>{{'menu.price' | translate}}</small>
         </a>
-        <a mat-button class="kii-app-toolbar-button" [routerLink]="'/blog' | localize">
-          <i class="fas fa-blog"></i>
+        <a mat-button class="kii-app-toolbar-button blog" [routerLink]="'/blog' | localize">
           <small>{{'menu.blog' | translate}}</small>
         </a>       
-        <a mat-button class="kii-app-toolbar-button" [routerLink]="'/contact' | localize">
-          <i class="fas fa-file-signature"></i>
+        <a mat-button class="kii-app-toolbar-button contact" [routerLink]="'/contact' | localize">
           <small>{{'menu.contact' | translate}}</small>
         </a>                     
     </ng-container>

@@ -282,7 +282,7 @@ $toolbar-theme: create-dark-theme($toolbar-primary, $toolbar-accent, $toolbar-wa
 
 kii-app .toolbar-theme {
   @include angular-material-theme($toolbar-theme);
-  color:mat-color(mat-palette($mat-grey, 400));
+  color:mat-color(mat-palette($mat-grey, 100));
 }
 
 

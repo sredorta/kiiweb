@@ -14,8 +14,6 @@
 
   kii-app .kii-app-toolbar {
     background:none;
-    //background-color: mat-color(mat-palette($mat-grey, 900));
-    //transition: background-color 0.5s ease-in-out;
     .kii-app-toolbar-icons {
         transition: opacity 0.5s ease-in-out;
     }
@@ -23,9 +21,6 @@
     .kii-app-toolbar-button {
       margin:0px;
     }
-    /*&.kii-scrolled {
-      color:black;
-    }*/
   }
   //Show only menu button if small screens and we have scrolled
   @media only screen and (max-width: 700px) {
