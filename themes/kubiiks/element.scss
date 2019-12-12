@@ -275,6 +275,15 @@
         .kii-element-container {
             width:290px;
             transition: box-shadow 0.3s ease-in-out;
+            background-position: 0% top;
+            background-repeat: no-repeat;
+            background-size: 200% auto;
+            display:flex;
+            flex-direction: column;
+            background-color:white !important;
+            box-shadow: 2px 2px 8px rgba(black,0.1);
+            transition:all 1s ease-in-out;
+            transform:scale(0.95);
         }
         &:not(.isAdminContext) .kii-element-container {
             height:100%;
@@ -299,25 +308,28 @@
         kii-article-summary {
             width:100%;
             color:white;
+            margin-bottom:30px;
             .kii-article-summary-container {
                 display:flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                min-height: 150px;
                 .kii-article-summary-image-wrapper {
-                    width:50%;
-                    margin-top:15px;
-                    img {
-                        width:100%;
-                    }
+                    display:none;
                 }
                 .kii-article-summary-text {
                     text-align: center;
                     h1 {
-                        margin-top:10px;
+                        margin-top:0px;
+                        margin-bottom:0px;
+                        font-family: 'Montserrat-bold';
                     }
                     h2 {
+                        margin-top:5px;
+                        font-size: 20px;
                         text-align: center;
+                        opacity:0.6;
                     }
                 }
             }
@@ -328,7 +340,6 @@
                 font-size: 18px !important;
             }
             .angular-editor-textarea {
-                color:white;
                 ul {
                     margin:0;
                     padding:0;
@@ -350,6 +361,8 @@
     //Desktops
     @media (pointer: fine)  { 
             kii-element.prix .kii-element-container:hover {
+                background-position: 100% top;
+                transform:scale(1);
                 box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
             }
     } 
