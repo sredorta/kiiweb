@@ -9,7 +9,7 @@
               <kii-element [ngClass]="article.cathegory" [attr.data-index]="i">
                     <kii-article-summary [descriptionTrimLength]="100" [key]="article.id"></kii-article-summary>  
                     <kii-article  [key]="article.id"></kii-article>  
-                    <div class="read-more-wrapper main-inv-theme"> 
+                    <div class="read-more-wrapper"> 
                       <button class="read-more-button" mat-button color="primary" [routerLink]="['/articles',article.id] | localize">{{'kiilib.readmore' | translate}}</button>
                     </div>
                     <!--<button class="read-more-button" mat-button color="primary" [routerLink]="['/articles',article.id] | localize">{{'kiilib.readmore' | translate}}<i class="fa fa-arrow-right"></i></button>-->

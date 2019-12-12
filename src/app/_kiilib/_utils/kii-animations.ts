@@ -54,8 +54,8 @@ export class KiiAinimations {
         return [
             trigger('realisationsCommentsAnimation', [
                 transition('* <=> *', [ 
-                    query('kii-article-summary', style({opacity:0.1,transform: 'translateY(100vw)'}),{optional:true}),
-                    query('kii-article-summary', stagger('1s', [animate('2s  ease-in-out')]),{optional:true})
+                    query('kii-article-summary .kii-article-summary-image-wrapper', style({transform: 'scale(0)'}),{optional:true}),
+                    query('kii-article-summary .kii-article-summary-image-wrapper', stagger('0.5s', [animate('1s  ease-in-out')]),{optional:true}),
                 ])
             ])
         ]
