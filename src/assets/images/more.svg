@@ -30,15 +30,15 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter2421"
-       x="-0.054224611"
-       width="1.1084492"
-       y="-0.18629907"
-       height="1.3725981">
+       id="filter2001"
+       x="-0.031882328"
+       width="1.0637647"
+       y="-0.097074858"
+       height="1.1941497">
       <feGaussianBlur
          inkscape:collect="always"
-         stdDeviation="0.56933481"
-         id="feGaussianBlur2423" />
+         stdDeviation="1.2241797"
+         id="feGaussianBlur2003" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -48,16 +48,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="39.723952"
-     inkscape:cy="42.730107"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="55.078852"
+     inkscape:cy="55.737734"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
+     inkscape:window-width="2100"
+     inkscape:window-height="1234"
+     inkscape:window-x="2391"
      inkscape:window-y="-9"
      inkscape:window-maximized="1" />
   <metadata
@@ -68,7 +68,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -77,49 +77,17 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-286.41665)">
-    <g
-       id="g2390-6"
-       style="fill:#e6e6e6;opacity:0.64999998;filter:url(#filter2421)"
-       transform="translate(-3.9999998e-8,1.0583333)">
-      <rect
-         transform="rotate(-64.741507)"
-         ry="0"
-         y="124.07062"
-         x="-261.7836"
-         height="13.931423"
-         width="1.5367996"
-         id="rect2330-1"
-         style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
-      <rect
-         transform="matrix(-0.42670279,-0.90439191,-0.90439191,0.42670279,0,0)"
-         ry="0"
-         y="100.36806"
-         x="-272.96677"
-         height="13.931423"
-         width="1.5367996"
-         id="rect2330-8-9"
-         style="opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
-    </g>
-    <g
-       id="g2390">
-      <rect
-         transform="rotate(-64.741507)"
-         ry="0"
-         y="124.07062"
-         x="-261.7836"
-         height="13.931423"
-         width="1.5367996"
-         id="rect2330"
-         style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
-      <rect
-         transform="matrix(-0.42670279,-0.90439191,-0.90439191,0.42670279,0,0)"
-         ry="0"
-         y="100.36806"
-         x="-272.96677"
-         height="13.931423"
-         width="1.5367996"
-         id="rect2330-8"
-         style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers" />
-    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path1975"
+       transform="matrix(0.26458333,0,0,0.26458333,0,286.41665)"
+       d="M 8.4550781,3.3242188 4.4335938,11.849609 50.509766,33.589844 96.585938,11.849609 92.5625,3.3242188 50.507812,23.166016 Z"
+       style="opacity:0.6;fill:#000000;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers;filter:url(#filter2001)" />
+    <path
+       style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers"
+       d="M 8.4550781,3.3242188 4.4335938,11.849609 50.509766,33.589844 96.585938,11.849609 92.5625,3.3242188 50.507812,23.166016 Z"
+       transform="matrix(0.26458333,0,0,0.26458333,0,286.41665)"
+       id="rect2330"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

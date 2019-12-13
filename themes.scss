@@ -139,7 +139,8 @@ $main-foreground: (
 $main-primary: mat-palette($mat-lime, 500);
 $main-accent:  mat-palette($mat-yellow, 600, A100, A400);
 $main-warn:    mat-palette($mat-deep-orange,300);
-$main-theme: create-light-theme($main-primary, $main-accent, $main-warn, $main-foreground, $mat-light-theme-background);
+$main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
+
 
 //Mixins
 @import'./themes/mixins/all-mixins.scss';
@@ -198,7 +199,7 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
 .kii-app-router-outlet-wrapper {
-  background-color:mat-color(mat-palette($mat-grey,200));
+  background-color:black; //mat-color(mat-palette($mat-grey,900));
 }
 
 //Email editor

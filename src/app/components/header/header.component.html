@@ -1,16 +1,18 @@
-<div class="header-wrapper" [ngClass]="{'is-short' : format == 'short'}">
-  <div class="fallback-background" src="./assets/images/header.jpg" [ngClass]="{'is-playing': isPlaying}"></div>
-  <video *ngIf="showVideo" #videoPlayer loop muted playsinline autoplay oncanplay="this.play();" onloadedmetadata="this.muted = true" [ngClass]="{'is-playing': isPlaying}">
-      <source *ngIf="!isMobile" src="./assets/videos/header_s05.webm" type="video/webm">
-      <source *ngIf="!isMobile" src="./assets/videos/header_s05.mp4" type="video/mp4">
-      <source *ngIf="!isMobile" src="./assets/videos/header_s05.ogv" type="video/ogg">
-      <source *ngIf="isMobile"  src="./assets/videos/header_s025.webm" type="video/webm">
-      <source *ngIf="isMobile"  src="./assets/videos/header_s025.mp4" type="video/mp4">
-      <source *ngIf="isMobile"  src="./assets/videos/header_s025.ogv" type="video/ogg">  
-  </video> 
-  <div class="content-wrapper">
-      <h1><span class="header-icon" *ngIf="myData.page=='alerts'"><i class="fas fa-bell" [matBadge]="myData.alertCount"></i></span>{{myData.title | translate}}</h1>
-      <h2>{{myData.subtitle | translate}}</h2>
-  </div>  
-  <img class="icon" src="./assets/images/more.svg"/>
-</div>
+
+  <div class="header-wrapper" [ngClass]="{'is-short' : format == 'short'}">
+   <div class="fallback-background" src="./assets/images/header.jpg" [ngClass]="{'is-playing': isPlaying}"></div>
+    <div class="bottom-decorator"></div>
+    <video *ngIf="showVideo" #videoPlayer loop muted playsinline autoplay oncanplay="this.play();" onloadedmetadata="this.muted = true" [ngClass]="{'is-playing': isPlaying}">
+        <source *ngIf="!isMobile" src="./assets/videos/header_s05.webm" type="video/webm">
+        <source *ngIf="!isMobile" src="./assets/videos/header_s05.mp4" type="video/mp4">
+        <source *ngIf="!isMobile" src="./assets/videos/header_s05.ogv" type="video/ogg">
+        <source *ngIf="isMobile"  src="./assets/videos/header_s025.webm" type="video/webm">
+        <source *ngIf="isMobile"  src="./assets/videos/header_s025.mp4" type="video/mp4">
+        <source *ngIf="isMobile"  src="./assets/videos/header_s025.ogv" type="video/ogg">  
+    </video> 
+    <div class="content-wrapper">
+        <h1><span class="header-icon" *ngIf="myData.page=='alerts'"><i class="fas fa-bell" [matBadge]="myData.alertCount"></i></span>{{myData.title | translate}}</h1>
+        <h2>{{myData.subtitle | translate}}</h2>
+    </div>  
+    <img class="icon" src="./assets/images/more.svg"/>
+  </div>
