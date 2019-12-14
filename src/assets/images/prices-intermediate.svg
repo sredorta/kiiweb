@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="600"
@@ -18,29 +17,7 @@
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="prices-intermediate.svg">
   <defs
-     id="defs4602">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient964">
-      <stop
-         style="stop-color:#445500;stop-opacity:1;"
-         offset="0"
-         id="stop960" />
-      <stop
-         style="stop-color:#000000;stop-opacity:1"
-         offset="1"
-         id="stop962" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient964"
-       id="linearGradient966"
-       x1="75.973213"
-       y1="173.40173"
-       x2="74.839287"
-       y2="139.38388"
-       gradientUnits="userSpaceOnUse" />
-  </defs>
+     id="defs4602" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -49,15 +26,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="239.5872"
+     inkscape:cx="-13.269943"
      inkscape:cy="448.48687"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-grids="true"
-     inkscape:window-width="2100"
-     inkscape:window-height="1234"
-     inkscape:window-x="2391"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
      units="px" />
@@ -69,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -89,6 +66,6 @@
        inkscape:connector-curvature="0"
        id="path954"
        d="m 0.06683585,177.91011 c 13.66256615,-7.68827 24.78424715,3.95219 38.20271115,3.03963 10.268322,-0.69834 23.328723,-13.69553 45.118546,-1.96899 15.631882,6.29671 30.633657,-3.63838 44.404227,-4.17629 14.01381,-0.54741 18.21896,7.14058 31.283,3.10565 V 138.11458 H 0.06683585 Z"
-       style="fill:url(#linearGradient966);fill-opacity:1;stroke-width:0.12429319" />
+       style="fill:#445500;fill-opacity:1;stroke-width:0.12429319" />
   </g>
 </svg>

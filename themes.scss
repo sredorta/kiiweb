@@ -187,7 +187,7 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
     @include angular-material-theme($admin-theme);
     @include design-theme($admin-theme);
     background: map_get($mat-grey, 900);
-    color:white;
+    color: map_get($mat-dark-theme-foreground,text);
 }
 
 
@@ -199,7 +199,7 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
 @include design-theme($main-theme);
 @include editor-theme($main-theme); //Editor is allways main-theme
 .kii-app-router-outlet-wrapper {
-  background-color:black; //mat-color(mat-palette($mat-grey,900));
+  background-color:black;
 }
 
 //Email editor
@@ -213,10 +213,6 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
   background-color:mat-color(mat-palette($mat-grey,200));
 }
 
-//FOOTER
-.kii-app-footer-wrapper {
-  background-color: mat-color(mat-palette($mat-grey,200));
-}
 
 ////////////////////////////////////////////////////////////////////////////////////
 // MAIN ALTERNATE THEME
@@ -226,8 +222,6 @@ kii-app .main-alternate-theme {
   @include angular-material-theme($main-theme);
   @include design-theme($main-theme);
   @include editor-theme($main-theme); //Editor is allways main-theme
-
-    background-color:mat-color(mat-palette($mat-grey,300)) !important;
 
 
   .angular-editor-textarea {
@@ -251,12 +245,13 @@ kii-app .main-alternate-theme {
 $main-inv-primary: mat-palette($mat-grey, 50);
 $main-inv-accent:  mat-palette($mat-grey, 600, A100, A400);
 $main-inv-warn:    mat-palette($mat-deep-orange,300);
-$main-inv-theme: create-light-theme($main-inv-primary, $main-inv-accent, $main-inv-warn, $main-foreground, $mat-dark-theme-background);
+$main-inv-theme: create-light-theme($main-inv-primary, $main-inv-accent, $main-inv-warn, $mat-light-theme-foreground, $mat-light-theme-background);
 
 kii-app .main-inv-theme {
   @include angular-material-theme($main-inv-theme);
   @include design-theme($main-inv-theme);
-
+  color: map_get($mat-dark-theme-foreground,text);
+  //color:White;
   .angular-editor-textarea {
     color: map_get($mat-light-theme-foreground,text);
   }
@@ -286,6 +281,16 @@ kii-app .toolbar-theme {
   color:mat-color(mat-palette($mat-grey, 100));
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+// FOOTER THEME
+////////////////////////////////////////////////////////////////////////////////////
+
+$footer-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-light-theme-foreground, $mat-light-theme-background);
+footer {
+  @include angular-material-theme($footer-theme);
+  color:mat-color(mat-palette($mat-grey,700));
+  background:black;
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 // DIALOG HEADER THEME

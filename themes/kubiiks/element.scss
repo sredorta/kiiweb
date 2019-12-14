@@ -7,14 +7,9 @@
     /////////////////////////////////////////////////////////////////////
     kii-element.blog {
         .kii-element-container {
-            width:280px;
+            width:260px;
             margin:0 auto;
             overflow: hidden;
-            transition:background 0.3s ease-in-out;
-            background:white;
-            padding:10px;
-            border-radius: 2px;
-            transition: box-shadow 0.3s ease-in-out;
             kii-article {
                 display:none;
             }
@@ -22,16 +17,20 @@
                 .kii-article-summary-text {
                     width:100%;
                     h1 {
+                      transition: opacity 0.3s ease-in-out;
                       font-size: 18px;
                       font-weight: bold;
                       margin-bottom:10px;
+                      opacity:0.7;
                     }
                     h2 {
+                        transition: opacity 0.3s ease-in-out;
                         overflow: hidden;
                         font-size: 16px;
                         font-weight: 200;
                         margin-top:0px;
                         height:120px;
+                        opacity:0.5;
                     }
                 }
                 .kii-article-summary-image-wrapper {
@@ -39,19 +38,19 @@
                   overflow: hidden;
                   img {
                     width:100%;
-                    transition: transform 2s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    filter:grayscale(80%);
                   }
                 }
             }
             .read-more-button {
                 font-size: 16px !important;
-                font-weight: bold;
                 i {
                   transition:all 0.3s ease-in-out;
                   margin-left:20px;
                 }
                 width:100%;
-                margin-bottom:15px;
+                margin-bottom:5px;
             }
             .created-at-wrapper {
                 width:100%;
@@ -75,6 +74,19 @@
     }
     @media (pointer: fine)  { 
         kii-element.blog .kii-element-container:hover {
+            kii-article-summary {
+                h1 {
+                    opacity:0.9;
+                }
+                h2 {
+                    opacity:0.7;
+                }
+                .kii-article-summary-image-wrapper {
+                    img {
+                      filter:grayscale(0%);
+                    }
+                }
+            }  
           kii-share button {
                 opacity: 0.8;
                 filter:grayscale(0%);
@@ -83,21 +95,33 @@
             animation: arrowAnimation 1s 3 ;
             -webkit-animation: arrowAnimation 1s 3;
           }
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
       }  
       //Tablets and phones
       @media (pointer: coarse) {
         kii-element.blog .kii-element-container.kii-appear {
-          kii-share button {
-                opacity: 0.8;
-                filter:grayscale(0%);
-          }
-          .read-more-button {
-            animation: arrowAnimation 1s 3 ;
-            -webkit-animation: arrowAnimation 1s 3;
-          }
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            kii-article-summary {
+                h1 {
+                    opacity:0.9;
+                }
+                h2 {
+                    opacity:0.7;
+                }
+                .kii-article-summary-image-wrapper {
+                    img {
+                      filter:grayscale(0%);
+                    }
+                }
+            }  
+
+            kii-share button {
+                    opacity: 0.8;
+                    filter:grayscale(0%);
+            }
+            .read-more-button {
+                animation: arrowAnimation 1s 3 ;
+                -webkit-animation: arrowAnimation 1s 3;
+            }
         }
       }  
 
@@ -267,8 +291,7 @@
             background-size: 200% auto;
             display:flex;
             flex-direction: column;
-            background-color:white !important;
-            box-shadow: 2px 2px 8px rgba(black,0.1);
+            background-color:mat-color(mat-palette($mat-grey,50)) !important;
             transition:all 1s ease-in-out;
             transform:scale(0.95);
         }
@@ -323,6 +346,7 @@
         }
         kii-article {
             width:100%;
+            color:mat-color(mat-palette($mat-grey,700));
             .angular-editor-wrapper {
                 font-size: 18px !important;
             }
@@ -350,7 +374,6 @@
             kii-element.prix .kii-element-container:hover {
                 background-position: 100% top;
                 transform:scale(1);
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
             }
     } 
     //Tablets and phones
@@ -358,7 +381,6 @@
             kii-element.prix .kii-element-container.kii-appear {
                 background-position: 100% top;
                 transform:scale(1);
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
             }
     }  
 

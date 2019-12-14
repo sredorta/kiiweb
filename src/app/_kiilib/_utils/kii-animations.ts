@@ -20,8 +20,8 @@ export class KiiAinimations {
         return [
             trigger('blogAnimation', [
                 transition('* <=> *', [ 
-                    query('.element', style({transform:'scale(0)'}),{optional:true}),
-                    query('.element', stagger('0.2s', [animate('0.5s  ease-in-out')]),{optional:true})
+                    query('kii-article-summary .kii-article-summary-text', style({opacity:0,transform:'translateY(10px)'}),{optional:true}),
+                    query('kii-article-summary .kii-article-summary-text', stagger('0.5s', [animate('0.5s  cubic-bezier(0.4,0.0,0.2,1)')]),{optional:true})
                 ])
             ])
         ]
