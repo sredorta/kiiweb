@@ -20,11 +20,11 @@
         background:mat-color($background,background);
       }
       .app-install-wrapper {
-        color:white;
+        color:mat-color($background,background);
         transition: all 0.4s ease-in-out;
       }
       .app-install-wrapper:hover {
-        color: mat-color($primary);
+        color: mat-color($primary,darker);
       }
     }
 

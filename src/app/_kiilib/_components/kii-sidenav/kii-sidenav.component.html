@@ -10,12 +10,12 @@
     </div>
 
     <div class="kii-sidenav-bottom-container">   
-        <div *ngIf="showApp" class="app-install-wrapper" mat-ripple (click)="installApp()">
+        <div *ngIf="!showApp" class="app-install-wrapper" mat-ripple (click)="installApp()">
             <div class="app-install-icon-wrapper" >
             </div>
             <div class="app-install-text">{{'kiilib.pwa.install.title' | translate}}</div>
         </div>
-        <div *ngIf="!showApp" class="app-logo-wrapper">
+        <div *ngIf="showApp" class="app-logo-wrapper">
                 <div class="app-logo-icon-wrapper" ></div>
         </div>        
     </div>

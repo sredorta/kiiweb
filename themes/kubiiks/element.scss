@@ -393,11 +393,10 @@
             margin:0 auto;
             width:100%;
             overflow: hidden;
-            transition:background 0.3s ease-in-out;
-            background:white;
+            transition:border 0.3s ease-in-out;
+            background-color:rgba(white,0.1);
             padding:10px;
-            border-radius: 2px;
-            transition: box-shadow 0.3s ease-in-out;
+            transition: background 0.3s ease-in-out;
             display:flex;
             flex-flow: column-reverse;
             kii-article-summary { 
@@ -414,11 +413,13 @@
                       font-size: 18px;
                       font-weight: bold;
                       margin-bottom:10px;
+                      transition: color 0.3s ease-in-out;
                     }
                     h2 {
                         font-size: 16px;
                         font-weight: 200;
                         margin-top:0px;
+                        opacity:0.8;
                     }
                 }
                 .kii-article-summary-image-wrapper {
@@ -438,13 +439,25 @@
     //Desktops
     @media (pointer: fine)  { 
         kii-element.demo .kii-element-container:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            kii-article-summary { 
+                .kii-article-summary-text {
+                    h1 {
+                      color: mat-color(map-get($theme,primary));
+                    }
+                }
+            }
         }
     } 
     //Tablets and phones
     @media (pointer: coarse) {
         kii-element.demo .kii-element-container.kii-appear {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+            kii-article-summary { 
+                .kii-article-summary-text {
+                    h1 {
+                      color: mat-color(map-get($theme,primary));
+                    }
+                }
+            }
         }
     }   
 

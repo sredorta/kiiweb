@@ -69,7 +69,7 @@ const SHORT_NAME = "kubiiks";
 const DESCRIPTION = "Description de l'app";
 const URL = "https://kubiiks.com";
 const THEME_COLOR =  "#d4e157";
-const BACKGROUND_COLOR = "#827717";
+const BACKGROUND_COLOR = "#000000";
 
 console.log("////////////////////////////////////////");
 console.log("// GENERATING ./dist/vps_boundle")
