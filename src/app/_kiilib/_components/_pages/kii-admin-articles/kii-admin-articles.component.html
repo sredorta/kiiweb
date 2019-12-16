@@ -70,7 +70,7 @@
                                         <mat-slide-toggle *ngIf="element.public == false" color="primary" (change)="onPublicChange(element,$event)" [checked]="element.public">{{'kiilib.article.isnotpublic' | translate}}</mat-slide-toggle>                     
                   
                                   </div> 
-                                  <div class="kii-element-container">
+                                  <div class="kii-element-container-area">
                                     <kii-element *ngIf="element == expandedElement" [ngClass]="[element.cathegory, 'isAdminContext']">
                                             <kii-article-summary *ngIf="element.cathegory != 'content'" class="demo-summary"  [key]="element.id"></kii-article-summary>  
                                             <kii-article  class="demo-article"  [key]="element.id"></kii-article>  

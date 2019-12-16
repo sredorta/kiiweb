@@ -142,6 +142,7 @@ $main-warn:    mat-palette($mat-deep-orange,300);
 $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 
 
+
 //Mixins
 @import'./themes/mixins/all-mixins.scss';
 
@@ -185,6 +186,8 @@ $admin-accent:  mat-palette($mat-yellow, 400, A100, A400);
 $admin-warn:    mat-palette($mat-deep-orange,300);
 $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 
+
+
 .admin-theme {
     @include angular-material-theme($admin-theme);
     @include design-theme($admin-theme);
@@ -204,69 +207,19 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
   background-color:black;
 }
 
+//Define as main for admin content
+.admin-theme .kii-element-container-area  {
+  background-color:black !important;
+}
+
 //Email editor
 .admin-theme kii-email-edit-form .angular-editor-textarea {
   background-color:mat-color(mat-palette($mat-grey,200)) !important;
 }
 
-//Define as main for admin content
-.admin-theme kii-element {
-  color: map_get($mat-light-theme-foreground,text);
-  background-color:mat-color(mat-palette($mat-grey,200));
-}
 
 
-////////////////////////////////////////////////////////////////////////////////////
-// MAIN ALTERNATE THEME
-////////////////////////////////////////////////////////////////////////////////////
 
-kii-app .main-alternate-theme {
-  @include angular-material-theme($main-theme);
-  @include design-theme($main-theme);
-  @include editor-theme($main-theme); //Editor is allways main-theme
-
-
-  .angular-editor-textarea {
-    color: map_get($mat-light-theme-foreground,text);
-  }
-  .admin-theme .angular-editor-textarea {
-    background-color:mat-color(mat-palette($mat-grey,400)) !important;
-  }
-  .admin-theme {
-    @include angular-material-theme($admin-theme);
-    @include design-theme($admin-theme);
-    background: map_get($mat-grey, 900);
-    color:white;
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////////
-// MAIN INVERSED THEME
-////////////////////////////////////////////////////////////////////////////////////
-//Main app theme
-$main-inv-primary: mat-palette($mat-grey, 50);
-$main-inv-accent:  mat-palette($mat-grey, 600, A100, A400);
-$main-inv-warn:    mat-palette($mat-deep-orange,300);
-$main-inv-theme: create-light-theme($main-inv-primary, $main-inv-accent, $main-inv-warn, $mat-light-theme-foreground, $mat-light-theme-background);
-
-kii-app .main-inv-theme {
-  @include angular-material-theme($main-inv-theme);
-  @include design-theme($main-inv-theme);
-  color: map_get($mat-dark-theme-foreground,text);
-  //color:White;
-  .angular-editor-textarea {
-    color: map_get($mat-light-theme-foreground,text);
-  }
-  .admin-theme .angular-editor-textarea {
-    background-color:mat-color(mat-palette($mat-grey,400)) !important;
-  }
-  .admin-theme {
-    @include angular-material-theme($admin-theme);
-    @include design-theme($admin-theme);
-    background: map_get($mat-grey, 900);
-    color:white;
-  }
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////////

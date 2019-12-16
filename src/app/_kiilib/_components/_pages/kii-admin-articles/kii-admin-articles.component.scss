@@ -47,8 +47,9 @@ tr.element-row:not(.expanded-row):hover {
     padding-top:10px;
     padding-bottom:10px;
 }
-.kii-element-container {
+.kii-element-container-area {
     width:100%;
+    min-width: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
