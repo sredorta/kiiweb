@@ -13,12 +13,20 @@
   $is-dark-theme: map-get($theme, is-dark);
 
     kii-footer {
+        mat-card {
+            background:none !important;
+            box-shadow: none !important;
+            .mat-card-header-text {
+                margin-left:0px !important;
+            }
+        }
         .kii-newsletter {
             background-image: url("/assets/images/newsletter-background.svg");
             background-repeat: no-repeat;
             background-size: auto 100%;
             background-position: left top;
             margin-top:0px;
+            padding-bottom:50px !important;
         }
         .kii-footer-link {
             text-decoration: none;

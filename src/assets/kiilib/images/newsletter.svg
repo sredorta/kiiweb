@@ -46,7 +46,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="293.28538"
+     inkscape:cx="166.85681"
      inkscape:cy="232.68488"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -77,35 +77,35 @@
     <g
        id="g10667"
        transform="matrix(1.492735,-0.7996757,0.7996757,1.492735,-249.01257,-92.731448)"
-       style="fill:#f9f9f9">
+       style="fill:#ffffff;opacity:0.65230769;fill-opacity:1">
       <g
          id="g6"
          transform="matrix(0.07276041,0,0,0.07276041,34.478987,242.6546)"
-         style="fill:#f9f9f9">
+         style="fill:#ffffff;fill-opacity:1">
         <g
            id="g4"
-           style="fill:#f9f9f9">
+           style="fill:#ffffff;fill-opacity:1">
           <path
              inkscape:connector-curvature="0"
              id="path2-9"
              d="M 0,86.337 V 425.662 H 512 V 86.337 Z M 451.47,116.755 256,264.589 60.53,116.755 Z M 30.417,132.116 194.218,256 30.417,379.884 Z M 60.53,395.245 219.43,275.068 256,302.725 292.57,275.068 451.47,395.245 Z M 481.582,379.884 317.781,256 481.582,132.117 Z"
-             style="fill:#000000" />
+             style="fill:#ffffff;fill-opacity:1" />
         </g>
       </g>
       <text
          id="text10660"
          y="278.44281"
          x="35.555416"
-         style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.13229166"
+         style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.13229166"
          xml:space="preserve"><tspan
-           style="fill:#000000;stroke-width:0.13229166"
+           style="fill:#ffffff;stroke-width:0.13229166;fill-opacity:1"
            y="278.44281"
            x="35.555416"
            id="tspan10658"
            sodipodi:role="line">NEWSLETTER</tspan></text>
     </g>
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#cddc23;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       style="opacity:0.65230769;fill:#ffffff;fill-opacity:1;stroke:#cddc23;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
        d="m 77.972892,252.86118 c 16.06429,-2.29762 36.087858,-33.86024 56.747698,-20.45572 22.37384,16.06141 42.0688,23.48898 59.97239,11.05372 l -2.83482,5.85863 c -10.48048,14.37175 -22.62929,33.32545 -48.69027,3.66874 -18.85899,-26.77426 -49.305681,1.41269 -65.194998,-0.12537 z"
        id="rect3068"
        inkscape:connector-curvature="0"

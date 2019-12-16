@@ -101,7 +101,7 @@ $mat-dark-theme-foreground: (
   secondary-text:    $light-secondary-text,
   icon:              white,
   icons:             white,
-  text:              white,
+  text:              rgba(white,0.8),
   slider-min:        white,
   slider-off:        rgba(white, 0.3),
   slider-off-active: rgba(white, 0.3),
@@ -240,7 +240,7 @@ kii-app .toolbar-theme {
 // FOOTER THEME
 ////////////////////////////////////////////////////////////////////////////////////
 
-$footer-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-light-theme-foreground, $mat-light-theme-background);
+$footer-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 footer {
   @include angular-material-theme($footer-theme);
   color:mat-color(mat-palette($mat-grey,700));

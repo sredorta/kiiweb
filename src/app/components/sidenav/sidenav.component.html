@@ -3,6 +3,7 @@
 <button mat-menu-item class="sidenav-item" [routerLink]="'/clients' | localize"><i class="fas fa-hands-helping"></i>{{'menu.realisations' | translate}}</button>
 <button mat-menu-item class="sidenav-item" [routerLink]="'/prices' | localize"><i class="fas fa-dollar-sign"></i>{{'menu.price' | translate}}</button>
 <button mat-menu-item class="sidenav-item" [routerLink]="'/blog' | localize"><i class="fas fa-blog"></i>{{'menu.blog' | translate}}</button>
+<button mat-menu-item class="sidenav-item" [routerLink]="'/contact' | localize"><i class="fas fa-file-signature"></i>{{'menu.contact' | translate}}</button>
 
 <button *ngIf="loggedInUser.exists()" mat-menu-item class="sidenav-item" [routerLink]="'/profile' | localize"><i class="fas fa-user"></i>{{'menu.profile' | translate}}</button>
 
