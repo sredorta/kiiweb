@@ -31,7 +31,7 @@ mat-card {
     display:flex;
     justify-content: center;
     align-items: stretch;
-    padding:20px;
+    padding:30px;
 }
 
 .newsletter-svg {
@@ -51,6 +51,5 @@ mat-card {
     mat-card {margin:0 auto;}
     .newsletter-svg {
         margin:0 auto;
-        min-height: 140px;
     }
 }

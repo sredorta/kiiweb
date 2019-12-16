@@ -19,8 +19,6 @@ kii-contact {
   }
   .wrapper-content-main {
     padding-top:20px;
-    background:mat-color($primary,darker);
-    color:white;
     padding-bottom:20px;
   }
   .chat-button-wrapper {
@@ -28,10 +26,6 @@ kii-contact {
     display:flex;
     justify-content: center;
     align-items: center;
-    .chat-button {
-      background-image: url("/assets/kiilib/images/chat-icon.svg");
-      background-size: cover;
-     }
   }
   .wrapper-content-form {
     padding:10px;
@@ -41,7 +35,6 @@ kii-contact {
       min-width: 60vw;
       padding:10px;
     }
-    background:mat-color(mat-palette($mat-grey,50));
   }
   .wrapper-content-address {
     padding:10px;

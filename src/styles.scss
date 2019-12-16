@@ -56,34 +56,14 @@ input:-webkit-autofill,
 ////////////////////////////////////////////////////////////////////////////    
 // FONTS
 ////////////////////////////////////////////////////////////////////////////
-@font-face {
-	font-family: "Reenie Beanie";
-    src: url('/assets/fonts/Reenie_Beanie/ReenieBeanie-Regular.ttf');
-    font-style: normal;
-    font-weight: 400;
-}
-@font-face {
-	font-family: "Homemade Apple";
-    src: url('/assets/fonts/Homemade_Apple/HomemadeApple-Regular.ttf');
-    font-style: normal;
-    font-weight: 400;
-}
-@font-face {
-	font-family: "Mansalva";
-    src: url('/assets/fonts/Mansalva/Mansalva-Regular.ttf');
-    font-style: normal;
-    font-weight: 400;
-}
+
 
 @font-face {
 	font-family: "Montserrat";
     src: url('/assets/fonts/Montserrat/Montserrat-Regular.ttf');
-    font-style: normal;
-    font-weight: 200;
 }
 @font-face {
-	font-family: "Montserrat-bold";
+	font-family: "Montserrat";
     src: url('/assets/fonts/Montserrat/Montserrat-Bold.ttf');
-    font-style: bold;
-    font-weight: 400;
+    font-weight: bold;
 }

@@ -160,6 +160,7 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 @import './themes/kubiiks/page.scss';
 @import './themes/kubiiks/fill-side.scss';
 @import './themes/kubiiks/element.scss';
+@import './themes/kubiiks/chat.scss';
 
 @mixin design-theme($theme) {
     @include toolbar-theme($theme);
@@ -168,6 +169,7 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
     @include forms-theme($theme);
     @include scrollbar-theme($theme);
     @include dialog-theme($theme);
+    @include chat-theme($theme);
     @include article-theme($theme);
     @include blog-theme($theme);
     @include contact-theme($theme);

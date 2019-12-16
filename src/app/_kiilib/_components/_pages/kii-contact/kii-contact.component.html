@@ -11,7 +11,7 @@
                 </div>
                 <div  class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
-                        <div class="chat-button-wrapper"><button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" mat-fab color="primary" class="chat-button" (click)="onOpenChat()"></button></div>
+                        <div class="chat-button-wrapper"><button mat-button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" class="chat-button" (click)="onOpenChat()">Chat</button></div>
                 </div>
          </div>
          <div class="wrapper-content-form">        

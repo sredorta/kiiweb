@@ -7,6 +7,8 @@
     "menu.legal"  : "Menciones legales",
     "menu.realisations": "Clientes",
     "menu.price"  : "Precios",
+    "menu.profile" : "Mi cuenta",
+    "menu.login" : "Connectarse",
     "ROUTES.sidenav" : "menu",
     "ROUTES.home"      : "inicio",
     "ROUTES.demo"      : "demo",

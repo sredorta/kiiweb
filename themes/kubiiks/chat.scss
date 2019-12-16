@@ -1,7 +1,7 @@
 @import '~@angular/material/theming';
 
 // mixin name will be used in main style.scss
-@mixin article-theme($theme) {
+@mixin chat-theme($theme) {
   
   // retrieve variables from theme 
   // (all possible variables, use only what you really need)
@@ -12,12 +12,14 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
+kii-chat {
 
-    kii-article-detail kii-article {
-        background: mat-color(mat-palette($mat-grey,100));
-        color: mat-color(mat-palette($mat-grey,700));
-        margin-bottom:10px;
-        margin-top:20px;
-    }
+  .message-text {
+      color:black;
+  }
 
+  @media only screen and (min-width: 700px) { 
+
+  }
 }
+} //end mixin
