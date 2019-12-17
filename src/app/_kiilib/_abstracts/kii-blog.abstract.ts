@@ -11,6 +11,9 @@ export abstract class KiiBlogAbstract extends KiiBaseAbstract  {
 
     /**Contains all articles of the given cathegory */
     articles : Article[] = [];
+
+    /**Contains all current displayed articles */
+    displayedArticles : Article[] = [];
     
     /**Cathegory of the articles to show */
     cathegory : string = "none";
@@ -32,6 +35,7 @@ export abstract class KiiBlogAbstract extends KiiBaseAbstract  {
         this.addSubscriber(
           this._kiiApiArticle.onChange().subscribe(res => {
             this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
+            this.displayedArticles = this.articles;
             this.isLoading = false;
           }, () => this.isLoading = false)
         )  

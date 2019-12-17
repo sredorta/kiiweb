@@ -1,0 +1,38 @@
+<div class="kii-search-pager">
+  <div class="kii-search-wrapper">
+    <div class="search-wrapper">
+      <div class="search-left">
+        <div class="search-left-content"></div>
+      </div>
+        <mat-form-field appearance="outline" style="min-width:250px" class="scale">
+            <mat-label >{{'kiilib.search' | translate}}</mat-label>
+            <input matInput [(ngModel)]="valueSearch" (keyup)="keyUp.next($event.target.value)" placeholder="{{'kiilib.search' | translate}}" autocomplete="off">
+            <button mat-icon-button matSuffix (click)="resetSearch()"><i class="fas fa-times"></i></button>
+        </mat-form-field>
+    </div>
+    <div class="search-result-wrapper">
+      <div *ngIf="_dataSource.filteredData.length==0 && currentSearch.length>1" class="not-found">
+            <p>{{'kiilib.search.notfound' | translate}}</p>
+      </div>
+      <div *ngIf="_dataSource.filteredData.length>0 && currentSearch.length>1" class="found">
+            <p><span class="found-count">{{'kiilib.search.found'| translate}} {{_dataSource.filteredData.length}}</span> {{'kiilib.search.outof' | translate}} <span class="total-count">{{_dataSource.data.length}}</span></p>
+      </div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+  <div class="kii-search-pager-wrapper">
+    <div class="counters-wrapper">
+      <div class="total-count">
+          <span>{{'kiilib.search.total' | translate}} {{data.length}}</span>
+      </div>
+      <div class="current-page">
+          <span>{{'kiilib.search.page' | translate}} {{currentPage}}</span>
+      </div>
+    </div>
+    <div class="pager-buttons-wrapper">
+      <button mat-button class="pager-left" [disabled]="currentPage<=1" (click)="previousPage()">Left</button>
+      <div class="pager-middle"></div>
+      <button mat-button class="pager-right" [disabled]="currentPage>=lastPage" (click)="nextPage()">Right</button>
+    </div>
+  </div>
+</div>

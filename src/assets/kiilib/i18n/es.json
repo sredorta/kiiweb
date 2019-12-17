@@ -32,7 +32,12 @@
     "kiilib.language" : "Idioma",
     "kiilib.network": "Red",
     "kiilib.readmore" : "Leer mas",
-    
+    "kiilib.search.notfound" : "No se pudo encontrar ningun resultado",
+    "kiilib.search.found" : "Encontrados",
+    "kiilib.search.outof" : " elementos de un total de",
+    "kiilib.search.total" : "Total",
+    "kiilib.search.page"  : "Pagina",
+
     "kiilib.editor.placeholder"     : "Escribe tu texto aqui...",
     "kiilib.editor.undo"            : "Deshacer",
     "kiilib.editor.redo"            : "Rehacer",

@@ -9,6 +9,7 @@ import { KiiMiscService } from '../../../_services/kii-misc.service';
 import { Router } from '@angular/router';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { Article } from 'src/app/_kiilib/_models/article';
 
 @Component({
   selector: 'kii-blog',
@@ -48,5 +49,11 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
     console.log("Recieved onAppear",event);
     if (!this.device.isMobile())
       this.showAnimation = true;
+  }
+
+  /**When search results has changes */
+  onSearchChanges(displayedArticles:Article[]) {
+    this.displayedArticles = displayedArticles;
+    console.log(this.displayedArticles);
   }
 }

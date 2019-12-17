@@ -32,6 +32,11 @@
     "kiilib.language" : "Idioma",
     "kiilib.network": "Xarxa",
     "kiilib.readmore" : "Llegir mes",
+    "kiilib.search.notfound" : "La recerca no ha donat cap resultat",
+    "kiilib.search.found" : "Trovats",
+    "kiilib.search.outof" : " elements sobre un total de",
+    "kiilib.search.total" : "Total elements",
+    "kiilib.search.page"  : "Pàgina",
 
     "kiilib.editor.placeholder"     : "Escriu el teu texte aqui...",
     "kiilib.editor.undo"            : "Desfer",

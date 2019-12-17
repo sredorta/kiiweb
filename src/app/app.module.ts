@@ -157,6 +157,7 @@ import { DeviceDetectorService, DeviceDetectorModule } from 'ngx-device-detector
 import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii-newsletter.component';
 import { DemoComponent } from './pages/demo/demo.component';
 import { KiiElementComponent } from './_kiilib/_components/kii-element/kii-element.component';
+import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.component';
 
 
 
@@ -244,6 +245,7 @@ import { KiiElementComponent } from './_kiilib/_components/kii-element/kii-eleme
     KiiNewsletterComponent,
     DemoComponent,
     KiiElementComponent,
+    KiiSearchComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

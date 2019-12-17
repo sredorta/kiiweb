@@ -32,6 +32,11 @@
     "kiilib.language" : "Langue",
     "kiilib.network": "Reseau",
     "kiilib.readmore" : "Lire plus",
+    "kiilib.search.notfound" : "La recherche n'a donné aucun resultat",
+    "kiilib.search.found" : "Trouvé",
+    "kiilib.search.outof" : " elements sur un total de",
+    "kiilib.search.total" : "Total",
+    "kiilib.search.page"  : "Page",
 
     "kiilib.editor.placeholder"     : "Écrire votre texte ici...",
     "kiilib.editor.undo"            : "Défaire",

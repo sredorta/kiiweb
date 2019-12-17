@@ -32,6 +32,11 @@
     "kiilib.language" : "Language",
     "kiilib.network": "Network",
     "kiilib.readmore" : "Read more",
+    "kiilib.search.notfound" : "Could not found any result matching the search criteria",
+    "kiilib.search.found" : "Found",
+    "kiilib.search.outof" : "elements out of a total of",
+    "kiilib.search.total" : "Item count",
+    "kiilib.search.page"  : "Page",
 
     "kiilib.editor.placeholder"     : "Enter your text here...",
     "kiilib.editor.undo"            : "Undo",

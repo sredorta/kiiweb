@@ -1,0 +1,66 @@
+@import '~@angular/material/theming';
+
+// mixin name will be used in main style.scss
+@mixin search-theme($theme) {
+  
+  // retrieve variables from theme 
+  // (all possible variables, use only what you really need)
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+  $background:map-get($theme,background);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  kii-search {
+    .kii-search-wrapper {
+        background-image:url("/assets/images/search-background.svg");
+        background-size: 100% auto;
+        background-position: bottom left;
+        background-repeat: no-repeat;
+        padding:10px;
+        .mat-form-field-wrapper {
+            padding-bottom:0px;
+        }
+        .mat-form-field-label {
+            color:mat-color($primary);
+        }
+
+        .search-left-content {
+            background-image:url("/assets/kiilib/images/search-icon.svg");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .search-result-wrapper {
+        //border:1px solid red;
+        min-height: 40px;
+        .found-count {font-weight: bold;}
+    }
+    //PAger part
+    .kii-search-pager-wrapper {
+        .counters-wrapper {
+            min-height: 60px;
+            width:100%;
+            border:1px solid red;
+            background-image:url("/assets/images/search-background.svg");
+            background-size: 100% auto;
+            background-position: bottom left;
+            background-repeat: no-repeat;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            .total-count {display:none;}
+            .current-page {
+                padding-right:15px;
+                font-size: 12px;
+            }
+        }
+    }
+
+  }
+
+}
+
