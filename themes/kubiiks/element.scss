@@ -149,10 +149,10 @@
             .kii-article-summary-container {
                 display:flex;
                 flex-direction: column;
-                padding-bottom: 60px;
             }
             .kii-article-summary-text {
                 width:100%;
+                transition:all 0.3s ease-in-out;
                 h1 {
                   font-size: 18px;
                   font-weight: bold;
@@ -160,7 +160,6 @@
                   opacity:0.9;
                 }
                 h2 {
-                    height:75px;
                     overflow: hidden;
                     font-size: 16px;
                     font-weight: 200;
@@ -178,37 +177,39 @@
             }
         }
         .read-more-wrapper {
-            background-image: url("/assets/images/clients.svg");
-            background-size:100% auto;
-            background-position: left bottom;
-            background-repeat: no-repeat;
-            transition: all 0.5s ease-in-out;
-            position:absolute;
+            opacity:0;
+            transition:all 0.5s ease-in-out;
             width:200px;
-            height:60px;
-            top:488px;
-            left:0px;
             display:flex;
-            justify-content: flex-start;
-            align-items: flex-end;
+            justify-content: center;
+            align-items: center;
             .read-more-button {
-                margin:5px;
                 font-weight: bold;
             }
         }
     }
     @media (pointer: fine)  { 
         kii-element.realisations .kii-element-container:hover {
-           .read-more-wrapper {
-                top:428px;
+            kii-article-summary { 
+                .kii-article-summary-text {
+                    color:white;
+                }
+            }
+            .read-more-wrapper {
+                opacity:1;
             }
         }
       }  
       //Tablets and phones
       @media (pointer: coarse) {
         kii-element.realisations .kii-element-container.kii-appear {
+            kii-article-summary { 
+                .kii-article-summary-text {
+                    color:white;
+                }
+            }
             .read-more-wrapper {
-                top:428px;
+                opacity:1;
             }
         }
       }  
