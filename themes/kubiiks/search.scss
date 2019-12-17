@@ -43,7 +43,6 @@
         .counters-wrapper {
             min-height: 60px;
             width:100%;
-            border:1px solid red;
             background-image:url("/assets/images/search-background.svg");
             background-size: 100% auto;
             background-position: bottom left;
@@ -56,6 +55,9 @@
             .current-page {
                 padding-right:15px;
                 font-size: 12px;
+                span:first-child {
+                    font-weight: bold;
+                }
             }
         }
     }

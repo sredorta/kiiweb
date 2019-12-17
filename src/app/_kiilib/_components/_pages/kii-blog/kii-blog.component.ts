@@ -9,7 +9,7 @@ import { KiiMiscService } from '../../../_services/kii-misc.service';
 import { Router } from '@angular/router';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { Article } from 'src/app/_kiilib/_models/article';
+import { Article } from '../../../_models/article';
 
 @Component({
   selector: 'kii-blog',

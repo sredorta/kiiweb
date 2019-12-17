@@ -37,6 +37,8 @@
     "kiilib.search.outof" : "elements out of a total of",
     "kiilib.search.total" : "Item count",
     "kiilib.search.page"  : "Page",
+    "kiilib.search.next"  : "Next",
+    "kiilib.search.previous": "Previous",
 
     "kiilib.editor.placeholder"     : "Enter your text here...",
     "kiilib.editor.undo"            : "Undo",

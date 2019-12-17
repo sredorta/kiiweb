@@ -17,7 +17,7 @@ export class KiiSearchComponent extends KiiBaseAbstract implements OnInit {
   @Input() data : any[] = [];
 
   /**Elements per page */
-  @Input() itemsPage : number = 4;
+  @Input() itemsPage : number = 12;
 
   /**Current selected page */
   currentPage:number = 1;
@@ -31,7 +31,7 @@ export class KiiSearchComponent extends KiiBaseAbstract implements OnInit {
   /**Contains the current search */
   currentSearch : string = "";
 
-  private _dataSource;
+  _dataSource;
 
   constructor() { super() }
 

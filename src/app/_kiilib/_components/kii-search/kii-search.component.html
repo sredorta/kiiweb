@@ -27,12 +27,13 @@
       </div>
       <div class="current-page">
           <span>{{'kiilib.search.page' | translate}} {{currentPage}}</span>
+          <span class="last-page"> - {{lastPage}} </span>
       </div>
     </div>
     <div class="pager-buttons-wrapper">
-      <button mat-button class="pager-left" [disabled]="currentPage<=1" (click)="previousPage()">Left</button>
+      <button mat-button color="accent" class="pager-left" [disabled]="currentPage<=1" (click)="previousPage()">{{'kiilib.search.previous' | translate}}</button>
       <div class="pager-middle"></div>
-      <button mat-button class="pager-right" [disabled]="currentPage>=lastPage" (click)="nextPage()">Right</button>
+      <button mat-button color="accent" class="pager-right" [disabled]="currentPage>=lastPage" (click)="nextPage()">{{'kiilib.search.next' | translate}}</button>
     </div>
   </div>
 </div>

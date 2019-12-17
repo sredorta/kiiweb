@@ -37,6 +37,8 @@
     "kiilib.search.outof" : " elements sobre un total de",
     "kiilib.search.total" : "Total elements",
     "kiilib.search.page"  : "Pàgina",
+    "kiilib.search.next"  : "Següent",
+    "kiilib.search.previous": "Anterior",
 
     "kiilib.editor.placeholder"     : "Escriu el teu texte aqui...",
     "kiilib.editor.undo"            : "Desfer",

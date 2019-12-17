@@ -143,10 +143,6 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 
 
 
-//Mixins
-@import'./themes/mixins/all-mixins.scss';
-
-
 //Themes
 @import './themes/kubiiks/toolbar.scss';
 @import './themes/kubiiks/sidenav.scss';
