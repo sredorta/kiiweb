@@ -15,7 +15,6 @@ export class RegisteredGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      console.log("User exists :", this.kiiApiAuth.getLoggedInUserValue().exists() )
       return this.kiiApiAuth.getAuthUser().pipe(map(res => {
          let user = new User(res);
          if (user.exists()) return true;

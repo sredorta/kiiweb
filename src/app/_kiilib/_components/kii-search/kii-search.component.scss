@@ -8,6 +8,11 @@
     mat-form-field {
         width:100%;
         max-width: 250px;
+        button { 
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
 }
@@ -21,8 +26,8 @@
 .search-left-content {
     min-width: 50px;
     min-height: 50px;
-    width:80px;
-    height:80px;
+    width:60px;
+    height:60px;
     margin-left:5px;
     margin-right:5px;
 }
@@ -47,8 +52,13 @@
 //Pager part
 .pager-buttons-wrapper {
     display:flex;
+    padding-left:10px;
+    padding-right:10px;
     .pager-middle {
         width:100%;
         flex:1 1 auto;
+    }
+    mat-button {
+        display:block;
     }
 }

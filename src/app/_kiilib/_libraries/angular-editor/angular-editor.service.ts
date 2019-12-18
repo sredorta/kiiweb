@@ -87,7 +87,6 @@ export class AngularEditorService {
       if (window.getSelection())
          if (window.getSelection().focusNode)
             selectedElement  = window.getSelection().focusNode.parentNode;
-    console.log("SELECTED :", selectedElement);        
     let value = "0.6em";
     switch (fontSize) {
       case "1":
@@ -121,8 +120,6 @@ export class AngularEditorService {
         value="3.2em"      
         break;                        
     }
-    console.log("selection:", document.getSelection());
-    console.log("Setting size to:", value);
     if (selectedElement) {
       if (selectedElement.classList.value.includes('angular-editor-textarea')) {
         document.execCommand("insertHTML", false, '<span style="font-size:'+value+';">'+document.getSelection()+'</span>');

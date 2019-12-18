@@ -222,8 +222,6 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
         this.result = res;
         this.pagesVisitedHistogram = this.result.pages_visited_histogram[this.language];
         this.socialTypes = Object.keys(this.result.social_over_day);
-
-        console.log("STATS RESULT:",res);
         this.isDataLoading = false;
       },
       () => this.isDataLoading = false)

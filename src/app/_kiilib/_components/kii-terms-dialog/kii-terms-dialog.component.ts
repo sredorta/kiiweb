@@ -16,7 +16,6 @@ export class KiiTermsDialogComponent implements OnInit {
       if (data)
         if (data.noButtons) { 
           this.hasButtons = false;
-          console.log("hasButtons is", this.hasButtons)
         } 
     }
 

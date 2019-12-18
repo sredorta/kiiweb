@@ -29,7 +29,6 @@ export class FooterComponent extends KiiBaseAbstract implements OnInit  {
     this.addSubscriber(
       this.kiiApiSetting.onChange().subscribe(res => {
         this.settings = res;
-        console.log(this.settings);
       })
     )
   }

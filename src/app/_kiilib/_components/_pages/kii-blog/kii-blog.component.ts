@@ -46,7 +46,6 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
     return this.localize.translateRoute('/article/'+ articleId);
   }
   animate(event : boolean) {
-    console.log("Recieved onAppear",event);
     if (!this.device.isMobile())
       this.showAnimation = true;
   }
@@ -54,6 +53,5 @@ export class KiiBlogComponent extends KiiBlogAbstract implements OnInit {
   /**When search results has changes */
   onSearchChanges(displayedArticles:Article[]) {
     this.displayedArticles = displayedArticles;
-    console.log(this.displayedArticles);
   }
 }

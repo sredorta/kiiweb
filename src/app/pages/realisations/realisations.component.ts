@@ -41,14 +41,11 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
         //this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
         this.articlesClients = res.filter(obj => obj.cathegory == "realisations" && obj.public == true);
         this.articlesComments = res.filter(obj => obj.cathegory == "realisations-comments" && obj.public == true);
-        console.log("Clients", this.articlesClients);
-        console.log("Comments", this.articlesComments);
         this.isLoading = false;
       }, () => this.isLoading = false)
     )  
     this.addSubscriber(
       this.kiiApiPage.onChange().subscribe(res => {
-        console.log("MyPage is:",this.kiiApiPage.getByKey(this.page));
         let myPage = this.kiiApiPage.getByKey(this.page);
         this.kiiMisc.seo(myPage.title,myPage.description,myPage.image, this.router.url);
         //this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
@@ -59,12 +56,10 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
 
 
   animateClients(event : boolean) {
-    console.log("Recieved onAppear",event);
     if (!this.device.isMobile())
       this.showAnimationClients = true;
   }
   animateComments(event : boolean) {
-    console.log("Recieved onAppear",event);
     if (!this.device.isMobile())
       this.showAnimationComments = true;
   }

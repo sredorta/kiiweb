@@ -45,9 +45,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="195.83762"
-     inkscape:cy="38.102712"
+     inkscape:zoom="0.7"
+     inkscape:cx="619.26261"
+     inkscape:cy="118.91492"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,7 +65,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -76,9 +76,9 @@
      transform="translate(0,-244.08332)">
     <path
        style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       d="m 109.47971,250.90866 c 47.2311,-16.26699 150.26124,8.32064 200.25185,3.32618 61.22499,-6.11686 100.92141,-9.22089 100.92141,-9.22089 l 4.12857,57.23192 c 0,0 -70.32949,-16.18433 -102.29505,-10.90081 -57.50647,9.50512 -111.53195,5.79017 -152.04346,4.88619 -11.90151,-0.26557 -55.87341,-18.17667 -67.214121,-4.76976 -10.883424,13.80744 -54.671474,-3.38207 -71.464838,4.17241 -8.117947,3.65185 -22.66321923,-1.58496 -24.3814131,-2.7515 2.75357787,-1.85532 -1.7171044,-27.5702 0.073569,-41.43962 5.5881077,-9.01013 9.7341533,-3.36716 16.0177724,-2.67826 6.505296,0.7132 12.533016,-2.59471 15.86418,-3.19925 32.615947,-5.91912 53.79035,12.41591 80.141531,5.34339 z"
+       d="m 108.94517,247.03325 c 53.64557,-5.97711 150.66215,9.52335 200.65276,4.52889 61.22499,-6.11686 101.05504,-6.54819 101.05504,-6.54819 l 4.12857,57.23192 c 0,0 -65.79378,-5.601 -102.29505,-10.90081 -99.32244,-9.49072 -222.967885,12.58386 -315.1038321,1.53734 2.75357787,-1.85532 -1.7171044,-27.5702 0.073569,-41.43962 C 33.77323,239.84857 77.352263,249.74299 108.94517,247.03325 Z"
        id="rect9707"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="csccsscsccssc" />
+       sodipodi:nodetypes="cscccccc" />
   </g>
 </svg>

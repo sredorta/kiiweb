@@ -64,7 +64,6 @@ export class KiiContactComponent extends KiiBlogAbstract implements OnInit {
 
 
   animate(event : boolean) {
-    console.log("Recieved onAppear",event);
     if (!this.device.isMobile())
       this.showAnimation = true;
   }

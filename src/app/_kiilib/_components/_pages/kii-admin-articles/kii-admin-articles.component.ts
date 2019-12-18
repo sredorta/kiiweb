@@ -168,7 +168,6 @@ export class KiiAdminArticlesComponent extends KiiTableAbstract implements OnIni
   onArticleCreate() {
     this.isDataLoading = true;
     let subscription = this.kiiApiArticle.create(this.newCathegory).subscribe(article => {
-        console.log(article);
         this.kiiApiArticle.addUnshift(article);
         this.isDataLoading =false;
     }, () => {

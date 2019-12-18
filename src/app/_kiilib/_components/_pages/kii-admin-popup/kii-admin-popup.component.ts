@@ -29,7 +29,6 @@ export class KiiAdminPopupComponent extends KiiBaseAbstract implements OnInit {
   }
 
   onStatusChange(value: MatSlideToggleChange) {
-    console.log(value);
     if (value.checked == true) {
       this.setting.value = Math.random().toString(36).replace(/[^a-z]+/g, '');
     } else {

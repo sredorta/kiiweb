@@ -96,7 +96,6 @@ export class KiiImageGalleryDialogComponent extends KiiBaseAbstract implements O
 
   onSizeChange(event: MatSliderChange) {
     this.size = event.value;
-    console.log(event);
   }
 
   onPercentageChange(event: MatSlideToggleChange) {

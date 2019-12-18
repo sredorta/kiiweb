@@ -42,12 +42,10 @@ export class KiiSearchComponent extends KiiBaseAbstract implements OnInit {
       this._dataSource = new MatTableDataSource(this.data);
       this.setFilter();
       this.result.emit(this.getPagedElements(this._dataSource.data));
-      console.log("Changes:", this.data);
     }
   }
 
   ngOnInit() {
-    console.log("Data is:", this.data);
     this._dataSource = new MatTableDataSource(this.data);
     this.setFilter();
     this.resetSearch();
@@ -79,7 +77,6 @@ export class KiiSearchComponent extends KiiBaseAbstract implements OnInit {
     if(filterValue!== null) {
       this._dataSource.filter = filterValue.trim().toLowerCase();
       this._dataSource.filteredData.sort((a, b) => b.fweight - a.fweight); //Sort by matching criteria
-      console.log("RESULT:", this._dataSource.filteredData );
       this.result.emit(this.getPagedElements(this._dataSource.filteredData));
    } 
 
@@ -126,14 +123,10 @@ export class KiiSearchComponent extends KiiBaseAbstract implements OnInit {
       this.lastPage = this.lastPage + 1;
     }
 
-    console.log("Emitting page", elements);
-    console.log("CURRENT PAGE:", this.currentPage);
     let indexRight = (this.currentPage * this.itemsPage);
     let indexLeft = indexRight - this.itemsPage;
     indexRight = indexRight - 1;
-    console.log("Asking for indexes :", indexLeft,indexRight);
     //When page is full
-    console.log("Datasource length: " , elements.length);
     if (elements.length-1>= indexRight) {
       return elements.slice(indexLeft,indexRight+1);
     } else {

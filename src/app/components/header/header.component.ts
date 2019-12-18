@@ -54,7 +54,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.myData = JSON.parse(JSON.stringify(this.data));
-    console.log("DATA IS:", this.myData);
     this.showVideo = isPlatformBrowser(this.platformId);
     if (!this.myData) {
       this.myData.title = "Page not found";

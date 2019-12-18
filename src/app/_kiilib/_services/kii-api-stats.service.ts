@@ -94,7 +94,6 @@ export class KiiApiStatsService {
       myStat.session = this.getSessionId();
       myStat.ressource = ressource;
       myStat.action = action;
-      console.log("Sending stats :" , myStat);
       this.http.post(environment.apiURL + '/stats/save', {stat:myStat}).subscribe();
 
 

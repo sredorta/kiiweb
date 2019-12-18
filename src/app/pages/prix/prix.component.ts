@@ -29,7 +29,6 @@ export class PrixComponent extends KiiBlogAbstract implements OnInit {
   }
 
   animate(event : boolean) {
-    console.log("Recieved onAppear",event);
     if (!this.device.isMobile())
       this.showAnimation = true;
   }

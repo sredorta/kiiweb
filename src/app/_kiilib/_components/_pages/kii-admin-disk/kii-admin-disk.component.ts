@@ -78,7 +78,6 @@ export class KiiAdminDiskComponent extends KiiBaseAbstract implements OnInit {
     ]); 
     this.addSubscriber(
       this.kiiApiDisk.scan().subscribe(res => {
-        console.log("Recieved result",res);
         this.result = res;
         this.isDataLoading = false;
       },()=> this.isDataLoading = false)
