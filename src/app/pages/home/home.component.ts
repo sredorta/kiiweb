@@ -26,6 +26,9 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
     this.initialize();
   }
 
+  animateTop() {
+    
+  }
 
 }
 

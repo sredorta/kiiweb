@@ -2,3 +2,164 @@
 .wrapper {
     min-height: 80vh
 }
+
+//TOP PART
+.home-top-container {
+    //border:1px solid red;
+    padding-top:30px;
+    .home-element {
+        //border:1px solid blue;
+        display:flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        padding:20px;
+        .home-element-icon {
+            width:70px;
+            height:70px;
+            background-position: center center;
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+        }
+        .home-element-image {
+            min-width: 290px;
+            max-width: 400px;
+            width:100%;
+            margin-top:10px;
+            flex:1;
+            min-height: 290px;
+            filter:grayscale(100%);
+            transition: filter 1s ease-in-out;
+            background-position: center center;
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+        }
+        .home-element-text {
+            max-width: 500px;
+            min-width: 290px;
+            min-height: 30px;
+            flex:1 1 auto;
+            //border:1px solid green;
+            .home-element-text-container {
+                //border:1px solid orange;
+            }
+            .title {
+                font-weight: normal;
+                font-size: 24px;
+                color:white;
+                transform:translateY(150px);
+            }
+            .description {
+                font-size: 16px;
+                transform:translateY(100px);
+            }
+        }
+        //ANIMATIONS
+        .home-element-icon.kii-appear ~ h2 {
+                    animation: 1s cubic-bezier(0, 0.9, 0.3, 1.2) 0s textAnimationTitle forwards;
+        }
+        .home-element-icon.kii-appear ~ .description {
+                    animation: 1s cubic-bezier(0, 0.9, 0.3, 1.2) .2s textAnimationDescription forwards;
+        }
+        .home-element-image.kii-appear {
+            filter:grayscale(0%);
+        }
+    }
+    .home-element:nth-child(even) {
+        padding-top:150px;
+        padding-bottom:150px;
+        background-image:url("/assets/images/home/top-element-background.svg");
+        background-position: bottom left;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+    }
+
+
+    //define backgrounds
+    .home-element.site-and-app .home-element-image {
+        background-image:url("/assets/images/home/site-and-app.svg");
+
+    }
+    .home-element.site-and-app .home-element-icon {
+        background-image:url("/assets/images/home/site-and-app-icon.svg");
+    }
+    .home-element.user-experience .home-element-image {
+        background-image:url("/assets/images/home/user-experience.svg");
+    }
+    .home-element.user-experience .home-element-icon {
+        background-image:url("/assets/images/home/user-experience-icon.svg");
+    }
+
+}
+
+
+
+
+@media only screen and (min-width: 700px) { 
+    .home-top-container {
+        .home-element {
+            align-items: flex-start;
+            justify-content: space-around;
+            padding:20px;
+            .home-element-icon {
+                width:90px;
+                height:90px;
+            }
+            .home-element-image {
+                margin-left:20px;
+                margin-right:20px;
+                margin-top:0px;
+                min-height: 300px;
+                align-self: center;
+            }
+            .home-element-text { 
+                .title {
+                    font-size: 28px;
+                }
+                .description {
+                    font-size: 16px;
+                }
+            }
+        }
+        .home-element:nth-child(even) {
+            flex-direction: row;
+        }
+        .home-element:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+    }
+}
+@media only screen and (min-width: 900px) { 
+    .home-top-container {
+        .home-element {
+            padding-left:50px;
+            padding-right:50px;
+        }
+    }
+}
+@media only screen and (min-width: 1100px) { 
+    .home-top-container {
+        .home-element {
+            .home-element-image {
+                margin-left:40px;
+                margin-right:40px;
+                min-height: 400px;
+                min-width: 400px;
+            }
+        }
+    }
+}
+
+@keyframes textAnimationTitle {
+    0%   { 
+        //opacity:0; 
+        transform:translateY(150px);
+    }
+    100% { transform:none;}
+  }
+@keyframes textAnimationDescription {
+    0%   { 
+        transform:translateY(100px);
+    }
+    100% { transform:none;}
+  }   
