@@ -25,6 +25,7 @@ import { KiiPopupDialogComponent } from '../kii-popup-dialog/kii-popup-dialog.co
 import { environment } from '../../../../environments/environment';
 import { Page } from '../../_models/page';
 import { KiiApiPageService } from '../../_services/kii-api-page.service';
+import { FaLayersComponent } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -128,8 +129,9 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           this.offline = res;
         })
     )
-
   }
+
+
 
   /**Opens chat dialog */
   onOpenChat():void {
@@ -158,6 +160,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   openBottomSheetCookies(): void {
           this.bottomSheet.open(KiiBottomSheetCookiesComponent, {
               panelClass :"default-theme",
+              disableClose:true
               });
           //When cookies form is closed    
           this.addSubscriber(    
@@ -167,6 +170,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               }
             })    
           )
+          
   }
 
   /**Loads all initial data like articles,settings and auth user */
@@ -220,12 +224,10 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
 
 
 
-
   //Each time a route is activated we come here and we send stats if cookies accepted
   onActivate(event : any) {
     //Send stats if we are in browser and cookies accepted
     this.kiiApiStats.send(StatAction.NAVIGATION_START, this.router.url);
-    //Scroll to sidenav top ! //FAILING IN IE
     this.sidenavContent.nativeElement.scrollTop=0; //scrollTo not working on Edge
   } 
 

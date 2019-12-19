@@ -1,95 +1,31 @@
 
 <kii-header [data]="{page:'home'}"></kii-header>
-<div class="wrapper">
-
-    <div class="home-top-container">
-        <div class="home-element site-and-app">
-            <div class="home-element-image" kiiScroll></div>
-            <div class="home-element-text">
-                <div class="home-element-text-container">
-                    <div class="home-element-icon" kiiScroll></div>
-                    <h2 class="title">Site web et application mobile</h2>
-                    <div class="description">
-                            <p>Tous nos sites internet sont au fait des applications web qui peuvent s'installer comme une application mobile native.</p>
-                            <p>L'application est installable directement depuis le site web et permet avoir access à des notifications en plus de tout le contenu du site.</p>
-                            <p>En tant que administrateur de votre site, l'application va vous permèttre d'être informé en tout moment des evenements qui se passent sur le site (chat, nouvelle commande...) </p>
-                            <button  mat-button color="primary">En savoir plus</button>
-                    </div>
+<div class="home-wrapper">
+    <kii-spinner-overlay [show]="isLoading">
+            <div class="padding-border">
+                <kii-article class="home-header" key="home-header" kiiScroll (onAppear)="animate($event)"></kii-article>
+            </div>
+            <div class="home-feature-wrapper padding-border" *ngFor="let article of articlesFeatures; let i = index">
+                <div class="kii-element-wrapper" >
+                    <div class="kii-element-scroll" kiiScroll (onAppear)="animate(i)"></div>
+                    <kii-element [ngClass]="{'home-features' : true, 'kii-appear' : isAnimated(i)}" [attr.data-index]="i">
+                        <kii-article-summary  [key]="article.id"></kii-article-summary>  
+                        <kii-article  [key]="article.id"></kii-article>  
+                    </kii-element>
                 </div>
             </div>
-        </div>
-        <div class="home-element user-experience">
-            <div class="home-element-image" kiiScroll></div>
-            <div class="home-element-text">
-                <div class="home-element-text-container">
-                    <div class="home-element-icon" kiiScroll></div>
-                    <h2 class="title">Une experience utilizateur unique</h2>
-                    <div class="description">
-                            <p>Grâce à nôtre expertise technologique, on mets à vôtre disposition des sites qui marchent à pleine vitesse et même hors ligne. Vous ne le croyez pas ? Essayez sur ce site !</p>
-                            <p></p>
-                            <button  mat-button color="primary">En savoir plus</button>
-                    </div>
-                </div>
+            <div class="padding-border">
+                    <kii-article class="home-header" key="home-header" kiiScroll (onAppear)="animateComments($event)"></kii-article>
+            </div>        
+            <div  class="content-wrapper-comments" [@realisationsCommentsAnimation]="showAnimationComments && articlesComments.length>0">
+                      <div class="kii-element-wrapper" *ngFor="let article of articlesComments; let i = index">
+                            <kii-element [ngClass]="[article.cathegory,oddOrEven(i)]" [attr.data-index]="i" kiiScroll>
+                                  <kii-article-summary [descriptionTrimLength]="100" [key]="article.id"></kii-article-summary>  
+                                  <kii-article  [key]="article.id"></kii-article>  
+                            </kii-element>
+                      </div>
             </div>
-        </div>
-        <div class="home-element site-and-app">
-                <div class="home-element-image" kiiScroll></div>
-                <div class="home-element-text">
-                    <div class="home-element-text-container">
-                        <div class="home-element-icon" kiiScroll></div>
-                        <h2 class="title">Site web et application mobile</h2>
-                        <div class="description">
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div class="home-element site-and-app">
-                <div class="home-element-image" kiiScroll></div>
-                <div class="home-element-text">
-                    <div class="home-element-text-container">
-                        <div class="home-element-icon" kiiScroll></div>
-                        <h2 class="title">Une experience utilizateur unique</h2>
-                        <div class="description">
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                        </div>
-                    </div>
-                </div>
-        </div>     
-        <div class="home-element site-and-app">
-                <div class="home-element-image" kiiScroll></div>
-                <div class="home-element-text">
-                    <div class="home-element-text-container">
-                        <div class="home-element-icon" kiiScroll></div>
-                        <h2 class="title">Site web et application mobile</h2>
-                        <div class="description">
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div class="home-element site-and-app">
-                <div class="home-element-image" kiiScroll></div>
-                <div class="home-element-text">
-                    <div class="home-element-text-container">
-                        <div class="home-element-icon" kiiScroll></div>
-                        <h2 class="title">Une experience utilizateur unique</h2>
-                        <div class="description">
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                                <p>N'hésitez plus, disposez d'un site et d'une application mobile au meme temps</p>
-                        </div>
-                    </div>
-                </div>
-        </div>        
- 
-
-    </div>
+            <!--<kii-article  class="page-footer" key="demo-footer"></kii-article>-->
+    </kii-spinner-overlay>
 </div>
-    <kii-article class="home-header" key="home-header"></kii-article>
-
-
-
 

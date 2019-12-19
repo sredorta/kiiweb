@@ -2,6 +2,84 @@
 
 // mixin name will be used in main style.scss
 @mixin element-theme($theme) {
+
+    /////////////////////////////////////////////////////////////////////
+    // HOME-FEATURES FORMAT
+    /////////////////////////////////////////////////////////////////////
+    kii-element.home-features {
+        .kii-element-container {
+            kii-article-summary {
+                h1 {display:none;}
+                h2 {
+                    font-weight: normal;
+                    font-size: 22px;
+                    color:white;
+                }
+                .kii-article-summary-image-wrapper {
+                    width:70px;
+                    height:70px;
+                    overflow: hidden;
+                    img {
+                      width:100%;
+                      transition: all 0.3s ease-in-out;
+                    }
+                  }
+            }
+            kii-article .kii-editor-wrapper {
+                .angular-editor-textarea {
+                    padding-left:0px !important;
+                    padding-right:0px !important;
+                }
+            }
+
+        }
+    }
+    @media only screen and (min-width: 700px) { 
+        kii-element.home-features {
+            .kii-element-container {
+                kii-article-summary {
+                    h2 {
+                        font-size: 26px;
+                    }
+                    .kii-article-summary-image-wrapper {
+                        width:90px;
+                        height:90px;
+                    }
+                }
+            }
+        }
+    }
+    //Animations
+    kii-element.home-features.kii-appear {
+        kii-article-summary {
+            h2 {
+                animation: 1.5s cubic-bezier(0, 0.9, 0.3, 1.2) 0s textAnimationTitleFeaturesHome forwards;
+            }
+        }
+        kii-article .angular-editor-wrapper .angular-editor-textarea {
+            animation: 1.8s cubic-bezier(0, 0.9, 0.3, 1.2) 0s textAnimationDescriptionFeaturesHome forwards;
+        }
+    }
+
+    @keyframes textAnimationTitleFeaturesHome {
+        0%   { 
+            transform:translateY(none);
+        }
+        10% {
+            transform:translateY(100px);
+        }
+        100% { transform:none;}
+      }
+    @keyframes textAnimationDescriptionFeaturesHome {
+        0%   { 
+            transform:none;
+        }
+        10% {
+            transform:translateY(150px);
+        }
+        100% { transform:none;}
+    }  
+
     /////////////////////////////////////////////////////////////////////
     // BLOG FORMAT
     /////////////////////////////////////////////////////////////////////
