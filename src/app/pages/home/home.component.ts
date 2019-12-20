@@ -24,13 +24,18 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
   /**Contains all features articles */
   articlesFeatures : Article[] = [];
 
+  /**Contains all menu articles */
+  articlesMenu : Article[] = [];
+
   /**Contains all realisation-comments articles */
   articlesComments : Article[] = [];
 
-  showAnimationComments : boolean = false;
 
   /**Contains animations of the features */
-  animations :any  = {};
+  animationsFeatures :any  = {};
+
+  /**Contains animations of the menu */
+  animationsMenu :any  = {};
 
   constructor(private kiiApiArticle: KiiApiArticleService, 
     private kiiApiPage: KiiApiPageService, 
@@ -49,6 +54,7 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
       this.addSubscriber(
         this.kiiApiArticle.onChange().subscribe(res => {
           this.articlesFeatures = res.filter(obj => obj.cathegory == "home-features" && obj.public == true).sort((a,b)=> a.id-b.id);
+          this.articlesMenu = res.filter(obj => obj.cathegory == "home-menu" && obj.public == true).sort((a,b)=> a.id-b.id);
           this.articlesComments = res.filter(obj => obj.cathegory == "realisations-comments" && obj.public == true);
           this.isLoading = false;
         }, () => this.isLoading = false)
@@ -63,26 +69,31 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
       )  
     }
   
-    animate(i:number) {
+    animateFeature(i:number) {
       console.log("Animating item:",i);
-      if (!this.animations[i]) {
-        this.animations[i] = true;
+      if (!this.animationsFeatures[i]) {
+        this.animationsFeatures[i] = true;
       }
-      console.log(this.animations);
- //     if (!this.device.isMobile())
- //       this.showAnimation = true;
+      console.log(this.animationsFeatures);
     }
 
-    isAnimated(i:number) {
-      if (this.animations[i]) return true;
+    isAnimatedFeature(i:number) {
+      if (this.animationsFeatures[i]) return true;
       return false;
     }
 
-    animateComments(event : boolean) {
-      if (!this.device.isMobile())
-        this.showAnimationComments = true;
+    animateMenu(i:number) {
+      console.log("Animating item:",i);
+      if (!this.animationsMenu[i]) {
+        this.animationsMenu[i] = true;
+      }
+      console.log(this.animationsMenu);
     }
 
+    isAnimatedMenu(i:number) {
+      if (this.animationsMenu[i]) return true;
+      return false;
+    }
 
     /**Determines if element is odd or even */
     oddOrEven(index:number) {

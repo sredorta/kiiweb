@@ -39,6 +39,7 @@
     "kiilib.search.page"  : "Page",
     "kiilib.search.next"  : "Next",
     "kiilib.search.previous": "Previous",
+    "kiilib.discover" : "Discover",
 
     "kiilib.editor.placeholder"     : "Enter your text here...",
     "kiilib.editor.undo"            : "Undo",

@@ -3,13 +3,13 @@
 <div class="home-wrapper">
     <kii-spinner-overlay [show]="isLoading">
             <div class="padding-border">
-                <kii-article class="home-header content-article" key="home-header" kiiScroll (onAppear)="animate($event)"></kii-article>
+                <kii-article class="home-header content-article" key="home-header"></kii-article>
             </div>
             <!--features list-->
             <div class="home-feature-wrapper padding-border" *ngFor="let article of articlesFeatures; let i = index">
                 <div class="kii-element-wrapper" >
-                    <div class="kii-element-scroll" kiiScroll (onAppear)="animate(i)"></div>
-                    <kii-element [ngClass]="{'home-features' : true, 'kii-appear' : isAnimated(i)}" [attr.data-index]="i">
+                    <div class="kii-element-scroll" kiiScroll (onAppear)="animateFeature(i)"></div>
+                    <kii-element [ngClass]="{'home-features' : true, 'kii-appear' : isAnimatedFeature(i)}" [attr.data-index]="i">
                         <kii-article-summary  [key]="article.id"></kii-article-summary>  
                         <kii-article  [key]="article.id"></kii-article>  
                     </kii-element>
@@ -20,18 +20,27 @@
             </div>       
             <!--menu middle-->
             <div class="home-middle-menu-wrapper padding-border">
-                <div class="home-middle-menu-content">
-
+                <div class="home-menu-wrapper" *ngFor="let article of articlesMenu; let i = index">
+                            <div class="kii-element-wrapper" >
+                                <div class="kii-element-scroll" kiiScroll (onAppear)="animateMenu(i)"></div>
+                                <kii-element [ngClass]="{'home-menu' : true, 'kii-appear' : isAnimatedMenu(i)}" [attr.data-index]="i">
+                                    <kii-article-summary  [key]="article.id"></kii-article-summary>   
+                                    <div class="menu-button-wrapper" *ngIf="i==0" ><button mat-button class="menu-button" [routerLink]="'/blog' | localize">{{'kiilib.discover' | translate}}</button></div>
+                                    <div class="menu-button-wrapper" *ngIf="i==1" ><button mat-button class="menu-button" [routerLink]="'/demo' | localize">{{'kiilib.discover' | translate}}</button></div>
+                                    <div class="menu-button-wrapper" *ngIf="i==2" ><button mat-button class="menu-button" [routerLink]="'/clients' | localize">{{'kiilib.discover' | translate}}</button></div>
+                                    <div class="menu-button-wrapper" *ngIf="i==3" ><button mat-button class="menu-button" [routerLink]="'/prices' | localize">{{'kiilib.discover' | translate}}</button></div>                                    
+                                </kii-element>
+                            </div>
                 </div>
-
             </div>
+
             <!--user comments-->
             <div class="padding-border">
                 <kii-article  class="page-footer content-article" key="home-footer"></kii-article>
             </div>
-            <div  class="content-wrapper-comments" [@realisationsCommentsAnimation]="showAnimationComments && articlesComments.length>0">
+            <div  class="content-wrapper-comments">
                 <div class="kii-element-wrapper" *ngFor="let article of articlesComments; let i = index">
-                      <kii-element [ngClass]="[article.cathegory,oddOrEven(i)]" [attr.data-index]="i" kiiScroll>
+                      <kii-element [ngClass]="[article.cathegory,oddOrEven(i)]" [attr.data-index]="i">
                             <kii-article-summary [descriptionTrimLength]="100" [key]="article.id"></kii-article-summary>  
                             <kii-article  [key]="article.id"></kii-article>  
                       </kii-element>

@@ -27,11 +27,11 @@ export class KiiArticleSummaryFormComponent extends KiiFormAbstract implements O
     this.myForm =  new FormGroup({
       title: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(2)
       ])),
       description: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(2)
       ])),
       image : new FormControl('', Validators.compose([
       ]))

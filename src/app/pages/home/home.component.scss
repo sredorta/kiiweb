@@ -56,15 +56,53 @@
 
 //STYLE MIDDLE MENU
 .home-middle-menu-wrapper {
-  width:100%;
-  min-height: 100px;
-  border:1px solid red;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.home-menu-wrapper {
+  flex:1;
+  min-width: 280px;
+  max-width: 400px;
+  padding:20px;
+  .menu-button-wrapper {
+    text-align: center;
+    margin-bottom:10px;
+    button {font-size: 20px;}
+  }
+  .kii-element-wrapper {
+    border:1px solid rgba(white,0.2);
+    border-radius: 3px;
+    background-position: left bottom;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+}
+//background
+.home-menu-wrapper:nth-child(1) .kii-element-wrapper {
+  background-image:url("/assets/images/home/menu-element-background-red.svg");
+}
+.home-menu-wrapper:nth-child(2) .kii-element-wrapper {
+  background-image:url("/assets/images/home/menu-element-background-blue.svg");
 }
 
-.home-middle-menu-content {
-  width:100%;
-  min-height: 100px;
-  border:1px solid blue;
+.home-menu-wrapper:nth-child(3) .kii-element-wrapper {
+  background-image:url("/assets/images/home/menu-element-background-green.svg");
+}
+.home-menu-wrapper:nth-child(4) .kii-element-wrapper {
+  background-image:url("/assets/images/home/menu-element-background-pink.svg");
+}
+
+@media only screen and (min-width: 900px) { 
+  .home-menu-wrapper {
+    min-width: 350px;
+  }
+}
+@media only screen and (min-width: 1200px) { 
+  .home-menu-wrapper {
+    min-width: 250px;
+  }
 }
 
 //STYLE COMMENTS
