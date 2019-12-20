@@ -54,18 +54,33 @@
     }
 }
 
+//STYLE MIDDLE MENU
+.home-middle-menu-wrapper {
+  width:100%;
+  min-height: 100px;
+  border:1px solid red;
+}
+
+.home-middle-menu-content {
+  width:100%;
+  min-height: 100px;
+  border:1px solid blue;
+}
+
 //STYLE COMMENTS
 .content-wrapper-comments {
+    display:none;
     margin:0 auto;
     width:100%;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top:20px;
-    margin-bottom:20px;
+    padding-top:20px;
+    padding-bottom:20px;
     .kii-element-wrapper {
       margin:20px;
+      transform:scale(0.9);
     }
   }
 .comments-wrapper-container {

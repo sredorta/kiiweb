@@ -48,7 +48,7 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
       this.isLoading = true;
       this.addSubscriber(
         this.kiiApiArticle.onChange().subscribe(res => {
-          this.articlesFeatures = res.filter(obj => obj.cathegory == "home-features" && obj.public == true);
+          this.articlesFeatures = res.filter(obj => obj.cathegory == "home-features" && obj.public == true).sort((a,b)=> a.id-b.id);
           this.articlesComments = res.filter(obj => obj.cathegory == "realisations-comments" && obj.public == true);
           this.isLoading = false;
         }, () => this.isLoading = false)

@@ -15,11 +15,19 @@
   kii-app .kii-app-toolbar {
     background:none;
     .kii-app-toolbar-icons {
+      min-width: 100px;
         transition: opacity 0.5s ease-in-out;
     }
     //Main button
     .kii-app-toolbar-button {
       margin:0px;
+    }
+    //Hide cart and login for this project
+    .cart-button {
+      display:none;
+    }
+    .login-button {
+      display:none;
     }
   }
   //Show only menu button if small screens and we have scrolled

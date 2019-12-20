@@ -159,6 +159,7 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 @import './themes/kubiiks/element.scss';
 @import './themes/kubiiks/chat.scss';
 @import './themes/kubiiks/search.scss';
+@import './themes/kubiiks/home.scss';
 
 @mixin design-theme($theme) {
     @include toolbar-theme($theme);
@@ -175,6 +176,7 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
     @include fill-side-theme($theme);
     @include element-theme($theme);
     @include search-theme($theme);
+    @include home-theme($theme);
 }
 
 

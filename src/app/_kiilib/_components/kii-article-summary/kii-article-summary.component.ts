@@ -93,6 +93,7 @@ export class KiiArticleSummaryComponent extends KiiBaseAuthAbstract implements O
 
   /**Trims description to have always same length*/
   trimDescription(description:string) {
+    if (!description) return "";
     if (!this.descriptionTrimLength) return description;
     let result = "";
     if (description.length > this.descriptionTrimLength) {

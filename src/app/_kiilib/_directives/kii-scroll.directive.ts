@@ -37,26 +37,33 @@ export class KiiScrollDirective {
   }  
 
   scroll = (element:any): void => {
-    if (element && element.srcElement && element.srcElement.scrollTop) {
-      this.scrollTop = element.srcElement.scrollTop;
-      if (element.srcElement.scrollTop>300) {
-        this._renderer.addClass(this._element.nativeElement, 'kii-scrolled');
-      } else {
-        this._renderer.removeClass(this._element.nativeElement, 'kii-scrolled');
+    setTimeout(() => {
+      if (element && element.srcElement && element.srcElement.scrollTop) {
+        this.scrollTop = element.srcElement.scrollTop;
+        if (element.srcElement.scrollTop>300) {
+          this._renderer.addClass(this._element.nativeElement, 'kii-scrolled');
+        } else {
+          this._renderer.removeClass(this._element.nativeElement, 'kii-scrolled');
+        }
+        this.saveDimensions();
+        if (this.isVisible() == true) {
+            if (!this.appearDone) {
+              this._renderer.addClass(this._element.nativeElement, 'kii-appear');
+              this.onAppear.emit(true);
+              this.appearDone = true;
+              //Remove listeners
+              document.getElementById('kii-app-main-container').removeEventListener("scroll", this.scroll);
+              window.removeEventListener('resize', this.resize,true);
+            }
+        }
       }
-      this.saveDimensions();
-      if (this.isVisible() == true) {
-          if (!this.appearDone) {
-            this._renderer.addClass(this._element.nativeElement, 'kii-appear');
-            this.onAppear.emit(true);
-            this.appearDone = true;
-          }
-      }
-    }
+    },100);
   };
 
   resize = ():void => {
-    this.windowHeight = window.innerHeight;
+    setTimeout(() => {
+      this.windowHeight = window.innerHeight;
+    },100);
   }
   saveDimensions() {
     this.elementPosY = this.getOffsetTop(this._element.nativeElement);

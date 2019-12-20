@@ -103,7 +103,7 @@ $toolbar-height : 65px;
 
 .kii-app-toolbar-icons {
     display:flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     min-width: 150px;
 }

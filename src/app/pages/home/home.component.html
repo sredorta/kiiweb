@@ -3,8 +3,9 @@
 <div class="home-wrapper">
     <kii-spinner-overlay [show]="isLoading">
             <div class="padding-border">
-                <kii-article class="home-header" key="home-header" kiiScroll (onAppear)="animate($event)"></kii-article>
+                <kii-article class="home-header content-article" key="home-header" kiiScroll (onAppear)="animate($event)"></kii-article>
             </div>
+            <!--features list-->
             <div class="home-feature-wrapper padding-border" *ngFor="let article of articlesFeatures; let i = index">
                 <div class="kii-element-wrapper" >
                     <div class="kii-element-scroll" kiiScroll (onAppear)="animate(i)"></div>
@@ -15,17 +16,27 @@
                 </div>
             </div>
             <div class="padding-border">
-                    <kii-article class="home-header" key="home-header" kiiScroll (onAppear)="animateComments($event)"></kii-article>
-            </div>        
-            <div  class="content-wrapper-comments" [@realisationsCommentsAnimation]="showAnimationComments && articlesComments.length>0">
-                      <div class="kii-element-wrapper" *ngFor="let article of articlesComments; let i = index">
-                            <kii-element [ngClass]="[article.cathegory,oddOrEven(i)]" [attr.data-index]="i" kiiScroll>
-                                  <kii-article-summary [descriptionTrimLength]="100" [key]="article.id"></kii-article-summary>  
-                                  <kii-article  [key]="article.id"></kii-article>  
-                            </kii-element>
-                      </div>
+                    <kii-article class="home-middle content-article" key="home-middle"></kii-article>
+            </div>       
+            <!--menu middle-->
+            <div class="home-middle-menu-wrapper padding-border">
+                <div class="home-middle-menu-content">
+
+                </div>
+
             </div>
-            <!--<kii-article  class="page-footer" key="demo-footer"></kii-article>-->
+            <!--user comments-->
+            <div class="padding-border">
+                <kii-article  class="page-footer content-article" key="home-footer"></kii-article>
+            </div>
+            <div  class="content-wrapper-comments" [@realisationsCommentsAnimation]="showAnimationComments && articlesComments.length>0">
+                <div class="kii-element-wrapper" *ngFor="let article of articlesComments; let i = index">
+                      <kii-element [ngClass]="[article.cathegory,oddOrEven(i)]" [attr.data-index]="i" kiiScroll>
+                            <kii-article-summary [descriptionTrimLength]="100" [key]="article.id"></kii-article-summary>  
+                            <kii-article  [key]="article.id"></kii-article>  
+                      </kii-element>
+                </div>
+            </div>
     </kii-spinner-overlay>
 </div>
 

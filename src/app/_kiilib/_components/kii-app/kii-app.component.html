@@ -8,15 +8,15 @@
               <ng-content select="[kiiToolbarMenu]"></ng-content>
           </div>
           <div class="kii-app-toolbar-icons">
-              <a mat-icon-button class="kii-app-toolbar-icon"><i class="fas fa-shopping-cart"></i></a>  
-              <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="!loggedInUser.exists()" class="kii-app-toolbar-icon" [routerLink]="'/login' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon cart-button"><i class="fas fa-shopping-cart"></i></a>  
+              <a mat-icon-button class="kii-app-toolbar-icon login-button" *ngIf="!loggedInUser.exists()" [routerLink]="'/login' | localize">
                   <i class="fas fa-sign-in-alt"></i>
               </a>
-              <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()"  [routerLink]="'/profile' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon profile-button" *ngIf="loggedInUser.exists()"  [routerLink]="'/profile' | localize">
                     <img *ngIf="loggedInUser.hasAvatar()" [src]= "loggedInUser.getAvatar()">
                     <div *ngIf="!loggedInUser.hasAvatar()" class="kii-app-toolbar-avatar-name"></div>
               </a>
-              <a mat-icon-button class="kii-app-toolbar-icon" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon notifications-button" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
                 <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>
               </a>
               <kii-language-selector></kii-language-selector>
