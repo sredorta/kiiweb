@@ -41,6 +41,16 @@
     "kiilib.search.previous": "Anterior",
     "kiilib.discover" : "Descobrir",
 
+    "kiilib.link.title.menu" : "Menu",
+    "kiilib.link.titile.cart" : "Compres",
+    "kiilib.link.title.login" : "Connexió",
+    "kiilib.link.title.profile" : "El meu compte",
+    "kiilib.link.title.notifications" : "Notificacions",
+    "kiilib.link.title.phone" : "Telefon de contacte",
+    "kiilib.link.title.email" : "Correu de contacte",
+    "kiilib.link.title.home"  : "Inici",
+    "kiilib.link.title.contact" : "Contacteu-nos",
+
     "kiilib.editor.placeholder"     : "Escriu el teu texte aqui...",
     "kiilib.editor.undo"            : "Desfer",
     "kiilib.editor.redo"            : "Refer",

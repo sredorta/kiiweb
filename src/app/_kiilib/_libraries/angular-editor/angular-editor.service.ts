@@ -39,12 +39,12 @@ export class AngularEditorService {
    * Create URL link
    * @param url string from UI prompt
    */
-  createLink(url: string, className:string) {
+  createLink(url: string, title:string, className:string) {
       let newUrl : string = "";
       if (className!="default")
-        newUrl = '<a href="' + url + '" class="'+className+'">' + this.selectedText + '</a>';
+        newUrl = '<a href="' + url + ' "title="'+title+    '" "class="'+className+'">' + this.selectedText + '</a>';
       else
-        newUrl = '<a href="' + url + '" >' + this.selectedText + '</a>';
+        newUrl = '<a href="' + url + '" title="'+title+'">' + this.selectedText + '</a>';
 
       this.insertHtml(newUrl);
   }

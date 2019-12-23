@@ -265,7 +265,7 @@ export class AngularEditorToolbarComponent {
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.editorService.restoreSelection();
-        this.editorService.createLink(res.url.result, res.class);
+        this.editorService.createLink(res.url.result, res.title, res.class);
       }
     });
   }

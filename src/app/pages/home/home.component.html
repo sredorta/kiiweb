@@ -8,9 +8,9 @@
             <!--features list-->
             <div class="home-feature-wrapper padding-border" *ngFor="let article of articlesFeatures; let i = index">
                 <div class="kii-element-wrapper" >
-                    <div class="kii-element-scroll" kiiScroll (onAppear)="animateFeature(i)"></div>
                     <kii-element [ngClass]="{'home-features' : true, 'kii-appear' : isAnimatedFeature(i)}" [attr.data-index]="i">
                         <kii-article-summary  [key]="article.id"></kii-article-summary>  
+                        <div class="kii-element-scroll" kiiScroll (onAppear)="animateFeature(i)"></div>
                         <kii-article  [key]="article.id"></kii-article>  
                     </kii-element>
                 </div>

@@ -44,7 +44,7 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
     private router: Router) { super(kiiApiArticle, kiiApiPage, kiiMisc,router); }
 
     ngOnInit() {
-      this.page="realisations";
+      this.page="home";
       this.initialize();
     }
   

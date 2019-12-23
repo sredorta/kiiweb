@@ -37,7 +37,6 @@ export class KiiScrollDirective {
   }  
 
   scroll = (element:any): void => {
-    setTimeout(() => {
       if (element && element.srcElement && element.srcElement.scrollTop) {
         this.scrollTop = element.srcElement.scrollTop;
         if (element.srcElement.scrollTop>300) {
@@ -57,13 +56,10 @@ export class KiiScrollDirective {
             }
         }
       }
-    },100);
   };
 
   resize = ():void => {
-    setTimeout(() => {
       this.windowHeight = window.innerHeight;
-    },100);
   }
   saveDimensions() {
     this.elementPosY = this.getOffsetTop(this._element.nativeElement);

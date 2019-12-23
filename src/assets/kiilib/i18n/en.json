@@ -41,6 +41,16 @@
     "kiilib.search.previous": "Previous",
     "kiilib.discover" : "Discover",
 
+    "kiilib.link.title.menu" : "Menu",
+    "kiilib.link.titile.cart" : "Shopping cart",
+    "kiilib.link.title.login" : "Login",
+    "kiilib.link.title.profile" : "Profile",
+    "kiilib.link.title.notifications" : "Notifications",
+    "kiilib.link.title.phone" : "Contact phone",
+    "kiilib.link.title.email" : "Contact email",
+    "kiilib.link.title.home"  : "Home",
+    "kiilib.link.title.contact" : "Contact",
+
     "kiilib.editor.placeholder"     : "Enter your text here...",
     "kiilib.editor.undo"            : "Undo",
     "kiilib.editor.redo"            : "Redo",

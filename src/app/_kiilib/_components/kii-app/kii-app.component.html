@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <div #scrollContainer id="kii-app-main-container" class="kii-app-wrapper" style="overflow-y: scroll;overflow-x:hidden">
-      <a mat-icon-button class="kii-app-toolbar-main-button toolbar-theme" [routerLink]="'/sidenav' | localize" kiiScroll>
+      <a mat-icon-button class="kii-app-toolbar-main-button toolbar-theme" title="{{'kiilib.link.title.menu' | translate}}" [routerLink]="'/sidenav' | localize" kiiScroll>
       </a>
       <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"></div>
       <div class="kii-app-toolbar toolbar-theme" kiiScroll>
@@ -8,15 +8,15 @@
               <ng-content select="[kiiToolbarMenu]"></ng-content>
           </div>
           <div class="kii-app-toolbar-icons">
-              <a mat-icon-button class="kii-app-toolbar-icon cart-button"><i class="fas fa-shopping-cart"></i></a>  
-              <a mat-icon-button class="kii-app-toolbar-icon login-button" *ngIf="!loggedInUser.exists()" [routerLink]="'/login' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon cart-button" title="{{'kiilib.link.title.cart' | translate}}"><i class="fas fa-shopping-cart"></i></a>  
+              <a mat-icon-button class="kii-app-toolbar-icon login-button" title="{{'kiilib.link.title.login' | translate}}" *ngIf="!loggedInUser.exists()" [routerLink]="'/login' | localize">
                   <i class="fas fa-sign-in-alt"></i>
               </a>
-              <a mat-icon-button class="kii-app-toolbar-icon profile-button" *ngIf="loggedInUser.exists()"  [routerLink]="'/profile' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon profile-button" title="{{'kiilib.link.title.profile' | translate}}" *ngIf="loggedInUser.exists()"  [routerLink]="'/profile' | localize">
                     <img *ngIf="loggedInUser.hasAvatar()" [src]= "loggedInUser.getAvatar()">
                     <div *ngIf="!loggedInUser.hasAvatar()" class="kii-app-toolbar-avatar-name"></div>
               </a>
-              <a mat-icon-button class="kii-app-toolbar-icon notifications-button" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
+              <a mat-icon-button class="kii-app-toolbar-icon notifications-button" title="{{'kiilib.link.title.notifications' | translate}}" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
                 <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>
               </a>
               <kii-language-selector></kii-language-selector>

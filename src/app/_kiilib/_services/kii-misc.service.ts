@@ -79,8 +79,6 @@ export class KiiMiscService {
       this.meta.updateTag({ property: 'og:image', content: this.kiiApiSetting.getByKey('url_image').value });
     else
       this.meta.updateTag({ property: 'og:image', content: image });
-    this.meta.updateTag({ property: 'og:image:width', content: "300" });
-    this.meta.updateTag({ property: 'og:image:height', content: "300" });  
     this.meta.updateTag({ property: 'og:site_name', content: this.kiiApiSetting.getByKey('sitename').value });
     this.meta.updateTag({ property: 'og:type', content: "website" });
     this.meta.updateTag({ property: 'article:author', content: this.kiiApiSetting.getByKey('url').value });
@@ -88,7 +86,13 @@ export class KiiMiscService {
 
     this.meta.updateTag({ property: 'fb:app_id', content: this.kiiApiSetting.getByKey('fb_app_id').value });
     this.meta.updateTag({ property: 'twitter:card', content: "summary" });
+    this.meta.updateTag({ property: 'twitter:title', content: this.kiiApiSetting.getByKey('sitename').value + " : " + title });
+    this.meta.updateTag({ property: 'twitter:description', content: description });
     this.meta.updateTag({ property: 'twitter:site', content: this.kiiApiSetting.getByKey('sitename').value });
+    if (!image) 
+      this.meta.updateTag({ property: 'twitter:image', content: this.kiiApiSetting.getByKey('url_image').value });
+    else
+      this.meta.updateTag({ property: 'twitter:image', content: image });
 
 
     console.log("TITLE", this.kiiApiSetting.getByKey('sitename').value + " - "+ title);

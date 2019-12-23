@@ -23,6 +23,11 @@
     "ROUTES.profile"    : "mi-cuenta",
     "ROUTES.alerts"     : "notificaciones",
 
+    "link.title.demo"  : "Demo",
+    "link.title.price" : "Precios",
+    "link.title.realisations"  : "Nuestras realizaciones",
+    "link.title.blog" : "Nuestra tecnologia",
+
     "home.title"                : "kubiiks",
     "home.subtitle"             : "Crreador de experiencias web",
     "demo.title"                : "Demo",

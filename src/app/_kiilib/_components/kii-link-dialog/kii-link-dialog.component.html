@@ -17,6 +17,8 @@
               </mat-select>
               <mat-hint>{{'kiilib.input.link.type.hint' | translate}}</mat-hint>
           </mat-form-field>
+          <!--Need to add here the title for SEO !!-->
+          <kii-item-form #titleForm hint="kiilib.input.title.hint" label="kiilib.input.title.label" placeholder="kiilib.input.title.placeholder" icon="fas fa-heading" [validators]="validatorTitle" [hasCancelSave]="false"></kii-item-form>    
           <kii-item-form hint="kiilib.input.link.hint" label="kiilib.input.link.label" placeholder="kiilib.input.link.placeholder" icon="fas fa-link" [validators]="validator" (kiiOnSubmit)="onLink($event)"></kii-item-form>    
       </mat-card-content>
 

@@ -39,7 +39,17 @@
     "kiilib.search.page"  : "Page",
     "kiilib.search.next"  : "Suivant",
     "kiilib.search.previous": "Précédant",
-    "kiilib.discover" : "Découvrer",
+    "kiilib.discover" : "Découvrir",
+
+    "kiilib.link.title.menu" : "Menu",
+    "kiilib.link.titile.cart" : "Achats",
+    "kiilib.link.title.login" : "Connection",
+    "kiilib.link.title.profile" : "Mon compte",
+    "kiilib.link.title.notifications" : "Notifications",
+    "kiilib.link.title.phone" : "Telephone de contact",
+    "kiilib.link.title.email" : "Courriel de contact",
+    "kiilib.link.title.home"  : "Accueil",
+    "kiilib.link.title.contact" : "Contactez-nous",
 
     "kiilib.editor.placeholder"     : "Écrire votre texte ici...",
     "kiilib.editor.undo"            : "Défaire",
