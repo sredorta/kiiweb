@@ -2,10 +2,10 @@ export const environment = {
     production: true,
     type: "vps",
     kiiserverURL:  "http://localhost:3000",
-    kiiserverExtURL: "https://kubiiks.com/server",
+    kiiserverExtURL: "https://www.kubiiks.com/server",
     apiURL: "http://localhost:3000/api",
-    apiExtURL: "https://kubiiks.com/server/api",
-    mainExtURL: "https://kubiiks.com",
+    apiExtURL: "https://www.kubiiks.com/server/api",
+    mainExtURL: "https://www.kubiiks.com",
 
     languages: ['fr','en','es','ca'],
     matInputAppearance: "fill",   //Mat input appearance "outline", "default", "fill"...

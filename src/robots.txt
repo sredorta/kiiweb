@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /login/validate
+Disallow: /*/admin-*
+Allow: /
+Sitemap: https://www.kubiiks.com/sitemap.xml

@@ -42,6 +42,15 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+app.route('/sitemap.xml')
+  .get((req, res) => {
+    res.sendFile(process.cwd() + '/sitemap.xml');
+});
+app.route('/robots.txt')
+  .get((req, res) => {
+    res.sendFile(process.cwd() + '/robots.txt');
+});
+
 //For crawlers we patch the lang attribute of html depending on the route 
 // If the route does not have language we use the header data
 // All regular routes use the Universal engine
