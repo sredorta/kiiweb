@@ -41,16 +41,15 @@ export class RealisationsComponent extends KiiBlogAbstract implements OnInit {
         //this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
         this.articlesClients = res.filter(obj => obj.cathegory == "realisations" && obj.public == true);
         this.articlesComments = res.filter(obj => obj.cathegory == "realisations-comments" && obj.public == true);
+        if (res.length>0)
         this.isLoading = false;
-      }, () => this.isLoading = false)
+      })
     )  
     this.addSubscriber(
       this.kiiApiPage.onChange().subscribe(res => {
         let myPage = this.kiiApiPage.getByKey(this.page);
         this.kiiMisc.seo(myPage.title,myPage.description,myPage.image, this.router.url);
-        //this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
-        this.isLoading = false;
-      }, () => this.isLoading = false)
+      })
     )  
   }
 

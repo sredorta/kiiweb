@@ -26,6 +26,11 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
+          "/assets/fontawesome/*",
+          "/assets/webfonts/*",
+          "/assets/fonts/**",
+          "/assets/images/**",
+          "/assets/kiilib/images/**",
           "/assets/**"
         ],
         "urls": [

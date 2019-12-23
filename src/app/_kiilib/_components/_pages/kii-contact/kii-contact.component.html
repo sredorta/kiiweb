@@ -1,5 +1,7 @@
 
 <kii-header [data]="{page:'contact'}"></kii-header>
+<kii-spinner-overlay [show]="isLoading">
+
 <kii-article  class="page-header" key="contact-header" kiiScroll (onAppear)="animate($event)"></kii-article>
 <div class="wrapper-content" [@contactAnimation]="showAnimation" class="element" kiiScroll> 
          <div class="wrapper-content-main">
@@ -26,3 +28,4 @@
         </div> 
 </div>
 <kii-article class="page-footer" key="contact-footer"></kii-article>
+<kii-spinner-overlay [show]="isLoading">

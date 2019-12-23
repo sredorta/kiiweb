@@ -7,6 +7,7 @@ import { KiiApiSettingService } from '../_services/kii-api-setting.service';
 import { KiiMiscService } from '../_services/kii-misc.service';
 import { Router } from '@angular/router';
 
+
 export abstract class KiiBlogAbstract extends KiiBaseAbstract  {
 
     /**Contains all articles of the given cathegory */
@@ -36,8 +37,11 @@ export abstract class KiiBlogAbstract extends KiiBaseAbstract  {
           this._kiiApiArticle.onChange().subscribe(res => {
             this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
             this.displayedArticles = this.articles;
-            this.isLoading = false;
-          }, () => this.isLoading = false)
+            if (res.length>0) {
+              this.isLoading = false;
+                console.log("loaded articles !");
+            }
+          })
         )  
         //Apply SEO to the page
         this.addSubscriber(

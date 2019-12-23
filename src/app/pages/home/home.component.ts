@@ -56,16 +56,15 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
           this.articlesFeatures = res.filter(obj => obj.cathegory == "home-features" && obj.public == true).sort((a,b)=> a.id-b.id);
           this.articlesMenu = res.filter(obj => obj.cathegory == "home-menu" && obj.public == true).sort((a,b)=> a.id-b.id);
           this.articlesComments = res.filter(obj => obj.cathegory == "realisations-comments" && obj.public == true);
-          this.isLoading = false;
-        }, () => this.isLoading = false)
+          if (res.length>0)
+            this.isLoading = false;
+        })
       )  
       this.addSubscriber(
         this.kiiApiPage.onChange().subscribe(res => {
           let myPage = this.kiiApiPage.getByKey(this.page);
           this.kiiMisc.seo(myPage.title,myPage.description,myPage.image, this.router.url);
-          //this.articles = res.filter(obj => obj.cathegory == this.cathegory && obj.public == true);
-          this.isLoading = false;
-        }, () => this.isLoading = false)
+        })
       )  
     }
   
