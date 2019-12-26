@@ -55,5 +55,7 @@
     "email-validate.subtitle"   : "Email account validation",
     "footer.profile"            : "My account",
     "footer.login"              : "Sign in",
-    "footer.user-data"          : "Personal data usage"
+    "footer.user-data"          : "Personal data usage",
+    "footer.contactdetails"     : "See details"
+
 }

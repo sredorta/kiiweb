@@ -1,7 +1,7 @@
 
 <kii-header [data]="{page:'contact'}"></kii-header>
 <kii-spinner-overlay [show]="isLoading">
-
+<ngx-json-ld [json]="schemaOrganization"></ngx-json-ld>
 <kii-article  class="page-header" key="contact-header" kiiScroll (onAppear)="animate($event)"></kii-article>
 <div class="wrapper-content" [@contactAnimation]="showAnimation" class="element" kiiScroll> 
          <div class="wrapper-content-main">
@@ -13,7 +13,7 @@
                 </div>
                 <div  class="element">
                         <kii-article class="contact-phone-editable-content" key="contact-chat"></kii-article>
-                        <div class="chat-button-wrapper"><button mat-button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" class="chat-button" (click)="onOpenChat()">Chat</button></div>
+                        <div class="chat-button-wrapper"><button mat-button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" class="chat-button" (click)="onOpenChat()" color="primary">Chat</button></div>
                 </div>
          </div>
          <div class="wrapper-content-form">        

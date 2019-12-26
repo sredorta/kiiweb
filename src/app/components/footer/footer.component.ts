@@ -17,6 +17,7 @@ export class FooterComponent extends KiiBaseAbstract implements OnInit  {
 
   settings : Setting[] = [];
   loggedInUser : User = new User(null);
+  showContactDetails : boolean = false;
 
   constructor(private kiiApiSetting : KiiApiSettingService, private kiiApiAuth: KiiApiAuthService, private dialog:MatDialog) { super() }
 

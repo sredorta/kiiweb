@@ -8,6 +8,7 @@ import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 import * as express from 'express';
 import {join} from 'path';
 import { environment } from './src/environments/environment';
+import {RESPONSE} from '@nguniversal/express-engine/tokens';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -54,6 +55,27 @@ app.route('/robots.txt')
 //For crawlers we patch the lang attribute of html depending on the route 
 // If the route does not have language we use the header data
 // All regular routes use the Universal engine
+app.get('*', async (req, res) => {
+  res.render('index.html', {req, res, providers: [
+      {
+        provide: RESPONSE,
+        useValue: res,
+      },
+    ]}, (error, html) => {
+    if (error) {
+      console.log(`Error generating html for req ${req.url}`, error);
+      return (req as any).next(error);
+    }
+    res.send(html);
+    if (!error) {
+      if (res.statusCode === 200) {
+        //toCache(req.url, html);
+      }
+    }
+  });
+});
+
+
 app.get('*', (req, res) => { 
   console.log("PARSING URL : " + req.url);
   let lang = "";
@@ -71,7 +93,12 @@ app.get('*', (req, res) => {
   }
   console.log("SENDING LANG : " + lang);
   //Patch lang before rendering the view
-  res.render('index', { req }, function(err,html:string) {
+  res.render('index', {req, res, providers: [
+    {
+      provide: RESPONSE,
+      useValue: res,
+    },
+  ]}, (error, html) => {
     html = html.replace(/< *html +lang="[a-z][a-z]" *>/g, "<html lang=\"" + lang + "\">");
     //THIS CODE NEEDS TO BE ONLY HERE FOR DEBUG !!!!
     console.log("HTML =>>");
@@ -87,9 +114,29 @@ app.get('*', (req, res) => {
 
     }
     console.log("-------------------------------");
+    if (error) {
+      res.statusCode = 404;
+    }
     res.send(html)
-  });
-//  res.render('index', { req });
+});
+//  res.render('index', { req }, function(err,html:string) {
+//    html = html.replace(/< *html +lang="[a-z][a-z]" *>/g, "<html lang=\"" + lang + "\">");
+//    //THIS CODE NEEDS TO BE ONLY HERE FOR DEBUG !!!!
+//    console.log("HTML =>>");
+//    console.log(html.substr(0,200));
+//    console.log("-----------METAS--------------------");
+//    for (let line of html.split('\n')) {
+//      if (line.includes('meta ')) {
+//        for (let line2 of line.split('<meta')) {
+//          if (!line2.includes('*/'))
+//          console.log('<meta ' + line2);
+//        }
+//      }
+//
+//    }
+//    console.log("-------------------------------");
+//    res.send(html)
+//  });
 });
 
 

@@ -14,6 +14,7 @@ import { Meta, Title } from '@angular/platform-browser';
 import { KiiApiLanguageService } from './kii-api-language.service';
 import { KiiApiSettingService } from './kii-api-setting.service';
 import { Page } from '../_models/page';
+import { KiiApiPageService } from './kii-api-page.service';
 
 
 export interface IInitialData  {
@@ -33,6 +34,7 @@ export class KiiMiscService {
   constructor(private http: HttpClient, 
               private title : Title,
               private meta: Meta,
+              private kiiApiPage : KiiApiPageService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiSetting: KiiApiSettingService,
               @Inject(PLATFORM_ID) private platformId: any) { }
@@ -105,10 +107,53 @@ export class KiiMiscService {
     console.log("SITE", this.kiiApiSetting.getByKey('sitename').value);
   }
 
-  //REMOVE ME !!!!!
-  publish() {
-    return this.http.get(environment.apiURL + '/facebook/post');
+
+    //Add schema data
+  schemaInit(type: 'site' | 'corporation' | 'localBusiness') {
+    if (type == 'site')
+          return {
+            '@context': 'http://schema.org',
+            '@type': 'WebSite',
+            'name' : this.kiiApiSetting.getByKey('sitename').value,
+            'url' : this.kiiApiSetting.getByKey('url').value
+          }
+    if (type == 'corporation' )      
+        return {
+            '@context': 'http://schema.org',
+            '@type': 'Corporation',
+            '@id':  this.kiiApiSetting.getByKey('url').value.replace('www','corporation'),
+            'description': this.kiiApiPage.getByKey('home').description,
+            'url': this.kiiApiSetting.getByKey('url').value,
+            'address': {
+                '@type': "PostalAddress",
+                'addressLocality': this.kiiApiSetting.getByKey('companyAddress').value.split(';')[1].replace(/[0-9]*/gi,''),
+                'addressCountry':this.kiiApiSetting.getByKey('companyAddress').value.split(';')[2],
+                'postalCode':this.kiiApiSetting.getByKey('companyAddress').value.split(';')[1].replace(/[a-zA-Z] */gi,''),
+                'streetAddress':this.kiiApiSetting.getByKey('companyAddress').value.split(';')[0],
+            },
+            'logo':this.kiiApiSetting.getByKey('appicon512').value,
+            'sameAs': [
+              this.kiiApiSetting.getByKey('linkFacebook').value,
+              this.kiiApiSetting.getByKey('linkGoogleplus').value,
+              this.kiiApiSetting.getByKey('linkInstagram').value,
+              this.kiiApiSetting.getByKey('linkLinkedin').value,
+              this.kiiApiSetting.getByKey('linkTwitter').value,
+              this.kiiApiSetting.getByKey('linkYoutube').value,
+            ].filter(a => a !== "")
+          }
+    if (type == 'localBusiness')      
+        return {
+          '@context': 'http://schema.org',
+          '@type': 'Organization',
+          'url' : this.kiiApiSetting.getByKey('url').value,
+          'contactPoint': {
+             'telephone' : this.kiiApiSetting.getByKey('companyPhone').value,
+             'email' : this.kiiApiSetting.getByKey('companyEmail').value,
+             'contactType' : 'customer service'
+          }
+        }
   }
+
 }
 
 

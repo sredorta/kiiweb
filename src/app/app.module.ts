@@ -63,6 +63,8 @@ import { ShareModule } from '@ngx-share/core';
 //Google charts
 import { GoogleChartsModule } from 'angular-google-charts';
 
+//MICRODATA JSON-LD
+import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -266,9 +268,9 @@ import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.
       apiKey: environment.gmapsKey
     }),
     FontAwesomeModule,
-    //ShareButtonModule,
-    //ShareButtonsModule, //SOCIAL SHARE
     ShareModule,
+    //JSON-LD
+    NgxJsonLdModule,
     //SocketIoModule.forRoot({url: environment.socketURL,options:{secure:true}}),
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,

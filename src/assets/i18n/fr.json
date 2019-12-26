@@ -55,5 +55,7 @@
     "email-validate.subtitle"   : "Validation du compte de courrier electronique",
     "footer.profile"            : "Mon compte",
     "footer.login"              : "Se connecter",
-    "footer.user-data"          : "Utilization données personelles"
+    "footer.user-data"          : "Utilization données personelles",
+    "footer.contactdetails"     : "Voir details"
+
 }

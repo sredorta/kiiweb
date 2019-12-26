@@ -14,6 +14,7 @@ import { KiiSocketService } from '../../../_services/kii-socket.service';
 import { MatDialog } from '@angular/material';
 import { KiiChatDialogComponent } from '../../kii-chat-dialog/kii-chat-dialog.component';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { KiiApiSettingService } from '../../../_services/kii-api-setting.service';
 
 
 interface Icons  {
@@ -41,11 +42,14 @@ export class KiiContactComponent extends KiiBlogAbstract implements OnInit {
 
   showAnimation : boolean = false;
 
+  schemaOrganization : any = {};
+
   constructor(private kiiApiArticle: KiiApiArticleService, 
     private kiiSocket: KiiSocketService, //Required to start sockets !
     private dialog: MatDialog,
     private kiiApiPage: KiiApiPageService, 
     private kiiMisc : KiiMiscService, 
+    private kiiApiSettings : KiiApiSettingService,
     private kiiApiAuth : KiiApiAuthService,
     private device : DeviceDetectorService,
     @Inject(PLATFORM_ID) private platformId: any,
@@ -59,7 +63,16 @@ export class KiiContactComponent extends KiiBlogAbstract implements OnInit {
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
         this.loggedInUser = res;
       })
-    );    
+    );  
+    
+    //Add contact schema
+    this.addSubscriber (
+      this.kiiApiSettings.onChange().subscribe(res => {
+        if (res.length) 
+          this.schemaOrganization = this.kiiMisc.schemaInit("localBusiness");
+      })
+    )
+    
   }
 
 

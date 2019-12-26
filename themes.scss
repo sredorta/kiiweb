@@ -137,7 +137,7 @@ $main-foreground: (
 
 //Main app theme
 $main-primary: mat-palette($mat-lime, 500);
-$main-accent:  mat-palette($mat-yellow, 600, A100, A400);
+$main-accent:  mat-palette($mat-cyan, A200);
 $main-warn:    mat-palette($mat-deep-orange,300);
 $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 

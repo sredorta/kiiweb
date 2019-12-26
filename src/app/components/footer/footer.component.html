@@ -23,9 +23,10 @@
 
     <div class="column3 column">
         <div class="title">{{'menu.contact' | translate | uppercase}}</div>
-        <a mat-button class="footer-item" title="{{'kiilib.link.title.phone' | translate}}" href="tel:{{getPhone()}}"><i class="fas fa-phone"></i>{{getPhone()}}</a>
-        <a mat-button class="footer-item" title="{{'kiilib.link.title.email' | translate}}" href="mailto:{{getEmail()}}"><i class="fas fa-at"></i>{{getEmail()}}</a>
-        <div class="footer-item address"><div><i class="fas fa-map-marker-alt"></i><span>{{getAddress(0)}}</span></div><div>{{getAddress(1)}}</div><div>{{getAddress(2)}}</div> </div>
+        <button *ngIf="!showContactDetails" mat-button class="footer-item" color="primary" (click)="showContactDetails=!showContactDetails"><i class="fas fa-chevron-circle-down"></i>{{'footer.contactdetails' | translate}}</button>
+        <a *ngIf="showContactDetails" mat-button class="footer-item" title="{{'kiilib.link.title.phone' | translate}}" href="tel:{{getPhone()}}"><i class="fas fa-phone"></i>{{getPhone()}}</a>
+        <a *ngIf="showContactDetails" mat-button class="footer-item" title="{{'kiilib.link.title.email' | translate}}" href="mailto:{{getEmail()}}"><i class="fas fa-at"></i>{{getEmail()}}</a>
+        <div *ngIf="showContactDetails" class="footer-item address"><div><i class="fas fa-map-marker-alt"></i><span>{{getAddress(0)}}</span></div><div>{{getAddress(1)}}</div><div>{{getAddress(2)}}</div> </div>
     </div>  
   </div>
 </div>

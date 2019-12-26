@@ -26,6 +26,7 @@ import { environment } from '../../../../environments/environment';
 import { Page } from '../../_models/page';
 import { KiiApiPageService } from '../../_services/kii-api-page.service';
 import { FaLayersComponent } from '@fortawesome/angular-fontawesome';
+import { settings } from 'cluster';
 
 
 
@@ -39,6 +40,10 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   public isBrowser = isPlatformBrowser(this.platformId);
   public alertCount : number = 0;
   public offline = false;
+
+  //Schema.org microdata
+  public schemaSite : any = {};
+  public schemaCorporation: any = {};
 
   @ViewChild('scrollContainer', {static:true}) sidenavContent : ElementRef;
 
@@ -63,6 +68,7 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   //Subscriptions to onPush needs to be called
   ngOnInit() {
     console.log("ENVIRONMENT", environment);
+
     //Subscribe to authUser
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
@@ -198,6 +204,10 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         }
         this.kiiApiPage.set(myPages);
         this.openPopupDialog(); //Opens popup if required
+        this.schemaSite = this.kiiMisc.schemaInit('site');
+        this.schemaCorporation = this.kiiMisc.schemaInit('corporation');
+        console.log(this.schemaSite);
+        console.log(this.schemaCorporation);
       })
     )
   }

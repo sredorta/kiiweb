@@ -55,6 +55,7 @@
     "email-validate.subtitle"   : "Validació del compte de correu electrònic",
     "footer.profile"            : "El meu compte",
     "footer.login"              : "Connectar-se",
-    "footer.user-data"          : "Utilització dades personals"
+    "footer.user-data"          : "Utilització dades personals",
+    "footer.contactdetails"     : "Veure detalls"
 
 }

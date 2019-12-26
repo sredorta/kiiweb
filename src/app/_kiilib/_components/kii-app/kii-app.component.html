@@ -1,9 +1,11 @@
 <mat-sidenav-container>
+  <ngx-json-ld [json]="schemaSite"></ngx-json-ld>
+  <ngx-json-ld [json]="schemaCorporation"></ngx-json-ld>
   <div #scrollContainer id="kii-app-main-container" class="kii-app-wrapper" style="overflow-y: scroll;overflow-x:hidden">
       <a mat-icon-button class="kii-app-toolbar-main-button toolbar-theme" title="{{'kiilib.link.title.menu' | translate}}" [routerLink]="'/sidenav' | localize" kiiScroll>
       </a>
       <div class="kii-app-toolbar-offline" [ngClass]="{'offline' : offline}"></div>
-      <div class="kii-app-toolbar toolbar-theme" kiiScroll>
+      <div itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement" class="kii-app-toolbar toolbar-theme" kiiScroll>
           <div class="kii-app-toolbar-content">
               <ng-content select="[kiiToolbarMenu]"></ng-content>
           </div>
@@ -26,11 +28,11 @@
       <div class="kii-app-router-outlet-wrapper" >
       <router-outlet  (activate)="onActivate($event)"></router-outlet>
       </div>
-      <div class="footer-theme kii-app-footer-wrapper">
+      <div itemscope="itemscope" itemtype="http://schema.org/WPFooter" class="footer-theme kii-app-footer-wrapper">
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>
-  <button *ngIf="!loggedInUser.hasRole('chat')" [disabled]="!isBrowser || offline" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"></button>
+  <button *ngIf="!loggedInUser.hasRole('chat') && isBrowser && !offline" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"></button>
 
   </mat-sidenav-container>
 

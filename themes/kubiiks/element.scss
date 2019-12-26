@@ -53,29 +53,29 @@
     kii-element.home-features.kii-appear {
         kii-article-summary {
             .description {
-                animation: 1.5s ease-in-out  textAnimationTitleFeaturesHome forwards;
+                animation: 1s ease-in-out  textAnimationTitleFeaturesHome forwards;
             }
         }
         kii-article .angular-editor-wrapper .angular-editor-textarea {
-            animation: 1.8s ease-in-out textAnimationDescriptionFeaturesHome forwards;
+            animation: 1.3s ease-in-out textAnimationDescriptionFeaturesHome forwards;
         }
     }
 
     @keyframes textAnimationTitleFeaturesHome {
         33% {
-            transform:translateY(30px);
+            transform:translateY(15px);
         }
         66% {
-            transform:translateY(-10px);
+            transform:translateY(-5px);
         }
         100% { transform:none;}
       }
     @keyframes textAnimationDescriptionFeaturesHome {
         33% {
-            transform:translateY(50px);
+            transform:translateY(30px);
         }
         66% {
-            transform:translateY(-15px);
+            transform:translateY(-10px);
         }
         100% { transform:none;}
     }  
