@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
-import { KiiFormAbstract } from '../../_abstracts/kii-form.abstract';
 import { Validators } from '@angular/forms';
 
 @Component({

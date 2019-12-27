@@ -1,4 +1,4 @@
-import { Component, OnInit, Output,EventEmitter, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { MatDialogRef, MatSelectChange, MAT_DIALOG_DATA } from '@angular/material';
 import { DiskType } from '../../_services/kii-api-disk.service';
@@ -36,7 +36,6 @@ export class KiiLinkDialogComponent implements OnInit {
     if (this.title.myForm.invalid) {
       this.title.validate();
     } else {
-      console.log("Result is:",this.title.myForm.controls['result'].value);
       this.dialogRef.close({url:url,title:this.title.myForm.controls['result'].value,class:this.type});
     }
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, QueryList, ElementRef, ViewChild, HostListener, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, SimpleChanges } from '@angular/core';
 import { Email } from '../../_models/email';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiEmailService } from '../../_services/kii-api-email.service';

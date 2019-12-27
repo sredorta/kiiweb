@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { KiiFormAbstract } from '../../../_abstracts/kii-form.abstract';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
-import {KiiCustomValidators} from '../../../_utils/kii-custom-validators';
 import { KiiMiscService } from '../../../_services/kii-misc.service';
 
 @Component({

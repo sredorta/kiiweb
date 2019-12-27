@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Subject,of } from 'rxjs';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
-import {debounceTime, delay, distinctUntilChanged, flatMap, map, tap,mergeMap} from 'rxjs/operators';
+import {debounceTime, delay, distinctUntilChanged,mergeMap} from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material';
 
 @Component({

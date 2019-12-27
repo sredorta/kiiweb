@@ -1,10 +1,10 @@
-import { Component, OnInit,PLATFORM_ID,Inject,ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit,PLATFORM_ID,Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { KiiBaseAbstract } from '../../../../_kiilib/_abstracts/kii-base.abstract';
 import { KiiSpinnerService } from '../../../_services/kii-spinner.service';
 import { User } from '../../../_models/user';
 import { Router } from '@angular/router';
-import { KiiApiAuthService, IUserWithToken, IMessage } from '../../../_services/kii-api-auth.service';
+import { KiiApiAuthService, IUserWithToken } from '../../../_services/kii-api-auth.service';
 
 @Component({
   selector: 'kii-login-signup',

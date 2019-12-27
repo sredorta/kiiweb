@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter, Input, Inject } from '@angular
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { environment } from '../../../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

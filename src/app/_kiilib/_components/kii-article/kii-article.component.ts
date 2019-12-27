@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Inject, PLATFORM_ID, ViewChild, ElementRef, SimpleChanges, Renderer2 } from '@angular/core';
+import { Component, OnInit, Input, Inject, PLATFORM_ID, ViewChild } from '@angular/core';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { Article } from '../../_models/article';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';

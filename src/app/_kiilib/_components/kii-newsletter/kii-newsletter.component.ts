@@ -4,8 +4,7 @@ import { Validators } from '@angular/forms';
 import { KiiItemFormComponent } from '../_forms/kii-item-form/kii-item-form.component';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiNewsletterService } from '../../_services/kii-api-newsletter.service';
-import { MatDialogRef, MatCheckbox, MatCheckboxChange, MatDialog } from '@angular/material';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { MatCheckbox, MatCheckboxChange, MatDialog } from '@angular/material';
 import { KiiTermsDialogComponent } from '../kii-terms-dialog/kii-terms-dialog.component';
 
 @Component({

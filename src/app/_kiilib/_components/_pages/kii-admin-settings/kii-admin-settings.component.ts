@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, ValidatorFn } from '@angular/forms';
 import { Setting } from '../../../_models/setting';
 import { KiiApiSettingService } from '../../../_services/kii-api-setting.service';
-import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 import { KiiApiPageService } from '../../../_services/kii-api-page.service';
 import { Page } from '../../../../_kiilib/_models/page';

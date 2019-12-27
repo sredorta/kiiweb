@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges, Inject, PLATFORM_ID, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { KiiBaseAbstract } from '../../../_abstracts/kii-base.abstract';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KiiApiArticleService } from '../../../_services/kii-api-article.service';

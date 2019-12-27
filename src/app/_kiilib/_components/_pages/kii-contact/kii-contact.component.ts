@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import { KiiContactFormComponent } from '../../_forms/kii-contact-form/kii-contact-form.component';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { KiiAinimations } from '../../../_utils/kii-animations';
 import { KiiBlogAbstract } from '../../../_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../../_services/kii-api-article.service';

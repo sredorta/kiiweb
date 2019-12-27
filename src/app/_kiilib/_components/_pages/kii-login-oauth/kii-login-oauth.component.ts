@@ -1,13 +1,12 @@
-import { Component, OnInit,Inject,PLATFORM_ID,ViewChild,ContentChild, ViewContainerRef } from '@angular/core';
+import { Component, OnInit,Inject,PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
+import { ActivatedRoute, NavigationStart } from '@angular/router';
 import { Router } from '@angular/router';
 import { KiiBaseAbstract } from '../../../../_kiilib/_abstracts/kii-base.abstract';
 import { User } from '../../../_models/user';
-import { KiiSpinnerService } from '../../../../_kiilib/_services/kii-spinner.service';
 import { KiiApiLanguageService } from '../../../_services/kii-api-language.service';
 import { KiiApiAuthService } from '../../../_services/kii-api-auth.service';
-import { MatCheckbox, MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material';
 
 @Component({
   selector: 'kii-login-oauth',

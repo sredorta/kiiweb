@@ -16,7 +16,6 @@ export class KiiNotFoundComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('here with response', this.response);
     if (this.response) {
       // response will only be if we have express
       // this.response.statusCode = 404;

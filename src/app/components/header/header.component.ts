@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, NgZone, Inject, PLATFORM_ID, SimpleChanges } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import {DeviceDetectorService } from 'ngx-device-detector';
 import { isPlatformBrowser } from '@angular/common';
-import * as merge from 'deepmerge';
+import { KiiApiAuthService } from '../../_kiilib/_services/kii-api-auth.service';
+import { KiiBaseAbstract } from '../../_kiilib/_abstracts/kii-base.abstract';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent extends KiiBaseAbstract implements OnInit {
   /**Input data of the header */
   @Input() data : any = null;
 
@@ -32,18 +32,19 @@ export class HeaderComponent implements OnInit {
   /**Muted version of data */
   myData : any = {};
 
+  /**Current alertCount */
+  alertCount : number = 0;
+
   @ViewChild('videoPlayer',{static:false}) videoplayer: ElementRef;
 
 
   constructor(
+    private kiiApiAuth : KiiApiAuthService,
     private device : DeviceDetectorService, 
-    @Inject(PLATFORM_ID) private platformId: any) { 
+    @Inject(PLATFORM_ID) private platformId: any) { super()  
   }
 
   ngOnChanges(changes:SimpleChanges) {
-    if (changes.data.currentValue.alertCount) {
-        this.myData.alertCount = changes.data.currentValue.alertCount;
-    }
     if (changes.data.currentValue.title) {
       this.myData.title = changes.data.currentValue.title;
     }
@@ -53,6 +54,14 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.addSubscriber(
+      this.kiiApiAuth.getUnreadNotifications().subscribe(res => {
+        this.alertCount = res;
+      })
+    )
+
+
     this.myData = JSON.parse(JSON.stringify(this.data));
     this.showVideo = isPlatformBrowser(this.platformId);
     if (!this.myData) {

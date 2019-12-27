@@ -1,7 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import {map} from 'rxjs/operators';
 
 
 export class Resource {
@@ -33,7 +32,6 @@ export abstract class KiiServiceAbstract<T extends Resource>  {
 
     /**Loads all elements from http call*/
     public load() {
-        console.log("URL : " + environment.apiURL + '/' + this._prefix + '/all');
         return this._http.get<T[]>(environment.apiURL + '/' + this._prefix + '/all')
     }   
 

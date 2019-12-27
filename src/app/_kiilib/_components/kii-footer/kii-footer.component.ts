@@ -1,13 +1,10 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Setting } from '../../_models/setting';
 import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
-import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiBaseAuthAbstract } from '../../_abstracts/kii-base-auth.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
 import { StatAction } from '../../_models/stat';
 import { KiiApiNewsletterService } from '../../_services/kii-api-newsletter.service';
-import { TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material';
 
 export interface SocialLink {

@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiMiscService } from '../../_services/kii-misc.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiDiskService, DiskType } from '../../_services/kii-api-disk.service';
-import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

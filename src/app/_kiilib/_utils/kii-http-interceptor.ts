@@ -66,7 +66,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
                 });
             else
                 headers = new HttpHeaders({
-                    'Accept-Language': this.kiiApiLanguage.get()
+                    'Accept-Language': this.kiiApiLanguage.get(),
                 });                
         } else {
             //We are in the browser and then we do the request directly from browser to server
@@ -83,14 +83,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
             //When it's the browser we need to map the URL to the real domain
             request= request.clone({url: request.url.replace(environment.kiiserverURL,environment.kiiserverExtURL)});
         }
-
-        //When angular editor opens image we fall here
-        /*if (request.url.includes("upload/editor") || request.url.includes("upload/videos") ) {
-            headers = headers.append('enctype','multipart/form-data');
-
-            const newUrl = {url : environment.apiURL + request.url};
-            request = Object.assign(request, newUrl);
-        }*/
+        //Handle the response
         let newRequest = request.clone({headers});
             return next.handle(newRequest).pipe(
                 map((event: HttpEvent<any>) => {
@@ -119,10 +112,7 @@ export class KiiHttpInterceptor implements HttpInterceptor {
                         status: error.status
                     };
                     //Handle error and show bottomSheet 
-                    console.log("URL !!!!", request.url);
-                    console.log("ERROR !!!!", error.status)
                     if (request.url.includes('/api/connected') || request.url.includes('/api/intial') || request.url.includes('/api/stats/save')) { //Do not show bottomsheets for connected test
-                        console.log("SKIPPING BOTTOM SHEET FOR", request.url);
                     } else 
                         switch(error.status) {
                             case 0:  //No internet on the server side, or server down... show message if we are not testing connection
@@ -146,7 +136,6 @@ export class KiiHttpInterceptor implements HttpInterceptor {
                             default:
                                 this.openBottomSheet(error.status,error.error.message);
                         }
-                    console.log("RETURNING ERROR",error);
                     return throwError(error);
                 })
             );

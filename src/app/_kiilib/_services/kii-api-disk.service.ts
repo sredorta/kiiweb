@@ -3,7 +3,6 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable, BehaviorSubject } from 'rxjs';
 import {map} from 'rxjs/operators';
-import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 
 export enum DiskType {
   CONTENT = "content",
@@ -83,7 +82,7 @@ export class KiiApiDiskService {
     /**Uploads video */
     public uploadVideo(disk:DiskType,data:FormData) {
       const nginxTrackId = this.getIdNginxTracking();
-      let nginxInterval : NodeJS.Timer = null;
+      let nginxInterval = null;
 
       return this.http.post<any>(environment.apiURL + '/disk/videos/upload/'+disk+ "?X-Progress-ID="+nginxTrackId, data, {
         reportProgress: true,
@@ -113,7 +112,7 @@ export class KiiApiDiskService {
     /**Uploads image to the specific disk */
     public uploadImage(disk:DiskType,data:FormData) {
       const nginxTrackId = this.getIdNginxTracking();
-      let nginxInterval : NodeJS.Timer = null;
+      let nginxInterval  = null;
       return this.http.post(environment.apiURL + '/disk/images/upload/'+disk + "?X-Progress-ID="+nginxTrackId, data, {
         reportProgress: true,
         observe: 'events'
@@ -146,7 +145,7 @@ export class KiiApiDiskService {
 
     /**Starts progress tracking for nginx */
     private startNginxTracking(nginxId:string) {
-      let interval : NodeJS.Timer = null;
+      let interval = null;
       if (environment.type=="vps") {
         interval =  setInterval(() => {
           let subscription =  this.http.get(environment.mainExtURL + '/progress'+ "?X-Progress-ID="+nginxId,{responseType: 'text'}).subscribe(res => {
@@ -180,7 +179,7 @@ export class KiiApiDiskService {
     }
 
     /**Stops progress tracking for nginx */
-    private stopNginxTracking(nginxId:string,interval:NodeJS.Timer) {
+    private stopNginxTracking(nginxId:string,interval:any) {
       if (environment.type=="vps") {
         if (interval != null)
           this._progress.next(null);

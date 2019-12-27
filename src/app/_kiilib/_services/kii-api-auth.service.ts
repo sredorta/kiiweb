@@ -90,9 +90,9 @@ export class KiiApiAuthService {
 
   /**Sets current loggedIn user */
   public setLoggedInUser(user:User) {
-    console.log("setLoggedInUser: Setting user value");
-    console.log(user);
-    console.log("----------------------------------");
+    //console.log("setLoggedInUser: Setting user value");
+    //console.log(user);
+    //console.log("----------------------------------");
     this._user.next(user);
     this._alerts.next(user.getUnreadAlertCount());
   }

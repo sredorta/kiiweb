@@ -1,13 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, SimpleChange, SimpleChanges } from '@angular/core';
 import * as io from 'socket.io-client';
 import { environment } from '../../../../environments/environment';
-import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 import { KiiFormAbstract } from '../../_abstracts/kii-form.abstract';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { KiiSocketService, IChatMessage, IChatUser, IChatRoom, IChatData, ChatDataType, SocketEvents } from '../../_services/kii-socket.service';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { User } from '../../_models/user';
 import { TranslateService } from '@ngx-translate/core';
 import { KiiApiStatsService } from '../../_services/kii-api-stats.service';

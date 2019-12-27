@@ -1,9 +1,7 @@
 import { Article } from '../_models/article';
 import { KiiBaseAbstract } from './kii-base.abstract';
 import { KiiApiArticleService } from '../_services/kii-api-article.service';
-import { TranslateService } from '@ngx-translate/core';
 import { KiiApiPageService } from '../_services/kii-api-page.service';
-import { KiiApiSettingService } from '../_services/kii-api-setting.service';
 import { KiiMiscService } from '../_services/kii-misc.service';
 import { Router } from '@angular/router';
 
@@ -39,7 +37,6 @@ export abstract class KiiBlogAbstract extends KiiBaseAbstract  {
             this.displayedArticles = this.articles;
             if (res.length>0) {
               this.isLoading = false;
-                console.log("loaded articles !");
             }
           })
         )  

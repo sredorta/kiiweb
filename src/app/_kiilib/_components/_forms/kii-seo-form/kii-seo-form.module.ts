@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { KiiFormAbstract } from '../../../../_kiilib/_abstracts/kii-form.abstract';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
-import { Location } from '@angular/common';
 import { KiiApiPageService } from '../../../_services/kii-api-page.service';
 import { Page } from '../../../_models/page';
 import { MatSelectChange } from '@angular/material';

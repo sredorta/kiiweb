@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { KiiMiscService } from '../../_kiilib/_services/kii-misc.service';
-import { KiiApiSettingService } from '../../_kiilib/_services/kii-api-setting.service';
-import { KiiBaseAbstract } from '../../_kiilib/_abstracts/kii-base.abstract';
 import { Router } from '@angular/router';
 import { KiiBlogAbstract } from '../../_kiilib/_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../_kiilib/_services/kii-api-article.service';
 import { KiiApiPageService } from '../../_kiilib/_services/kii-api-page.service';
-import { homedir } from 'os';
 import { Article } from '../../_kiilib/_models/article';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { KiiAinimations } from '../../_kiilib/_utils/kii-animations';
@@ -69,11 +66,9 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
     }
   
     animateFeature(i:number) {
-      console.log("Animating item:",i);
       if (!this.animationsFeatures[i]) {
         this.animationsFeatures[i] = true;
       }
-      console.log(this.animationsFeatures);
     }
 
     isAnimatedFeature(i:number) {
@@ -82,11 +77,9 @@ export class HomeComponent extends KiiBlogAbstract implements OnInit {
     }
 
     animateMenu(i:number) {
-      console.log("Animating item:",i);
       if (!this.animationsMenu[i]) {
         this.animationsMenu[i] = true;
       }
-      console.log(this.animationsMenu);
     }
 
     isAnimatedMenu(i:number) {

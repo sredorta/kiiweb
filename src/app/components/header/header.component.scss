@@ -1,13 +1,14 @@
 
-h1 {
+.header-title {
     font-size: 32px; 
     font-weight: normal;
     opacity:0;
     margin-bottom:0px;
+    margin-top:0px;
     color:white;
     animation: 1s cubic-bezier(0, 0.9, 0.3, 1.2) .2s textAnimationH1 forwards;
 }
-h2 {
+.header-subtitle {
     margin-top:12px;
     font-size: 18px;
     font-weight: normal;
@@ -120,12 +121,12 @@ h2 {
 }
 
 @media only screen and (min-width: 500px) { 
-    h1 { font-size: 50px;}
-    h2 { font-size: 28px;}
+    .header-title { font-size: 50px;}
+    .header-subtitle { font-size: 28px;}
 }
 @media only screen and (min-width: 700px) { 
-        h1  { font-size: 70px; }
-        h2 { font-size: 32px; }
+    .header-title  { font-size: 70px; }
+    .header-subtitle { font-size: 32px; }
 }
 
 

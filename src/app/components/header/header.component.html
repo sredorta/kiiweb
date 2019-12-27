@@ -13,8 +13,8 @@
 
     </video> 
     <div class="content-wrapper">
-        <h1 itemprop="name" ><span class="header-icon" *ngIf="myData.page=='alerts'"><i class="fas fa-bell" [matBadge]="myData.alertCount"></i></span>{{myData.title | translate}}</h1>
-        <h2 itemprop="description">{{myData.subtitle | translate}}</h2>
+        <p itemprop="name" class="header-title"><span class="header-icon" *ngIf="myData.page=='alerts'"><i class="fas fa-bell" [matBadge]="alertCount" [matBadgeHidden]="alertCount==0"></i></span>{{myData.title | translate}}</p>
+        <p itemprop="description" class="header-subtitle">{{myData.subtitle | translate}}</p>
     </div>  
     <img class="icon" src="./assets/images/more.svg" alt="more" />
   </div>

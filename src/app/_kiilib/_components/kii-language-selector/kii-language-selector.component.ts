@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 import { KiiPwaService } from '../../_services/kii-pwa.service';

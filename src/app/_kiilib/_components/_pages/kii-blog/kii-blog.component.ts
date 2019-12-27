@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { KiiBlogAbstract } from '../../../_abstracts/kii-blog.abstract';
 import { KiiApiArticleService } from '../../../_services/kii-api-article.service';
-import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { KiiAinimations } from '../../../_utils/kii-animations';
 import { LocalizeRouterService } from '../../../_libraries/localize-router';
 import { KiiApiPageService } from '../../../_services/kii-api-page.service';

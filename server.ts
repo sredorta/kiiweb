@@ -43,6 +43,7 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
+//Provide sitemap.xml and robots.txt
 app.route('/sitemap.xml')
   .get((req, res) => {
     res.sendFile(process.cwd() + '/sitemap.xml');
@@ -55,35 +56,12 @@ app.route('/robots.txt')
 //For crawlers we patch the lang attribute of html depending on the route 
 // If the route does not have language we use the header data
 // All regular routes use the Universal engine
-app.get('*', async (req, res) => {
-  res.render('index.html', {req, res, providers: [
-      {
-        provide: RESPONSE,
-        useValue: res,
-      },
-    ]}, (error, html) => {
-    if (error) {
-      console.log(`Error generating html for req ${req.url}`, error);
-      return (req as any).next(error);
-    }
-    res.send(html);
-    if (!error) {
-      if (res.statusCode === 200) {
-        //toCache(req.url, html);
-      }
-    }
-  });
-});
-
-
 app.get('*', (req, res) => { 
-  console.log("PARSING URL : " + req.url);
   let lang = "";
   const url : string = <string>req.url;
   const found = url.match(/\/[a-z][a-z]\//g);
   if (found) {
     if (found[0])
-      console.log("FOUND LANGUAGE: " + found[0]);
       lang = found[0].replace(/\//gi, '');
       if (environment.languages.indexOf(lang)<0) {
         lang = environment.languages[0];
@@ -91,7 +69,7 @@ app.get('*', (req, res) => {
   } else {
       lang = (req.acceptsLanguages(environment.languages) || environment.languages[0]) as string;
   }
-  console.log("SENDING LANG : " + lang);
+  res.set('Content-Language', lang);
   //Patch lang before rendering the view
   res.render('index', {req, res, providers: [
     {
@@ -100,43 +78,23 @@ app.get('*', (req, res) => {
     },
   ]}, (error, html) => {
     html = html.replace(/< *html +lang="[a-z][a-z]" *>/g, "<html lang=\"" + lang + "\">");
-    //THIS CODE NEEDS TO BE ONLY HERE FOR DEBUG !!!!
-    console.log("HTML =>>");
-    console.log(html.substr(0,200));
-    console.log("-----------METAS--------------------");
-    for (let line of html.split('\n')) {
-      if (line.includes('meta ')) {
-        for (let line2 of line.split('<meta')) {
-          if (!line2.includes('*/'))
-          console.log('<meta ' + line2);
-        }
-      }
-
-    }
-    console.log("-------------------------------");
+    //console.log("HTML =>>");
+    //console.log(html.substr(0,200));
+    //console.log("-----------METAS--------------------");
+    //for (let line of html.split('\n')) {
+    //  if (line.includes('meta ')) {
+    //    for (let line2 of line.split('<meta')) {
+    //      if (!line2.includes('*/'))
+    //      console.log('<meta ' + line2);
+    //    }
+    //  }
+    //}
+    //console.log("-------------------------------");
     if (error) {
       res.statusCode = 404;
     }
     res.send(html)
 });
-//  res.render('index', { req }, function(err,html:string) {
-//    html = html.replace(/< *html +lang="[a-z][a-z]" *>/g, "<html lang=\"" + lang + "\">");
-//    //THIS CODE NEEDS TO BE ONLY HERE FOR DEBUG !!!!
-//    console.log("HTML =>>");
-//    console.log(html.substr(0,200));
-//    console.log("-----------METAS--------------------");
-//    for (let line of html.split('\n')) {
-//      if (line.includes('meta ')) {
-//        for (let line2 of line.split('<meta')) {
-//          if (!line2.includes('*/'))
-//          console.log('<meta ' + line2);
-//        }
-//      }
-//
-//    }
-//    console.log("-------------------------------");
-//    res.send(html)
-//  });
 });
 
 

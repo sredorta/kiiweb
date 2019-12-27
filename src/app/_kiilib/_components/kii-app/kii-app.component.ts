@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject, PLATFORM_ID, ChangeDetectorRef, HostListener, ViewChild, ElementRef } from '@angular/core';
-import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { MatBottomSheet, MatDialog } from '@angular/material';
 import { KiiPwaService } from '../../_services/kii-pwa.service';
 import { SwPush } from '@angular/service-worker';
@@ -8,25 +7,22 @@ import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { isPlatformBrowser } from '@angular/common';
 import { KiiMiscService } from '../../_services/kii-misc.service';
 import { Setting } from '../../_models/setting';
-import { IUser, User } from '../../_models/user';
+import { User } from '../../_models/user';
 import { KiiApiSettingService } from '../../_services/kii-api-setting.service';
 import { KiiApiLanguageService } from '../../_services/kii-api-language.service';
 import { Article } from '../../_models/article';
 import { KiiApiArticleService } from '../../_services/kii-api-article.service';
 import { KiiBottomSheetCookiesComponent } from '../kii-bottom-sheet-cookies/kii-bottom-sheet-cookies.component';
 import { LocalizeRouterService } from '../../_libraries/localize-router/localize-router.service';
-import { KiiSocketService, SocketEvents, ChatDataType } from '../../_services/kii-socket.service';
+import { KiiSocketService } from '../../_services/kii-socket.service';
 import { KiiChatDialogComponent } from '../kii-chat-dialog/kii-chat-dialog.component';
 import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
-import { Router, RouterEvent,NavigationStart, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { StatAction } from '../../_models/stat';
-import { start } from 'repl';
 import { KiiPopupDialogComponent } from '../kii-popup-dialog/kii-popup-dialog.component';
 import { environment } from '../../../../environments/environment';
 import { Page } from '../../_models/page';
 import { KiiApiPageService } from '../../_services/kii-api-page.service';
-import { FaLayersComponent } from '@fortawesome/angular-fontawesome';
-import { settings } from 'cluster';
 
 
 
@@ -67,8 +63,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   //kiiPwa has on its constructor the handling of versions and install so nothing to do
   //Subscriptions to onPush needs to be called
   ngOnInit() {
-    console.log("ENVIRONMENT", environment);
-
     //Subscribe to authUser
     this.addSubscriber(
       this.kiiApiAuth.getLoggedInUser().subscribe(res => {
@@ -97,7 +91,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
               this.kiiApiAuth.setLoggedInUser(new User(res));
           }, error => {
             User.removeToken();
-            console.log("Got error",error);
           })
         )
     }
@@ -206,8 +199,6 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
         this.openPopupDialog(); //Opens popup if required
         this.schemaSite = this.kiiMisc.schemaInit('site');
         this.schemaCorporation = this.kiiMisc.schemaInit('corporation');
-        console.log(this.schemaSite);
-        console.log(this.schemaCorporation);
       })
     )
   }
