@@ -151,21 +151,21 @@
        //Video min height is 270px
    }
    @media only screen and (min-width: 500px) { 
-    h1  { font-size: 38px; }
-    h2 { font-size: 22px !important; }
+    .header-title  { font-size: 38px; }
+    .header-subtitle { font-size: 22px !important; }
    }
    @media only screen and (min-width: 700px) { 
-    h1  { font-size: 38px; }
-    h2 { font-size: 22px !important; }
+    .header-title  { font-size: 38px; }
+    .header-subtitle { font-size: 22px !important; }
    }   
 
    @media only screen and (min-width: 1000px) { 
         video {height:200%;}
    }
 
-   h1 {
+   .header-title {
        margin-top:0px;
        margin-bottom:5px;
     }
-   h2 {margin-top:0px;}
+    .header-subtitle {margin-top:0px;}
 }
