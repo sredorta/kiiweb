@@ -42,7 +42,7 @@
     "kiilib.discover" : "Discover",
 
     "kiilib.link.title.menu" : "Menu",
-    "kiilib.link.titile.cart" : "Shopping cart",
+    "kiilib.link.title.cart" : "Shopping cart",
     "kiilib.link.title.login" : "Login",
     "kiilib.link.title.profile" : "Profile",
     "kiilib.link.title.notifications" : "Notifications",
@@ -363,6 +363,12 @@
     "kiilib.stats.confirm.title"        : "Reset statistics ?",
     "kiilib.stats.confirm.text"         : "Are you sure that you want to delete all statistics data ? This operation is irreversible!",
     "kiilib.stats.reset"                : "Reset all statistics",
+    "kiilib.stats.apps_over_time.title" : "App installs",
+    "kiilib.stats.apps_over_time.subtitle" : "Mobile app installs evolution over time",
+    "kiilib.stats.newsletter_over_time.title" : "Newsletter",
+    "kiilib.stats.newsletter_over_time.subtitle" : "Newsletter subscriptors evolution over time",
+    "kiilib.stats.axis.app"             : "Installs",
+    "kiilib.stats.axis.newsletter" : "Subscriptions",
 
     "kiilib.disk.title"                 : "Disk storage",
     "kiilib.disk.total.title"           : "Used disk storage",

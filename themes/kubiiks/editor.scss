@@ -43,11 +43,11 @@
             }
             a.normal-button {
               &:hover {
-                background-color: rgba(mat-color($primary),0.1);
+                background: rgba(mat-color($primary),0.2) !important;
                 color: mat-color($primary);
               }
               &:active {
-                background-color: rgba(mat-color($primary),0.2);
+                background-color: rgba(mat-color($primary),0.4) !important;
               }
             }
             a.flat-button {
@@ -96,11 +96,11 @@
             }
             a.stroked-button {
               &:hover {
-                background-color: rgba(mat-color($primary),0.1);
+                background-color: rgba(mat-color($primary),0.2) !important;
                 color: mat-color($primary);
               }
               &:active {
-                background-color: rgba(mat-color($primary),0.2);
+                background-color: rgba(mat-color($primary),0.4) !important;
               }
             }
     } 

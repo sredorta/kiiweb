@@ -42,7 +42,7 @@
     "kiilib.discover" : "Découvrir",
 
     "kiilib.link.title.menu" : "Menu",
-    "kiilib.link.titile.cart" : "Achats",
+    "kiilib.link.title.cart" : "Achats",
     "kiilib.link.title.login" : "Connection",
     "kiilib.link.title.profile" : "Mon compte",
     "kiilib.link.title.notifications" : "Notifications",
@@ -364,6 +364,12 @@
     "kiilib.stats.confirm.title"        : "Supprimer les statistiques ?",
     "kiilib.stats.confirm.text"         : "Etes-vous sûr de vouloir effacer toutes les statistiques ? Cette opération est irréversible !",
     "kiilib.stats.reset"                : "Supprimer les statistiques",
+    "kiilib.stats.apps_over_time.title" : "Installations de la app",
+    "kiilib.stats.apps_over_time.subtitle" : "Evolution des installations de la app",
+    "kiilib.stats.newsletter_over_time.title" : "Bulletins d'information",
+    "kiilib.stats.newsletter_over_time.subtitle" : "Evolution des inscrits aux bulletins d'information",
+    "kiilib.stats.axis.app"             : "Installations",
+    "kiilib.stats.axis.newsletter"      : "Inscriptions",
 
     "kiilib.disk.title"                 : "Gestion de l'espace disc",
     "kiilib.disk.total.title"           : "Espace disc utilisé",

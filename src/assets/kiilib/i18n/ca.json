@@ -42,7 +42,7 @@
     "kiilib.discover" : "Descobrir",
 
     "kiilib.link.title.menu" : "Menú",
-    "kiilib.link.titile.cart" : "Compres",
+    "kiilib.link.title.cart" : "Compres",
     "kiilib.link.title.login" : "Connexió",
     "kiilib.link.title.profile" : "El meu compte",
     "kiilib.link.title.notifications" : "Notificacions",
@@ -367,6 +367,14 @@
     "kiilib.stats.confirm.title"        : "Esborrar les estadístiques ?",
     "kiilib.stats.confirm.text"         : "Estas segur que vols esborrar totes les estadistiques ? Aquesta operació és irreversible !",
     "kiilib.stats.reset"                : "Esborrar totes les estadístiques",
+    "kiilib.stats.apps_over_time.title" : "Instal·lacions",
+    "kiilib.stats.apps_over_time.subtitle" : "Evolució de les instal·lacions de la aplicació mòbil",
+    "kiilib.stats.newsletter_over_time.title" : "Butlletins informatius",
+    "kiilib.stats.newsletter_over_time.subtitle" : "Evolució dels inscrits als butlletins informatius",
+    "kiilib.stats.axis.app"             : "Instal·lacions",
+    "kiilib.stats.axis.newsletter" : "Inscripcions",
+
+
 
     "kiilib.disk.title"                 : "Gestió de l'espai de disc",
     "kiilib.disk.total.title"           : "Espai disc utilitzat",

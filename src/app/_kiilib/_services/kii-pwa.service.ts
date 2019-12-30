@@ -42,20 +42,16 @@ export class KiiPwaService {
       if (navigator.serviceWorker && environment.production) {
         navigator.serviceWorker.getRegistrations().then(registrations => {
           if (registrations.length == 0) {
-            console.log("REGISTERING SERVICE WORKER !");
             navigator.serviceWorker.register('/ngsw-worker.js').then(function(registration) {
-              console.log('SERVICE WORKER REGISTERED CORRECTLY', registration);
             }).catch(function(error) {
               console.log('SERVICE WORKER REGISTRATION FAILED:', error);
             });
           } else {
-              console.log("CHECK IF NEW VERSION:");
               //Handle version updates if required we show bottom sheet and upload new version
               var refreshing;
               let myObj = this;
               navigator.serviceWorker.addEventListener('controllerchange',
                 function() {
-                  console.log("GOT CONTROLLER CHANGE !!!!!");
                   if (refreshing) return;
                   refreshing = true;
                   let myBottomSheet = myObj.bottomSheet.open(KiiBottomSheetSoftwareUpdateComponent, {
@@ -89,7 +85,6 @@ export class KiiPwaService {
 
       //Handle install button and tell that we show the install bottom sheet
       window.addEventListener('beforeinstallprompt', event => {
-        console.log("Recieved beforeinstallprompt!")
         this.promptEvent = event;
         this.hasApp.next(true);
       });
@@ -133,8 +128,8 @@ export class KiiPwaService {
 
       //When we recieve an onPush notification let's do whatever is required
       this.swPush.messages.pipe(map((res:any) => <Notification>res.notification)).subscribe(notification => {
-        console.log("swPush.messages.subscription");
-        console.log("Notification is:",notification)
+        //console.log("swPush.messages.subscription");
+        //console.log("Notification is:",notification)
       })
     }
   }

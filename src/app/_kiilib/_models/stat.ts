@@ -9,6 +9,7 @@ export enum StatAction {
     CHAT_LEAVE = "chat_leave",
     CHAT_MESSAGE = "chat_message",
     APP_INSTALL = "app_install",
+    NEWSLETTER = "newsletter",
     UNDEFINED = "unknown"
 }
 
@@ -39,6 +40,8 @@ export class StatResult {
 
     visits_hours_histogram : any[] = [[],[],[],[],[],[],[],[]];
     visits_over_day : any[] = [];
+    app_over_day : any [] = [];
+    newsletter_over_day : any = [];
     referrals_histogram : any[] = [];
     social_over_day : any = {all:[]};
     social_histogram : any[] = [];

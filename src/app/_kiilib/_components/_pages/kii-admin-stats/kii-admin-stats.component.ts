@@ -70,6 +70,8 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
   histoPagesOptions : any = {};
   languagesOptions : any = {};
   socialHistoOptions : any = {};
+  appOverTimeOptions : any = {};
+  newsletterOverTimeOptions : any = {};
   dayOfWeek : number = 7;
   language : string = this.kiiApiLang.get();
   languagesAvailable : any = this.kiiApiLang.getSupportedLanguages();
@@ -84,14 +86,14 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
 
   ngOnInit() {
     this.addSubscriber(
-      this.trans.get(["kiilib.stats.axis.visits", "kiilib.stats.axis.day", "kiilib.stats.axis.day_hours", "kiilib.stats.axis.traffic", "kiilib.stats.axis.page","kiilib.stats.axis.social"]).subscribe(res => {
+      this.trans.get(["kiilib.stats.axis.visits", "kiilib.stats.axis.day", "kiilib.stats.axis.day_hours", "kiilib.stats.axis.traffic", "kiilib.stats.axis.page","kiilib.stats.axis.social","kiilib.stats.axis.app", "kiilib.stats.axis.newsletter"]).subscribe(res => {
         this.axisNames = res;
       })
     );
     this.addSubscriber(
       this.kiiApiLang.onChange().subscribe(res => {
         this.addSubscriber(
-          this.trans.get(["kiilib.stats.axis.visits", "kiilib.stats.axis.day", "kiilib.stats.axis.day_hours", "kiilib.stats.axis.traffic", "kiilib.stats.axis.page","kiilib.stats.axis.social"]).subscribe(res => {
+          this.trans.get(["kiilib.stats.axis.visits", "kiilib.stats.axis.day", "kiilib.stats.axis.day_hours", "kiilib.stats.axis.traffic", "kiilib.stats.axis.page","kiilib.stats.axis.social","kiilib.stats.axis.app", "kiilib.stats.axis.newsletter"]).subscribe(res => {
             this.axisNames = res;
           })
         )
@@ -194,6 +196,35 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
         }
       }
     ]);
+    this.appOverTimeOptions = deepmerge.all([this.defaultChartOptions,
+      {
+        curveType: 'function',
+        hAxis: {
+          title:"Day",
+          format:'d/M/yy',
+          slantedText:true,
+          slantedTextAngle:90
+        },
+        vAxis: {
+          title: this.axisNames['kiilib.stats.axis.app']
+        }
+      }
+    ]);
+
+    this.newsletterOverTimeOptions = deepmerge.all([this.defaultChartOptions,
+      {
+        curveType: 'function',
+        hAxis: {
+          title:"Day",
+          format:'d/M/yy',
+          slantedText:true,
+          slantedTextAngle:90
+        },
+        vAxis: {
+          title: this.axisNames['kiilib.stats.axis.newsletter']
+        }
+      }
+    ]);
 
     this.generateStats();
   }
@@ -209,8 +240,15 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
     this.isDataLoading = true;
     this.addSubscriber(
       this.kiiApiStats.analyze(this.days).subscribe(res => {
+        console.log("STATS", res);
         //Convert dates into Date objects
         for (let elem of res.visits_over_day) {
+          elem[0] = new Date(elem[0]);
+        }
+        for (let elem of res.app_over_day) {
+          elem[0] = new Date(elem[0]);
+        }
+        for (let elem of res.newsletter_over_day) {
           elem[0] = new Date(elem[0]);
         }
         Object.keys(res.social_over_day).forEach((social) => {

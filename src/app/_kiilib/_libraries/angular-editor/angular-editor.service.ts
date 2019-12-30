@@ -42,7 +42,7 @@ export class AngularEditorService {
   createLink(url: string, title:string, className:string) {
       let newUrl : string = "";
       if (className!="default")
-        newUrl = '<a href="' + url + ' "title="'+title+    '" "class="'+className+'">' + this.selectedText + '</a>';
+        newUrl = '<a href="' + url + '" title="'+title+    '" class="'+className+'">' + this.selectedText + '</a>';
       else
         newUrl = '<a href="' + url + '" title="'+title+'">' + this.selectedText + '</a>';
 
@@ -201,7 +201,12 @@ export class AngularEditorService {
    * @param imageUrl The imageUrl.
    */
   insertImage(imageUrl: string, altText:string, size:string) {
-    const html = '<img src="'+imageUrl+'" alt="' +altText+'" style="width:' + size + '">';
+    let html = "";
+    if (size.includes('%')) {
+      html = '<img src="'+imageUrl+'" alt="' +altText+'" style="width:' + size + ';min-width:250px">';
+    } else {
+      html = '<img src="'+imageUrl+'" alt="' +altText+'" style="width:' + size + '">';
+    }
     this.restoreSelection();
     this.doc.execCommand('insertHTML', false, html);
  

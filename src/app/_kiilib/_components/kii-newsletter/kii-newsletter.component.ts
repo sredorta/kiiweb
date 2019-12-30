@@ -6,6 +6,8 @@ import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiNewsletterService } from '../../_services/kii-api-newsletter.service';
 import { MatCheckbox, MatCheckboxChange, MatDialog } from '@angular/material';
 import { KiiTermsDialogComponent } from '../kii-terms-dialog/kii-terms-dialog.component';
+import { StatAction } from '../../_models/stat';
+import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
 
 @Component({
   selector: 'kii-newsletter',
@@ -22,7 +24,8 @@ export class KiiNewsletterComponent extends KiiBaseAbstract implements OnInit {
   valid : boolean = false;
 
   constructor(private dialog: MatDialog,
-              private kiiApiNews : KiiApiNewsletterService) { 
+              private kiiApiNews : KiiApiNewsletterService,
+              private kiiApiStats: KiiApiStatsService) { 
                 super(); 
               }
 
@@ -77,6 +80,7 @@ export class KiiNewsletterComponent extends KiiBaseAbstract implements OnInit {
     this.addSubscriber(
       this.kiiApiNews.subscribeNews(email).subscribe(res => {
         this.isDataLoading = false;
+        this.kiiApiStats.send(StatAction.NEWSLETTER,null);
         this.reset();
       },() => this.isDataLoading = false)
     )

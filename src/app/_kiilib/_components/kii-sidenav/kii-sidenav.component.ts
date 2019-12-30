@@ -4,6 +4,8 @@ import { KiiPwaService } from '../../_services/kii-pwa.service';
 import { KiiBaseAbstract } from '../../_abstracts/kii-base.abstract';
 import { KiiApiAuthService } from '../../_services/kii-api-auth.service';
 import { User } from '../../_models/user';
+import { KiiApiStatsService } from '../../_services/kii-api-stats.service';
+import { StatAction } from '../../_models/stat';
 
 @Component({
   selector: 'kii-sidenav',
@@ -17,7 +19,7 @@ export class KiiSidenavComponent extends KiiBaseAbstract implements OnInit {
 
   loggedInUser : User = new User(null);
 
-  constructor(private _location : Location, private kiiPwa : KiiPwaService, private kiiApiAuth : KiiApiAuthService) { super() }
+  constructor(private _location : Location, private kiiPwa : KiiPwaService, private kiiApiAuth : KiiApiAuthService, private kiiApiStats: KiiApiStatsService) { super() }
 
   ngOnInit() {
     this.addSubscriber(
@@ -40,6 +42,7 @@ export class KiiSidenavComponent extends KiiBaseAbstract implements OnInit {
   /**Install the app */
   installApp() {
     this.kiiPwa.installApp();
+    this.kiiApiStats.send(StatAction.APP_INSTALL,null);
   }
 
 }

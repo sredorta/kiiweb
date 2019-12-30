@@ -32,7 +32,7 @@
           <google-chart  [dynamicResize]="true" type="LineChart" [data]="result.visits_over_day"  [options]="visitsOverTimeOptions"></google-chart>
         </div>
         <div class="chart-wrapper">
-          <div class="chart-titile-with-input">
+          <div class="chart-title-with-input">
             <div>
             <p class="chart-title">{{'kiilib.stats.visits_hours.title' | translate}}</p>
             <p class="chart-subtitle">{{'kiilib.stats.visits_hours.subtitle' | translate}}</p>
@@ -64,7 +64,7 @@
 
       <div class="stats-two-columns">
         <div class="chart-wrapper">
-            <div class="chart-titile-with-input">
+            <div class="chart-title-with-input">
                 <div>
                 <p class="chart-title">{{'kiilib.stats.pages.title' | translate}}</p>
                 <p class="chart-subtitle">{{'kiilib.stats.pages.subtitle' | translate}}</p>
@@ -90,7 +90,7 @@
 
       <div class="stats-two-columns">
           <div class="chart-wrapper">
-              <div class="chart-titile-with-input">
+              <div class="chart-title-with-input">
                   <div>
                   <p class="chart-title">{{'kiilib.stats.social_over_time.title' | translate}}</p>
                   <p class="chart-subtitle">{{'kiilib.stats.social_over_time.subtitle' | translate}}</p>
@@ -115,6 +115,20 @@
               <p class="chart-subtitle">{{'kiilib.stats.social_histo.subtitle' | translate}}</p>
               <google-chart  [dynamicResize]="true"  type="ColumnChart" [data]="result.social_histogram"  [options]="socialHistoOptions"></google-chart>
           </div>
+      </div>
+
+      <div class="stats-two-columns">
+          <div class="chart-wrapper">
+              <p class="chart-title">{{'kiilib.stats.apps_over_time.title' | translate}}</p>
+              <p class="chart-subtitle">{{'kiilib.stats.apps_over_time.subtitle' | translate}}</p>
+              <google-chart  [dynamicResize]="true" type="LineChart" [data]="result.app_over_day"  [options]="appOverTimeOptions"></google-chart>
+            </div>
+  
+            <div class="chart-wrapper">
+                <p class="chart-title">{{'kiilib.stats.newsletter_over_time.title' | translate}}</p>
+                <p class="chart-subtitle">{{'kiilib.stats.newsletter_over_time.subtitle' | translate}}</p>
+                <google-chart  [dynamicResize]="true" type="LineChart" [data]="result.newsletter_over_day"  [options]="newsletterOverTimeOptions"></google-chart>
+            </div>
       </div>
 
     </div>
