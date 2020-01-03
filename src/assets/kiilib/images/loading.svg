@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;display:block;" width="175px" height="175px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-<path d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#cddc39" stroke="none" transform="rotate(329.153 50 51)">
-  <animateTransform attributeName="transform" type="rotate" dur="1s" repeatCount="indefinite" keyTimes="0;1" values="0 50 51;360 50 51"></animateTransform>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="175px" display="block" style="margin:auto" preserveAspectRatio="xMidYMid" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<path transform="rotate(329.153 50 51)" d="m10 50a40 40 0 0 0 80 0 40 42 0 0 1-80 0" fill="#cddc39">
+<animateTransform attributeName="transform" dur="1s" keyTimes="0;1" repeatCount="indefinite" type="rotate" values="0 50 51;360 50 51"/>
 </path>
 </svg>

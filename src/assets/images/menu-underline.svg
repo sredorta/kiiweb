@@ -1,91 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="menu-underline.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   id="svg2020"
-   version="1.1"
-   viewBox="0 0 132.29167 15.875"
-   height="60"
-   width="500"
-   style="enable-background:new"
-   enable-background="new">
-  <defs
-     id="defs2014">
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter3380"
-       x="-0.050719849"
-       width="1.1014397"
-       y="-0.70129874"
-       height="2.4025975">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="2.8060831"
-         id="feGaussianBlur3382" />
-      <feBlend
-         inkscape:collect="always"
-         mode="screen"
-         in2="BackgroundImage"
-         id="feBlend3384" />
-    </filter>
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="-53.571428"
-     inkscape:cy="261.17399"
-     inkscape:document-units="px"
-     inkscape:current-layer="svg2020"
-     showgrid="false"
-     units="px"
-     inkscape:window-width="2100"
-     inkscape:window-height="1234"
-     inkscape:window-x="2391"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata2017">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-281.12499)" />
-  <path
-     sodipodi:nodetypes="cccccc"
-     inkscape:connector-curvature="0"
-     id="path11243"
-     d="m 49.861083,122.91691 c 40.489633,5.93585 71.494407,-4.56312 83.448437,1.57305 v 0 c -6.57755,7.90549 -31.23765,8.972 -74.915981,4.46568 C 34.7239,125.95826 25.180008,124.24741 0.52916539,129.72318 13.180178,125.45342 19.254006,119.77196 49.861083,122.91691 Z"
-     style="opacity:0.495;fill:#000000;fill-opacity:1;stroke:#1a1a1a;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill;filter:url(#filter3380)"
-     transform="matrix(0.96648032,0,0,1,0.19736266,-119.79635)" />
-  <path
-     style="opacity:1;fill:#cddc39;fill-opacity:1;stroke:#1a1a1a;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-     d="M 48.422587,0.92828102 C 87.555027,6.8641293 117.52053,-3.6348377 129.07387,2.5013301 v 0 C 122.71679,10.40682 98.883277,11.473331 56.669037,6.9670093 33.792797,3.9696292 24.568817,2.2587801 0.74426602,7.7345493 12.971217,3.4647895 18.841447,-2.2166677 48.422587,0.92828102 Z"
-     id="rect3115-8"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cccccc" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="60" enable-background="new" version="1.1" viewBox="0 0 132.29 15.875" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<defs>
+<filter id="a" x="-.05072" y="-.7013" width="1.1014" height="2.4026" color-interpolation-filters="sRGB">
+<feGaussianBlur stdDeviation="2.8060831"/>
+<feBlend in2="BackgroundImage" mode="screen"/>
+</filter>
+</defs>
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<path transform="matrix(.96648 0 0 1 .19736 -119.8)" d="m49.861 122.92c40.49 5.9358 71.494-4.5631 83.448 1.573-6.5776 7.9055-31.238 8.972-74.916 4.4657-23.67-2.9974-33.214-4.7082-57.864 0.76754 12.651-4.2698 18.725-9.9512 49.332-6.8063z" filter="url(#a)" opacity=".495" stroke-width="0" style="paint-order:stroke markers fill"/>
+<path d="m48.423 0.92828c39.132 5.9358 69.098-4.5631 80.651 1.573-6.3571 7.9055-30.191 8.972-72.405 4.4657-22.876-2.9974-32.1-4.7082-55.925 0.76754 12.227-4.2698 18.097-9.9512 47.678-6.8063z" fill="#cddc39" stroke-width="0" style="paint-order:stroke markers fill"/>
 </svg>

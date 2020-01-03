@@ -1,71 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="600"
-   height="600"
-   viewBox="0 0 158.75 158.75001"
-   version="1.1"
-   id="svg4608"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="prices-gold.svg">
-  <defs
-     id="defs4602" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="-13.269943"
-     inkscape:cy="448.48687"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:snap-grids="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     units="px" />
-  <metadata
-     id="metadata4605">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-138.24995)">
-    <path
-       style="opacity:0.24299999;fill:#806600;fill-opacity:1;stroke-width:0.12429319"
-       d="m 0.06683629,177.91011 c 8.81164011,-9.15533 32.38526471,6.20322 40.28157971,7.00838 10.238954,1.04404 21.816818,-13.12857 43.606641,-1.40203 15.631875,6.29671 34.602403,-5.90623 48.372973,-6.44414 14.01381,-0.54741 13.68325,4.87272 26.74729,0.83779 V 138.11458 H 0.06683629 Z"
-       id="rect4610"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cscscccc" />
-    <path
-       sodipodi:nodetypes="cscscccc"
-       inkscape:connector-curvature="0"
-       id="path954"
-       d="m 0.06683585,177.91011 c 13.66256615,-7.68827 24.78424715,3.95219 38.20271115,3.03963 10.268322,-0.69834 23.328723,-13.69553 45.118546,-1.96899 15.631882,6.29671 30.633657,-3.63838 44.404227,-4.17629 14.01381,-0.54741 18.21896,7.14058 31.283,3.10565 V 138.11458 H 0.06683585 Z"
-       style="fill:#806600;fill-opacity:1;stroke-width:0.12429319" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="600" version="1.1" viewBox="0 0 158.75 158.75" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="translate(0 -138.25)" fill="#806600" stroke-width=".12429">
+<path d="m0.066836 177.91c8.8116-9.1553 32.385 6.2032 40.282 7.0084 10.239 1.044 21.817-13.129 43.607-1.402 15.632 6.2967 34.602-5.9062 48.373-6.4441 14.014-0.54741 13.683 4.8727 26.747 0.83779v-39.796h-159.01z" opacity=".243"/>
+<path d="m0.066836 177.91c13.663-7.6883 24.784 3.9522 38.203 3.0396 10.268-0.69834 23.329-13.696 45.119-1.969 15.632 6.2967 30.634-3.6384 44.404-4.1763 14.014-0.54741 18.219 7.1406 31.283 3.1056v-39.796h-159.01z"/>
+</g>
 </svg>

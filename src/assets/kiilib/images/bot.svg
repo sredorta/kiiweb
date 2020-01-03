@@ -1,162 +1,24 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="50"
-   height="50"
-   viewBox="0 0 13.229166 13.229167"
-   version="1.1"
-   id="svg8438"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="bot.svg">
-  <defs
-     id="defs8432">
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient8114"
-       id="linearGradient8120"
-       x1="43.903004"
-       y1="246.23703"
-       x2="36.304226"
-       y2="232.80675"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.25344843,0,0,0.251992,-1.7827166,232.11645)" />
-    <linearGradient
-       id="linearGradient8114"
-       osb:paint="gradient">
-      <stop
-         style="stop-color:#cddc39;stop-opacity:1;"
-         offset="0"
-         id="stop8110" />
-      <stop
-         style="stop-color:#cddc39;stop-opacity:0;"
-         offset="1"
-         id="stop8112" />
-    </linearGradient>
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="15.839192"
-     inkscape:cx="25.812451"
-     inkscape:cy="16.826363"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     units="px"
-     inkscape:window-width="2100"
-     inkscape:window-height="1234"
-     inkscape:window-x="2391"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata8435">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-283.77081)">
-    <rect
-       style="opacity:1;fill:#afb42d;fill-opacity:1;stroke:url(#linearGradient8120);stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       id="rect8100"
-       width="13.229166"
-       height="13.153146"
-       x="0.047247604"
-       y="283.81805"
-       ry="6.5765729" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       id="rect8128"
-       width="9.8606024"
-       height="6.452497"
-       x="1.7921381"
-       y="287.27377"
-       ry="2.9671912"
-       rx="4.9303012" />
-    <rect
-       style="opacity:1;fill:#afb42d;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       id="rect8165"
-       width="7.9865732"
-       height="3.1085248"
-       x="2.8134618"
-       y="289.45004"
-       ry="1.5542624" />
-    <rect
-       style="opacity:1;fill:#82771b;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       id="rect8165-5"
-       width="6.9848614"
-       height="2.3541689"
-       x="3.2969267"
-       y="289.832"
-       ry="1.1770844" />
-    <path
-       style="opacity:0.4;fill:#ffffff;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       d="m 5.70392,289.45041 h 1.6457932 l -1.1842183,3.10609 -1.7675354,-0.012 z"
-       id="rect8278"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       style="opacity:0.4;fill:#ffffff;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       d="m 7.3901992,289.4192 0.8243071,0.0242 -1.1620831,3.13032 H 6.1949135 Z"
-       id="rect8278-4"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       id="rect8307"
-       width="0.68867713"
-       height="1.165823"
-       x="4.850111"
-       y="290.43741"
-       ry="0.37717801" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#cddc39;stroke-width:0;stroke-linecap:round;stroke-miterlimit:3.4000001;stroke-dasharray:none;stroke-opacity:0.58823529;paint-order:stroke fill markers"
-       id="rect8307-6"
-       width="0.68867713"
-       height="1.165823"
-       x="8.0963564"
-       y="290.43719"
-       ry="0.37717801" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       id="rect7310"
-       width="0.70158249"
-       height="3.8921125"
-       x="1.7921381"
-       y="287.27377"
-       ry="0.32572362"
-       rx="0.35079125" />
-    <rect
-       rx="0.35079125"
-       ry="0.32572362"
-       y="287.27377"
-       x="10.951158"
-       height="3.8921125"
-       width="0.70158249"
-       id="rect7335"
-       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50" height="50" version="1.1" viewBox="0 0 13.229 13.229" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="translate(0 -283.77)">
+<rect x=".047248" y="283.82" width="13.229" height="13.153" ry="6.5766" fill="#afb42d" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<rect x="1.7921" y="287.27" width="9.8606" height="6.4525" rx="4.9303" ry="2.9672" fill="#fff" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<rect x="2.8135" y="289.45" width="7.9866" height="3.1085" ry="1.5543" fill="#afb42d" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<rect x="3.2969" y="289.83" width="6.9849" height="2.3542" ry="1.1771" fill="#82771b" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<path d="m5.7039 289.45h1.6458l-1.1842 3.1061-1.7675-0.012z" fill="#fff" opacity=".4" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<path d="m7.3902 289.42 0.82431 0.0242-1.1621 3.1303h-0.85751z" fill="#fff" opacity=".4" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<rect x="4.8501" y="290.44" width=".68868" height="1.1658" ry=".37718" fill="#fff" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<rect x="8.0964" y="290.44" width=".68868" height="1.1658" ry=".37718" fill="#fff" stroke-miterlimit="3.4" stroke-width="0" style="paint-order:stroke fill markers"/>
+<rect x="1.7921" y="287.27" width=".70158" height="3.8921" rx=".35079" ry=".32572" fill="#fff" style="paint-order:stroke markers fill"/>
+<rect x="10.951" y="287.27" width=".70158" height="3.8921" rx=".35079" ry=".32572" fill="#fff" style="paint-order:stroke markers fill"/>
+</g>
 </svg>

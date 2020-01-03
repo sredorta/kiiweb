@@ -1,84 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="1500"
-   height="200"
-   viewBox="0 0 396.87499 52.916668"
-   version="1.1"
-   id="svg10088"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="newsletter-background.svg">
-  <defs
-     id="defs10082">
-    <linearGradient
-       id="linearGradient10802"
-       osb:paint="solid">
-      <stop
-         style="stop-color:#1a1a1a;stop-opacity:1;"
-         offset="0"
-         id="stop10800" />
-    </linearGradient>
-    <inkscape:path-effect
-       effect="envelope"
-       id="path-effect10735"
-       is_visible="true"
-       yy="true"
-       xx="true"
-       bendpath1="M 58.39732,229.15326 H 188.79911"
-       bendpath2="m 188.79911,229.15326 v 36.38001"
-       bendpath3="M 58.39732,265.53327 H 188.79911"
-       bendpath4="m 58.39732,229.15326 v 36.38001" />
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="619.26261"
-     inkscape:cy="118.91492"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1530"
-     inkscape:window-height="846"
-     inkscape:window-x="2457"
-     inkscape:window-y="97"
-     inkscape:window-maximized="0"
-     units="px" />
-  <metadata
-     id="metadata10085">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-244.08332)">
-    <path
-       style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       d="m 108.94517,247.03325 c 53.64557,-5.97711 150.66215,9.52335 200.65276,4.52889 61.22499,-6.11686 101.05504,-6.54819 101.05504,-6.54819 l 4.12857,57.23192 c 0,0 -65.79378,-5.601 -102.29505,-10.90081 -99.32244,-9.49072 -222.967885,12.58386 -315.1038321,1.53734 2.75357787,-1.85532 -1.7171044,-27.5702 0.073569,-41.43962 C 33.77323,239.84857 77.352263,249.74299 108.94517,247.03325 Z"
-       id="rect9707"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cscccccc" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1500" height="200" version="1.1" viewBox="0 0 396.87 52.917" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="translate(0 -244.08)">
+<path d="m108.95 247.03c53.646-5.9771 150.66 9.5234 200.65 4.5289 61.225-6.1169 101.06-6.5482 101.06-6.5482l4.1286 57.232s-65.794-5.601-102.3-10.901c-99.322-9.4907-222.97 12.584-315.1 1.5373 2.7536-1.8553-1.7171-27.57 0.073569-41.44 36.317-11.594 79.896-1.6998 111.49-4.4095z" fill="#1a1a1a" style="paint-order:stroke markers fill"/>
+</g>
 </svg>

@@ -1,114 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="800"
-   height="300"
-   viewBox="0 0 211.66666 79.375002"
-   version="1.1"
-   id="svg10088"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="newsletter.svg">
-  <defs
-     id="defs10082">
-    <linearGradient
-       id="linearGradient10802"
-       osb:paint="solid">
-      <stop
-         style="stop-color:#1a1a1a;stop-opacity:1;"
-         offset="0"
-         id="stop10800" />
-    </linearGradient>
-    <inkscape:path-effect
-       effect="envelope"
-       id="path-effect10735"
-       is_visible="true"
-       yy="true"
-       xx="true"
-       bendpath1="M 58.39732,229.15326 H 188.79911"
-       bendpath2="m 188.79911,229.15326 v 36.38001"
-       bendpath3="M 58.39732,265.53327 H 188.79911"
-       bendpath4="m 58.39732,229.15326 v 36.38001" />
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="166.85681"
-     inkscape:cy="232.68488"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="2100"
-     inkscape:window-height="1234"
-     inkscape:window-x="2391"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     units="px" />
-  <metadata
-     id="metadata10085">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-217.62499)">
-    <g
-       id="g10667"
-       transform="matrix(1.492735,-0.7996757,0.7996757,1.492735,-249.01257,-92.731448)"
-       style="fill:#cddc23;opacity:0.495;fill-opacity:1">
-      <g
-         id="g6"
-         transform="matrix(0.07276041,0,0,0.07276041,34.478987,242.6546)"
-         style="fill:#cddc23;fill-opacity:1">
-        <g
-           id="g4"
-           style="fill:#cddc23;fill-opacity:1">
-          <path
-             inkscape:connector-curvature="0"
-             id="path2-9"
-             d="M 0,86.337 V 425.662 H 512 V 86.337 Z M 451.47,116.755 256,264.589 60.53,116.755 Z M 30.417,132.116 194.218,256 30.417,379.884 Z M 60.53,395.245 219.43,275.068 256,302.725 292.57,275.068 451.47,395.245 Z M 481.582,379.884 317.781,256 481.582,132.117 Z"
-             style="fill:#cddc23;fill-opacity:1" />
-        </g>
-      </g>
-      <text
-         id="text10660"
-         y="278.44281"
-         x="35.555416"
-         style="font-style:normal;font-weight:normal;font-size:5.29166651px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cddc23;fill-opacity:1;stroke:none;stroke-width:0.13229166"
-         xml:space="preserve"><tspan
-           style="fill:#cddc23;stroke-width:0.13229166;fill-opacity:1"
-           y="278.44281"
-           x="35.555416"
-           id="tspan10658"
-           sodipodi:role="line">NEWSLETTER</tspan></text>
-    </g>
-    <path
-       style="opacity:0.495;fill:#cddc23;fill-opacity:1;stroke:#cddc23;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
-       d="m 77.972892,252.86118 c 16.06429,-2.29762 36.087858,-33.86024 56.747698,-20.45572 22.37384,16.06141 42.0688,23.48898 59.97239,11.05372 l -2.83482,5.85863 c -10.48048,14.37175 -22.62929,33.32545 -48.69027,3.66874 -18.85899,-26.77426 -49.305681,1.41269 -65.194998,-0.12537 z"
-       id="rect3068"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccc" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="300" version="1.1" viewBox="0 0 211.67 79.375" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="translate(0 -217.62)" fill="#cddc23">
+<g transform="matrix(1.4927 -.79968 .79968 1.4927 -249.01 -92.731)" opacity=".495">
+<g transform="matrix(.07276 0 0 .07276 34.479 242.65)">
+<g fill="#cddc23">
+<path d="m0 86.337v339.32h512v-339.32zm451.47 30.418-195.47 147.83-195.47-147.83zm-421.05 15.361 163.8 123.88-163.8 123.88zm30.113 263.13 158.9-120.18 36.57 27.657 36.57-27.657 158.9 120.18zm421.05-15.361-163.8-123.88 163.8-123.88z" fill="#cddc23"/>
+</g>
+</g>
+<text x="35.555416" y="278.44281" font-family="sans-serif" font-size="5.2917px" letter-spacing="0px" stroke-width=".13229" word-spacing="0px" style="line-height:1.25" xml:space="preserve"><tspan x="35.555416" y="278.44281" fill="#cddc23" stroke-width=".13229">NEWSLETTER</tspan></text>
+</g>
+<path d="m77.973 252.86c16.064-2.2976 36.088-33.86 56.748-20.456 22.374 16.061 42.069 23.489 59.972 11.054l-2.8348 5.8586c-10.48 14.372-22.629 33.325-48.69 3.6687-18.859-26.774-49.306 1.4127-65.195-0.12537z" opacity=".495" stroke-width="0" style="paint-order:stroke markers fill"/>
+</g>
 </svg>

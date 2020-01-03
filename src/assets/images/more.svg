@@ -1,93 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="100"
-   height="40"
-   viewBox="0 0 26.458332 10.583334"
-   version="1.1"
-   id="svg8"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="more.svg">
-  <defs
-     id="defs2">
-    <linearGradient
-       id="linearGradient2326"
-       osb:paint="solid">
-      <stop
-         style="stop-color:#f2f2f2;stop-opacity:1;"
-         offset="0"
-         id="stop2324" />
-    </linearGradient>
-    <filter
-       inkscape:collect="always"
-       style="color-interpolation-filters:sRGB"
-       id="filter2001"
-       x="-0.031882328"
-       width="1.0637647"
-       y="-0.097074858"
-       height="1.1941497">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.2241797"
-         id="feGaussianBlur2003" />
-    </filter>
-  </defs>
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="55.078852"
-     inkscape:cy="55.737734"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     units="px"
-     inkscape:window-width="2100"
-     inkscape:window-height="1234"
-     inkscape:window-x="2391"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
-  <metadata
-     id="metadata5">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-286.41665)">
-    <path
-       inkscape:connector-curvature="0"
-       id="path1975"
-       transform="matrix(0.26458333,0,0,0.26458333,0,286.41665)"
-       d="M 8.4550781,3.3242188 4.4335938,11.849609 50.509766,33.589844 96.585938,11.849609 92.5625,3.3242188 50.507812,23.166016 Z"
-       style="opacity:0.6;fill:#000000;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers;filter:url(#filter2001)" />
-    <path
-       style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:#f2f2f2;stroke-width:0;stroke-linecap:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:0;paint-order:stroke fill markers"
-       d="M 8.4550781,3.3242188 4.4335938,11.849609 50.509766,33.589844 96.585938,11.849609 92.5625,3.3242188 50.507812,23.166016 Z"
-       transform="matrix(0.26458333,0,0,0.26458333,0,286.41665)"
-       id="rect2330"
-       inkscape:connector-curvature="0" />
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="40" version="1.1" viewBox="0 0 26.458 10.583" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<defs>
+<filter id="a" x="-.031882" y="-.097075" width="1.0638" height="1.1941" color-interpolation-filters="sRGB">
+<feGaussianBlur stdDeviation="1.2241797"/>
+</filter>
+</defs>
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="translate(0 -286.42)" stroke-miterlimit="0" stroke-opacity="0">
+<path transform="matrix(.26458 0 0 .26458 0 286.42)" d="m8.4551 3.3242-4.0215 8.5254 46.076 21.74 46.076-21.74-4.0234-8.5254-42.055 19.842z" filter="url(#a)" opacity=".6" style="paint-order:stroke fill markers"/>
+<path transform="matrix(.26458 0 0 .26458 0 286.42)" d="m8.4551 3.3242-4.0215 8.5254 46.076 21.74 46.076-21.74-4.0234-8.5254-42.055 19.842z" fill="#f2f2f2" style="paint-order:stroke fill markers"/>
+</g>
 </svg>
