@@ -10,6 +10,8 @@ import {join} from 'path';
 import { environment } from './src/environments/environment';
 import {RESPONSE} from '@nguniversal/express-engine/tokens';
 
+var minify = require('html-minifier-terser').minify;
+
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
@@ -24,6 +26,8 @@ const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main'
 
 //REQUIRED FOR HTTPS CALLS TO WORK ON SERVER SIDE
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
+
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
@@ -53,6 +57,21 @@ app.route('/robots.txt')
     res.sendFile(process.cwd() + '/robots.txt');
 });
 
+//Minify HTML on SSR
+/*app.use(minifyHTML({
+  override:      true,
+  exception_url: false,
+  htmlMinifier: {
+      removeComments:            true,
+      collapseWhitespace:        true,
+      collapseBooleanAttributes: true,
+      removeAttributeQuotes:     true,
+      removeEmptyAttributes:     true,
+      minifyJS:                  true,
+      minifyCSS:                 true
+  }
+}));*/
+
 //For crawlers we patch the lang attribute of html depending on the route 
 // If the route does not have language we use the header data
 // All regular routes use the Universal engine
@@ -77,7 +96,7 @@ app.get('*', (req, res) => {
       useValue: res,
     },
   ]}, (error, html) => {
-    html = html.replace(/< *html +lang="[a-z][a-z]" *>/g, "<html lang=\"" + lang + "\">");
+    html = html.replace(/< *html +lang="[a-z][a-z]" *>/, "<html lang=\"" + lang + "\">");
     //console.log("HTML =>>");
     //console.log(html.substr(0,200));
     //console.log("-----------METAS--------------------");
@@ -93,7 +112,17 @@ app.get('*', (req, res) => {
     if (error) {
       res.statusCode = 404;
     }
-    res.send(html)
+    //Minify HTML output
+    res.send(minify(html, {
+      removeAttributeQuotes: true,
+      minifyCSS:true,
+      minifyJS:true,
+      removeComments:true,
+      collapseWhitespace:true,
+      conservativeCollapse:true,
+      continueOnParseError:true
+
+    }));
 });
 });
 

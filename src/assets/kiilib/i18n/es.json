@@ -267,6 +267,8 @@
     "kiilib.footer.kubiiks"             : "Creado por ",
     "kiilib.footer.admin"               : "Área administrador",
     "kiilib.footer.newsletter"           : "Boletines informativos",
+    "kiilib.footer.cookies"             : "Desactivar las cookies",
+
 
     "kiilib.auth.or"                    : "O",
     "kiilib.login.title"                : "Conectarse",

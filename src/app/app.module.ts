@@ -271,7 +271,6 @@ import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.
     ShareModule,
     //JSON-LD
     NgxJsonLdModule,
-    //SocketIoModule.forRoot({url: environment.socketURL,options:{secure:true}}),
     [  MatAutocompleteModule, //MATERIAL DESIGN
       MatBadgeModule,
       MatBottomSheetModule,

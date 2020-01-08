@@ -162,7 +162,7 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
     ]);
     this.socialOverTimeOptions = deepmerge.all([this.defaultChartOptions,
       {
-        //curveType: 'function',
+        curveType: 'function',
         hAxis: {
           title: this.axisNames['kiilib.stats.axis.day'],
           format:'d/M/yy',
@@ -189,10 +189,13 @@ export class KiiAdminStatsComponent extends KiiBaseAuthAbstract implements OnIni
           groupWidth: '90%'
         },
         hAxis:{
-          title: this.axisNames['kiilib.stats.axis.social']
+          title: this.axisNames['kiilib.stats.axis.social'],
+          slantedText:true,
+          slantedTextAngle:90
         },
         vAxis: {
           title:"Clicks"
+
         }
       }
     ]);

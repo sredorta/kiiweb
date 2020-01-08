@@ -44,6 +44,14 @@ export class KiiMiscService {
     this._cookies$.next(true);
   }
 
+  /**Refuse accepted cookies */
+  public cookiesRefuse() {
+    this._cookies$.next(false);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem('cookies');
+    }
+  }
+
   /**Returns observable with cookies status */
   public onCookiesChange() {
     return this._cookies$;

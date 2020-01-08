@@ -6,6 +6,7 @@ import { User } from '../../_kiilib/_models/user';
 import { KiiApiAuthService } from '../../_kiilib/_services/kii-api-auth.service';
 import { MatDialog } from '@angular/material';
 import { KiiTermsDialogComponent } from '../../_kiilib/_components/kii-terms-dialog/kii-terms-dialog.component';
+import { KiiMiscService } from '../../_kiilib/_services/kii-misc.service';
 
 
 @Component({
@@ -18,8 +19,12 @@ export class FooterComponent extends KiiBaseAbstract implements OnInit  {
   settings : Setting[] = [];
   loggedInUser : User = new User(null);
   showContactDetails : boolean = false;
+  cookies : boolean = false;
 
-  constructor(private kiiApiSetting : KiiApiSettingService, private kiiApiAuth: KiiApiAuthService, private dialog:MatDialog) { super() }
+  constructor(private kiiApiSetting : KiiApiSettingService, 
+              private kiiApiAuth: KiiApiAuthService, 
+              private dialog:MatDialog,
+              private kiiMisc: KiiMiscService) { super() }
 
   ngOnInit() {
     this.addSubscriber(
@@ -30,6 +35,11 @@ export class FooterComponent extends KiiBaseAbstract implements OnInit  {
     this.addSubscriber(
       this.kiiApiSetting.onChange().subscribe(res => {
         this.settings = res;
+      })
+    )
+    this.addSubscriber(
+      this.kiiMisc.onCookiesChange().subscribe(res => {
+        this.cookies = res;
       })
     )
   }
@@ -73,5 +83,10 @@ export class FooterComponent extends KiiBaseAbstract implements OnInit  {
       minHeight:'300px',
       minWidth:'320px',
     });
+  }
+
+  /**Removes cookies if user desires */
+  removeCookies() {
+    this.kiiMisc.cookiesRefuse();
   }
 }

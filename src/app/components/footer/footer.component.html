@@ -12,6 +12,7 @@
               <button mat-button class="footer-item" [routerLink]="'/contact' | localize">{{'menu.contact' | translate}}</button>
           </div>
           <div class="column2 column">
+              <button *ngIf="cookies" mat-button class="footer-item"  (click)="removeCookies()">{{'kiilib.footer.cookies' | translate}}</button>
               <button mat-button class="footer-item" (click)="openTermsAndConditionsDialog()">{{'footer.user-data' | translate}}</button>
               <button *ngIf="loggedInUser.exists()" mat-button class="footer-item" [routerLink]="'/profile' | localize">{{'footer.profile' | translate}}</button>
               <button *ngIf="!loggedInUser.exists()" mat-button class="footer-item" [routerLink]="'/login' | localize">{{'footer.login' | translate}}</button>

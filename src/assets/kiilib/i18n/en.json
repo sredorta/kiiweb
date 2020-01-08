@@ -266,7 +266,9 @@
     "kiilib.footer.social.title"        : "Follow us",
     "kiilib.footer.kubiiks"             : "Created by ",
     "kiilib.footer.admin"               : "Admin area",
-    "kiilib.footer.newsletter"           : "Newsletters",
+    "kiilib.footer.newsletter"          : "Newsletters",
+    "kiilib.footer.cookies"             : "Disable cookies",
+
 
     "kiilib.auth.or"                    : "OR",
     "kiilib.login.title"                : "Login",

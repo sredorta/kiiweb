@@ -108,6 +108,7 @@ export class KiiSocketService {
       this.ngZone.runOutsideAngular(() => {
         this.socket = io(environment.mainExtURL,{secure:true});
       });
+
       this.loadOnAuthentication();  //Answers authentication requests
       this.loadOnUpdateUser();      //Updates user if required to show new alerts...
       this.loadOnChatAdminsData();  //Handles when we recieve the chat admins status
