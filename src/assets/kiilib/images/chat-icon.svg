@@ -1,214 +1,53 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="50"
-   height="50"
-   version="1.1"
-   viewBox="0 0 13.229 13.229"
-   id="svg59"
-   sodipodi:docname="chat-icon.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     id="namedview61"
-     showgrid="false"
-     inkscape:zoom="4.72"
-     inkscape:cx="25"
-     inkscape:cy="25"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg59" />
-  <defs
-     id="defs13">
-    <filter
-       id="b"
-       x="-.046167"
-       y="-.049984"
-       width="1.0923"
-       height="1.1"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         stdDeviation="0.16742161"
-         id="feGaussianBlur2" />
-    </filter>
-    <linearGradient
-       id="a"
-       x1="6.355"
-       x2="8.6327"
-       y1="290.55"
-       y2="286.57"
-       gradientUnits="userSpaceOnUse">
-      <stop
-         stop-color="#222b00"
-         stop-opacity=".992"
-         offset="0"
-         id="stop5" />
-      <stop
-         stop-color="#222b00"
-         stop-opacity=".766"
-         offset="1"
-         id="stop7" />
-    </linearGradient>
-    <filter
-       id="c"
-       x="-.092335"
-       y="-.099968"
-       width="1.1847"
-       height="1.1999"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         stdDeviation="0.33484323"
-         id="feGaussianBlur10" />
-    </filter>
-  </defs>
-  <metadata
-     id="metadata15">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     id="g910"
-     transform="matrix(0.9,0,0,0.9,0.66177734,0.66144891)">
-    <rect
-       x="0.0032734"
-       y="-1.0986329e-05"
-       width="13.229"
-       height="13.229"
-       ry="6.6107001"
-       stroke-miterlimit="3.4"
-       style="fill:#cddc39;stroke-width:0;stroke-miterlimit:3.4000001;paint-order:stroke fill markers"
-       id="rect17" />
-    <g
-       transform="matrix(-0.726,0,0,0.726,13.459,-202.309)"
-       stroke-miterlimit="3.4"
-       id="g25"
-       style="opacity:0.91300001;fill:#222b00;stroke-width:0;stroke-miterlimit:3.4000001;filter:url(#c)">
-      <ellipse
-         cx="6.2823"
-         cy="289.63"
-         rx="4.3516998"
-         ry="3.5762999"
-         style="opacity:1;paint-order:stroke fill markers"
-         id="ellipse21" />
-      <path
-         d="m 3.3231,292.09 h 1.6141 l 0.91781,0.66463 c -0.66124,0.6258 -1.4502,1.1239 -2.5319,1.3292 0.39899,-0.58482 0.44446,-1.2404 0,-1.9939 z"
-         style="opacity:1;paint-order:stroke fill markers"
-         id="path23"
-         inkscape:connector-curvature="0" />
-    </g>
-    <g
-       transform="matrix(0.9,0,0,0.9,0.68891,-254.762)"
-       stroke-miterlimit="3.4"
-       id="g39"
-       style="stroke-width:0;stroke-miterlimit:3.4000001">
-      <g
-         transform="matrix(1.21,0,0,1.21,-0.70805,-60.899)"
-         id="g31"
-         style="opacity:0.61799999;filter:url(#b)">
-        <ellipse
-           cx="6.2823"
-           cy="289.63"
-           rx="4.3516998"
-           ry="3.5762999"
-           style="opacity:1;paint-order:stroke fill markers"
-           id="ellipse27" />
-        <path
-           d="m 3.3231,292.09 h 1.6141 l 0.91781,0.66463 c -0.66124,0.6258 -1.4502,1.1239 -2.5319,1.3292 0.39899,-0.58482 0.44446,-1.2404 0,-1.9939 z"
-           style="opacity:1;paint-order:stroke fill markers"
-           id="path29"
-           inkscape:connector-curvature="0" />
-      </g>
-      <g
-         transform="matrix(1.21,0,0,1.21,-1.203,-61.216)"
-         id="g37"
-         style="fill:#f2f2f2">
-        <ellipse
-           cx="6.2823"
-           cy="289.63"
-           rx="4.3516998"
-           ry="3.5762999"
-           style="paint-order:stroke fill markers"
-           id="ellipse33" />
-        <path
-           d="m 3.3231,292.09 h 1.6141 l 0.91781,0.66463 c -0.66124,0.6258 -1.4502,1.1239 -2.5319,1.3292 0.39899,-0.58482 0.44446,-1.2404 0,-1.9939 z"
-           style="paint-order:stroke fill markers"
-           id="path35"
-           inkscape:connector-curvature="0" />
-      </g>
-    </g>
-    <g
-       transform="translate(0,-283.77)"
-       stroke-miterlimit="3.4"
-       id="g55"
-       style="stroke-width:0;stroke-miterlimit:3.4000001">
-      <g
-         transform="matrix(-0.726,0,0,0.726,13.097,81.461)"
-         id="g45">
-        <ellipse
-           cx="6.2823"
-           cy="289.63"
-           rx="4.3516998"
-           ry="3.5762999"
-           style="fill:#222b00;fill-opacity:0.99199997;paint-order:stroke fill markers"
-           id="ellipse41" />
-        <path
-           d="m 3.3231,292.09 h 1.6141 l 0.91781,0.66463 c -0.66124,0.6258 -1.4502,1.1239 -2.5319,1.3292 0.39899,-0.58482 0.44446,-1.2404 0,-1.9939 z"
-           style="fill:url(#a);paint-order:stroke fill markers"
-           id="path43"
-           inkscape:connector-curvature="0" />
-      </g>
-      <g
-         transform="translate(0.1819,0.093544)"
-         id="g53"
-         style="fill:#ececec">
-        <rect
-           x="6.6912999"
-           y="291.37"
-           width="0.79374999"
-           height="0.79374999"
-           ry="0.38824999"
-           style="paint-order:stroke fill markers"
-           id="rect47" />
-        <rect
-           x="8.0585003"
-           y="291.35001"
-           width="0.79374999"
-           height="0.79374999"
-           ry="0.38824999"
-           style="paint-order:stroke fill markers"
-           id="rect49" />
-        <rect
-           x="9.4258003"
-           y="291.32999"
-           width="0.79374999"
-           height="0.79374999"
-           ry="0.38824999"
-           style="paint-order:stroke fill markers"
-           id="rect51" />
-      </g>
-    </g>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50" height="50" version="1.1" viewBox="0 0 13.229 13.229" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<defs>
+<filter id="e" x="-.046167" y="-.049984" width="1.0923" height="1.1" color-interpolation-filters="sRGB">
+<feGaussianBlur stdDeviation="0.16742161"/>
+</filter>
+<linearGradient id="f" x1="6.355" x2="8.6327" y1="290.55" y2="286.57" gradientUnits="userSpaceOnUse">
+<stop stop-color="#222b00" stop-opacity=".992" offset="0"/>
+<stop stop-color="#222b00" stop-opacity=".766" offset="1"/>
+</linearGradient>
+<filter id="d" x="-.092335" y="-.099968" width="1.1847" height="1.1999" color-interpolation-filters="sRGB">
+<feGaussianBlur stdDeviation="0.33484323"/>
+</filter>
+</defs>
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title/>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<g transform="matrix(.9 0 0 .9 .66178 .66145)" stroke-miterlimit="3.4" stroke-width="0">
+<rect x=".0032734" y="-1.0986e-5" width="13.229" height="13.229" ry="6.6107" fill="#cddc39" style="paint-order:stroke fill markers"/>
+<g transform="matrix(-.726 0 0 .726 13.459 -202.31)" fill="#222b00" filter="url(#d)" opacity=".913">
+<ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" opacity="1" style="paint-order:stroke fill markers"/>
+<path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" opacity="1" style="paint-order:stroke fill markers"/>
+</g>
+<g transform="matrix(.9 0 0 .9 .68891 -254.76)">
+<g transform="matrix(1.21 0 0 1.21 -.70805 -60.899)" filter="url(#e)" opacity=".618">
+<ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" opacity="1" style="paint-order:stroke fill markers"/>
+<path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" opacity="1" style="paint-order:stroke fill markers"/>
+</g>
+<g transform="matrix(1.21,0,0,1.21,-1.203,-61.216)" fill="#f2f2f2">
+<ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" style="paint-order:stroke fill markers"/>
+<path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" style="paint-order:stroke fill markers"/>
+</g>
+</g>
+<g transform="translate(0,-283.77)">
+<g transform="matrix(-.726 0 0 .726 13.097 81.461)">
+<ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" fill="#222b00" fill-opacity=".992" style="paint-order:stroke fill markers"/>
+<path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" fill="url(#f)" style="paint-order:stroke fill markers"/>
+</g>
+<g transform="translate(.1819 .093544)" fill="#ececec">
+<rect x="6.6913" y="291.37" width=".79375" height=".79375" ry=".38825" style="paint-order:stroke fill markers"/>
+<rect x="8.0585" y="291.35" width=".79375" height=".79375" ry=".38825" style="paint-order:stroke fill markers"/>
+<rect x="9.4258" y="291.33" width=".79375" height=".79375" ry=".38825" style="paint-order:stroke fill markers"/>
+</g>
+</g>
+</g>
 </svg>
+

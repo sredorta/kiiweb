@@ -47,30 +47,13 @@ app.get('*.*', express.static(DIST_FOLDER, {
   maxAge: '1y'
 }));
 
-//Provide sitemap.xml and robots.txt
-app.route('/sitemap.xml')
-  .get((req, res) => {
-    res.sendFile(process.cwd() + '/sitemap.xml');
-});
+//Provide robots.txt, sidemap is provided by the server as is dynamic
 app.route('/robots.txt')
   .get((req, res) => {
     res.sendFile(process.cwd() + '/robots.txt');
 });
 
-//Minify HTML on SSR
-/*app.use(minifyHTML({
-  override:      true,
-  exception_url: false,
-  htmlMinifier: {
-      removeComments:            true,
-      collapseWhitespace:        true,
-      collapseBooleanAttributes: true,
-      removeAttributeQuotes:     true,
-      removeEmptyAttributes:     true,
-      minifyJS:                  true,
-      minifyCSS:                 true
-  }
-}));*/
+
 
 //For crawlers we patch the lang attribute of html depending on the route 
 // If the route does not have language we use the header data

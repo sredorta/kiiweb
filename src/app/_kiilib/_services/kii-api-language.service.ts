@@ -73,8 +73,18 @@ export class KiiApiLanguageService {
     //Gets from url if exists in url
     const found = this._request.url.match(/\/[a-z][a-z]\//g);
     if (found) {
-      if (found[0])
+      if (found[0]) {
         return found[0].replace(/\//gi, '');
+      }
+    }
+    //In case of oauth2 is better to use the referrer to get the language
+    if (this._request.headers['referer']) {
+      const foundReferrer = this._request.headers['referer'].match(/\/[a-z][a-z]\//g);
+      if (foundReferrer) {
+        if (foundReferrer[0]) {
+          return foundReferrer[0].replace(/\//gi, '');
+        }
+      }
     }
     //Returns from headers
     let headerLang = environment.languages[0];

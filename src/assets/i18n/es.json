@@ -15,7 +15,7 @@
     "ROUTES.clients"   : "clientes",
     "ROUTES.prices"    : "precios",
     "ROUTES.blog"      : "tecnología",
-    "ROUTES.articles"   : "articulo",
+    "ROUTES.articles"   : "article",
     "ROUTES.contact"   : "contáctanos",
     "ROUTES.404"       : "pagina-no-encontrada",
     "ROUTES.login"     : "conexión",

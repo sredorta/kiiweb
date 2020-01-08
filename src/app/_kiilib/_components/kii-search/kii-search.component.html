@@ -7,7 +7,7 @@
         <mat-form-field appearance="outline" style="min-width:250px" class="scale">
             <mat-label >{{'kiilib.search' | translate}}</mat-label>
             <input matInput [(ngModel)]="valueSearch" (keyup)="keyUp.next($event.target.value)" placeholder="{{'kiilib.search' | translate}}" autocomplete="off">
-            <button mat-icon-button matSuffix (click)="resetSearch()"><i class="fas fa-times"></i></button>
+            <button mat-icon-button matSuffix (click)="resetSearch()" style="padding-bottom:10px" attr.aria-label="{{'kiilib.reset' | translate}}" ><i class="fas fa-times"></i></button>
         </mat-form-field>
     </div>
     <div class="search-result-wrapper">
