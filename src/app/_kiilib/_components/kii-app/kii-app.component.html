@@ -32,7 +32,7 @@
               <kii-footer><app-footer></app-footer></kii-footer>
       </div>    
   </div>
-  <button *ngIf="!loggedInUser.hasRole('chat') && isBrowser && !offline" mat-fab color="primary" class="kii-app-chat-button" (click)="onOpenChat()"></button>
+  <button *ngIf="!loggedInUser.hasRole('chat') && isBrowser && !offline" mat-icon-button attr.aria-label="{{'kiilib.chat.open' | translate}}" style="width:66px;height:66px" class="kii-app-chat-button" (click)="onOpenChat()"></button>
 
   </mat-sidenav-container>
 

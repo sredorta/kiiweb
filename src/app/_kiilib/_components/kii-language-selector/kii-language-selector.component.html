@@ -1,9 +1,9 @@
 <div *ngIf="getSupportedLanguages().length>1" class="wrapper">
-    <button mat-button [matMenuTriggerFor]="menu" class="kii-language-selector-button" [disabled]="offline">        
+    <button mat-button attr.aria-label="{{'kiilib.language' | translate}}" [matMenuTriggerFor]="menu" class="kii-language-selector-button" [disabled]="offline">        
         <div class="language-flag current-lang" [ngStyle]="{'background-position': getFlagPosition(currentLanguage) }"></div>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item *ngFor="let language of getSupportedLanguages()" class="kii-language-selector-menu-item" (click)="selectLanguage(language.iso);">
+      <button *ngFor="let language of getSupportedLanguages()" mat-menu-item  class="kii-language-selector-menu-item" (click)="selectLanguage(language.iso);">
             <div  class="language-flag" [ngStyle]="{'background-position': getFlagPosition(language.code) }"></div><span>{{language.name}}</span>  
       </button>
     </mat-menu>
