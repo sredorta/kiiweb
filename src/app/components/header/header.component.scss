@@ -133,7 +133,8 @@
 //Short header format
 .header-wrapper.is-short {
 
-
+    .header-title  { font-size: 30px; }
+    .header-subtitle { font-size: 18px !important; }
    .icon {display:none};
    height: 25vh;
    min-height: 240px;

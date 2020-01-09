@@ -126,7 +126,7 @@ export class User {
     /**Returns avatar */
     getAvatar() {
         if (this.avatar == null || this.avatar == "none")
-            return "./assets/kiilib/images/user-default.jpg";
+            return "./assets/kiilib/images/profile.svg";
         else
             return this.avatar;    
 

@@ -67,11 +67,11 @@ export class KiiScrollDirective {
   }
   //Recursively get absolute offset from top
   getOffsetTop(element: any){
-    let offsetTop = element.offsetTop || 0;
-    if(element.offsetParent){
-      offsetTop += this.getOffsetTop(element.offsetParent);
-    }
-    return offsetTop;
+      let offsetTop = element.offsetTop || 0;
+      if(element.offsetParent){
+        offsetTop += this.getOffsetTop(element.offsetParent);
+      }
+      return offsetTop;
   }
 
   isVisible(){

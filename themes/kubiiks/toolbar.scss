@@ -32,11 +32,6 @@
   }
   //Show only menu button if small screens and we have scrolled
   @media only screen and (max-width: 700px) {
-    kii-app .kii-app-toolbar.kii-scrolled  {
-      transition: all 0.3s ease-in-out;
-      opacity:0;
-      height: 0;
-    }
     //Main button
     kii-app  .kii-app-toolbar-main-button {
       &.kii-scrolled {

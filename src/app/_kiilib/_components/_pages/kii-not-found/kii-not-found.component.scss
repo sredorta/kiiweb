@@ -3,42 +3,34 @@
     width:100%;
     min-height:70vh;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     h1 {
         margin-bottom:0px;
     }
+    h2 {
+        font-weight: normal;
+    }
 }
 .content-container {
     margin:40px;
-    flex:1 1 auto;
-    max-width: 50vw;
-
-    /*.content-article {
-        max-width: 50vw;
-    }*/
- /*   svg {
-        max-height: 60vh;
-    }*/
+    flex:1;
+    width:100%;
+    max-width: 500px;
 }
 
 .side-container {
     display:flex;
     flex-direction: column;
-    flex:1 1 auto;
+    flex:1;
     justify-content: center;
     align-items: flex-start;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 700px) {
     .wrapper {
-        flex-direction: column;
-    }
-    .content-container {
-        min-width:150px;
-        max-width: 150px;
-        min-height: 150px;
-        max-height: 150px;
+        flex-direction: row;
     }
     .side-container {
         justify-content: flex-start;

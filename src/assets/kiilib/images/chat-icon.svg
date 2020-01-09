@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="50" height="50" version="1.1" viewBox="0 0 13.229 13.229" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
 <defs>
-<filter id="e" x="-.046167" y="-.049984" width="1.0923" height="1.1" color-interpolation-filters="sRGB">
+<filter id="b" x="-.046167" y="-.049984" width="1.0923" height="1.1" color-interpolation-filters="sRGB">
 <feGaussianBlur stdDeviation="0.16742161"/>
 </filter>
-<linearGradient id="f" x1="6.355" x2="8.6327" y1="290.55" y2="286.57" gradientUnits="userSpaceOnUse">
+<linearGradient id="a" x1="6.355" x2="8.6327" y1="290.55" y2="286.57" gradientUnits="userSpaceOnUse">
 <stop stop-color="#222b00" stop-opacity=".992" offset="0"/>
 <stop stop-color="#222b00" stop-opacity=".766" offset="1"/>
 </linearGradient>
-<filter id="d" x="-.092335" y="-.099968" width="1.1847" height="1.1999" color-interpolation-filters="sRGB">
+<filter id="c" x="-.092335" y="-.099968" width="1.1847" height="1.1999" color-interpolation-filters="sRGB">
 <feGaussianBlur stdDeviation="0.33484323"/>
 </filter>
 </defs>
@@ -21,14 +21,14 @@
 </cc:Work>
 </rdf:RDF>
 </metadata>
-<g transform="matrix(.9 0 0 .9 .66178 .66145)" stroke-miterlimit="3.4" stroke-width="0">
+<g transform="matrix(.9999 0 0 .9999 .00066443 .00066254)" stroke-miterlimit="3.4" stroke-width="0">
 <rect x=".0032734" y="-1.0986e-5" width="13.229" height="13.229" ry="6.6107" fill="#cddc39" style="paint-order:stroke fill markers"/>
-<g transform="matrix(-.726 0 0 .726 13.459 -202.31)" fill="#222b00" filter="url(#d)" opacity=".913">
+<g transform="matrix(-.726 0 0 .726 13.459 -202.31)" fill="#222b00" filter="url(#c)" opacity=".913">
 <ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" opacity="1" style="paint-order:stroke fill markers"/>
 <path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" opacity="1" style="paint-order:stroke fill markers"/>
 </g>
 <g transform="matrix(.9 0 0 .9 .68891 -254.76)">
-<g transform="matrix(1.21 0 0 1.21 -.70805 -60.899)" filter="url(#e)" opacity=".618">
+<g transform="matrix(1.21 0 0 1.21 -.70805 -60.899)" filter="url(#b)" opacity=".618">
 <ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" opacity="1" style="paint-order:stroke fill markers"/>
 <path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" opacity="1" style="paint-order:stroke fill markers"/>
 </g>
@@ -40,7 +40,7 @@
 <g transform="translate(0,-283.77)">
 <g transform="matrix(-.726 0 0 .726 13.097 81.461)">
 <ellipse cx="6.2823" cy="289.63" rx="4.3517" ry="3.5763" fill="#222b00" fill-opacity=".992" style="paint-order:stroke fill markers"/>
-<path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" fill="url(#f)" style="paint-order:stroke fill markers"/>
+<path d="m3.3231 292.09h1.6141l0.91781 0.66463c-0.66124 0.6258-1.4502 1.1239-2.5319 1.3292 0.39899-0.58482 0.44446-1.2404 0-1.9939z" fill="url(#a)" style="paint-order:stroke fill markers"/>
 </g>
 <g transform="translate(.1819 .093544)" fill="#ececec">
 <rect x="6.6913" y="291.37" width=".79375" height=".79375" ry=".38825" style="paint-order:stroke fill markers"/>
@@ -50,4 +50,3 @@
 </g>
 </g>
 </svg>
-

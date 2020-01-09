@@ -126,7 +126,7 @@ export class KiiChatComponent extends KiiFormAbstract implements OnInit {
   /**Gets avatar or default avatar */
   getAvatar(avatar:string) {
     if (avatar) return avatar;
-    else return './assets/kiilib/images/user-default.jpg';
+    else return './assets/kiilib/images/profile.svg';
   }
 
 

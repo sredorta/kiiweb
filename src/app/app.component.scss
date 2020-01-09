@@ -8,7 +8,6 @@
     padding-bottom:2px;
     small {
         font-size: 16px !important;
-        //text-shadow: -1px 0 2px black, 0 1px black, 1px 0 black, 0 -1px black;
         text-shadow: 0px 0px 6px black;
     }
     border-radius: 30px 30px 30px 30px;
@@ -16,8 +15,11 @@
 .highlight-menu {
     height:20px;
     width:100%;
-    background-image: url("/assets/images/menu-underline.svg") !important;
+    background-image: none !important;
     background-size: 100% auto;
     background-position: left center;
     background-repeat: no-repeat;
+}
+.highlight-menu.is-active {
+    background-image: url("/assets/images/menu-underline.svg") !important;
 }

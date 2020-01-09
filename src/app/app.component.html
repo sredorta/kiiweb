@@ -2,27 +2,27 @@
     <ng-container kiiToolbarMenu>
         <a mat-button class="kii-app-toolbar-button" title="{{'kiilib.link.title.home' | translate}}" [routerLink]="'/home' | localize">
             <small>{{'menu.home' | translate}}</small>
-            <div class="highlight-menu"></div>
+            <div [ngClass]="{'is-active' : currentPath=='home'}" class="highlight-menu"></div>
         </a>
         <a mat-button class="kii-app-toolbar-button" title="{{'link.title.demo' | translate}}" [routerLink]="'/demo' | localize">
           <small>{{'menu.demo' | translate}}</small>
-          <div class="highlight-menu"></div>
+          <div [ngClass]="{'is-active' : currentPath=='demo'}" class="highlight-menu"></div>
         </a>
         <a mat-button class="kii-app-toolbar-button" title="{{'link.title.realisations' | translate}}" [routerLink]="'/clients' | localize">
           <small>{{'menu.realisations' | translate}}</small>
-          <div class="highlight-menu"></div>
+          <div [ngClass]="{'is-active' : currentPath=='clients'}" class="highlight-menu"></div>
         </a>
         <a mat-button class="kii-app-toolbar-button" title="{{'link.title.price' | translate}}" [routerLink]="'/prices' | localize">
           <small>{{'menu.price' | translate}}</small>
-          <div class="highlight-menu"></div>
+          <div [ngClass]="{'is-active' : currentPath=='prices'}" class="highlight-menu"></div>
         </a>
         <a mat-button class="kii-app-toolbar-button" title="{{'link.title.blog' | translate}}" [routerLink]="'/blog' | localize">
           <small>{{'menu.blog' | translate}}</small>
-          <div class="highlight-menu"></div>
+          <div [ngClass]="{'is-active' : currentPath=='blog'}" class="highlight-menu"></div>
         </a>       
         <a mat-button class="kii-app-toolbar-button" title="{{'kiilib.link.title.contact' | translate}}" [routerLink]="'/contact' | localize">
           <small>{{'menu.contact' | translate}}</small>
-          <div class="highlight-menu"></div>
+          <div [ngClass]="{'is-active' : currentPath=='contact'}" class="highlight-menu"></div>
         </a>                          
     </ng-container>
 </kii-app>

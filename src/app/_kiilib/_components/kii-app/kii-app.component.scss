@@ -121,6 +121,9 @@ $toolbar-height : 65px;
     background-size: cover;
     transition: all 0.3s ease-in-out;
 }
+.kii-app-chat-button:hover {
+    cursor:pointer;
+}
 
 .kii-app-chat-button:disabled {
     transform: scale(0);
