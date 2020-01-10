@@ -112,6 +112,7 @@ export class KiiApiDiskService {
     /**Uploads image to the specific disk */
     public uploadImage(disk:DiskType,data:FormData) {
       const nginxTrackId = this.getIdNginxTracking();
+      console.log("nginxTrackId:", nginxTrackId);
       let nginxInterval  = null;
       return this.http.post(environment.apiURL + '/disk/images/upload/'+disk + "?X-Progress-ID="+nginxTrackId, data, {
         reportProgress: true,
@@ -154,6 +155,7 @@ export class KiiApiDiskService {
                 res = res.replace(";","");
                 try {
                   let result = JSON.parse(res);
+                  console.log("nginx result:", result);
                   switch (result.state) {
                     case  "uploading": 
                       this._progress.next(Math.round(100 * result.received / result.size));

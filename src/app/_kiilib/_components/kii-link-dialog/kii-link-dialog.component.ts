@@ -26,7 +26,7 @@ export class KiiLinkDialogComponent implements OnInit {
   ngOnInit() {
     //Can be http or https
     this.validator = Validators.compose([
-      Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?"),
+      Validators.pattern("^(http://|https://).*"),
     ]);
     this.validatorTitle = Validators.compose([
       Validators.required,Validators.minLength(2),
