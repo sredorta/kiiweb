@@ -165,11 +165,19 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
           this.addSubscriber(    
             this.bottomSheet._openedBottomSheetRef.afterDismissed().subscribe(res => {
               if (localStorage.getItem("cookies") == "true") {
+                this.kiiMisc.cookiesAccept();
                 this.kiiApiStats.send(StatAction.NAVIGATION_START ,this.router.url);
+                /*if (isPlatformBrowser(this.platformId)) {
+                  (<any>window).ga('create', 'UA-156082499-1', 'auto');// add your tracking ID here.
+                  (<any>window).ga('set', 'page', "");
+                  (<any>window).ga('send', 'pageview');
+                }*/
+              } else {
+                this.kiiMisc.cookiesRefuse();
+                //(<any>window).ga('remove');
               }
             })    
           )
-          
   }
 
   /**Loads all initial data like articles,settings and auth user */
@@ -229,6 +237,13 @@ export class KiiAppComponent extends KiiBaseAuthAbstract implements OnInit {
   onActivate(event : any) {
     //Send stats if we are in browser and cookies accepted
     this.kiiApiStats.send(StatAction.NAVIGATION_START, this.router.url);
+    //Update google analytics
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem('cookies')=='true') {
+        (<any>window).ga('set', 'page', this.router.url);
+        (<any>window).ga('send', 'pageview');
+      }
+    }
     this.sidenavContent.nativeElement.scrollTop=0; //scrollTo not working on Edge
   } 
 

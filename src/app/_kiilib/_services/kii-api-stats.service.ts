@@ -95,8 +95,6 @@ export class KiiApiStatsService {
       myStat.ressource = ressource;
       myStat.action = action;
       this.http.post(environment.apiURL + '/stats/save', {stat:myStat}).subscribe();
-
-
     }
   }
   /**Gets stats */

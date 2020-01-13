@@ -21,6 +21,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 //Equivalent to import fs
@@ -55,7 +56,7 @@ const fs = require('fs');
   ],
   entryComponents: [],
 
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService, CookieService],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}

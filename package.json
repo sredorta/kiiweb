@@ -63,6 +63,7 @@
     "fs-extra": "^8.1.0",
     "hammerjs": "^2.0.8",
     "html-minifier-terser": "^5.0.2",
+    "ngx-cookie-service": "^2.3.0",
     "ngx-device-detector": "^1.3.20",
     "replace-in-file": "^4.3.1",
     "rxjs": "^6.5.3",

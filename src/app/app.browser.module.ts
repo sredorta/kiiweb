@@ -30,6 +30,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-gallery-dialog/kii-image-gallery-dialog.component';
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localize-router.pipe';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -60,7 +61,7 @@ import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localiz
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production}),//, scope:"/"}),
   ],
   entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetCookiesComponent, KiiHttpErrorComponent],
-  providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService],
+  providers: [KiiSpinnerService,{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppBrowserModule { 

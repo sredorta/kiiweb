@@ -124,7 +124,8 @@ export class KiiApiDiskService {
             nginxInterval = this.startNginxTracking(nginxTrackId)
             return { status: 'start', message: progress };           
           }
-          case HttpEventType.UploadProgress:   
+          case HttpEventType.UploadProgress: 
+            console.log("Recived UploadProgress:", event)  
             progress = Math.round(100 * event.loaded / event.total);
             this._progress.next(progress);
             return { status: 'progress', message: progress };           
@@ -165,6 +166,7 @@ export class KiiApiDiskService {
                         clearInterval(interval);
                         break;               
                     case "done": 
+                      clearInterval(interval);
                       setTimeout(() => this._progress.next(0),200);
                       break;
                     

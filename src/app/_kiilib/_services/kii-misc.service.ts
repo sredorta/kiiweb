@@ -15,6 +15,7 @@ import { KiiApiLanguageService } from './kii-api-language.service';
 import { KiiApiSettingService } from './kii-api-setting.service';
 import { Page } from '../_models/page';
 import { KiiApiPageService } from './kii-api-page.service';
+import {CookieService} from 'ngx-cookie-service';
 
 
 export interface IInitialData  {
@@ -37,18 +38,29 @@ export class KiiMiscService {
               private kiiApiPage : KiiApiPageService,
               private kiiApiLang: KiiApiLanguageService,
               private kiiApiSetting: KiiApiSettingService,
+              private cookieService: CookieService,
               @Inject(PLATFORM_ID) private platformId: any) { }
 
   /**Accept cookies */
   public cookiesAccept() {
+    if (isPlatformBrowser(this.platformId)) {
+        (<any>window).ga('create', 'UA-156082499-1', 'auto');// add your tracking ID here.
+        (<any>window).ga('set', 'page', "");
+        (<any>window).ga('send', 'pageview');
+    }
     this._cookies$.next(true);
   }
 
   /**Refuse accepted cookies */
   public cookiesRefuse() {
+    console.log("Removing cookies !");
     this._cookies$.next(false);
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('cookies');
+      (<any>window).ga('send', 'remove');
+      this.cookieService.deleteAll('/','.kubiiks.com');
+      this.cookieService.deleteAll('/', '/');
+      console.log(this.cookieService.getAll());
     }
   }
 
