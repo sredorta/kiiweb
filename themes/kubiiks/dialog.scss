@@ -107,7 +107,14 @@
   }
 
   //ADD THEMEING HERE !!!
-
+  mat-dialog-container mat-card-header {
+      color:white;
+      background-image:
+      linear-gradient(
+        135deg, 
+        mat-color(mat-palette($mat-lime, 900)), mat-color(mat-palette($mat-lime, 400))
+      );
+  }
 
 
 

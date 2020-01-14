@@ -3,7 +3,7 @@
       <mat-card-title>{{'kiilib.chat.title' |translate}}</mat-card-title>
       <mat-card-subtitle>{{'kiilib.chat.subtitle' | translate}}</mat-card-subtitle>
       <div mat-card-avatar><i class="fas fa-user-friends" style="margin-right:25px;" [matBadge]="room.participants" matBadgeOverlap="true"></i></div>
-      <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
+      <button mat-icon-button [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
     </mat-card-header>
     <div class="admin-wrapper">
         <div *ngFor="let admin of admins" class="admin-user" [ngClass]="{'is-connected': admin.connected}">

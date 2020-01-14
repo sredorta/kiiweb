@@ -1,34 +1,8 @@
-<!--<div class="wrapper">
-    <div class="header-wrapper">
-       <div class="header-icon">
-          <i class="fab fa-facebook"></i>
-       </div>
-       <div class="header-text">
-          <p class="header-text-title">This is a longer title to see</p>
-          <p class="header-text-subtitle">This is a good subtitle to see what happens when is long enough</p>
-       </div>
-       <div class="header-close">
-          <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
-       </div>
-    </div>
-    <div class="content-wrapper">
-      <kii-article class="intial-dialog" key="dialog-initial"></kii-article>
-    </div>
-    <div class="button-wrapper">         
-        <button  mat-flat-button color="primary"  [mat-dialog-close]="true">{{'kiilib.newsletter.subscribe' | translate}}</button>
-    </div> 
-</div>-->
 <mat-card class="popup-dialog">
     <mat-card-header>
-      <!--<img mat-card-avatar src="/assets/kiilib/images/cookies.jpg">
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
-      <button mat-icon-button color="primary" [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
+      <button mat-icon-button  [mat-dialog-close]="true"><i class="fas fa-times"></i></button>
     </mat-card-header>
     <mat-card-content mat-dialog-content>
         <kii-article class="intial-dialog" key="dialog-initial"></kii-article>
     </mat-card-content>
-    <!--<mat-card-actions>
-        <button  mat-flat-button color="primary"  [mat-dialog-close]="true">{{'kiilib.newsletter.subscribe' | translate}}</button>
-    </mat-card-actions>-->
   </mat-card>

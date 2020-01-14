@@ -4,7 +4,7 @@
       <div mat-card-avatar><i class="far fa-image"></i></div>
       <mat-card-title>{{'kiilib.image.gallery.title' | translate}}</mat-card-title>
       <mat-card-subtitle>{{'kiilib.image.gallery.subtitle' | translate}}</mat-card-subtitle>
-      <button mat-icon-button color="primary" (click)="onClose()"><i class="fas fa-times"></i></button>
+      <button mat-icon-button (click)="onClose()"><i class="fas fa-times"></i></button>
     </mat-card-header>
     <mat-card-content mat-dialog-content>
         <kii-spinner-overlay [show]="isDataLoading">

@@ -30,11 +30,11 @@
               "src/sitemap.xml"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/fontawesome/fontawesome.all.min.css",
-              "node_modules/@fortawesome/fontawesome-svg-core/styles.css"
+              "theme-main.scss",
+              "theme-full.scss",
+              "src/styles.scss"
             ],
-            
+            "extractCss":true,
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -46,10 +46,14 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "styles": [
+                "theme-main.scss",
+                "src/styles.scss"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              "extractCss": false,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -72,10 +76,14 @@
                   "with": "src/environments/environment.vps.ts"
                 }
               ],
+              "styles": [
+                "theme-main.scss",
+                "src/styles.scss"
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              "extractCss": false,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,

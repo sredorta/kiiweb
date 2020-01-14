@@ -1,10 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-@import './themes.scss';
 
-/** Import share style*/
-//@import '~@ngx-share/button/themes/default/default-theme';
-@import '~@ngx-share/button/themes/circles/circles-dark-theme'; 
-@import '~@ngx-share/button/themes/circles/circles-light-theme'; 
+
+//Sizes of ngx-share icons to avoid importing huge css
+.svg-inline--fa.fa-lg {
+    font-size: 1.3333em;
+}
+.svg-inline--fa.fa-w-10 {
+    width: 0.625em;
+}
+.svg-inline--fa.fa-w-14 {
+    width: 0.875em;
+}
+.svg-inline--fa.fa-w-16 {
+    width: 1em;
+}
 
 body {
     margin:0px;

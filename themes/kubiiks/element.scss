@@ -191,7 +191,7 @@
             
             kii-share button {
                 transition: 0.3s ease-in-out;
-                opacity: 0.2;
+                opacity: 0.6;
                 filter:grayscale(100%);
             }
         }
@@ -212,7 +212,7 @@
                 }
             }  
           kii-share button {
-                opacity: 0.8;
+                opacity: 1;
                 filter:grayscale(0%);
           }
           .read-more-button {
@@ -239,7 +239,7 @@
             }  
 
             kii-share button {
-                    opacity: 0.8;
+                    opacity: 1;
                     filter:grayscale(0%);
             }
             .read-more-button {

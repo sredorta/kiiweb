@@ -3,7 +3,7 @@
         <div mat-card-avatar><i class="fas fa-link"></i></div>
         <mat-card-title>{{'kiilib.link.dialog.title' | translate}}</mat-card-title>
         <mat-card-subtitle>{{'kiilib.link.dialog.subtitle' | translate}}</mat-card-subtitle>
-        <button mat-icon-button color="primary" (click)="onClose()"><i class="fas fa-times"></i></button>
+        <button mat-icon-button (click)="onClose()"><i class="fas fa-times"></i></button>
       </mat-card-header>
       <mat-card-content mat-dialog-content>
           <mat-form-field *ngIf="disk != 'email'">

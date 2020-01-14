@@ -33,7 +33,6 @@ import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localiz
 import { CookieService } from 'ngx-cookie-service';
 
 
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,

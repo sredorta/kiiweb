@@ -13,6 +13,9 @@
   $is-dark-theme: map-get($theme, is-dark);
 
     kii-footer {
+        .kii-footer-wrapper {
+            background:black;
+        }
         mat-card {
             background:none !important;
             box-shadow: none !important;
@@ -44,9 +47,15 @@
             background-repeat: no-repeat;
             background-position: left top;
             background-size: cover;
+            color:mat-color(mat-palette($mat-grey, 700));
         }
-        app-footer .title {
-            color: mat-color(mat-palette($mat-grey,500));
+        app-footer {
+            .title {
+                color: mat-color(mat-palette($mat-grey,500));
+            }
+            .footer-item {
+                color:mat-color(mat-palette($mat-grey, 700));
+            }
         }
     } 
     @media only screen and (min-width: 550px) { 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ViewEncapsulation,Component } from '@angular/core';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
@@ -22,6 +22,7 @@ import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
 import { CookieService } from 'ngx-cookie-service';
+
 
 
 //Equivalent to import fs

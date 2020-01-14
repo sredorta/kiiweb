@@ -1,3 +1,6 @@
+//Add reduced font awesome
+@import 'src/assets/fontawesome/fontawesome.ssr.scss';
+
 //MATERIAL THEME
 @import '~@angular/material/theming';
 
@@ -108,10 +111,6 @@ $mat-dark-theme-foreground: (
 );
 
 
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 // MAIN THEME
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,7 +137,7 @@ $main-foreground: (
 //Main app theme
 $main-primary: mat-palette($mat-lime, 500);
 $main-accent:  mat-palette($mat-cyan, A200);
-$main-warn:    mat-palette($mat-deep-orange,300);
+$main-warn:    mat-palette($mat-red,500);
 $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
 
 
@@ -180,23 +179,6 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 }
 
 
-
-$admin-primary: mat-palette($mat-teal, 400);
-$admin-accent:  mat-palette($mat-yellow, 400, A100, A400);
-$admin-warn:    mat-palette($mat-deep-orange,300);
-$admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
-
-
-
-.admin-theme {
-    @include angular-material-theme($admin-theme);
-    @include design-theme($admin-theme);
-    background: map_get($mat-grey, 900);
-    color: map_get($mat-dark-theme-foreground,text);
-}
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////
 // MAIN DEFAULT THEME
 ////////////////////////////////////////////////////////////////////////////////////
@@ -222,53 +204,6 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
 
 
 
-////////////////////////////////////////////////////////////////////////////////////
-// TOOLBAR THEME
-////////////////////////////////////////////////////////////////////////////////////
-//Dialog header theme
-$toolbar-primary: mat-palette($mat-grey, 200);
-$toolbar-accent:  mat-palette($mat-lime, 500);
-$toolbar-warn:    mat-palette($mat-red,700);
-$toolbar-theme: create-dark-theme($toolbar-primary, $toolbar-accent, $toolbar-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
-
-kii-app .toolbar-theme {
-  @include angular-material-theme($toolbar-theme);
-  color:mat-color(mat-palette($mat-grey, 100));
-}
-
-////////////////////////////////////////////////////////////////////////////////////
-// FOOTER THEME
-////////////////////////////////////////////////////////////////////////////////////
-
-$footer-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
-footer {
-  @include angular-material-theme($footer-theme);
-  color:mat-color(mat-palette($mat-grey,700));
-  background:black;
-}
-
-////////////////////////////////////////////////////////////////////////////////////
-// DIALOG HEADER THEME
-////////////////////////////////////////////////////////////////////////////////////
-//Dialog header theme
-$dialog-header-primary: mat-palette($mat-grey, 200);
-$dialog-header-accent:  mat-palette($mat-green, 500, A100, A400);
-$dialog-header-warn:    mat-palette($mat-deep-orange,300);
-$dialog-header-theme: create-dark-theme($dialog-header-primary, $dialog-header-accent, $dialog-header-warn, $mat-dark-theme-foreground, $mat-dark-theme-background);
-
-mat-dialog-container mat-card-header {
-  @include angular-material-theme($dialog-header-theme);
-  color:white;
-  background-image:
-    linear-gradient(
-      135deg, 
-      mat-color(mat-palette($mat-lime, 900)), mat-color(mat-palette($mat-lime, 400))
-    );
-}
-
-
-
-
 
 
 //TODO: Create mixin !!!
@@ -286,5 +221,4 @@ mat-form-field {
         opacity: 0.8;
     }
 }
-
 
