@@ -1,4 +1,6 @@
 .kii-fill-side-wrapper {
+    padding-bottom:30px;
+    padding-top:30px;
     box-sizing: border-box;
     width:100%;
     height:100%;
@@ -32,6 +34,27 @@
     opacity:0;
     animation: fade-in 1s forwards;
     -webkit-animation: fade-in 1s forwards;
+     .kii-fill-side-side  {
+        ::ng-deep kii-article { 
+        width: 100%;
+        height:100%;
+        max-width:500px;
+        margin:0 auto;
+        .angular-editor-wrapper {
+            height:100%;
+        }
+        .angular-editor-textarea {
+          padding-top:10vh !important;
+          height:100%;
+          background-position: center center !important;
+          background-repeat: no-repeat;
+          background-size: cover !important;
+          background-clip: border-box;
+        }
+        }
+    }
+    
+    
 }
 
 

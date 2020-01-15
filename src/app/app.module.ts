@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID } from '@angular/core';
 
 //Translations
 import {TranslateModule} from '@ngx-translate/core';
@@ -160,6 +160,8 @@ import { KiiNewsletterComponent } from './_kiilib/_components/kii-newsletter/kii
 import { DemoComponent } from './pages/demo/demo.component';
 import { KiiElementComponent } from './_kiilib/_components/kii-element/kii-element.component';
 import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.component';
+import { KiiArticleSsrComponent } from './_kiilib/_components/kii-article-ssr/kii-article-ssr.component';
+import { KiiArticleBrowserComponent } from './_kiilib/_components/kii-article-browser/kii-article-browser.component';
 
 
 
@@ -248,6 +250,8 @@ import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.
     DemoComponent,
     KiiElementComponent,
     KiiSearchComponent,
+    KiiArticleSsrComponent,
+    KiiArticleBrowserComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -291,7 +295,7 @@ import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.
       MatNativeDateModule,
       MatPaginatorModule,
       MatProgressBarModule,
-      //MatProgressSpinnerModule,
+      MatProgressSpinnerModule,
       MatRadioModule,
       MatRippleModule,
       MatSelectModule,
@@ -300,12 +304,12 @@ import { KiiSearchComponent } from './_kiilib/_components/kii-search/kii-search.
       MatSlideToggleModule,
       MatSnackBarModule,
       MatSortModule,
-      //MatStepperModule,
+      MatStepperModule,
       MatTableModule,
-      //MatTabsModule,
-      //MatToolbarModule,
+      MatTabsModule,
+      MatToolbarModule,
       MatTooltipModule,
-      //MatTreeModule
+      MatTreeModule
     ],
     //EOF MATERIAL DESIGN
   ],

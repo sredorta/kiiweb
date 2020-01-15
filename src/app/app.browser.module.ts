@@ -15,7 +15,47 @@ import {routes} from './app-routing.module';
 import {Location} from '@angular/common';
 import {LocalizeRouterModule, LocalizeParser, ManualParserLoader,LocalizeRouterSettings} from './_kiilib/_libraries/localize-router';
 
-
+//MATERIAL DESIGN
+//Material design
+/*import {MatAutocompleteModule,
+  MatBadgeModule,
+  MatBottomSheetModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatTreeModule,
+  MatPaginatorIntl,
+  MatSnackBar,
+  MatDialogRef,
+  MatBottomSheetRef} from '@angular/material';*/
 
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule, SwUpdate, SwPush } from '@angular/service-worker';
@@ -31,6 +71,8 @@ import { KiiImageGalleryDialogComponent } from './_kiilib/_components/kii-image-
 import { KiiVideoGalleryDialogComponent } from './_kiilib/_components/kii-video-gallery-dialog/kii-video-gallery-dialog.component';
 import { LocalizeRouterPipe } from './_kiilib/_libraries/localize-router/localize-router.pipe';
 import { CookieService } from 'ngx-cookie-service';
+
+
 
 
 @NgModule({
@@ -57,6 +99,42 @@ import { CookieService } from 'ngx-cookie-service';
           deps: [TranslateService, Location, LocalizeRouterSettings]
       }
     }),
+    /*[  MatAutocompleteModule, //MATERIAL DESIGN
+      MatBadgeModule,
+      MatBottomSheetModule,
+      MatButtonModule,
+      MatButtonToggleModule,
+      MatCardModule,
+      MatCheckboxModule,
+      MatChipsModule,
+      MatDatepickerModule,
+      MatDialogModule,
+      MatDividerModule,
+      MatExpansionModule,
+      MatGridListModule,
+      MatIconModule,
+      MatInputModule,
+      MatListModule,
+      MatMenuModule,
+      MatNativeDateModule,
+      MatPaginatorModule,
+      MatProgressBarModule,
+      MatProgressSpinnerModule,
+      MatRadioModule,
+      MatRippleModule,
+      MatSelectModule,
+      MatSidenavModule,
+      MatSliderModule,
+      MatSlideToggleModule,
+      MatSnackBarModule,
+      MatSortModule,
+      MatStepperModule,
+      MatTableModule,
+      MatTabsModule,
+      MatToolbarModule,
+      MatTooltipModule,
+      MatTreeModule
+    ],*/
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production}),//, scope:"/"}),
   ],
   entryComponents: [KiiBottomSheetSoftwareUpdateComponent, KiiBottomSheetCookiesComponent, KiiHttpErrorComponent],

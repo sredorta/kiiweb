@@ -1,4 +1,3 @@
-<ng-container *ngIf="isBrowser()">
     <div class="angular-editor" #angularEditor [style.width]="config.width"
         [style.minWidth]="config.minWidth">
 
@@ -22,25 +21,4 @@
       <angular-editor-toolbar #editorToolbar [disk]="disk"
                               (execute)="executeCommand($event)" (backgroundChange)="onBackgroundChange($event)" [ngClass]="{'is-edit-mode' : isEditMode}"></angular-editor-toolbar>
     </div>
-</ng-container>
-<ng-container *ngIf="!isBrowser()">
-    <div class="angular-editor" #angularEditorServer [style.width]="config.width"
-         [style.minWidth]="config.minWidth">
-    
-      <div class="angular-editor-wrapper" #editorWrapperServer>
-        <div #editorServer class="angular-editor-textarea" [attr.contenteditable]="config.editable"
-             [attr.tabintex]="disabled ? -1 : tabIndex"
-             [attr.translate]="config.translate"
-             [attr.spellcheck]="config.spellcheck" [style.height]="config.height" [style.minHeight]="config.minHeight"
-             [style.maxHeight]="config.maxHeight"
-             (input)="onContentChange($event.target.innerHTML)"
-             (focus)="onTextAreaFocus($event)"
-             (blur)="onTextAreaBlur($event)"
-             (click)="exec()"
-             (keyup)="exec()"
-             (mouseout)="onTextAreaMouseOut($event)"
-             [ngClass]="{'is-edit-mode' : isEditMode, 'is-email-context' : disk=='email'}">
-        </div>
-      </div>
-    </div>
-    </ng-container>
+

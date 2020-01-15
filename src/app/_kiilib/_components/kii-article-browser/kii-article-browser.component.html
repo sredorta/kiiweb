@@ -1,0 +1,17 @@
+<div class="kii-editor-wrapper">
+    <kii-spinner-overlay [show]="isLoading">
+      <angular-editor [disk]="disk" id="editorId" [ngClass]="{'is-initial' : isInitial}" [isEditMode]="isEditing" [config]="editorConfig" [cancel]="cancel" [htmlInitial]= "htmlInitial" [background]="backgroundImage" (backgroundChange)="onBackgroundChange($event)" ></angular-editor>
+      <div *ngIf="canEdit" class="admin-theme kii-edit-wrapper">
+          <button  mat-icon-button color="primary" (click)="edit()"><i *ngIf="!isEditing" class="fas fa-edit"></i><i *ngIf="isEditing" class="fas fa-times"></i></button>
+      </div>
+      <div *ngIf="isEditing" class="button-wrapper admin-theme"> 
+          <div class="button-action">   
+              <button  mat-button type="button" color="primary" (click)="onCancel()"><i class="fas fa-undo"></i>{{'kiilib.cancel' | translate}}</button>
+              <button  mat-flat-button type="button" color="primary" (click)="onSave()"><i class="fas fa-save"></i>{{'kiilib.save' | translate}}</button>
+          </div>
+      </div> 
+    </kii-spinner-overlay>  
+    <div *ngIf="article.exists() && showCreated" class="article-created">
+        <span><i class="fas fa-feather-alt"></i><small> {{'kiilib.created' | translate}} {{{date:article.createdAt,lang:currentLang} | kiiNiceDateFormat | lowercase}}</small></span>
+    </div> 
+  </div>

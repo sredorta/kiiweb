@@ -1,0 +1,56 @@
+.kii-editor-wrapper {
+    width:100%;
+    box-sizing: border-box;
+}
+
+
+//Editing part
+.kii-edit-wrapper {
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    position: relative;
+    top:-50px;
+    left:0;
+    background: transparent;
+    box-sizing: border-box;
+    height:0px;
+    button {
+        margin:10px;
+    }
+}
+
+.button-wrapper {
+    padding:10px;
+    padding-top:20px;
+    padding-bottom:20px;
+    width:100%;
+    .button-action {
+        display: flex;
+        justify-content: space-between;
+        i {
+            margin-right:10px;
+            font-size: 18px;
+        }
+    }
+    button {
+        margin:5px;
+    }
+}
+
+angular-editor {
+    width:100%;
+}
+
+.article-created {
+    border-top:1px inset;
+    padding-top:10px;
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    opacity: 0.6;
+}
+

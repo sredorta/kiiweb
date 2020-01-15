@@ -12,14 +12,14 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
-  kii-app .kii-app-toolbar {
+  kii-app .kii-kat {
     background:none;
-    .kii-app-toolbar-icons {
+    .kii-kat-icons {
       min-width: 100px;
         transition: opacity 0.5s ease-in-out;
     }
     //Main button
-    .kii-app-toolbar-button {
+    .kii-kat-button {
       margin:0px;
     }
     //Hide cart and login for this project
@@ -33,7 +33,7 @@
   //Show only menu button if small screens and we have scrolled
   @media only screen and (max-width: 700px) {
     //Main button
-    kii-app  .kii-app-toolbar-main-button {
+    kii-app  .kii-kat-main-button {
       &.kii-scrolled {
         animation: shadow-pulse 0.8s 8;
       }
@@ -51,7 +51,7 @@
   }
 
 
-  kii-app .kii-app-toolbar-button.mat-button .mat-button-wrapper {
+  kii-app .kii-kat-button.mat-button .mat-button-wrapper {
     display:flex;
     flex-direction: column;
     padding:5px;

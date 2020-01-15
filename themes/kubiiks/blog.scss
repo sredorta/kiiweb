@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+/*@import '~@angular/material/theming';
 
 // mixin name will be used in main style.scss
 @mixin blog-theme($theme) {
@@ -12,7 +12,7 @@
   $background:map-get($theme,background);
   $is-dark-theme: map-get($theme, is-dark);
 
-kii-blog {
+kii-blog {*/
   //MOBILE
   .wrapper-content {
     display:flex;
@@ -36,5 +36,5 @@ kii-blog {
       margin-right:40px;
     }
   }
-}
-} //end mixin
+/*}
+} //end mixin*/

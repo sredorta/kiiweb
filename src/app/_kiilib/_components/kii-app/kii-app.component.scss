@@ -12,7 +12,7 @@ $toolbar-height : 65px;
     height:100vh;
 }
 
-.kii-app-toolbar {
+.kii-kat {
     position:absolute;
     width:100%;
     height:$toolbar-height;
@@ -27,7 +27,7 @@ $toolbar-height : 65px;
     min-width: 320px;
 }
 
-.kii-app-toolbar-main-button {
+.kii-kat-main-button {
     position:absolute;
     top:10px;
     left:5px;
@@ -42,13 +42,13 @@ $toolbar-height : 65px;
 }
 
 //Toolbar part
-.kii-app-toolbar-content {
+.kii-kat-content {
     display:flex;
     justify-content: space-around;
     flex:1 1 auto;
 }
 
-.kii-app-toolbar-button {
+.kii-kat-button {
     justify-content: center;
     align-items: center;
     i {
@@ -90,7 +90,7 @@ $toolbar-height : 65px;
     min-height: $toolbar-height;
 }
 
-.kii-app-toolbar-avatar-name {
+.kii-kat-avatar-name {
     width:24px;
     height:24px;
     border:1px solid;
@@ -101,13 +101,13 @@ $toolbar-height : 65px;
     background-size: contain;
 }
 
-.kii-app-toolbar-icons {
+.kii-kat-icons {
     display:flex;
     justify-content: flex-end;
     align-items: center;
     min-width: 150px;
 }
-.kii-app-toolbar-button {
+.kii-kat-button {
     display:none;
 }
 
@@ -136,22 +136,22 @@ $toolbar-height : 65px;
 
 
 @media only screen and (max-width: 700px) { 
-    .kii-app-toolbar-content {
+    .kii-kat-content {
         display:none;
     }
-    .kii-app-toolbar {
+    .kii-kat {
         justify-content: flex-end;
     }
-    .kii-app-toolbar-button {
+    .kii-kat-button {
         display:flex;
     }
-    .kii-app-toolbar-main-button {
+    .kii-kat-main-button {
         width:50px !important;
         height:50px !important;
     }
 }
 
-.kii-app-toolbar-offline {
+.kii-kat-offline {
     position: absolute;
     top: calc(100vh - 100px);
     left:0;
@@ -163,6 +163,6 @@ $toolbar-height : 65px;
     background-repeat: no-repeat;
     z-index: 8;
 }
-.kii-app-toolbar-offline.offline {
+.kii-kat-offline.offline {
     display:block;
 }

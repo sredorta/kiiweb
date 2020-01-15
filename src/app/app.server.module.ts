@@ -12,6 +12,10 @@ import {routes} from './app-routing.module';
 import { Location } from '@angular/common';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
+
+
+
+
 import { Observable, Observer } from 'rxjs';
 import * as merge from 'deepmerge';
 import { environment } from '../environments/environment';
@@ -22,8 +26,8 @@ import { KiiHttpInterceptor } from './_kiilib/_utils/kii-http-interceptor';
 import { KiiBottomSheetSoftwareUpdateComponent } from './_kiilib/_components/kii-bottom-sheet-software-update/kii-bottom-sheet-software-update.component';
 import { KiiHttpErrorComponent } from './_kiilib/_components/kii-http-error/kii-http-error.component';
 import { CookieService } from 'ngx-cookie-service';
-
-
+import {KiiInlineStyleComponent} from './_kiilib/_components/kii-inline-style/kii-inline-style.component';
+import {KiiInlineStyleModule } from './_kiilib/_components/kii-inline-style/kii-inline-style.module';
 
 //Equivalent to import fs
 declare var require: any;
@@ -36,6 +40,7 @@ const fs = require('fs');
     ModuleMapLoaderModule,
     ServerTransferStateModule,
     NoopAnimationsModule,
+    KiiInlineStyleModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader, 
@@ -58,7 +63,7 @@ const fs = require('fs');
   entryComponents: [],
 
   providers: [{provide: HTTP_INTERCEPTORS, useClass: KiiHttpInterceptor, multi: true },DeviceDetectorService, CookieService],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, KiiInlineStyleComponent],
 })
 export class AppServerModule {}
 

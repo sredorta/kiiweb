@@ -1,18 +1,4 @@
-@import '~@angular/material/theming';
 
-// mixin name will be used in main style.scss
-@mixin search-theme($theme) {
-  
-  // retrieve variables from theme 
-  // (all possible variables, use only what you really need)
-  $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $warn: map-get($theme, warn);
-  $foreground: map-get($theme, foreground);
-  $background:map-get($theme,background);
-  $is-dark-theme: map-get($theme, is-dark);
-
-  kii-search {
     .kii-search-wrapper {
         background-image:url("/assets/images/search-background.svg");
         background-size: 100% auto;
@@ -21,9 +7,6 @@
         padding:10px;
         .mat-form-field-wrapper {
             padding-bottom:0px;
-        }
-        .mat-form-field-label {
-            color:mat-color($primary);
         }
 
         .search-left-content {
@@ -62,7 +45,4 @@
         }
     }
 
-  }
-
-}
 

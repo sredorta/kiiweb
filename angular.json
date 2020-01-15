@@ -32,7 +32,8 @@
             "styles": [
               "theme-main.scss",
               "theme-full.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/fontawesome/fontawesome.all.min.css"
             ],
             "extractCss":true,
             "scripts": [],
@@ -48,7 +49,9 @@
               ],
               "styles": [
                 "theme-main.scss",
-                "src/styles.scss"
+                "theme-full.scss",
+                "src/styles.scss",
+                "src/assets/fontawesome/fontawesome.all.min.css"
               ],
               "optimization": true,
               "outputHashing": "all",
@@ -78,7 +81,9 @@
               ],
               "styles": [
                 "theme-main.scss",
-                "src/styles.scss"
+                "theme-full.scss",
+                "src/styles.scss",
+                "src/assets/fontawesome/fontawesome.all.min.css"
               ],
               "optimization": true,
               "outputHashing": "all",

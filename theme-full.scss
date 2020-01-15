@@ -1,6 +1,3 @@
-//Add full font awesome
-@import 'src/assets/fontawesome/fontawesome.all.min.css';
-
 
 //Define admin theme and extra themes
 @import '~@angular/material/theming';
@@ -114,12 +111,9 @@ $admin-theme: create-dark-theme($admin-primary, $admin-accent, $admin-warn, $mat
 
 .admin-theme {
     @include angular-material-theme($admin-theme);
-    //@include design-theme($admin-theme);
     background: map_get($mat-grey, 900);
     color: map_get($mat-dark-theme-foreground,text);
 }
-
-
 
 
 

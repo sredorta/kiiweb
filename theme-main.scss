@@ -142,40 +142,31 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 
 
 
-//Themes
-@import './themes/kubiiks/toolbar.scss';
-@import './themes/kubiiks/sidenav.scss';
-@import './themes/kubiiks/footer.scss';
-@import './themes/kubiiks/forms.scss';
-@import './themes/kubiiks/scrollbar.scss';
-@import './themes/kubiiks/dialog.scss';
-@import './themes/kubiiks/editor.scss';
-@import './themes/kubiiks/article.scss';
-@import './themes/kubiiks/blog.scss';
-@import './themes/kubiiks/contact.scss';
-@import './themes/kubiiks/page.scss';
-@import './themes/kubiiks/fill-side.scss';
+//MIXIN themes
+@import './themes/kubiiks/article-detail-mixin.scss';
+@import './themes/kubiiks/toolbar-mixin.scss';
+@import './themes/kubiiks/sidenav-mixin.scss';
+@import './themes/kubiiks/footer-mixin.scss';
+@import './themes/kubiiks/forms-mixin.scss';
+@import './themes/kubiiks/scrollbar-mixin.scss';
+@import './themes/kubiiks/dialog-mixin.scss';
+@import './themes/kubiiks/editor-mixin.scss';
+@import './themes/kubiiks/search-mixin.scss';
 @import './themes/kubiiks/element.scss';
-@import './themes/kubiiks/chat.scss';
-@import './themes/kubiiks/search.scss';
-@import './themes/kubiiks/home.scss';
 
 @mixin design-theme($theme) {
-    @include toolbar-theme($theme);
-    @include sidenav-theme($theme);
-    @include footer-theme($theme);
-    @include forms-theme($theme);
-    @include scrollbar-theme($theme);
-    @include dialog-theme($theme);
-    @include chat-theme($theme);
-    @include article-theme($theme);
-    @include blog-theme($theme);
-    @include contact-theme($theme);
-    @include page-theme($theme);
-    @include fill-side-theme($theme);
-    @include element-theme($theme);
-    @include search-theme($theme);
-    @include home-theme($theme);
+  @include article-detail-theme($theme);
+  @include toolbar-theme($theme);
+  @include sidenav-theme($theme);
+  @include footer-theme($theme);
+  @include forms-theme($theme);
+  @include scrollbar-theme($theme);
+  @include dialog-theme($theme);
+  //Editor skiped as we set it always as main theme
+  @include search-theme($theme);
+
+
+  @include element-theme($theme); //SPLIT REQUIRED
 }
 
 
@@ -184,7 +175,7 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 ////////////////////////////////////////////////////////////////////////////////////
 @include angular-material-theme($main-theme);
 @include design-theme($main-theme);
-@include editor-theme($main-theme); //Editor is allways main-theme
+@include editor-theme($main-theme); 
 .kii-app-router-outlet-wrapper {
   background-color:black;
 }

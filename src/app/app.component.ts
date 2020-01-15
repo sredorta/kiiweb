@@ -15,7 +15,6 @@ export class AppComponent{
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         if (data.state.root.firstChild && data.state.root.firstChild.firstChild && data.state.root.firstChild.firstChild.data && data.state.root.firstChild.firstChild.data.localizeRouter && data.state.root.firstChild.firstChild.data.localizeRouter.path) {
-          console.log(data.state.root.firstChild.firstChild.data.localizeRouter.path);
           this.currentPath = data.state.root.firstChild.firstChild.data.localizeRouter.path;
         }
       }
