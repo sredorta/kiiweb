@@ -22,7 +22,7 @@ export class KiiArticleComponent  implements OnInit {
   /**Key or id of the concerned article */
   @Input() key : string = "";
   constructor(@Inject(PLATFORM_ID) private platformId: any) { 
-     if (isPlatformBrowser(this.platformId)) this.isBrowser = false;
+     if (isPlatformBrowser(this.platformId)) this.isBrowser = true;
    }
 
   ngOnInit() {

@@ -20,6 +20,10 @@
                     }
                   }
             }
+            ::ng-deep kii-article .angular-editor-textarea {
+                padding-left:0px !important;
+                padding-right: 0px !important;
+            }
         }
     }
     @media only screen and (min-width: 700px) { 
