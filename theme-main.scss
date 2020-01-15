@@ -152,7 +152,6 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
 @import './themes/kubiiks/dialog-mixin.scss';
 @import './themes/kubiiks/editor-mixin.scss';
 @import './themes/kubiiks/search-mixin.scss';
-@import './themes/kubiiks/element.scss';
 
 @mixin design-theme($theme) {
   @include article-detail-theme($theme);
@@ -165,8 +164,6 @@ $main-theme: create-dark-theme($main-primary, $main-accent, $main-warn, $mat-dar
   //Editor skiped as we set it always as main theme
   @include search-theme($theme);
 
-
-  @include element-theme($theme); //SPLIT REQUIRED
 }
 
 

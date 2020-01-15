@@ -1,0 +1,83 @@
+    /////////////////////////////////////////////////////////////////////
+    // REALISATIONS FORMAT
+    /////////////////////////////////////////////////////////////////////
+    ::ng-deep kii-element.realisations {
+        .kii-element-container {
+            position:relative;
+            width:290px;
+            margin:0 auto;
+            overflow: hidden;
+            padding:10px;
+            border-radius: 2px;
+            kii-article {
+                display:none;
+            }
+        }
+        ::ng-deep kii-article-summary { 
+            .kii-article-summary-container {
+                display:flex;
+                flex-direction: column;
+            }
+            .kii-article-summary-text {
+                width:100%;
+                transition:all 0.3s ease-in-out;
+                .title {
+                  font-size: 18px;
+                  font-weight: bold;
+                  margin-bottom:10px;
+                  opacity:0.9;
+                }
+                .description {
+                    overflow: hidden;
+                    font-size: 16px;
+                    font-weight: 200;
+                    margin-top:0px;
+                    opacity:0.6;
+                }
+            }
+            .kii-article-summary-image-wrapper {
+                width:100%;
+                img {
+                  width:100%;
+                  height: auto !important;
+                  overflow: hidden;
+                }
+            }
+        }
+        .read-more-wrapper {
+            opacity:0;
+            transition:all 0.5s ease-in-out;
+            width:200px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            .read-more-button {
+                font-weight: bold;
+            }
+        }
+    }
+    @media (pointer: fine)  { 
+        ::ng-deep kii-element.realisations .kii-element-container:hover {
+            ::ng-deep kii-article-summary { 
+                .kii-article-summary-text {
+                    color:white;
+                }
+            }
+            .read-more-wrapper {
+                opacity:1;
+            }
+        }
+      }  
+      //Tablets and phones
+      @media (pointer: coarse) {
+        ::ng-deep kii-element.realisations .kii-element-container.kii-appear {
+            ::ng-deep kii-article-summary { 
+                .kii-article-summary-text {
+                    color:white;
+                }
+            }
+            .read-more-wrapper {
+                opacity:1;
+            }
+        }
+      }  

@@ -1,0 +1,101 @@
+    /////////////////////////////////////////////////////////////////////
+    // PRICES FORMAT
+    /////////////////////////////////////////////////////////////////////
+    ::ng-deep kii-element.prix {
+        .kii-element-container {
+            width:290px;
+            transition: box-shadow 0.3s ease-in-out;
+            background-position: 0% top;
+            background-repeat: no-repeat;
+            background-size: 200% auto;
+            display:flex;
+            flex-direction: column;
+            background-color: #fafafa;
+            transition:all 1s ease-in-out;
+        }
+        &:not(.isAdminContext) .kii-element-container {
+            height:100%;
+        }
+        //Default background for admin content editor
+        .kii-element-container {
+            background-image: url('/assets/images/prices-basic.svg');
+        }
+        &[data-index="0"] .kii-element-container {
+            background-image: url('/assets/images/prices-basic.svg');
+        }
+        &[data-index="1"] .kii-element-container {
+            background-image: url('/assets/images/prices-intermediate.svg');
+        }
+        &[data-index="2"] .kii-element-container  {
+            background-image: url('/assets/images/prices-gold.svg');
+        }
+        &[data-index="3"] .kii-element-container  {
+            background-image: url('/assets/images/prices-ultra.svg');
+        }
+
+        ::ng-deep kii-article-summary {
+            width:100%;
+            color:white;
+            margin-bottom:30px;
+            .kii-article-summary-container {
+                display:flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 150px;
+                .kii-article-summary-image-wrapper {
+                    display:none;
+                }
+                .kii-article-summary-text {
+                    text-align: center;
+                    .title {
+                        margin-top:0px;
+                        margin-bottom:0px;
+                        font-size: 28px;
+                        font-weight: bold;
+                    }
+                    .description {
+                        margin-top:5px;
+                        font-size: 20px;
+                        text-align: center;
+                        opacity:0.6;
+                    }
+                }
+            }
+        }
+        ::ng-deep kii-article {
+            width:100%;
+            color: #616161;
+            .angular-editor-textarea {
+                ul {
+                    margin:0;
+                    padding:0;
+                    list-style-position: none;
+                    li {
+                        margin-top:3px;
+                        margin-bottom:3px;
+                        background: url('/assets/images/tick.svg') no-repeat 7px 3px transparent;
+                        background-size: 20px 20px;
+                        list-style-type: none;
+                        padding: 3px 0px 8px 34px;
+                        vertical-align: middle;
+                    }
+            
+                }
+            }
+        }        
+    }
+    //Desktops
+    @media (pointer: fine)  { 
+            ::ng-deep kii-element.prix .kii-element-container:hover {
+                background-position: 100% top;
+                background-color:white;
+            }
+    } 
+    //Tablets and phones
+    @media (pointer: coarse) {
+            ::ng-deep kii-element.prix .kii-element-container.kii-appear {
+                background-position: 100% top;
+                background-color:white;
+            }
+    }  

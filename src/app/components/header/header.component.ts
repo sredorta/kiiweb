@@ -29,6 +29,7 @@ export class HeaderComponent extends KiiBaseAbstract implements OnInit {
   /**Checks if user is on a mobile device */
   isMobile : boolean = this.device.isMobile();
 
+
   /**Muted version of data */
   myData : any = {};
 
@@ -41,7 +42,7 @@ export class HeaderComponent extends KiiBaseAbstract implements OnInit {
   constructor(
     private kiiApiAuth : KiiApiAuthService,
     private device : DeviceDetectorService, 
-    @Inject(PLATFORM_ID) private platformId: any) { super()  
+    @Inject(PLATFORM_ID) private platformId: any) { super()  ;
   }
 
   ngOnChanges(changes:SimpleChanges) {

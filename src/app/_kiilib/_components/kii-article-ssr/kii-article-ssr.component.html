@@ -1,5 +1,4 @@
 <div class="kii-editor-wrapper">
-    <!--<angular-editor-ssr></angular-editor-ssr>-->
     <div #myEditor class="angular-editor-textarea"></div>
     <div *ngIf="article.exists() && showCreated" class="article-created">
         <span><i class="fas fa-feather-alt"></i><small> {{'kiilib.created' | translate}} {{{date:article.createdAt,lang:currentLang} | kiiNiceDateFormat | lowercase}}</small></span>

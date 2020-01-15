@@ -1,0 +1,109 @@
+    /////////////////////////////////////////////////////////////////////
+    // HOME-FEATURES FORMAT
+    /////////////////////////////////////////////////////////////////////
+    ::ng-deep kii-element.home-features {
+        .kii-element-container {
+            ::ng-deep kii-article-summary {
+                .title {display:none;}
+                .description {
+                    font-weight: normal;
+                    font-size: 22px;
+                    color:white;
+                }
+                .kii-article-summary-image-wrapper {
+                    width:70px;
+                    height:70px;
+                    overflow: hidden;
+                    img {
+                      width:100%;
+                      transition: all 0.3s ease-in-out;
+                    }
+                  }
+            }
+        }
+    }
+    @media only screen and (min-width: 700px) { 
+        ::ng-deep kii-element.home-features {
+            .kii-element-container {
+                ::ng-deep kii-article-summary {
+                    .description {
+                        font-size: 26px;
+                    }
+                    .kii-article-summary-image-wrapper {
+                        width:90px;
+                        height:90px;
+                    }
+                }
+            }
+        }
+    }
+    //Animations
+    ::ng-deep kii-element.home-features.kii-appear {
+        ::ng-deep kii-article-summary {
+            .description {
+                animation: 1.5s ease-in-out  textAnimationTitleFeaturesHome forwards;
+            }
+        }
+        ::ng-deep kii-article  .angular-editor-textarea {
+            animation: 1.8s ease-in-out textAnimationDescriptionFeaturesHome forwards;
+        }
+    }
+
+    @keyframes textAnimationTitleFeaturesHome {
+        33% {
+            transform:translateY(10px);
+        }
+        66% {
+            transform:translateY(-5px);
+        }
+        100% { transform:none;}
+      }
+    @keyframes textAnimationDescriptionFeaturesHome {
+        33% {
+            transform:translateY(20px);
+        }
+        66% {
+            transform:translateY(-10px);
+        }
+        100% { transform:none;}
+    }  
+    /////////////////////////////////////////////////////////////////////
+    // HOME-MENU FORMAT
+    /////////////////////////////////////////////////////////////////////
+    ::ng-deep kii-element.home-menu {
+        .kii-element-container {
+            ::ng-deep kii-article-summary {
+                .title {
+                    margin-top:60px;
+                    color:white;
+                    font-size: 24px;
+                    font-weight: normal;
+                    text-align: center;
+                    padding-right:20px;
+                    padding-left:20px;
+                }
+                .description {
+                    font-weight: normal;
+                    font-size: 16px;
+                    color:rgba(white,0.8);
+                    text-align: center;
+                    margin:0 auto;
+                    min-height: 200px;
+                    padding-right:20px;
+                    padding-left:20px;
+                    max-width: 300px;
+                }
+                .kii-article-summary-image-wrapper {
+                    margin:0 auto;
+                    margin-top:70px;
+                    width:80px;
+                    height:80px;
+                    overflow: hidden;
+                    img {
+                      width:100%;
+                      transition: all 0.3s ease-in-out;
+                    }
+                  }
+            }
+        }
+    }

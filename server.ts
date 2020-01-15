@@ -96,8 +96,8 @@ app.get('*', (req, res) => {
       res.statusCode = 404;
     }
     //Minify HTML output
-    //res.send(html);
-    res.send(minify(html, {
+    res.send(html);
+    /*res.send(minify(html, {
       removeAttributeQuotes: true,
       minifyCSS:true,
       minifyJS:true,
@@ -105,7 +105,7 @@ app.get('*', (req, res) => {
       collapseWhitespace:true,
       conservativeCollapse:true,
       continueOnParseError:true
-    }));
+    }));*/
 });
 });
 

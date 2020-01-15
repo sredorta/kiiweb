@@ -1,0 +1,129 @@
+    /////////////////////////////////////////////////////////////////////
+    // BLOG FORMAT
+    /////////////////////////////////////////////////////////////////////
+    ::ng-deep kii-element.blog {
+        .kii-element-container {
+            width:260px;
+            margin:0 auto;
+            overflow: hidden;
+            kii-article {
+                display:none;
+            }
+            ::ng-deep kii-article-summary {
+                .kii-article-summary-text {
+                    width:100%;
+                    .title {
+                      transition: opacity 0.3s ease-in-out;
+                      font-size: 18px;
+                      font-weight: bold;
+                      margin-bottom:10px;
+                      opacity:0.7;
+                    }
+                    .description {
+                        transition: opacity 0.3s ease-in-out;
+                        overflow: hidden;
+                        font-size: 16px;
+                        font-weight: 200;
+                        margin-top:0px;
+                        height:120px;
+                        opacity:0.5;
+                    }
+                }
+                .kii-article-summary-image-wrapper {
+                  height: 260px;
+                  overflow: hidden;
+                  img {
+                    width:100%;
+                    transition: all 0.3s ease-in-out;
+                    filter:grayscale(80%);
+                  }
+                }
+            }
+            .read-more-button {
+                font-size: 16px !important;
+                i {
+                  transition:all 0.3s ease-in-out;
+                  margin-left:20px;
+                }
+                width:100%;
+                margin-bottom:5px;
+            }
+            .created-at-wrapper {
+                width:100%;
+                opacity:0.5;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                margin-top:10px;
+                i {
+                  margin-right:10px;
+                }
+            }
+            
+            kii-share button {
+                transition: 0.3s ease-in-out;
+                opacity: 0.6;
+                filter:grayscale(100%);
+            }
+        }
+    }
+    @media (pointer: fine)  { 
+        ::ng-deep kii-element.blog .kii-element-container:hover {
+            ::ng-deep kii-article-summary {
+                .title {
+                    opacity:0.9;
+                }
+                .description {
+                    opacity:0.7;
+                }
+                .kii-article-summary-image-wrapper {
+                    img {
+                      filter:grayscale(0%);
+                    }
+                }
+            }  
+          kii-share button {
+                opacity: 1;
+                filter:grayscale(0%);
+          }
+          .read-more-button {
+            animation: arrowAnimation 1s 3 ;
+            -webkit-animation: arrowAnimation 1s 3;
+          }
+        }
+      }  
+      //Tablets and phones
+      @media (pointer: coarse) {
+        ::ng-deep kii-element.blog .kii-element-container.kii-appear {
+            ::ng-deep kii-article-summary {
+                .title {
+                    opacity:0.9;
+                }
+                .description {
+                    opacity:0.7;
+                }
+                .kii-article-summary-image-wrapper {
+                    img {
+                      filter:grayscale(0%);
+                    }
+                }
+            }  
+  
+            kii-share button {
+                    opacity: 1;
+                    filter:grayscale(0%);
+            }
+            .read-more-button {
+                animation: arrowAnimation 1s 3 ;
+                -webkit-animation: arrowAnimation 1s 3;
+            }
+        }
+      }  
+  
+    @keyframes arrowAnimation {
+        0% { padding-left:15px; }
+        50% { padding-left: 40px; }
+        100% { padding-left: 15px; }      
+    }
+  

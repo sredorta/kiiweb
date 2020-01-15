@@ -1,0 +1,73 @@
+    /////////////////////////////////////////////////////////////////////
+    // DEMO FORMAT
+    /////////////////////////////////////////////////////////////////////
+    ::ng-deep kii-element.demo {
+        .kii-element-container {
+            min-width: 280px;
+            margin:0 auto;
+            width:100%;
+            overflow: hidden;
+            transition:border 0.3s ease-in-out;
+            background-color:rgba(white,0.1);
+            padding:10px;
+            transition: background 0.3s ease-in-out;
+            display:flex;
+            flex-flow: column-reverse;
+            ::ng-deep kii-article-summary { 
+                .kii-article-summary-container {
+                    display:flex;
+                    flex-direction: column-reverse;
+                    .kii-article-summary-image-wrapper {
+                        display:none;
+                    }
+                }
+                .kii-article-summary-text {
+                    width:100%;
+                    .title {
+                      font-size: 18px;
+                      font-weight: bold;
+                      margin-bottom:10px;
+                      transition: color 0.3s ease-in-out;
+                    }
+                    .description {
+                        font-size: 16px;
+                        font-weight: 200;
+                        margin-top:0px;
+                        opacity:0.8;
+                    }
+                }
+                .kii-article-summary-image-wrapper {
+                    width:100%;
+                    img {
+                      width:100%;
+                      height: auto !important;
+                      overflow: hidden;
+                    }
+                }
+            }
+            ::ng-deep kii-article kii-article-browser,kii-article-ssr .angular-editor-textarea {
+                padding:0px !important;
+
+            }
+        }
+    }
+    //Desktops
+    @media (pointer: fine)  { 
+        ::ng-deep kii-element.demo .kii-element-container:hover {
+            kii-article-summary { 
+                .title {
+                    color: #cddc23;
+                }
+            }
+        }
+    } 
+    //Tablets and phones
+    @media (pointer: coarse) {
+        ::ng-deep kii-element.demo .kii-element-container.kii-appear {
+            kii-article-summary { 
+                .title {
+                    color: #cddc23;
+                }
+            }
+        }
+    }   

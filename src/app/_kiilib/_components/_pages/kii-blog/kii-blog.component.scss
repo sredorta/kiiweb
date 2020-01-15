@@ -1,1 +1,23 @@
-@import '../../../../../../themes/kubiiks/blog.scss';
+.wrapper-content {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width:100%;
+  }
+
+  .kii-element-wrapper {
+    margin-left:30px;
+    margin-right:30px;
+    margin-top:20px;
+    margin-bottom:60px;
+  }
+
+  @media only screen and (min-width: 700px) { 
+    .kii-element-wrapper {
+      margin-left:40px;
+      margin-right:40px;
+    }
+  }
+@import '../../../../../../themes/kubiiks/element-blog.scss';
