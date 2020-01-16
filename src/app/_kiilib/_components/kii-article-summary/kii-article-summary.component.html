@@ -1,3 +1,4 @@
+<ng-container *ngIf="isBrowser">
 <!--View part-->
   <div class="kii-article-summary-container">
       <div class="kii-article-summary-image-wrapper"><img class="kii-article-summary-image" [src]="article.getImage()" alt="test"></div>
@@ -13,5 +14,14 @@
 <div *ngIf="isEditing" class="admin-theme kii-article-summary-edit-wrapper">
     <kii-article-summary-form [article]="article" [storage]="storage" (kiiOnSubmit)="save($event)" (onChange)="update($event)"></kii-article-summary-form>
  </div>
-
+</ng-container>
+ <ng-container *ngIf="!isBrowser">
+  <div class="kii-article-summary-container">
+    <div class="kii-article-summary-image-wrapper"><img kiiScroll  class="kii-article-summary-image" [src]="article.getImage()" alt="test"></div>
+    <div class="kii-article-summary-text">
+      <p class="title">{{article.title}}</p>
+      <p class="description">{{trimDescription(article.description)}}</p>
+    </div>
+  </div>
+ </ng-container>
 

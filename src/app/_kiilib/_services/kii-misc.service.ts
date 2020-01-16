@@ -16,7 +16,7 @@ import { KiiApiSettingService } from './kii-api-setting.service';
 import { Page } from '../_models/page';
 import { KiiApiPageService } from './kii-api-page.service';
 import {CookieService} from 'ngx-cookie-service';
-
+import galite from 'ga-lite'
 
 export interface IInitialData  {
   settings: Setting[],
@@ -44,12 +44,23 @@ export class KiiMiscService {
   /**Accept cookies */
   public cookiesAccept() {
     if (isPlatformBrowser(this.platformId)) {
-        (<any>window).ga('create', 'UA-156082499-1', 'auto');// add your tracking ID here.
-        (<any>window).ga('set', 'page', "");
-        (<any>window).ga('send', 'pageview');
+        galite('create', 'UA-156082499-1', 'auto');// add your tracking ID here.
+        galite('set', 'page', "");
+        galite('send', 'pageview');
     }
     this._cookies$.next(true);
   }
+
+  /**Sets galite */
+  public galite(first:any,second:any,third?:any) {
+    console.log("Running galite !");
+    if (!third)
+      galite(first,second);
+    else
+      galite(first,second,third);
+
+  }
+
 
   /**Refuse accepted cookies */
   public cookiesRefuse() {
@@ -57,7 +68,8 @@ export class KiiMiscService {
     this._cookies$.next(false);
     if (isPlatformBrowser(this.platformId)) {
       localStorage.removeItem('cookies');
-      (<any>window).ga('send', 'remove');
+      galite('send', 'remove');
+      galite('send', 'timing', 'JS Dependencies', 'unload')
       this.cookieService.deleteAll('/','.kubiiks.com');
       this.cookieService.deleteAll('/', '/');
       console.log(this.cookieService.getAll());
@@ -68,6 +80,7 @@ export class KiiMiscService {
   public onCookiesChange() {
     return this._cookies$;
   }
+
 
 
 

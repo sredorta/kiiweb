@@ -21,7 +21,7 @@
               <a mat-icon-button class="kii-kat-icon notifications-button" title="{{'kiilib.link.title.notifications' | translate}}" *ngIf="loggedInUser.exists()"  [routerLink]="'/alerts' | localize">
                 <i class="fas fa-bell" [matBadge]="alertCount" [matBadgeOverlap]="true" [matBadgeHidden]="alertCount==0"  matBadgeColor="warn" mat-icon-button></i>
               </a>
-              <kii-language-selector></kii-language-selector>
+              <kii-language-selector *ngIf="isBrowser"></kii-language-selector>
           </div>
       </div>
   

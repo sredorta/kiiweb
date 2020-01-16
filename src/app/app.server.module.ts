@@ -76,8 +76,9 @@ export class TranslateServerLoader implements TranslateLoader {
       const jsonProject = JSON.parse(fs.readFileSync(`./dist/browser/assets/i18n/${lang}.json`, 'utf8'));
       let jsonData = merge.all([jsonKii,jsonProject]);
       // Here we save the translations in the transfer-state to avoid glitch
-      const key: StateKey<number> = makeStateKey<number>('transfer-translate-' + lang);
-      this.transferState.set(key, jsonData);
+      //const key: StateKey<number> = makeStateKey<number>('transfer-translate-' + lang);
+      //this.transferState.set(key, jsonData);
+      //Not good idea as too large data and runtime !
       observer.next(jsonData);
       observer.complete();
     });

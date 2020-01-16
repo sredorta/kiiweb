@@ -14,7 +14,9 @@ export class KiiLanguageSelectorComponent extends KiiBaseAbstract implements OnI
   currentLanguage : string;
   offline:boolean;
 
-  constructor( private _kiiApiLanguage : KiiApiLanguageService, private _kiiPwa : KiiPwaService) {super() }
+  constructor( private _kiiApiLanguage : KiiApiLanguageService, private _kiiPwa : KiiPwaService ) {
+    super() 
+  }
 
   ngOnInit() {
     this.currentLanguage = this.getCode(this._kiiApiLanguage.get());

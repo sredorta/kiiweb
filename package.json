@@ -61,6 +61,7 @@
     "express": "^4.15.2",
     "fs": "0.0.1-security",
     "fs-extra": "^8.1.0",
+    "ga-lite": "^2.0.5",
     "hammerjs": "^2.0.8",
     "html-minifier-terser": "^5.0.2",
     "ngx-cookie-service": "^2.3.0",
